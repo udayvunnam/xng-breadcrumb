@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "xng-breadcrumbs": [
+        "dist/xng-breadcrumbs"
+      ],
+      "xng-breadcrumbs/*": [
+        "dist/xng-breadcrumbs/*"
+      ]
+    }
   }
 }

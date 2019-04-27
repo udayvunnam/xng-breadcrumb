@@ -2,5 +2,174 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "xng-breadcrumbs-app": {
+      "root": "projects/xng-breadcrumbs-app/",
+      "sourceRoot": "projects/xng-breadcrumbs-app/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/xng-breadcrumbs-app",
+            "index": "projects/xng-breadcrumbs-app/src/index.html",
+            "main": "projects/xng-breadcrumbs-app/src/main.ts",
+            "polyfills": "projects/xng-breadcrumbs-app/src/polyfills.ts",
+            "tsConfig": "projects/xng-breadcrumbs-app/tsconfig.app.json",
+            "assets": [
+              "projects/xng-breadcrumbs-app/src/favicon.ico",
+              "projects/xng-breadcrumbs-app/src/assets"
+            ],
+            "styles": [
+              "projects/xng-breadcrumbs-app/src/styles.scss"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/xng-breadcrumbs-app/src/environments/environment.ts",
+                  "with": "projects/xng-breadcrumbs-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "xng-breadcrumbs-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "xng-breadcrumbs-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "xng-breadcrumbs-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/xng-breadcrumbs-app/src/test.ts",
+            "polyfills": "projects/xng-breadcrumbs-app/src/polyfills.ts",
+            "tsConfig": "projects/xng-breadcrumbs-app/tsconfig.spec.json",
+            "karmaConfig": "projects/xng-breadcrumbs-app/karma.conf.js",
+            "styles": [
+              "projects/xng-breadcrumbs-app/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/xng-breadcrumbs-app/src/favicon.ico",
+              "projects/xng-breadcrumbs-app/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/xng-breadcrumbs-app/tsconfig.app.json",
+              "projects/xng-breadcrumbs-app/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "xng-breadcrumbs-app-e2e": {
+      "root": "projects/xng-breadcrumbs-app-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/xng-breadcrumbs-app-e2e/protractor.conf.js",
+            "devServerTarget": "xng-breadcrumbs-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "xng-breadcrumbs-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/xng-breadcrumbs-app-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "xng-breadcrumbs": {
+      "root": "projects/xng-breadcrumbs",
+      "sourceRoot": "projects/xng-breadcrumbs/src",
+      "projectType": "library",
+      "prefix": "xng",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/xng-breadcrumbs/tsconfig.lib.json",
+            "project": "projects/xng-breadcrumbs/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/xng-breadcrumbs/src/test.ts",
+            "tsConfig": "projects/xng-breadcrumbs/tsconfig.spec.json",
+            "karmaConfig": "projects/xng-breadcrumbs/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/xng-breadcrumbs/tsconfig.lib.json",
+              "projects/xng-breadcrumbs/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "xng-breadcrumbs-app"
 }
