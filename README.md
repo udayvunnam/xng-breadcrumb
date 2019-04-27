@@ -1,6 +1,6 @@
-# XngBreadcrumb
+# XngBreadcrumbs
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+A lightweight, configurable and reactive breadcrumbs for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumbs
 
 ## Development server
 
