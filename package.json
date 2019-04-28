@@ -1,6 +1,26 @@
 {
   "name": "xng-breadcrumbs",
   "version": "1.0.0",
+  "license": "MIT",
+  "author": "Uday Vunnam",
+  "description": "A lightweight, configurable and reactive breadcrumbs for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumbs",
+  "homepage": "https://github.com/udayvunnam/xng-breadcrumbs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/udayvunnam/xng-breadcrumbs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/udayvunnam/xng-breadcrumbs/issues",
+    "email": "uday4vunnam@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "angular6",
+    "angular2",
+    "ng",
+    "breadcrumbs",
+    "ngx"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +29,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",
