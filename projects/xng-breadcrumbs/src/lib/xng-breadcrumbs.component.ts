@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'xng-xng-breadcrumbs',
+  selector: 'xng-breadcrumbs',
   template: `
     <p>
       xng-breadcrumbs works!
