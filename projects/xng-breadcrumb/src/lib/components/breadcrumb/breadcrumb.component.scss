@@ -1,0 +1,14 @@
+.xng-breadcrumb li {
+  display: inline;
+}
+.xng-breadcrumb li + li:before {
+  content: ' > ';
+  color: white;
+}
+.xng-breadcrumb {
+  background-color: #8d0000;
+  padding: 20px;
+  a {
+    color: white;
+  }
+}

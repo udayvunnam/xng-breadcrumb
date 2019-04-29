@@ -1,6 +1,6 @@
-# XngBreadcrumbs
+# XngBreadcrumb
 
-A lightweight, configurable and reactive breadcrumbs for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumbs
+A lightweight, configurable and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb
 
 ## Development server
 

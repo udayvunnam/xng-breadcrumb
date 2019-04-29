@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { XngBreadcrumbsComponent } from './xng-breadcrumbs.component';
+import { BreadcrumbsComponent } from './breadcrumb.component';
 
-describe('XngBreadcrumbsComponent', () => {
-  let component: XngBreadcrumbsComponent;
-  let fixture: ComponentFixture<XngBreadcrumbsComponent>;
+describe('BreadcrumbsComponent', () => {
+  let component: BreadcrumbsComponent;
+  let fixture: ComponentFixture<BreadcrumbsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ XngBreadcrumbsComponent ]
+      declarations: [ BreadcrumbsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(XngBreadcrumbsComponent);
+    fixture = TestBed.createComponent(BreadcrumbsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

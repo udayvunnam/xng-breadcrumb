@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { XngBreadcrumbsModule } from 'projects/xng-breadcrumbs/src/public-api';
+import { BreadcrumbModule } from 'projects/xng-breadcrumb/src/public-api';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,7 @@ import { XngBreadcrumbsModule } from 'projects/xng-breadcrumbs/src/public-api';
   ],
   imports: [
     BrowserModule,
-    XngBreadcrumbsModule
+    BreadcrumbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,19 +1,19 @@
 {
-  "name": "xng-breadcrumbs",
+  "name": "xng-breadcrumb",
   "version": "0.0.1",
   "license": "MIT",
-  "description": "A declarative and reactive breadcrumbs for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumbs",
+  "description": "A declarative and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb",
   "author": {
     "name": "Uday Vunnam",
     "email": "uday4vunnam@gmail.com"
   },
-  "homepage": "https://github.com/udayvunnam/xng-breadcrumbs",
+  "homepage": "https://github.com/udayvunnam/xng-breadcrumb",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/udayvunnam/xng-breadcrumbs.git"
+    "url": "git+https://github.com/udayvunnam/xng-breadcrumb.git"
   },
   "bugs": {
-    "url": "https://github.com/udayvunnam/xng-breadcrumbs/issues",
+    "url": "https://github.com/udayvunnam/xng-breadcrumb/issues",
     "email": "uday4vunnam@gmail.com"
   },
   "keywords": [
@@ -21,14 +21,14 @@
     "angular6",
     "angular2",
     "ng",
-    "breadcrumbs",
+    "breadcrumb",
     "ngx"
   ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:lib": "ng build xng-breadcrumbs --watch",
+    "build:lib": "ng build xng-breadcrumb --watch",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
