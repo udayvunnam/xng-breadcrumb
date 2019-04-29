@@ -27,7 +27,7 @@ export class BreadcrumbComponent implements OnInit {
     // so we rebuild it each time
     const nextUrl = `${url}${path}/`;
     const breadcrumb = {
-      label: label,
+      label,
       route: nextUrl
     };
     const newBreadcrumbs = [...breadcrumbs, breadcrumb];
