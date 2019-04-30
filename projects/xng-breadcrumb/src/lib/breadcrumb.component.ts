@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { OnInit, Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { distinctUntilChanged, filter, map } from 'rxjs/operators';
-import { Breadcrumb } from '../../models/breadcrumb';
+import { Breadcrumb } from './breadcrumb';
 
 @Component({
   selector: 'xng-breadcrumb',
