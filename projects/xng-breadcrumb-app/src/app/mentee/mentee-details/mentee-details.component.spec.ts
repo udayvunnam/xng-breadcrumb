@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MenteeDetailsComponent } from './mentee-details.component';
+import { MENTEE_ROUTE_COMPONENETS, MenteeRoutingModule } from '../mentee-routing.module';
+import { CommonModule } from '@angular/common';
 
 describe('MenteeDetailsComponent', () => {
   let component: MenteeDetailsComponent;
@@ -8,9 +10,9 @@ describe('MenteeDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenteeDetailsComponent ]
-    })
-    .compileComponents();
+      declarations: [MENTEE_ROUTE_COMPONENETS],
+      imports: [CommonModule, MenteeRoutingModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

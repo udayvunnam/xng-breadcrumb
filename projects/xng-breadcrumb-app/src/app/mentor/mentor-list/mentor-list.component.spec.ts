@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MentorListComponent } from './mentor-list.component';
+import { MENTOR_ROUTE_COMPONENETS, MentorRoutingModule } from '../mentor-routing.module';
+import { CommonModule } from '@angular/common';
 
 describe('MentorListComponent', () => {
   let component: MentorListComponent;
@@ -8,9 +10,9 @@ describe('MentorListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MentorListComponent ]
-    })
-    .compileComponents();
+      declarations: [MENTOR_ROUTE_COMPONENETS],
+      imports: [CommonModule, MentorRoutingModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
