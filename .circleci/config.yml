@@ -56,9 +56,9 @@ jobs:
       - run:
           name: Build Library and App
           command: sudo npm run build
-      # - run:
-      #     name: Run tests
-      #     command: npm test
+      - run:
+          name: Run tests
+          command: npm test
       - persist_to_workspace:
           root: ~/repo
           paths: .
