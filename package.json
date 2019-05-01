@@ -31,7 +31,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "private": true,
   "dependencies": {
@@ -44,7 +45,9 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "concurrently": "^4.1.0",
+    "conventional-changelog-cli": "^2.0.17",
     "core-js": "^2.5.4",
+    "pretty-quick": "^1.10.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "xng-breadcrumb": "0.0.1",
@@ -62,6 +65,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
+    "commitizen": "^3.1.1",
     "husky": "^2.1.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -84,6 +88,11 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "commitlint"
     }
   }
 }
