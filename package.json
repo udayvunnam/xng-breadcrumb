@@ -22,17 +22,20 @@
     "ngx"
   ],
   "scripts": {
-    "ng": "ng",
-    "build:dev": "concurrently 'ng build xng-breadcrumb --watch' 'ng serve' ",
-    "postbuild:dev": "npm run copy:readme",
-    "build:prod": "ng build xng-breadcrumb",
-    "postbuild:prod": "npm run copy:readme",
-    "copy:readme": "cp README.md dist/xng-breadcrumb/README.md",
+    "start": "npm run dev",
+    "dev": "concurrently 'ng build xng-breadcrumb --watch' 'ng serve xng-breadcrumb-app' ",
+    "postdev": "npm run copy-readme && npm run link",
+    "copy-readme": "cp README.md dist/xng-breadcrumb/README.md",
+    "link": "cd dist/xng-breadcrumb && npm link && cd../.. && npm link xng-breadcrumb",
+    "build-app": "ng build xng-breadcrumb-app",
+    "build-lib": "ng build xng-breadcrumb && npm run copy:readme",
+    "build": "npm run build-lib && npm run build-app",
+    "postbuild": "npm run copy-readme && npm run link",
+    "release-lib": "npm run build-lib",
+    "deploy-app": "npm run build-lib",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "semantic-release": "semantic-release",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -44,8 +47,6 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
-    "concurrently": "^4.1.0",
-    "conventional-changelog-cli": "^2.0.17",
     "core-js": "^2.5.4",
     "pretty-quick": "^1.10.0",
     "rxjs": "~6.3.3",
@@ -59,13 +60,11 @@
     "@angular/cli": "~7.3.8",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
-    "@commitlint/cli": "^7.5.2",
-    "@commitlint/config-conventional": "^7.5.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
-    "commitizen": "^3.1.1",
+    "concurrently": "^4.1.0",
     "husky": "^2.1.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -77,7 +76,6 @@
     "ng-packagr": "^4.2.0",
     "prettier": "1.17.0",
     "protractor": "~5.4.0",
-    "semantic-release": "^15.13.3",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",
@@ -86,13 +84,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "commitlint"
+      "pre-commit": "pretty-quick --staged"
     }
   }
 }
