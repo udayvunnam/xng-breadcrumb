@@ -53,7 +53,7 @@ jobs:
       - *restore_cache
       - run: npm install
       - *save_cache
-      - run: npm build
+      - run: npm run build
       - run: npm test
   release-library:
     <<: *job_defaults
@@ -62,7 +62,7 @@ jobs:
       - *restore_cache
       - run: npm install
       - *save_cache
-      - run: npm build
+      - run: npm run build
   deploy-app:
     <<: *job_defaults
     steps:
@@ -70,4 +70,4 @@ jobs:
       - *restore_cache
       - run: npm install
       - *save_cache
-      - run: npm build
+      - run: npm run build
