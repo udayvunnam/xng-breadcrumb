@@ -26,7 +26,7 @@
     "dev": "concurrently 'ng build xng-breadcrumb --watch' 'ng serve xng-breadcrumb-app' ",
     "postdev": "npm run copy-readme && npm run link",
     "copy-readme": "cp README.md dist/xng-breadcrumb/README.md",
-    "link": "cd dist/xng-breadcrumb && npm link && cd../.. && npm link xng-breadcrumb",
+    "link": "cd dist/xng-breadcrumb && npm link && cd ../.. && npm link xng-breadcrumb",
     "build-app": "ng build xng-breadcrumb-app",
     "build-lib": "ng build xng-breadcrumb && npm run copy-readme",
     "build": "npm run build-lib && npm run build-app",
