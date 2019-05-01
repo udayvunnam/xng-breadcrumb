@@ -46,7 +46,7 @@ version: 2
 # must be part of a workflow definition in order to run for PRs and push builds.
 # -----------------------------------------------------------------------------------------
 jobs:
-  build:
+  test:
     <<: *job_defaults
     steps:
       - checkout
@@ -55,7 +55,7 @@ jobs:
       - *save_cache
       - run:
           name: Build Library and App
-          command: npm run build
+          command: sudo npm run build
       - run:
           name: Run tests
           command: npm test
@@ -83,7 +83,7 @@ workflows:
           filters:
             tags:
               only: /^v.*/
-      - deploy:
+      - release:
           requires:
             - test
           filters:

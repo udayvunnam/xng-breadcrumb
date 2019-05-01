@@ -1,6 +1,6 @@
 {
   "name": "xng-breadcrumb",
-  "version": "0.0.0-development",
+  "version": "0.1.0",
   "license": "MIT",
   "description": "A declarative and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb",
   "author": {
@@ -30,7 +30,7 @@
     "build-app": "ng build xng-breadcrumb-app",
     "build-lib": "ng build xng-breadcrumb && npm run copy-readme",
     "build": "npm run build-lib && npm run build-app",
-    "postbuild": "npm run copy-readme",
+    "postbuild": "npm run copy-readme && npm run link",
     "release-lib": "npm run build-lib",
     "deploy-app": "npm run build-lib",
     "test": "ng test",
