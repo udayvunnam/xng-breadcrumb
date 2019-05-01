@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'xng-breadcrumbs-app'`, () => {
+  it(`should have as title 'xng-breadcrumb-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('xng-breadcrumbs-app');
+    expect(app.title).toEqual('xng-breadcrumb-app');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to xng-breadcrumbs-app!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to xng-breadcrumb-app!');
   });
 });

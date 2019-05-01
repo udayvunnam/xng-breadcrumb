@@ -1,6 +1,6 @@
 {
   "name": "xng-breadcrumb",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "license": "MIT",
   "description": "A declarative and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb",
   "author": {
@@ -8,13 +8,10 @@
     "email": "uday4vunnam@gmail.com"
   },
   "homepage": "https://github.com/udayvunnam/xng-breadcrumb",
+  "bugs": "https://github.com/udayvunnam/xng-breadcrumb/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/udayvunnam/xng-breadcrumb.git"
-  },
-  "bugs": {
-    "url": "https://github.com/udayvunnam/xng-breadcrumb/issues",
-    "email": "uday4vunnam@gmail.com"
+    "url": "https://github.com/udayvunnam/xng-breadcrumb.git"
   },
   "keywords": [
     "angular",
@@ -26,12 +23,15 @@
   ],
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "build:lib": "ng build xng-breadcrumb --watch",
+    "build:dev": "concurrently 'ng build xng-breadcrumb --watch' 'ng serve' ",
+    "postbuild:dev": "npm run copy:readme",
+    "build:prod": "ng build xng-breadcrumb",
+    "postbuild:prod": "npm run copy:readme",
+    "copy:readme": "cp README.md dist/xng-breadcrumb/README.md",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "semantic-release": "semantic-release"
   },
   "private": true,
   "dependencies": {
@@ -43,11 +43,12 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "concurrently": "^4.1.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
-    "zone.js": "~0.8.26",
-    "xng-breadcrumbs":"0.0.1"
+    "xng-breadcrumb": "0.0.1",
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
@@ -69,6 +70,7 @@
     "ng-packagr": "^4.2.0",
     "prettier": "1.17.0",
     "protractor": "~5.4.0",
+    "semantic-release": "^15.13.3",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",

@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "xng-breadcrumbs": [
-        "dist/xng-breadcrumbs"
+      "xng-breadcrumb": [
+        "dist/xng-breadcrumb"
       ],
-      "xng-breadcrumbs/*": [
-        "dist/xng-breadcrumbs/*"
+      "xng-breadcrumb/*": [
+        "dist/xng-breadcrumb/*"
       ]
     }
   }

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'xng-breadcrumbs-app';
+  title = 'xng-breadcrumb-app';
 }
