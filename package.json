@@ -31,7 +31,7 @@
     "build-lib": "ng build xng-breadcrumb && npm run copy-readme",
     "build": "npm run build-lib && npm run build-app",
     "postbuild": "npm run copy-readme && npm run link",
-    "release-lib": "npm run build-lib",
+    "release-lib": "npm publish",
     "deploy-app": "npm run build-lib",
     "test": "ng test",
     "lint": "ng lint",
