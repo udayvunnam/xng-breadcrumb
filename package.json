@@ -47,10 +47,8 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "core-js": "^2.5.4",
-    "npm-run-all": "^4.1.5",
-    "pretty-quick": "^1.10.0",
     "rxjs": "~6.3.3",
-    "xng-breadcrumb": "0.0.1",
+    "xng-breadcrumb": "0.2.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
@@ -73,6 +71,8 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "netlify-cli": "^2.11.15",
     "ng-packagr": "^4.2.0",
+    "npm-run-all": "^4.1.5",
+    "pretty-quick": "^1.10.0",
     "prettier": "1.17.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
