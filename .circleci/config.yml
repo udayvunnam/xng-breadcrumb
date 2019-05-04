@@ -33,14 +33,8 @@ var_7: &save_cache
     paths:
       - 'node_modules'
 
-# npm install
-var_8: &npm_install
-  run:
-    name: Install Dependencies
-    command: npm install --quiet --no-progress
-
 # attach saved workspace
-var_9: &attach_workspace
+var_8: &attach_workspace
   attach_workspace:
     at: ~/repo
 # -----------------------------
@@ -53,30 +47,27 @@ version: 2
 # must be part of a workflow definition in order to run for PRs and push builds.
 # -----------------------------------------------------------------------------------------
 jobs:
-  build:
-    <<: *job_defaults
-    steps:
-      - checkout
-      - *restore_cache
-      - *npm_install
-      - *save_cache
-      - run:
-          name: Build Library and App
-          command: sudo npm run build
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
-
   test:
     <<: *job_defaults
     docker:
       # Needed because tests depend on Chrome being available.
       - image: *browsers_docker_image
     steps:
-      - *attach_workspace
+      - checkout
+      - *restore_cache
+      - run:
+          name: Install Dependencies
+          command: npm install --quiet --no-progress
+      - *save_cache
+      - run:
+          name: Build Library and App
+          command: sudo npm run build
       - run:
           name: Run tests
           command: npm test
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
 
   release:
     <<: *job_defaults
@@ -100,15 +91,12 @@ jobs:
 
 workflows:
   version: 2
-  build_test_publish:
+  test_publish:
     jobs:
-      - build
       - test:
-          requires:
-            - build
           filters: # required since 'release' has tag filters AND requires 'test'
             tags:
-              only: /.*/
+              only: /^v.*/
       - release:
           requires:
             - test
