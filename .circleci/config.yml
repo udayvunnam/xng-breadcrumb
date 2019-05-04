@@ -35,7 +35,9 @@ var_7: &save_cache
 
 # npm install
 var_8: &npm_install
-  run: npm install
+  run:
+    name: Install Dependencies
+    command: npm install --quiet --no-progress
 
 # attach saved workspace
 var_9: &attach_workspace
@@ -56,7 +58,7 @@ jobs:
     steps:
       - checkout
       - *restore_cache
-      - run: npm install --quiet --no-progress
+      - *npm_install
       - *save_cache
       - run:
           name: Build Library and App
@@ -104,17 +106,20 @@ workflows:
       - test:
           requires:
             - build
-          filters:
+          filters: # required since `release` has tag filters AND requires `test`
             tags:
-              only: /^v.*/
+              only: /.*/
       - release:
           requires:
             - test
           filters:
             tags:
-              only: /^v.*/
+              only: /^v.*/ # runs for no branches and only for tags starting with ‘v’
             branches:
               ignore: /.*/
       - deploy:
           requires:
             - test
+          filters:
+            branches:
+              only: master
