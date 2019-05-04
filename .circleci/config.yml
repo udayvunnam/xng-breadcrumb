@@ -56,7 +56,7 @@ jobs:
     steps:
       - checkout
       - *restore_cache
-      - run: npm install
+      - run: npm install --quiet --no-progress
       - *save_cache
       - run:
           name: Build Library and App
