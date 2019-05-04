@@ -21,10 +21,10 @@ export class BreadcrumbComponent implements OnInit {
 
   setBreadcrumb(route: ActivatedRoute, url: string = '', breadcrumbs: Breadcrumb[] = []): Breadcrumb[] {
     const path = route.routeConfig ? route.routeConfig.path : '';
-    //set label as path if a breadcrumb value is not provided.
+    // set label as path if a breadcrumb value is not provided.
     let label = this.initCap(path) || 'Home';
     if (route.routeConfig && route.routeConfig.data && route.routeConfig.data.breadcrumb) {
-      label = route.routeConfig.data['breadcrumb'];
+      label = route.routeConfig.data.breadcrumb;
     }
 
     // In the routeConfig the complete path is not available,
@@ -44,7 +44,9 @@ export class BreadcrumbComponent implements OnInit {
   }
 
   initCap(str: string) {
-    if (!str) return;
+    if (!str) {
+      return;
+    }
     return str.slice(0, 1).toUpperCase() + str.slice(1);
   }
 }

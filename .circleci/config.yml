@@ -10,8 +10,8 @@ var_1: &docker_image circleci/node:10.12
 var_2: &browsers_docker_image circleci/node:10.12-browsers
 
 # Setup a cache key, that restores by checking checksum of package.json.
-var_3: &cache_key v1-xng-breadcrumbs-{{ checksum "package.json" }}
-var_4: &cache_fallback_key 1-xng-breadcrumbs- # used if checksum fails
+var_3: &cache_key v1-xng-breadcrumb-{{ checksum "package.json" }}
+var_4: &cache_fallback_key v1-xng-breadcrumb- # used if checksum fails
 
 # Settings common to each job
 var_5: &job_defaults
@@ -79,17 +79,14 @@ jobs:
           name: npm package release
           command: npm run release:lib
 
-  # deploy:
-  #   <<: *job_defaults
-  #   steps:
-  #     - attach_workspace:
-  #         at: ~/repo
-  #     - run:
-  #         name: Authenticate with Netlify
-  #         command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-  #     - run:
-  #         name: Netlify Deploy
-  #         command: npm run deploy:app
+  deploy:
+    <<: *job_defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Netlify Deploy
+          command: ./node_modules/.bin/netlify deploy --prod --dir=dist/xng-breadcrumb-app
 
 workflows:
   version: 2
