@@ -106,7 +106,7 @@ workflows:
       - test:
           requires:
             - build
-          filters: # required since `release` has tag filters AND requires `test`
+          filters: # required since 'release' has tag filters AND requires 'test'
             tags:
               only: /.*/
       - release:
@@ -114,7 +114,7 @@ workflows:
             - test
           filters:
             tags:
-              only: /^v.*/ # runs for no branches and only for tags starting with ‘v’
+              only: /^v.*/ # runs for no branches and only for tags starting with 'v'
             branches:
               ignore: /.*/
       - deploy:
