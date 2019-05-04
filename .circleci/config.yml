@@ -1,4 +1,4 @@
-#Configuration file for https://circleci.com/gh/udayvunnam/workflows/xng-breadcrumb
+# Configuration file for https://circleci.com/gh/udayvunnam/workflows/xng-breadcrumb
 
 # Note: YAML anchors allow an object to be re-used, reducing duplication.
 # The ampersand declares an alias for an object, then later the `<<: *name` syntax dereferences it.
@@ -104,6 +104,9 @@ workflows:
       - test:
           requires:
             - build
+          filters:
+            tags:
+              only: /^v.*/
       - release:
           requires:
             - test
