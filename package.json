@@ -1,6 +1,6 @@
 {
   "name": "xng-breadcrumb",
-  "version": "0.2.0",
+  "version": "0.5.0",
   "license": "MIT",
   "description": "A declarative and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb",
   "author": {
@@ -26,13 +26,14 @@
     "watch:app": "ng serve xng-breadcrumb-app --open=true",
     "start": "npm-run-all --parallel copy:readme watch:* ",
     "build:lib": "ng build xng-breadcrumb",
-    "build:app": "ng build xng-breadcrumb-app --prod",
-    "build": "npm-run-all copy:readme build:* link:lib",
+    "build:app": "ng build xng-breadcrumb-app --prod  --progress=false",
+    "build": "npm-run-all copy:* build:* link:lib",
     "copy:readme": "cp README.md projects/xng-breadcrumb/README.md",
+    "copy:version": "replace '@VERSION' $npm_package_version ./projects/xng-breadcrumb/package.json",
     "link:lib": " npm link ./dist/xng-breadcrumb && npm link xng-breadcrumb",
     "release:lib": "npm publish ./dist/xng-breadcrumb",
     "deploy:app": "netlify deploy --prod --dir=dist/xng-breadcrumb-app",
-    "test": "ng test --watch=false",
+    "test": "ng test --watch=false --progress=false",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -48,7 +49,7 @@
     "@angular/router": "~7.2.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
-    "xng-breadcrumb": "0.2.0",
+    "xng-breadcrumb": "latest",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
@@ -75,6 +76,7 @@
     "pretty-quick": "^1.10.0",
     "prettier": "1.17.0",
     "protractor": "~5.4.0",
+    "replace": "^1.1.0",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",

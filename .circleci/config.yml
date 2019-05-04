@@ -1,4 +1,4 @@
-#Configuration file for https://circleci.com/gh/udayvunnam/workflows/xng-breadcrumb
+# Configuration file for https://circleci.com/gh/udayvunnam/workflows/xng-breadcrumb
 
 # Note: YAML anchors allow an object to be re-used, reducing duplication.
 # The ampersand declares an alias for an object, then later the `<<: *name` syntax dereferences it.
@@ -10,8 +10,8 @@ var_1: &docker_image circleci/node:10.12
 var_2: &browsers_docker_image circleci/node:10.12-browsers
 
 # Setup a cache key, that restores by checking checksum of package.json.
-var_3: &cache_key v1-xng-breadcrumbs-{{ checksum "package.json" }}
-var_4: &cache_fallback_key 1-xng-breadcrumbs- # used if checksum fails
+var_3: &cache_key v1-xng-breadcrumb-{{ checksum "package.json" }}
+var_4: &cache_fallback_key v1-xng-breadcrumb- # used if checksum fails
 
 # Settings common to each job
 var_5: &job_defaults
@@ -37,6 +37,10 @@ var_7: &save_cache
 var_8: &npm_install
   run: npm install
 
+# attach saved workspace
+var_9: &attach_workspace
+  attach_workspace:
+    at: ~/repo
 # -----------------------------
 # Container version of CircleCI
 # -----------------------------
@@ -47,31 +51,35 @@ version: 2
 # must be part of a workflow definition in order to run for PRs and push builds.
 # -----------------------------------------------------------------------------------------
 jobs:
+  build:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - *restore_cache
+      - run: npm install --quiet --no-progress
+      - *save_cache
+      - run:
+          name: Build Library and App
+          command: sudo npm run build
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+
   test:
     <<: *job_defaults
     docker:
       # Needed because tests depend on Chrome being available.
       - image: *browsers_docker_image
     steps:
-      - checkout
-      - *restore_cache
-      - run: npm install
-      - *save_cache
-      - run:
-          name: Build Library and App
-          command: sudo npm run build
+      - *attach_workspace
       - run:
           name: Run tests
           command: npm test
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
 
   release:
     <<: *job_defaults
     steps:
-      - attach_workspace:
-          at: ~/repo
+      - *attach_workspace
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
@@ -79,23 +87,23 @@ jobs:
           name: npm package release
           command: npm run release:lib
 
-  # deploy:
-  #   <<: *job_defaults
-  #   steps:
-  #     - attach_workspace:
-  #         at: ~/repo
-  #     - run:
-  #         name: Authenticate with Netlify
-  #         command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-  #     - run:
-  #         name: Netlify Deploy
-  #         command: npm run deploy:app
+  deploy:
+    <<: *job_defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Netlify Deploy
+          command: ./node_modules/.bin/netlify deploy --prod --dir=dist/xng-breadcrumb-app
 
 workflows:
   version: 2
-  test-release:
+  build_test_publish:
     jobs:
+      - build
       - test:
+          requires:
+            - build
           filters:
             tags:
               only: /^v.*/
@@ -107,3 +115,6 @@ workflows:
               only: /^v.*/
             branches:
               ignore: /.*/
+      - deploy:
+          requires:
+            - test

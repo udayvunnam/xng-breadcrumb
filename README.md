@@ -1,10 +1,20 @@
 # XngBreadcrumb
 
+[![CircleCI](https://circleci.com/gh/udayvunnam/xng-breadcrumb.svg?style=svg)](https://circleci.com/gh/udayvunnam/xng-breadcrumb) [![npm](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb) [![npm License](https://img.shields.io/npm/l/xng-breadcrumb.svg)](https://github.com/udayvunnam/xng-breadcrumb/blob/master/LICENSE)
+
 A lightweight, configurable and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb
 
-# Demo
+## Demo
 
-[Live Demo - mentor/mentee app maintained by a admin.](https://xng-breadcrumb.netlify.com)
+[Live Demo](https://xng-breadcrumb.netlify.com) - BookAWL, a booking system for Air(A), Water(A) or Land(L) travel. Yeah cool right! I came up with that name :)
+
+## Features
+
+- Quick setup with `ng add`, auto update with `ng update`
+- Route mapping by default, without any configuration.
+- Declarative as well as Reactive mapping.
+- Skip specific routes displaying in breadcrumb
+- Late mapping of route from server response or by any other means
 
 ## Development
 
