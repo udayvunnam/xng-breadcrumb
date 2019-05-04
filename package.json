@@ -1,6 +1,6 @@
 {
   "name": "xng-breadcrumb",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "description": "A declarative and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb",
   "author": {
@@ -48,7 +48,7 @@
     "@angular/router": "~7.2.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
-    "xng-breadcrumb": "0.2.0",
+    "xng-breadcrumb": "~0.3.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
