@@ -23,10 +23,7 @@
             "polyfills": "projects/xng-breadcrumb-app/src/polyfills.ts",
             "tsConfig": "projects/xng-breadcrumb-app/tsconfig.app.json",
             "assets": ["projects/xng-breadcrumb-app/src/favicon.ico", "projects/xng-breadcrumb-app/src/assets"],
-            "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "projects/xng-breadcrumb-app/src/styles.scss"
-            ],
+            "styles": ["projects/xng-breadcrumb-app/src/assets/scss/xng-breadcrumb.scss", "projects/xng-breadcrumb-app/src/styles.scss"],
             "scripts": [],
             "es5BrowserSupport": true
           },

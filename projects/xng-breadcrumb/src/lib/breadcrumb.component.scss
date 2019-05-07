@@ -12,10 +12,25 @@ ol {
 }
 
 a {
-  // text-decoration: none;
-  // outline: none;
   cursor: pointer;
+  box-sizing: border-box;
   opacity: 0.75;
+  white-space: nowrap;
+  color: inherit;
+  background: transparent;
+  line-height: 36px;
+  padding: 0 16px;
+  outline: 0;
+  text-decoration: none;
+}
+
+.current-path {
+  box-sizing: border-box;
+  white-space: nowrap;
+  color: inherit;
+  background: transparent;
+  line-height: 36px;
+  padding: 0 16px;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {

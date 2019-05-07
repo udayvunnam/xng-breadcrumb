@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'xng-breadcrumb-app';
+  darkMode = false;
+
+  updateTheme(theme) {
+    this.darkMode = theme === 'dark';
+  }
 }

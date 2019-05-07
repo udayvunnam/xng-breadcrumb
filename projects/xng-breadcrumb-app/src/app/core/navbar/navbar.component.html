@@ -5,10 +5,21 @@
     <a mat-button [routerLink]="['/mentee']" fxHide.lt-md="true">Mentees</a>
     <a mat-button [routerLink]="['/connect']" fxHide.lt-md="true">Connect</a>
     <div fxFlex></div>
-    <a mat-button href="https://github.com/udayvunnam/xng-breadcrumb" target="_blank">
+
+    <button mat-icon-button matTooltip="Change Theme" (click)="toggleTheme($event)">
+      <mat-icon aria-label="dark theme" *ngIf="theme === 'light'">wb_sunny</mat-icon>
+      <mat-icon aria-label="light theme" *ngIf="theme === 'dark'">wb_incandescent</mat-icon>
+    </button>
+
+    <a mat-icon-button href="https://twitter.com/_udayvunnam" target="_blank" matTooltip="Twitter">
       <span class="mat-button-wrapper">
-        <img alt="xng-breadcrumb" class="git-logo" src="../../../assets/img/github.svg" />
-        <span fxHide.lt-md="true">GitHub</span>
+        <img alt="xng-breadcrumb" class="social-logo" src="../../../assets/img/twitter.svg" />
+      </span>
+    </a>
+
+    <a mat-icon-button href="https://github.com/udayvunnam/xng-breadcrumb" target="_blank" matTooltip="GitHub">
+      <span class="mat-button-wrapper">
+        <img alt="xng-breadcrumb" class="social-logo" src="../../../assets/img/github.svg" />
       </span>
     </a>
   </nav>
