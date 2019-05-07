@@ -6,7 +6,7 @@
     <a mat-button [routerLink]="['/connect']" fxHide.lt-md="true">Connect</a>
     <div fxFlex></div>
 
-    <button mat-icon-button matTooltip="Change Theme" (click)="toggleTheme($event)">
+    <button mat-icon-button matTooltip="Change Theme" (click)="toggleTheme()">
       <mat-icon aria-label="dark theme" *ngIf="theme === 'light'">wb_sunny</mat-icon>
       <mat-icon aria-label="light theme" *ngIf="theme === 'dark'">wb_incandescent</mat-icon>
     </button>

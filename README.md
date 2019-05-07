@@ -8,7 +8,7 @@ A lightweight, configurable and reactive breadcrumb for Angular 6 and beyond htt
 
 A breadcrumb consists of a list of links to the parent pages of the current page in hierarchical order. It helps users find their place within a website or web application.
 
-Useful when the app has more that two levels of hierarchy. User can easily navigate back to any level.
+Useful when the app has more than two levels of hierarchy. User can easily navigate back to any level.
 
 ## Demo
 
@@ -22,7 +22,7 @@ Useful when the app has more that two levels of hierarchy. User can easily navig
 - Skip specific routes displaying in breadcrumb
 - Late mapping of route from server response or by any other means
 
-## Development
+## Local Development
 
 - Clone the repository
 - Run `npm i` to install the dependencies
@@ -41,7 +41,3 @@ Run `npm run build` to build the library and demo app together. The build artifa
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
