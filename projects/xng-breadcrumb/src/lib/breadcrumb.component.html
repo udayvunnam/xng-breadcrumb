@@ -6,7 +6,7 @@
       [ngClass]="{ active: isLast }"
       [attr.aria-current]="isLast ? 'page' : null"
     >
-      <a *ngIf="!isLast; else lastRoute" [routerLink]="[breadcrumb.route]" routerLinkActive="active">
+      <a *ngIf="!isLast; else lastRoute" [routerLink]="[breadcrumb.route]" routerLinkActive="active" class="mat-button">
         {{ breadcrumb.label }}
       </a>
       <ng-template #lastRoute>

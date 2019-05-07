@@ -22,11 +22,9 @@
             "main": "projects/xng-breadcrumb-app/src/main.ts",
             "polyfills": "projects/xng-breadcrumb-app/src/polyfills.ts",
             "tsConfig": "projects/xng-breadcrumb-app/tsconfig.app.json",
-            "assets": [
-              "projects/xng-breadcrumb-app/src/favicon.ico",
-              "projects/xng-breadcrumb-app/src/assets"
-            ],
+            "assets": ["projects/xng-breadcrumb-app/src/favicon.ico", "projects/xng-breadcrumb-app/src/assets"],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "projects/xng-breadcrumb-app/src/styles.scss"
             ],
             "scripts": [],
@@ -84,25 +82,18 @@
             "tsConfig": "projects/xng-breadcrumb-app/tsconfig.spec.json",
             "karmaConfig": "projects/xng-breadcrumb-app/karma.conf.js",
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "projects/xng-breadcrumb-app/src/styles.scss"
             ],
             "scripts": [],
-            "assets": [
-              "projects/xng-breadcrumb-app/src/favicon.ico",
-              "projects/xng-breadcrumb-app/src/assets"
-            ]
+            "assets": ["projects/xng-breadcrumb-app/src/favicon.ico", "projects/xng-breadcrumb-app/src/assets"]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "projects/xng-breadcrumb-app/tsconfig.app.json",
-              "projects/xng-breadcrumb-app/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["projects/xng-breadcrumb-app/tsconfig.app.json", "projects/xng-breadcrumb-app/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -128,9 +119,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "projects/xng-breadcrumb-app-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -164,13 +153,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "projects/xng-breadcrumb/tsconfig.lib.json",
-              "projects/xng-breadcrumb/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["projects/xng-breadcrumb/tsconfig.lib.json", "projects/xng-breadcrumb/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

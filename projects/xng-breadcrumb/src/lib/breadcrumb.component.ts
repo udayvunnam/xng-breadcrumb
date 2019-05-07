@@ -1,4 +1,4 @@
-import { OnInit, Component } from '@angular/core';
+import { OnInit, Component, Input } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { distinctUntilChanged, filter, map } from 'rxjs/operators';
 import { Breadcrumb } from './breadcrumb';
@@ -9,6 +9,11 @@ import { Breadcrumb } from './breadcrumb';
   styleUrls: ['./breadcrumb.component.scss']
 })
 export class BreadcrumbComponent implements OnInit {
+  @Input() mode: 'material' | 'bootstrap';
+  // If true, breacrumb is formed even without any configuration
+  // Default mapping will be same as route paths
+  @Input() defaultRouteMapping = true;
+
   breadcrumbs$ = this.router.events.pipe(
     filter(event => event instanceof NavigationEnd),
     distinctUntilChanged(),

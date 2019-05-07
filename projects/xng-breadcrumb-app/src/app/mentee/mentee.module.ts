@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { MenteeRoutingModule, MENTEE_ROUTE_COMPONENETS } from './mentee-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [MENTEE_ROUTE_COMPONENETS],
-  imports: [
-    CommonModule,
-    MenteeRoutingModule
-  ]
+  imports: [SharedModule, MenteeRoutingModule]
 })
-export class MenteeModule { }
+export class MenteeModule {}

@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { MentorRoutingModule, MENTOR_ROUTE_COMPONENETS } from './mentor-routing.module';
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [MENTOR_ROUTE_COMPONENETS],
-  imports: [
-    CommonModule,
-    MentorRoutingModule
-  ]
+  imports: [SharedModule, MentorRoutingModule]
 })
-export class MentorModule { }
+export class MentorModule {}

@@ -1,0 +1,21 @@
+<div class="navbar mat-elevation-z6">
+  <nav class="navbar-header">
+    <a mat-button [routerLink]="['/']" class="home">TechUnroll</a>
+    <a mat-button [routerLink]="['/mentor']" fxHide.lt-md="true">Mentors</a>
+    <a mat-button [routerLink]="['/mentee']" fxHide.lt-md="true">Mentees</a>
+    <a mat-button [routerLink]="['/connect']" fxHide.lt-md="true">Connect</a>
+    <div fxFlex></div>
+    <a mat-button href="https://github.com/udayvunnam/xng-breadcrumb" target="_blank">
+      <span class="mat-button-wrapper">
+        <img alt="xng-breadcrumb" class="git-logo" src="../../../assets/img/github.svg" />
+        <span fxHide.lt-md="true">GitHub</span>
+      </span>
+    </a>
+  </nav>
+
+  <nav class="navbar-header" fxHide.gt-sm="true">
+    <a mat-button [routerLink]="['/mentor']">Mentors</a>
+    <a mat-button [routerLink]="['/mentee']">Mentees</a>
+    <a mat-button [routerLink]="['/connect']">Connect</a>
+  </nav>
+</div>
