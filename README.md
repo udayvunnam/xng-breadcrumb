@@ -4,9 +4,15 @@
 
 A lightweight, configurable and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb
 
+## About
+
+A breadcrumb consists of a list of links to the parent pages of the current page in hierarchical order. It helps users find their place within a website or web application.
+
+Useful when the app has more that two levels of hierarchy. User can easily navigate back to any level.
+
 ## Demo
 
-[Live Demo](https://xng-breadcrumb.netlify.com) - BookAWL, a booking system for Air(A), Water(A) or Land(L) travel. Yeah cool right! I came up with that name :)
+[Live Demo](https://xng-breadcrumb.netlify.com) - TechUnroll, A knowledge sharing mentor - mentee app.
 
 ## Features
 
@@ -18,7 +24,15 @@ A lightweight, configurable and reactive breadcrumb for Angular 6 and beyond htt
 
 ## Development
 
-Run `npm start` for a dev server that builds and watches both lirary and a demo app, automatically opens app at `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Clone the repository
+- Run `npm i` to install the dependencies
+- Run `npm start`. This builds and watches both lirary and a demo app, automatically opens app at `http://localhost:4200/`.
+- The app will automatically reload if you change any of the source files.
+
+## Accessibility
+
+`<nav>` with `aria-label="breadcrumb"` identifies type of navigation as breadcrumb.
+`<li>` representing current page is given `aria-current=page` and class `active`.
 
 ## Build
 
