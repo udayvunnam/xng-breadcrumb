@@ -12,11 +12,17 @@ const routes: Routes = [
     children: [
       {
         path: 'add',
-        component: MentorAddComponent
+        component: MentorAddComponent,
+        data: {
+          breadcrumb: 'New'
+        }
       },
       {
         path: ':id',
-        component: MentorDetailsComponent
+        component: MentorDetailsComponent,
+        data: {
+          routeAlias: 'mentorName'
+        }
       },
       {
         path: '',

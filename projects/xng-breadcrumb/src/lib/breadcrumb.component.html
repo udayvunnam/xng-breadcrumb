@@ -1,7 +1,7 @@
 <nav aria-label="breadcrumb" [ngClass]="mode">
   <ol class="breadcrumb">
     <li
-      *ngFor="let breadcrumb of breadcrumbs$ | async; last as isLast"
+      *ngFor="let breadcrumb of breadcrumbs; last as isLast"
       class="breadcrumb-item"
       [ngClass]="{ active: isLast }"
       [attr.aria-current]="isLast ? 'page' : null"

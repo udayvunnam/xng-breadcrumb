@@ -2,6 +2,7 @@ import { OnInit, Component, Input } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { distinctUntilChanged, filter, map } from 'rxjs/operators';
 import { Breadcrumb } from './breadcrumb';
+import { BreadcrumbService } from './breadcrumb.service';
 
 @Component({
   selector: 'xng-breadcrumb',
@@ -14,44 +15,20 @@ export class BreadcrumbComponent implements OnInit {
   // Default mapping will be same as route paths
   @Input() defaultRouteMapping = true;
 
-  breadcrumbs$ = this.router.events.pipe(
-    filter(event => event instanceof NavigationEnd),
-    distinctUntilChanged(),
-    map(event => this.setBreadcrumb(this.activatedRoute.root))
-  );
+  breadcrumbs = [];
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
-
-  ngOnInit() {}
-
-  setBreadcrumb(route: ActivatedRoute, url: string = '', breadcrumbs: Breadcrumb[] = []): Breadcrumb[] {
-    const path = route.routeConfig ? route.routeConfig.path : '';
-    // set label as path if a breadcrumb value is not provided.
-    let label = this.initCap(path) || 'Home';
-    if (route.routeConfig && route.routeConfig.data && route.routeConfig.data.breadcrumb) {
-      label = route.routeConfig.data.breadcrumb;
-    }
-
-    // In the routeConfig the complete path is not available,
-    // so we rebuild it each time
-    const nextUrl = `${url}${path}/`;
-    const breadcrumb = {
-      label,
-      route: nextUrl
-    };
-    const newBreadcrumbs = [...breadcrumbs, breadcrumb];
-    if (route.firstChild) {
-      // If we are not on our current path yet,
-      // there will be more children to look after, to build our breadcumb
-      return this.setBreadcrumb(route.firstChild, nextUrl, newBreadcrumbs);
-    }
-    return newBreadcrumbs;
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private breadcrumbService: BreadcrumbService) {
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        distinctUntilChanged()
+      )
+      .subscribe(event => this.breadcrumbService.setBreadcrumb(this.activatedRoute.root.firstChild));
   }
 
-  initCap(str: string) {
-    if (!str) {
-      return;
-    }
-    return str.slice(0, 1).toUpperCase() + str.slice(1);
+  ngOnInit() {
+    this.breadcrumbService.breadcrumbs$.subscribe(breadcrumbs => {
+      this.breadcrumbs = breadcrumbs;
+    });
   }
 }
