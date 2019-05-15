@@ -23,7 +23,7 @@ export class BreadcrumbComponent implements OnInit {
         filter(event => event instanceof NavigationEnd),
         distinctUntilChanged()
       )
-      .subscribe(event => this.breadcrumbService.setBreadcrumb(this.activatedRoute.root.firstChild));
+      .subscribe(event => this.breadcrumbService.setBreadcrumb(this.activatedRoute.root));
   }
 
   ngOnInit() {

@@ -14,29 +14,39 @@ export class BreadcrumbService {
   constructor() {}
 
   setBreadcrumb(route: ActivatedRoute, url: string = '', breadcrumbs: Breadcrumb[] = []): Breadcrumb[] {
-    const { path, data } = route.routeConfig;
-    // set label as path if a breadcrumb value is not provided.
-    const label = data && (data.breadcrumb || this.initCap(path) || '');
-    // In the routeConfig the complete path is not available, we iterate reciursively
-    const routePrefix = `/${url}${path}`;
+    if (route.routeConfig && route.routeConfig.path) {
+      const { path, data } = route.routeConfig;
+      const param = this.extractParam(route, path);
 
-    if (path) {
+      // set label as path if a breadcrumb value is not provided.
+      const label = (data && data.breadcrumb) || param || this.initCap(path) || '';
+
+      const routeAlias = (data && data.routeAlias) || '';
+      const routePrefix = `${url}/${param || path}`;
+
       const breadcrumbMap = {
         label,
         route: routePrefix,
-        routeAlias: data.routeAlias
+        routeAlias
       };
 
-      const newBreadcrumbs = [...breadcrumbs, breadcrumbMap];
+      this.breadcrumbStore = [...breadcrumbs, breadcrumbMap];
       if (route.firstChild) {
-        return this.setBreadcrumb(route.firstChild, routePrefix, newBreadcrumbs);
+        return this.setBreadcrumb(route.firstChild, routePrefix, this.breadcrumbStore);
       }
-    } else {
-      return this.setBreadcrumb(route.firstChild, routePrefix, breadcrumbs);
+    } else if (route.firstChild) {
+      return this.setBreadcrumb(route.firstChild, url, breadcrumbs);
     }
 
-    this.breadcrumbStore = breadcrumbs;
     this.breadcrumbs.next(this.breadcrumbStore);
+  }
+
+  extractParam(route: ActivatedRoute, path: string) {
+    let paramValue;
+    if (path.startsWith(':')) {
+      paramValue = route.snapshot.params[path.slice(1)];
+    }
+    return paramValue;
   }
 
   initCap(str: string) {
@@ -46,7 +56,7 @@ export class BreadcrumbService {
     return str.slice(0, 1).toUpperCase() + str.slice(1);
   }
 
-  // Either pass route regex path or route
+  // Either pass route regex path or route alias
   updateLabel(routeAlias: string, label: string) {
     const breadcrumbIndex = this.breadcrumbStore.findIndex(item => item.routeAlias === routeAlias);
 

@@ -4,6 +4,7 @@ import { MentorComponent } from './mentor/mentor.component';
 import { MentorListComponent } from './mentor-list/mentor-list.component';
 import { MentorDetailsComponent } from './mentor-details/mentor-details.component';
 import { MentorAddComponent } from './mentor-add/mentor-add.component';
+import { MentorEditComponent } from './mentor-edit/mentor-edit.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,13 @@ const routes: Routes = [
         component: MentorDetailsComponent,
         data: {
           routeAlias: 'mentorName'
-        }
+        },
+        children: [
+          {
+            path: 'edit',
+            component: MentorEditComponent
+          }
+        ]
       },
       {
         path: '',
@@ -37,4 +44,10 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class MentorRoutingModule {}
-export const MENTOR_ROUTE_COMPONENETS = [MentorListComponent, MentorDetailsComponent, MentorAddComponent, MentorComponent];
+export const MENTOR_ROUTE_COMPONENETS = [
+  MentorEditComponent,
+  MentorListComponent,
+  MentorDetailsComponent,
+  MentorAddComponent,
+  MentorComponent
+];
