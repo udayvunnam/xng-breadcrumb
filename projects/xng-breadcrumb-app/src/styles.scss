@@ -8,3 +8,11 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+.add-item {
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}

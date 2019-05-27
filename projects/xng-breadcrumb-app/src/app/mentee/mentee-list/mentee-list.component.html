@@ -1,3 +1,9 @@
-<p>
-  mentee-list works!
-</p>
+<section class="add-item">
+  <a mat-fab routerLink="add" color="primary" routerLink="add">
+    <mat-icon>add</mat-icon>
+  </a>
+</section>
+
+<section fxLayout="column" fxLayoutGap="12px">
+  <mat-card *ngFor="let mentee of mentees" [routerLink]="[mentee.id]"> {{ mentee.id }}, {{ mentee.name }} </mat-card>
+</section>

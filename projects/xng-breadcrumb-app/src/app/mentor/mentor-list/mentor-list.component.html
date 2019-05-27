@@ -1,3 +1,9 @@
-<p>
-  mentor-list works!
-</p>
+<section class="add-item">
+  <a mat-fab routerLink="add" color="primary" routerLink="add">
+    <mat-icon>add</mat-icon>
+  </a>
+</section>
+
+<section fxLayout="column" fxLayoutGap="12px">
+  <mat-card *ngFor="let mentor of mentors" [routerLink]="[mentor.id]"> {{ mentor.id }}, {{ mentor.name }} </mat-card>
+</section>
