@@ -16,27 +16,32 @@ Useful when the app has more than two levels of hierarchy. User can easily navig
 
 ## Features
 
-- Quick setup with `ng add`, auto update with `ng update`
-- Route mapping by default, without any configuration.
-- Declarative as well as Reactive mapping.
-- Skip specific routes displaying in breadcrumb
-- Late mapping of route from server response or by any other means
+- Route mapping to breadcrumb by default, if no configuration is specified.
+- Declarative mapping: specify breacrumb name for a route while configuring App routing.
+- Dynamic mapping: Resolve route param to a name from server response or by other means.
+- Skip specific routes from displaying in breadcrumb
+- Quickly setup library in your app with `ng add xng-breadcrumb`
+- Auto update library version with `ng update xng-breadcrumb`
 
 ## Local Development
 
-- Clone the repository
-- Run `npm i` to install the dependencies
-- Run `npm start`. This builds and watches both lirary and a demo app, automatically opens app at `http://localhost:4200/`.
+If you wish to contribute or fork, below are the steps for local development.
+
+- Clone the repository `git clone https://github.com/udayvunnam/xng-breadcrumb.git`
+- Run `npm install` to install the dependencies
+- Run `npm start`. This command builds and watches both library and its demo app. Automatically opens app at `http://localhost:4200/`.
 - The app will automatically reload if you change any of the source files.
 
 ## Accessibility
 
-`<nav>` with `aria-label="breadcrumb"` identifies type of navigation as breadcrumb.
-`<li>` representing current page is given `aria-current=page` and class `active`.
+- `<nav>` with `aria-label="breadcrumb"` identifies type of navigation as breadcrumb by screen readers.
+- `<li>` element representing current page is given `aria-current=page` and class `active`.
 
 ## Build
 
 Run `npm run build` to build the library and demo app together. The build artifacts will be stored in the `dist/` directory.
+
+This step is used by CircleCI to build both library and demo app. After succesful build, library is pushed to npm and demo app is deployed to Netlify.
 
 ## Running unit tests
 

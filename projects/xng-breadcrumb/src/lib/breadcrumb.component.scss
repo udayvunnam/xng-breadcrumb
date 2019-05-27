@@ -24,6 +24,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  opacity: 1;
+}
+
 .current-path {
   box-sizing: border-box;
   white-space: nowrap;

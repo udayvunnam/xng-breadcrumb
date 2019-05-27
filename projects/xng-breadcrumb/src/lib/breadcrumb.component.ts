@@ -10,9 +10,13 @@ import { BreadcrumbService } from './breadcrumb.service';
   styleUrls: ['./breadcrumb.component.scss']
 })
 export class BreadcrumbComponent implements OnInit {
-  @Input() mode: 'material' | 'bootstrap';
-  // If true, breacrumb is formed even without any configuration
-  // Default mapping will be same as route paths
+  // @Input() mode: 'material' | 'bootstrap';
+
+  /**
+   * If true, breacrumb is formed even without any configuration
+   * Default mapping will be same as route path
+   * @memberof BreadcrumbComponent
+   */
   @Input() defaultRouteMapping = true;
 
   breadcrumbs = [];
