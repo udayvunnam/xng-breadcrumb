@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConnectComponent } from './connect.component';
+import { SharedModule } from '../../shared/shared.module';
+import { ConnectRoutingModule } from '../connect-routing.module';
 
 describe('ConnectComponent', () => {
   let component: ConnectComponent;
@@ -8,9 +10,9 @@ describe('ConnectComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConnectComponent ]
-    })
-    .compileComponents();
+      declarations: [ConnectComponent],
+      imports: [SharedModule, ConnectRoutingModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -4,12 +4,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BreadcrumbModule } from 'projects/xng-breadcrumb/src/public-api';
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './core/in-memory-data.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      imports: [BrowserModule, CoreModule, AppRoutingModule, BreadcrumbModule]
+      imports: [
+        BrowserModule,
+        SharedModule,
+        CoreModule,
+        AppRoutingModule,
+        BreadcrumbModule,
+        BrowserAnimationsModule,
+        HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
+      ]
     }).compileComponents();
   }));
 
