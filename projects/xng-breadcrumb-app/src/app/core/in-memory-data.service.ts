@@ -20,16 +20,21 @@ const person = () => {
   return {
     id: faker.random.uuid(),
     name: `${faker.name.firstName()} ${faker.name.lastName()}`,
-    active: faker.random.boolean(),
+    country: faker.address.country(),
+    // active: faker.random.boolean(),
     description: faker.lorem.sentence(),
-    available: faker.date.future()
+    available: faker.date.future(),
+    skills: faker.random.arrayElement(allLanguages)
   };
 };
 
-const persons = (count = faker.random.number(30)) => {
+// faker.random.number(30)
+const persons = (count = 10) => {
   const res = [];
   for (let i = 0; i < count; i++) {
     res.push(person());
   }
   return res;
 };
+
+export const allLanguages = ['Java', 'React', 'Angular', 'Python', 'Machine Learning', 'Kubernetes', 'Docker', 'CICD'];

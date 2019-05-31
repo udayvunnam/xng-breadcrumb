@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../core/data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mentor-details',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mentor-details.component.scss']
 })
 export class MentorDetailsComponent implements OnInit {
-
-  constructor() { }
+  mentor: any;
+  constructor(private dataService: DataService, private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.getMentor();
   }
 
+  getMentor() {
+    const mentorId = this.route.snapshot.paramMap.get('id');
+
+    this.dataService.getMentor(mentorId).subscribe(response => {
+      this.mentor = response;
+    });
+  }
 }
