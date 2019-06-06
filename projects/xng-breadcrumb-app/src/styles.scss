@@ -17,6 +17,15 @@ body {
   margin-bottom: 16px;
 }
 
+.button-row {
+  margin-top: 16px;
+  justify-content: flex-end;
+  display: flex;
+  > *:not(:last-child) {
+    margin-right: 16px;
+  }
+}
+
 .label {
   color: rgba(0, 0, 0, 0.54);
   margin: 8px 8px 8px 0;

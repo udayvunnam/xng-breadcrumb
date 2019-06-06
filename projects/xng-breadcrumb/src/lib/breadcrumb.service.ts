@@ -41,7 +41,7 @@ export class BreadcrumbService {
     this.breadcrumbs.next(this.breadcrumbStore);
   }
 
-  extractParam(route: ActivatedRoute, path: string) {
+  private extractParam(route: ActivatedRoute, path: string) {
     let paramValue;
     if (path.startsWith(':')) {
       paramValue = route.snapshot.params[path.slice(1)];
@@ -49,7 +49,7 @@ export class BreadcrumbService {
     return paramValue;
   }
 
-  initCap(str: string) {
+  private initCap(str: string) {
     if (!str) {
       return;
     }
@@ -62,4 +62,24 @@ export class BreadcrumbService {
 
     this.breadcrumbStore[breadcrumbIndex] = { ...this.breadcrumbStore[breadcrumbIndex], label };
   }
+
+  set(path: string | RegExp, label: string) {
+    if (path instanceof RegExp) {
+      console.log('In Regex');
+    } else {
+      console.log('In Regex');
+    }
+  }
+
+  hide(path: string | RegExp) {
+    if (path instanceof RegExp) {
+      console.log('In Regex');
+    } else {
+      console.log('In Regex');
+    }
+  }
+
+  setForAlias(path: string | RegExp, label: string) {}
+
+  hideForAlias(path: string) {}
 }

@@ -29,7 +29,7 @@ const person = () => {
 };
 
 // faker.random.number(30)
-const persons = (count = 10) => {
+let persons = (count = 10) => {
   const res = [];
   for (let i = 0; i < count; i++) {
     res.push(person());

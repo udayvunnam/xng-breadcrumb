@@ -22,12 +22,13 @@ const routes: Routes = [
         path: ':id',
         component: MentorDetailsComponent,
         data: {
-          routeAlias: 'mentorName'
+          breadcrumbAlias: 'mentorName'
         },
         children: [
           {
             path: 'edit',
-            component: MentorEditComponent
+            component: MentorEditComponent,
+            data: { skipBreadcrumb: true }
           }
         ]
       },

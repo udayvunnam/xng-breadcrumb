@@ -1,48 +1,96 @@
 # XngBreadcrumb
 
-[![CircleCI](https://circleci.com/gh/udayvunnam/xng-breadcrumb.svg?style=svg)](https://circleci.com/gh/udayvunnam/xng-breadcrumb) [![npm](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb) [![npm License](https://img.shields.io/npm/l/xng-breadcrumb.svg)](https://github.com/udayvunnam/xng-breadcrumb/blob/master/LICENSE)
+[![CircleCI](https://circleci.com/gh/udayvunnam/xng-breadcrumb.svg?shield&circle-token=:circle-token)](https://circleci.com/gh/udayvunnam/xng-breadcrumb) [![npm](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb) [![npm License](https://img.shields.io/npm/l/xng-breadcrumb.svg)](https://github.com/udayvunnam/xng-breadcrumb/blob/master/LICENSE)
 
-A lightweight, configurable and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb
+> A lightweight, configurable and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb
 
 ## About
 
-A breadcrumb consists of a list of links to the parent pages of the current page in hierarchical order. It helps users find their place within a website or web application.
+In applications with deep navigation hierarchy, it is essential to have breadcrumb navigation. Breadcrumbs provides links back to each previous page that the user navigated through and shows the current location in an application.
 
-Useful when the app has more than two levels of hierarchy. User can easily navigate back to any level.
+Breadcrumbs are useful when the app has more than two levels of hierarchy. User can easily navigate back to any level.
 
 ## Demo
 
-[Live Demo](https://xng-breadcrumb.netlify.com) - TechUnroll, A knowledge sharing mentor - mentee app.
+[Live Demo](https://xng-breadcrumb.netlify.com) - _TechUnroll_ An imaginary mentor - mentee app, that demonstrates `xng-breadcrumb` usage.
 
 ## Features
 
-- Route mapping to breadcrumb by default, if no configuration is specified.
-- Declarative mapping: specify breacrumb name for a route while configuring App routing.
-- Dynamic mapping: Resolve route param to a name from server response or by other means.
-- Skip specific routes from displaying in breadcrumb
-- Quickly setup library in your app with `ng add xng-breadcrumb`
-- Auto update library version with `ng update xng-breadcrumb`
+- **Quick start**: Show breadcrumbs just by adding `<breadcrumb></breadcrumb>` anywhere in the App.
+- **Default mapping**: Breadcrumb to route mapping by default, if no configuration is defined.
+- **Declarative mapping**: Specify breadcrumbs for each route while declaring App routes.
+- **Dynamic mapping**: Resolve a route label from server response using BreadcrumbService.
+- **Skip Breadcrumb**: Skip specific routes from displaying in breadcrumbs.
+- **Schematics**: Use schematics to add and update the library with `ng add xng-breadcrumb` and `ng update xng-breadcrumb`
+
+## Usage
+
+```javascript
+// Add breadcrumb label while declaring routes
+{
+    path: 'dashboard',
+    loadChildren: './dashboard/dashboard.module#DashboardModule',
+    data: { breadcrumb: 'Home'}
+}
+{
+    path: 'add',
+    component: MentorAddComponent,
+    data: { breadcrumb: 'New'}
+}
+
+// Add a label dynamically using 'set()' from BreadcrumbService
+// It takes either a direct path or a regex path
+{
+    path: 'id',
+    component: MentorDetailsComponent,
+}
+breadcrumbService.set(completePath, label);
+breadcrumbService.set(regexPath, label);
+
+// Hide a route from displaying in Breadcrumbs
+{
+    path: 'edit',
+    component: MentorEditComponent,
+    data: { skipBreadcrumb: true }
+}
+breadcrumbService.hide(completePath);
+breadcrumbService.hide(regexPath);
+
+
+// An Alias can be used instead of regex path with 'setForAlias()' and 'hideForAlias()'
+// Add 'breadcrumbAlias' during route declaration and it has to be unique.
+
+{
+    path: 'id',
+    component: MentorDetailsComponent,
+    data: { breadcrumbAlias: 'mentorName' }
+}
+breadcrumbService.hideForAlias(breadcrumbAlias);
+breadcrumbService.setForAlias(breadcrumbAlias, label);
+```
 
 ## Local Development
 
-If you wish to contribute or fork, below are the steps for local development.
+If you wish to contribute to this repository, below are the steps for local development.
 
 - Clone the repository `git clone https://github.com/udayvunnam/xng-breadcrumb.git`
 - Run `npm install` to install the dependencies
-- Run `npm start`. This command builds and watches both library and its demo app. Automatically opens app at `http://localhost:4200/`.
-- The app will automatically reload if you change any of the source files.
-
-## Accessibility
-
-- `<nav>` with `aria-label="breadcrumb"` identifies type of navigation as breadcrumb by screen readers.
-- `<li>` element representing current page is given `aria-current=page` and class `active`.
+- Run `npm start` to build and watch both library and demo app. This opens app at `http://localhost:4200/` automatically.
 
 ## Build
 
 Run `npm run build` to build the library and demo app together. The build artifacts will be stored in the `dist/` directory.
 
-This step is used by CircleCI to build both library and demo app. After succesful build, library is pushed to npm and demo app is deployed to Netlify.
+This step is used by CircleCI to build both library and demo app. After a succesful build, a new semantic version of library is published to npm and demo app is deployed to Netlify.
 
-## Running unit tests
+## Tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Accessibility
+
+- A `<nav>` with `aria-label="breadcrumb"` identifies type of navigation as breadcrumb by screen readers.
+- The breadcrumb links are structured using an ordered list `<ol>`.
+- The last `<li>` element represents current page, so it doesn't have to be clickable.
+- Use `aria-current=page` and `class=active` for last `<li>` element.
+- Separators between links are added through css (`::before`) instead of icons or html elements. This prevents the screen reader announcement of separators which is of no use.

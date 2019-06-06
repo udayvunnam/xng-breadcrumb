@@ -1,38 +1,29 @@
 <form [formGroup]="menteeFG" (submit)="addMentee()">
   <mat-card>
     <section fxLayout="column" fxLayoutGap="12px">
-      <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end center">
-        <span class="label">Name</span>
-        <mat-form-field>
-          <input matInput formControlName="name" required />
-          <mat-error>Name is required</mat-error>
-        </mat-form-field>
-      </div>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="name" required placeholder="Name" />
+        <mat-error>Name is required</mat-error>
+      </mat-form-field>
 
-      <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end center">
-        <span class="label">Country</span>
-        <mat-form-field>
-          <input matInput formControlName="country" />
-        </mat-form-field>
-      </div>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="country" placeholder="Country" />
+      </mat-form-field>
 
-      <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end center">
-        <span class="label">From Date</span>
-        <mat-form-field>
-          <input matInput [matDatepicker]="available" formControlName="available" />
-          <mat-datepicker-toggle matSuffix [for]="available"></mat-datepicker-toggle>
-          <mat-datepicker #available></mat-datepicker>
-        </mat-form-field>
-      </div>
+      <mat-form-field appearance="outline">
+        <input matInput [matDatepicker]="available" formControlName="available" placeholder="Planned Start Date" />
+        <mat-datepicker-toggle matSuffix [for]="available"></mat-datepicker-toggle>
+        <mat-datepicker #available></mat-datepicker>
+      </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-chip-list #chipList>
           <mat-chip *ngFor="let skill of skills" [selectable]="true" [removable]="true" (removed)="remove(skill)">
             {{ skill }}
             <mat-icon matChipRemove>cancel</mat-icon>
           </mat-chip>
           <input
-            placeholder="Add skill..."
+            placeholder="Looking for Skills"
             #skillInput
             formControlName="skill"
             [matAutocomplete]="auto"
@@ -49,15 +40,15 @@
         </mat-autocomplete>
       </mat-form-field>
 
-      <mat-form-field style="width: 100%">
+      <mat-form-field appearance="outline">
         <textarea matInput #description formControlName="description" placeholder="Description"></textarea>
         <mat-hint align="end">{{ description.value.length }} / 1024</mat-hint>
       </mat-form-field>
     </section>
   </mat-card>
 
-  <section>
-    <button mat-button mat-raised-button type="button">Cancel</button>
+  <section class="button-row">
+    <button mat-button type="button">Cancel</button>
     <button mat-button mat-raised-button type="submit" color="primary">Save</button>
   </section>
 </form>
