@@ -9,6 +9,7 @@ import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { menteeAdd } from '../../shared/constants/code';
 
 @Component({
   selector: 'app-mentee-add',
@@ -16,6 +17,7 @@ import { map, startWith } from 'rxjs/operators';
   styleUrls: ['./mentee-add.component.scss']
 })
 export class MenteeAddComponent implements OnInit {
+  code = menteeAdd;
   mentee: any;
   menteeFG: FormGroup;
   progressSave: boolean;

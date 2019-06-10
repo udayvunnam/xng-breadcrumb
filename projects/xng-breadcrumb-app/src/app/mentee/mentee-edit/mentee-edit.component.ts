@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { menteeEdit } from '../../shared/constants/code';
 
 @Component({
   selector: 'app-mentee-edit',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mentee-edit.component.scss']
 })
 export class MenteeEditComponent implements OnInit {
+  code = menteeEdit;
+
   constructor() {}
 
   ngOnInit() {}

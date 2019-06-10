@@ -1,49 +1,57 @@
+<app-code-block [code]="code"></app-code-block>
+
 <form [formGroup]="menteeFG" (submit)="addMentee()">
   <mat-card>
-    <section fxLayout="column" fxLayoutGap="12px">
-      <mat-form-field appearance="outline">
-        <input matInput formControlName="name" required placeholder="Name" />
-        <mat-error>Name is required</mat-error>
-      </mat-form-field>
+    <section fxLayout="row" fxLayoutAlign="stretch center" fxLayoutGap="32px">
+      <div class="mat-button-wrapper" fxFlex="50%" fxHide.lt-sm="true">
+        <img alt="Mentee" class="illustration mentee-logo" src="../../../assets/img/mentee.svg" />
+      </div>
 
-      <mat-form-field appearance="outline">
-        <input matInput formControlName="country" placeholder="Country" />
-      </mat-form-field>
+      <section fxLayout="column" fxLayoutGap="8px" fxFlex>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="name" required placeholder="Name" />
+          <mat-error>Name is required</mat-error>
+        </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <input matInput [matDatepicker]="available" formControlName="available" placeholder="Planned Start Date" />
-        <mat-datepicker-toggle matSuffix [for]="available"></mat-datepicker-toggle>
-        <mat-datepicker #available></mat-datepicker>
-      </mat-form-field>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="country" placeholder="Country" />
+        </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-chip-list #chipList>
-          <mat-chip *ngFor="let skill of skills" [selectable]="true" [removable]="true" (removed)="remove(skill)">
-            {{ skill }}
-            <mat-icon matChipRemove>cancel</mat-icon>
-          </mat-chip>
-          <input
-            placeholder="Looking for Skills"
-            #skillInput
-            formControlName="skill"
-            [matAutocomplete]="auto"
-            [matChipInputFor]="chipList"
-            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-            [matChipInputAddOnBlur]="addOnBlur"
-            (matChipInputTokenEnd)="add($event)"
-          />
-        </mat-chip-list>
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-          <mat-option *ngFor="let skill of filteredskills | async" [value]="skill">
-            {{ skill }}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
+        <mat-form-field appearance="outline">
+          <input matInput [matDatepicker]="available" formControlName="available" placeholder="Planned Start Date" />
+          <mat-datepicker-toggle matSuffix [for]="available"></mat-datepicker-toggle>
+          <mat-datepicker #available></mat-datepicker>
+        </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <textarea matInput #description formControlName="description" placeholder="Description"></textarea>
-        <mat-hint align="end">{{ description.value.length }} / 1024</mat-hint>
-      </mat-form-field>
+        <!-- <mat-form-field appearance="outline">
+          <mat-chip-list #chipList>
+            <mat-chip *ngFor="let skill of skills" [selectable]="true" [removable]="true" (removed)="remove(skill)">
+              {{ skill }}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+            <input
+              placeholder="Looking for Skills"
+              #skillInput
+              formControlName="skill"
+              [matAutocomplete]="auto"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)"
+            />
+          </mat-chip-list>
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let skill of filteredskills | async" [value]="skill">
+              {{ skill }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field> -->
+
+        <mat-form-field appearance="outline">
+          <textarea matInput #description formControlName="description" placeholder="Description"></textarea>
+          <mat-hint align="end">{{ description.value.length }} / 1024</mat-hint>
+        </mat-form-field>
+      </section>
     </section>
   </mat-card>
 

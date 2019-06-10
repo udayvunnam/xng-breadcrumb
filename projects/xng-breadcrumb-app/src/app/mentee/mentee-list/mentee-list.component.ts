@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
+import { menteeList } from '../../shared/constants/code';
 
 @Component({
   selector: 'app-mentee-list',
@@ -8,6 +9,7 @@ import { Mentor } from '../../shared/models/mentor';
   styleUrls: ['./mentee-list.component.scss']
 })
 export class MenteeListComponent implements OnInit {
+  code = menteeList;
   mentees: Mentor[];
 
   constructor(private dataService: DataService) {}

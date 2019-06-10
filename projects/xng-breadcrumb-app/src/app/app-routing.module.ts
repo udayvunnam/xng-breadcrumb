@@ -3,14 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './core/page-not-found.component';
 
 // when deafalt route has no path or breadcrumb diplay home
-const appRoutes: Routes = [
+export const appRoutes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
-    pathMatch: 'full',
-    data: {
-      breadcrumb: 'My Home'
-    }
+    pathMatch: 'full'
   },
   {
     path: 'dashboard',
@@ -23,15 +20,12 @@ const appRoutes: Routes = [
     path: 'mentor',
     loadChildren: './mentor/mentor.module#MentorModule',
     data: {
-      breadcrumb: 'Mentor'
+      breadcrumb: 'Mentors'
     }
   },
   {
     path: 'mentee',
-    loadChildren: './mentee/mentee.module#MenteeModule',
-    data: {
-      breadcrumb: 'Mentee'
-    }
+    loadChildren: './mentee/mentee.module#MenteeModule'
   },
   {
     path: 'connect',

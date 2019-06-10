@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { dashboard } from '../../shared/constants/code';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  code = dashboard;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

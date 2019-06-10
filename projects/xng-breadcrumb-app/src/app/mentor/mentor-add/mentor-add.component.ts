@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { mentorAdd } from '../../shared/constants/code';
 
 @Component({
   selector: 'app-mentor-add',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mentor-add.component.scss']
 })
 export class MentorAddComponent implements OnInit {
+  code = mentorAdd;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

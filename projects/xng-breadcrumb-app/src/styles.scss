@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import '~prismjs/plugins/toolbar/prism-toolbar.css';
+@import '~prismjs/themes/prism-tomorrow.css';
 html,
 body {
   height: 100%;
@@ -10,11 +11,10 @@ body {
 }
 
 .add-item {
-  flex-direction: row;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 16px;
+  position: fixed;
+  top: 74px;
+  z-index: 1000;
+  right: 16px;
 }
 
 .button-row {
@@ -32,4 +32,9 @@ body {
   width: 110px;
   text-align: right;
   margin-right: 8px;
+}
+
+.illustration {
+  max-width: 280px;
+  min-width: 280px;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../core/data.service';
 import { ActivatedRoute } from '@angular/router';
+import { mentorDetails } from '../../shared/constants/code';
 
 @Component({
   selector: 'app-mentor-details',
@@ -8,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./mentor-details.component.scss']
 })
 export class MentorDetailsComponent implements OnInit {
+  code = mentorDetails;
   mentor: any;
   constructor(private dataService: DataService, private route: ActivatedRoute) {}
 

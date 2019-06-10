@@ -1,11 +1,6 @@
 .app-container {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 56px;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  padding-top: 56px;
+  min-height: calc(100% - 56px);
 }
 
 .route-container {
@@ -14,6 +9,7 @@
 
 @media (max-width: 720px) {
   .app-container {
-    top: 92px;
+    margin-top: 112px;
+    min-height: calc(100% - 112px);
   }
 }
