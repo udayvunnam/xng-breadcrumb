@@ -3,6 +3,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { distinctUntilChanged, filter, map } from 'rxjs/operators';
 import { Breadcrumb } from './breadcrumb';
 import { BreadcrumbService } from './breadcrumb.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'xng-breadcrumb',
@@ -10,16 +11,20 @@ import { BreadcrumbService } from './breadcrumb.service';
   styleUrls: ['./breadcrumb.component.scss']
 })
 export class BreadcrumbComponent implements OnInit {
-  // @Input() mode: 'material' | 'bootstrap';
-
+  breadcrumbs$: Observable<any[]>;
   /**
    * If true, breacrumb is formed even without any configuration
-   * Default mapping will be same as route path
-   * @memberof BreadcrumbComponent
+   * Default mapping is same as route path with intial letter capitalized
+   *
    */
   @Input() defaultRouteMapping = true;
 
-  breadcrumbs = [];
+  /**
+   * Seperator between breadcrumbs
+   * defaults to '/'. Other options could be '.' or '-' or '>' etc.
+   *
+   */
+  @Input() seperator = '/';
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private breadcrumbService: BreadcrumbService) {
     this.router.events
@@ -31,8 +36,6 @@ export class BreadcrumbComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.breadcrumbService.breadcrumbs$.subscribe(breadcrumbs => {
-      this.breadcrumbs = breadcrumbs;
-    });
+    this.breadcrumbs$ = this.breadcrumbService.breadcrumbs$;
   }
 }

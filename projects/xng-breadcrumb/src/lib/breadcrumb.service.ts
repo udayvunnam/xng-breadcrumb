@@ -13,6 +13,26 @@ export class BreadcrumbService {
 
   constructor() {}
 
+  set(path: string | RegExp, label: string) {
+    if (path instanceof RegExp) {
+      console.log('In Regex');
+    } else {
+      console.log('In Regex');
+    }
+  }
+
+  hide(path: string | RegExp) {
+    if (path instanceof RegExp) {
+      console.log('In Regex');
+    } else {
+      console.log('In Regex');
+    }
+  }
+
+  setForAlias(path: string | RegExp, label: string) {}
+
+  hideForAlias(path: string) {}
+
   setBreadcrumb(route: ActivatedRoute, url: string = '', breadcrumbs: Breadcrumb[] = []): Breadcrumb[] {
     if (route.routeConfig && route.routeConfig.path) {
       const { path, data } = route.routeConfig;
@@ -41,8 +61,22 @@ export class BreadcrumbService {
     this.breadcrumbs.next(this.breadcrumbStore);
   }
 
+  /**
+   * Either pass complete route path or route alias
+   *
+   * @param {string} routeAlias
+   * @param {string} label
+   * @memberof BreadcrumbService
+   */
+  private updateLabel(routeAlias: string, label: string) {
+    const breadcrumbIndex = this.breadcrumbStore.findIndex(item => item.routeAlias === routeAlias);
+
+    this.breadcrumbStore[breadcrumbIndex] = { ...this.breadcrumbStore[breadcrumbIndex], label };
+    this.breadcrumbs.next(this.breadcrumbStore);
+  }
+
   private extractParam(route: ActivatedRoute, path: string) {
-    let paramValue;
+    let paramValue: string;
     if (path.startsWith(':')) {
       paramValue = route.snapshot.params[path.slice(1)];
     }
@@ -55,31 +89,4 @@ export class BreadcrumbService {
     }
     return str.slice(0, 1).toUpperCase() + str.slice(1);
   }
-
-  // Either pass route regex path or route alias
-  updateLabel(routeAlias: string, label: string) {
-    const breadcrumbIndex = this.breadcrumbStore.findIndex(item => item.routeAlias === routeAlias);
-
-    this.breadcrumbStore[breadcrumbIndex] = { ...this.breadcrumbStore[breadcrumbIndex], label };
-  }
-
-  set(path: string | RegExp, label: string) {
-    if (path instanceof RegExp) {
-      console.log('In Regex');
-    } else {
-      console.log('In Regex');
-    }
-  }
-
-  hide(path: string | RegExp) {
-    if (path instanceof RegExp) {
-      console.log('In Regex');
-    } else {
-      console.log('In Regex');
-    }
-  }
-
-  setForAlias(path: string | RegExp, label: string) {}
-
-  hideForAlias(path: string) {}
 }

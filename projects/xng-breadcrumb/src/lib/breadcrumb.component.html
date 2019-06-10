@@ -1,7 +1,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li
-      *ngFor="let breadcrumb of breadcrumbs; last as isLast"
+      *ngFor="let breadcrumb of breadcrumbs$ | async; last as isLast"
       class="breadcrumb-item"
       [ngClass]="{ active: isLast }"
       [attr.aria-current]="isLast ? 'page' : null"
@@ -12,6 +12,7 @@
       <ng-template #lastRoute>
         <label class="current-path">{{ breadcrumb.label }}</label>
       </ng-template>
+      <span class="seperator" aria-hidden="true" *ngIf="!isLast"> {{ seperator }}</span>
     </li>
   </ol>
 </nav>

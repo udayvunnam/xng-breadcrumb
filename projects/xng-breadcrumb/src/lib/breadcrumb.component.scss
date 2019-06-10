@@ -14,7 +14,7 @@ ol {
 a {
   cursor: pointer;
   box-sizing: border-box;
-  opacity: 0.75;
+  opacity: 0.5;
   white-space: nowrap;
   color: inherit;
   background: transparent;
@@ -24,7 +24,9 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+a:hover,
+a:focus {
+  text-decoration: unset;
   opacity: 1;
 }
 
@@ -35,12 +37,12 @@ a:hover {
   background: transparent;
   line-height: 36px;
   padding: 0 8px;
+  opacity: 0.5;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
-  content: ' /';
+.seperator {
   display: inline-block;
-  opacity: 0.45;
+  opacity: 0.5;
   font-weight: normal;
   font-style: normal;
   font-size: 1.1em;
