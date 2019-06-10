@@ -54,6 +54,8 @@
     "core-js": "^2.5.4",
     "faker": "^4.1.0",
     "hammerjs": "^2.0.8",
+    "lodash": "^4.17.11",
+    "prismjs": "^1.16.0",
     "rxjs": "~6.3.3",
     "xng-breadcrumb": "latest",
     "zone.js": "~0.8.26"
@@ -67,7 +69,9 @@
     "@types/faker": "^4.1.5",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/lodash": "^4.14.134",
     "@types/node": "~8.9.4",
+    "@types/prismjs": "^1.16.0",
     "codelyzer": "~4.5.0",
     "husky": "^2.1.0",
     "jasmine-core": "~2.99.1",
@@ -88,6 +92,7 @@
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "~3.2.2"
   },
   "husky": {
