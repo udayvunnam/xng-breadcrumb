@@ -93,4 +93,4 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 - The breadcrumb links are structured using an ordered list `<ol>`.
 - The last `<li>` element represents current page, so it doesn't have to be clickable.
 - Use `aria-current=page` and `class=active` for last `<li>` element.
-- Separators between links are added through css (`::before`) instead of icons or html elements. This prevents the screen reader announcement of separators which is of no use.
+- Separators between links have `aria-hidden=true`. This prevents the screen reader announcement of separators which is of no use.
