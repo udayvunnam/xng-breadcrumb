@@ -17,11 +17,18 @@ const routes: Routes = [
       },
       {
         path: ':id',
-        component: MenteeDetailsComponent,
         children: [
           {
+            path: '',
+            component: MenteeDetailsComponent,
+            data: {
+              breadcrumbAlias: 'menteeName'
+            }
+          },
+          {
             path: 'edit',
-            component: MenteeEditComponent
+            component: MenteeEditComponent,
+            data: { breadcrumbAlias: 'menteeEdit' }
           }
         ]
       },

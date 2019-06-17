@@ -5,4 +5,5 @@ export class Mentee {
   description: string;
   available: Date;
   skills: string[];
+  updatedTs: Date;
 }

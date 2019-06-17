@@ -1,4 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ENTER, COMMA } from '@angular/cdk/keycodes';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { MatAutocomplete, MatSnackBar, MatChipInputEvent, MatAutocompleteSelectedEvent } from '@angular/material';
+import { startWith, map } from 'rxjs/operators';
+
+import { Mentor } from '../../shared/models/mentor';
+import { allLanguages } from '../../core/in-memory-data.service';
+import { DataService } from '../../core/data.service';
 import { mentorAdd } from '../../shared/constants/code';
 
 @Component({
@@ -8,8 +18,89 @@ import { mentorAdd } from '../../shared/constants/code';
 })
 export class MentorAddComponent implements OnInit {
   code = mentorAdd;
+  mentor: any;
+  mentorFG: FormGroup;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  constructor() {}
+  skills = [];
+  allSkills = allLanguages;
+  filteredSkills: Observable<string[]>;
 
-  ngOnInit() {}
+  @ViewChild('skillInput') skillInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+
+  constructor(private fb: FormBuilder, private dataService: DataService, private snackBar: MatSnackBar, private router: Router) {}
+
+  ngOnInit() {
+    this.createForm();
+    this.filteredSkills = this.mentorFG.get('skills').valueChanges.pipe(
+      startWith(null),
+      map((fruit: string | null) => (fruit ? this._filter(fruit) : this.allSkills.slice()))
+    );
+  }
+
+  createForm() {
+    this.mentorFG = this.fb.group({
+      name: ['', [Validators.required]],
+      country: [''],
+      description: [''],
+      available: [new Date()],
+      skills: ['']
+    });
+  }
+
+  addMentor() {
+    const form = this.mentorFG;
+
+    if (form.valid) {
+      const mentor = new Mentor();
+
+      mentor.name = this.mentorFG.value.name;
+      mentor.country = this.mentorFG.value.country;
+      mentor.description = this.mentorFG.value.description;
+      mentor.available = this.mentorFG.value.available;
+      mentor.skills = this.skills;
+
+      this.dataService.addMentor(mentor).subscribe((response: any) => {
+        this.snackBar.open(`Mentor added - ${mentor.name}`, 'Ok');
+        this.router.navigate(['mentor']);
+      });
+    }
+  }
+
+  add(event: MatChipInputEvent): void {
+    if (!this.matAutocomplete.isOpen) {
+      const input = event.input;
+      const value = event.value;
+
+      if ((value || '').trim()) {
+        this.skills.push(value.trim());
+      }
+
+      if (input) {
+        input.value = '';
+      }
+
+      this.mentorFG.get('skills').setValue(null);
+    }
+  }
+
+  remove(skill: string): void {
+    const index = this.skills.indexOf(skill);
+    if (index >= 0) {
+      this.skills.splice(index, 1);
+    }
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.skills.push(event.option.viewValue);
+    this.skillInput.nativeElement.value = '';
+    this.mentorFG.get('skills').setValue(null);
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.allSkills.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
+  }
 }

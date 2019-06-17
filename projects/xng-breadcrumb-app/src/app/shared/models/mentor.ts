@@ -5,4 +5,5 @@ export class Mentor {
   description: string;
   available: Date;
   skills: string[];
+  updatedTs: Date;
 }

@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Mentor } from '../shared/models/mentor';
 import { Mentee } from '../shared/models/mentee';
+import * as faker from 'faker';
+
+const options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +22,14 @@ export class DataService {
   }
 
   addMentor(mentor: Mentor): Observable<Mentor> {
-    return this.http.get<Mentor>(`api/mentors/`);
+    mentor.id = faker.random.uuid();
+    mentor.updatedTs = new Date();
+    return this.http.post<Mentor>(`api/mentors/`, mentor, options);
+  }
+
+  updateMentor(mentor: Mentor): Observable<Mentor> {
+    mentor.updatedTs = new Date();
+    return this.http.put<Mentor>(`api/mentors/`, mentor, options);
   }
 
   getMentees(): Observable<Mentee[]> {
@@ -27,10 +37,17 @@ export class DataService {
   }
 
   getMentee(id: string): Observable<Mentee> {
-    return this.http.get<Mentee>(`api/mentors/${id}`);
+    return this.http.get<Mentee>(`api/mentees/${id}`);
   }
 
   addMentee(mentee: Mentee): Observable<Mentee> {
-    return this.http.get<Mentee>(`api/mentees/`);
+    mentee.id = faker.random.uuid();
+    mentee.updatedTs = new Date();
+    return this.http.post<Mentee>(`api/mentees/`, mentee, options);
+  }
+
+  updateMentee(mentee: Mentee): Observable<Mentee> {
+    mentee.updatedTs = new Date();
+    return this.http.put<Mentee>(`api/mentees/`, mentee, options);
   }
 }

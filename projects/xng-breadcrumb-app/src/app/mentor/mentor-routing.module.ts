@@ -20,11 +20,14 @@ const routes: Routes = [
       },
       {
         path: ':id',
-        component: MentorDetailsComponent,
-        data: {
-          breadcrumbAlias: 'mentorName'
-        },
         children: [
+          {
+            path: '',
+            component: MentorDetailsComponent,
+            data: {
+              breadcrumbAlias: 'mentorName'
+            }
+          },
           {
             path: 'edit',
             component: MentorEditComponent,

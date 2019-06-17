@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BreadcrumbService } from 'projects/xng-breadcrumb/src/public-api';
+
 import { DataService } from '../../core/data.service';
-import { ActivatedRoute } from '@angular/router';
 import { mentorDetails } from '../../shared/constants/code';
 
 @Component({
@@ -11,7 +13,12 @@ import { mentorDetails } from '../../shared/constants/code';
 export class MentorDetailsComponent implements OnInit {
   code = mentorDetails;
   mentor: any;
-  constructor(private dataService: DataService, private route: ActivatedRoute) {}
+  constructor(
+    private breadcrumbService: BreadcrumbService,
+    private dataService: DataService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.getMentor();
@@ -22,6 +29,11 @@ export class MentorDetailsComponent implements OnInit {
 
     this.dataService.getMentor(mentorId).subscribe(response => {
       this.mentor = response;
+      this.breadcrumbService.setForAlias('mentorName', this.mentor.name);
     });
+  }
+
+  editMentor() {
+    this.router.navigate(['./edit'], { relativeTo: this.route });
   }
 }

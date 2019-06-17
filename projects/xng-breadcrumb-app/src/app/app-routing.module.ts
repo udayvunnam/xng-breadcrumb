@@ -31,14 +31,14 @@ export const appRoutes: Routes = [
     path: 'connect',
     loadChildren: './connect/connect.module#ConnectModule',
     data: {
-      breadcrumb: 'Connect'
+      breadcrumb: 'Assign'
     }
   },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes, { enableTracing: true })],
+  imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

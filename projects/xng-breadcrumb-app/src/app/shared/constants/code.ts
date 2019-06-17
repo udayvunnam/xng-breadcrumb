@@ -3,9 +3,7 @@ export const dashboard = `
 {
   path: 'dashboard',
   loadChildren: './dashboard/dashboard.module#DashboardModule',
-  data: {
-    breadcrumb: 'Home'
-  }
+  data: { breadcrumb: 'Home' }
 }
 //-----------------------------OR-----------------------------
 constructor(private breadcrumbService: BreadcrumbService) {}
@@ -16,9 +14,7 @@ export const mentorList = `
 {
   path: 'mentor',
   loadChildren: './mentor/mentor.module#MentorModule',
-  data: {
-    breadcrumb: 'Mentors'
-  }
+  data: { breadcrumb: 'Mentors' }
 }
 //-----------------------------OR-----------------------------
 constructor(private breadcrumbService: BreadcrumbService) {}
@@ -29,9 +25,7 @@ export const mentorAdd = `
 {
   path: 'add',
   component: MentorAddComponent,
-  data: {
-    breadcrumb: 'New'
-  }
+  data: { breadcrumb: 'New' }
 }
 //-----------------------------OR-----------------------------
 constructor(private breadcrumbService: BreadcrumbService) {}
@@ -81,9 +75,7 @@ export const menteeAdd = `
 {
   path: 'add',
   component: MenteeAddComponent,
-  data: {
-    breadcrumb: 'New'
-  }
+  data: { breadcrumb: 'New' }
 }
 //-----------------------------OR-----------------------------
 constructor(private breadcrumbService: BreadcrumbService) {}
@@ -94,9 +86,7 @@ export const menteeDetails = `
 {
   path: ':id',
   component: MenteeDetailsComponent,
-  data: {
-    breadcrumbAlias: 'menteeName'
-  }
+  data: { breadcrumbAlias: 'menteeName' }
 }
 
 // In MenteeDetailsComponent 'id' is resolved to Mentee Name using a server response
@@ -133,9 +123,7 @@ export const connect = `
 {
   path: 'connect',
   loadChildren: './connect/connect.module#ConnectModule',
-  data: {
-    breadcrumb: 'Assign'
-  }
+  data: { breadcrumb: 'Assign' }
 }
 //-----------------------------OR-----------------------------
 constructor(private breadcrumbService: BreadcrumbService) {}

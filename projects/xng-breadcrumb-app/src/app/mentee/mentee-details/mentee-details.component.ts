@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BreadcrumbService } from 'projects/xng-breadcrumb/src/public-api';
+
 import { DataService } from '../../core/data.service';
-import { ActivatedRoute } from '@angular/router';
 import { menteeDetails } from '../../shared/constants/code';
 
 @Component({
@@ -11,7 +13,12 @@ import { menteeDetails } from '../../shared/constants/code';
 export class MenteeDetailsComponent implements OnInit {
   code = menteeDetails;
   mentee: any;
-  constructor(private dataService: DataService, private route: ActivatedRoute) {}
+  constructor(
+    private breadcrumbService: BreadcrumbService,
+    private dataService: DataService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.getMentee();
@@ -22,6 +29,11 @@ export class MenteeDetailsComponent implements OnInit {
 
     this.dataService.getMentee(menteeId).subscribe(response => {
       this.mentee = response;
+      this.breadcrumbService.setForAlias('menteeName', this.mentee.name);
     });
+  }
+
+  editMentee() {
+    this.router.navigate(['./edit'], { relativeTo: this.route });
   }
 }

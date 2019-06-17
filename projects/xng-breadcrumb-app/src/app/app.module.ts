@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { InMemoryDataService } from './core/in-memory-data.service';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,7 @@ import { InMemoryDataService } from './core/in-memory-data.service';
     BrowserAnimationsModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
-  providers: [],
+  providers: [{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

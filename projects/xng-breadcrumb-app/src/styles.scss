@@ -10,13 +10,6 @@ body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
-.add-item {
-  position: fixed;
-  top: 74px;
-  z-index: 1000;
-  right: 16px;
-}
-
 .button-row {
   margin-top: 16px;
   justify-content: flex-end;
@@ -34,7 +27,26 @@ body {
   margin-right: 8px;
 }
 
+.person.mat-icon {
+  font-size: 36px;
+}
+
 .illustration {
   max-width: 280px;
   min-width: 280px;
+}
+
+.add-item {
+  text-align: right;
+  margin: 16px;
+}
+
+@media (max-width: 960px) {
+  .add-item {
+    position: fixed;
+    top: 74px;
+    z-index: 1000;
+    right: 16px;
+    margin: 0;
+  }
 }

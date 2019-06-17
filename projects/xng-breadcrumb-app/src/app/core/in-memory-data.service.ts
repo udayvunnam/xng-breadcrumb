@@ -36,6 +36,7 @@ const person = () => {
     active: faker.random.boolean(),
     description: faker.lorem.sentence(),
     available: faker.date.future(),
+    updatedTs: faker.date.past(),
     skills: getRandomArray(allLanguages, 5)
   };
 };
@@ -57,7 +58,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
     const mentors = persons(10);
-    const mentees = persons(15);
+    const mentees = persons(10);
 
     return { mentors, mentees };
   }

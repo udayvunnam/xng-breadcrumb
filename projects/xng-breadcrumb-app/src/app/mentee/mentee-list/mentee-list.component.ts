@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
 import { menteeList } from '../../shared/constants/code';
@@ -19,8 +20,10 @@ export class MenteeListComponent implements OnInit {
   }
 
   getMentees() {
-    this.dataService.getMentors().subscribe(response => {
-      this.mentees = response;
+    this.dataService.getMentees().subscribe(response => {
+      this.mentees = response.sort((a, b) => {
+        return new Date(b.updatedTs).getTime() - new Date(a.updatedTs).getTime();
+      });
     });
   }
 }

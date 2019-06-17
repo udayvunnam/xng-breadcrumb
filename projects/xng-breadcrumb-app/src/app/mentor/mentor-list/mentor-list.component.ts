@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
 import { mentorList } from '../../shared/constants/code';
@@ -19,7 +20,9 @@ export class MentorListComponent implements OnInit {
 
   getMentors() {
     this.dataService.getMentors().subscribe(response => {
-      this.mentors = response;
+      this.mentors = response.sort((a, b) => {
+        return new Date(b.updatedTs).getTime() - new Date(a.updatedTs).getTime();
+      });
     });
   }
 }

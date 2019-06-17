@@ -7,9 +7,9 @@
   padding: 16px;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 960px) {
   .app-container {
-    margin-top: 112px;
+    padding-top: 112px;
     min-height: calc(100% - 112px);
   }
 }

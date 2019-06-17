@@ -1,14 +1,16 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { DataService } from '../../core/data.service';
-import { MatSnackBar } from '@angular/material';
-import { Mentee } from '../../shared/models/mentee';
-import { allLanguages } from '../../core/in-memory-data.service';
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material/autocomplete';
-import { MatChipInputEvent } from '@angular/material/chips';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatSnackBar } from '@angular/material';
+import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material/autocomplete';
+import { MatChipInputEvent } from '@angular/material/chips';
+
+import { Mentee } from '../../shared/models/mentee';
+import { DataService } from '../../core/data.service';
+import { allLanguages } from '../../core/in-memory-data.service';
 import { menteeAdd } from '../../shared/constants/code';
 
 @Component({
@@ -20,14 +22,23 @@ export class MenteeAddComponent implements OnInit {
   code = menteeAdd;
   mentee: any;
   menteeFG: FormGroup;
-  progressSave: boolean;
-  skills = allLanguages;
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  constructor(private fb: FormBuilder, private dataService: DataService, private snackBar: MatSnackBar) {}
+  skills = [];
+  allSkills = allLanguages;
+  filteredSkills: Observable<string[]>;
+
+  @ViewChild('skillInput') skillInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+
+  constructor(private fb: FormBuilder, private dataService: DataService, private snackBar: MatSnackBar, private router: Router) {}
 
   ngOnInit() {
     this.createForm();
+    this.filteredSkills = this.menteeFG.get('skills').valueChanges.pipe(
+      startWith(null),
+      map((fruit: string | null) => (fruit ? this._filter(fruit) : this.allSkills.slice()))
+    );
   }
 
   createForm() {
@@ -36,7 +47,7 @@ export class MenteeAddComponent implements OnInit {
       country: [''],
       description: [''],
       available: [new Date()],
-      skills: ['', [Validators.required]]
+      skills: ['']
     });
   }
 
@@ -50,11 +61,48 @@ export class MenteeAddComponent implements OnInit {
       mentee.country = this.menteeFG.value.country;
       mentee.description = this.menteeFG.value.description;
       mentee.available = this.menteeFG.value.available;
-      mentee.skills = this.menteeFG.value.skills;
+      mentee.skills = this.skills;
 
       this.dataService.addMentee(mentee).subscribe((response: any) => {
-        this.snackBar.open(`mentee "${mentee.name}"added `);
+        this.snackBar.open(`Mentee added - ${mentee.name}`, 'Ok');
+        this.router.navigate(['mentee']);
       });
     }
+  }
+
+  add(event: MatChipInputEvent): void {
+    if (!this.matAutocomplete.isOpen) {
+      const input = event.input;
+      const value = event.value;
+
+      if ((value || '').trim()) {
+        this.skills.push(value.trim());
+      }
+
+      if (input) {
+        input.value = '';
+      }
+
+      this.menteeFG.get('skills').setValue(null);
+    }
+  }
+
+  remove(skill: string): void {
+    const index = this.skills.indexOf(skill);
+    if (index >= 0) {
+      this.skills.splice(index, 1);
+    }
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.skills.push(event.option.viewValue);
+    this.skillInput.nativeElement.value = '';
+    this.menteeFG.get('skills').setValue(null);
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.allSkills.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
   }
 }
