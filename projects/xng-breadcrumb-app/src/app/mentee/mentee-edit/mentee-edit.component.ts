@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { MatAutocomplete, MatSnackBar, MatChipInputEvent, MatAutocompleteSelectedEvent } from '@angular/material';
+import { BreadcrumbService } from 'projects/xng-breadcrumb/src/public-api';
 
 import { menteeEdit } from '../../shared/constants/code';
 import { DataService } from '../../core/data.service';
@@ -34,11 +35,13 @@ export class MenteeEditComponent implements OnInit {
     private dataService: DataService,
     private snackBar: MatSnackBar,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private breadcrumbService: BreadcrumbService
   ) {}
 
   ngOnInit() {
     this.getMentee();
+    this.breadcrumbService.setForAlias('menteeName', this.mentee.name);
   }
 
   getMentee() {

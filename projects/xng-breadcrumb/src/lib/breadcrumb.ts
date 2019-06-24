@@ -1,5 +1,6 @@
 export interface Breadcrumb {
   label: string;
   route: string;
-  routeAlias?: string;
+  breadcrumbAlias?: string;
+  skip?: boolean;
 }

@@ -33,8 +33,15 @@
               {{ skill }}
               <mat-icon matChipRemove>cancel</mat-icon>
             </mat-chip>
-            <input g for Skills" #skillInput formControlName="skills" [matAutocomplete]="auto" [matChipInputFor]="chipList"
-            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true" (matChipInputTokenEnd)="add($event)" />
+            <input
+              #skillInput
+              formControlName="skills"
+              [matAutocomplete]="auto"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="true"
+              (matChipInputTokenEnd)="add($event)"
+            />
           </mat-chip-list>
           <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
             <mat-option *ngFor="let skill of filteredSkills | async" [value]="skill">

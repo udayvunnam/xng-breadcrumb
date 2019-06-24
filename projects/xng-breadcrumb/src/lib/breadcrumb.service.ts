@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Breadcrumb } from './breadcrumb';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
@@ -21,7 +21,7 @@ export class BreadcrumbService {
     }
   }
 
-  hide(path: string | RegExp) {
+  skip(path: string | RegExp) {
     if (path instanceof RegExp) {
       console.log('In Regex');
     } else {
@@ -29,9 +29,17 @@ export class BreadcrumbService {
     }
   }
 
-  setForAlias(path: string | RegExp, label: string) {}
+  setForAlias(breadcrumbAlias: string, label: string) {
+    const breadcrumbIndex = this.breadcrumbStore.findIndex(item => item.breadcrumbAlias === breadcrumbAlias);
+    this.breadcrumbStore[breadcrumbIndex] = { ...this.breadcrumbStore[breadcrumbIndex], label };
+    this.breadcrumbs.next(this.breadcrumbStore);
+  }
 
-  hideForAlias(path: string) {}
+  skipForAlias(breadcrumbAlias: string) {
+    const breadcrumbIndex = this.breadcrumbStore.findIndex(item => item.breadcrumbAlias === breadcrumbAlias);
+    this.breadcrumbStore[breadcrumbIndex] = { ...this.breadcrumbStore[breadcrumbIndex], skip: true };
+    this.breadcrumbs.next(this.breadcrumbStore);
+  }
 
   setBreadcrumb(route: ActivatedRoute, url: string = '', breadcrumbs: Breadcrumb[] = []): Breadcrumb[] {
     if (route.routeConfig && route.routeConfig.path) {
@@ -41,13 +49,15 @@ export class BreadcrumbService {
       // set label as path if a breadcrumb value is not provided.
       const label = (data && data.breadcrumb) || param || this.initCap(path) || '';
 
-      const routeAlias = (data && data.routeAlias) || '';
+      const breadcrumbAlias = (data && data.breadcrumbAlias) || '';
+      const skipBreadcrumb = (data && data.skipBreadcrumb) || false;
       const routePrefix = `${url}/${param || path}`;
 
       const breadcrumbMap = {
         label,
+        breadcrumbAlias,
         route: routePrefix,
-        routeAlias
+        skip: skipBreadcrumb
       };
 
       this.breadcrumbStore = [...breadcrumbs, breadcrumbMap];
@@ -58,20 +68,6 @@ export class BreadcrumbService {
       return this.setBreadcrumb(route.firstChild, url, breadcrumbs);
     }
 
-    this.breadcrumbs.next(this.breadcrumbStore);
-  }
-
-  /**
-   * Either pass complete route path or route alias
-   *
-   * @param {string} routeAlias
-   * @param {string} label
-   * @memberof BreadcrumbService
-   */
-  private updateLabel(routeAlias: string, label: string) {
-    const breadcrumbIndex = this.breadcrumbStore.findIndex(item => item.routeAlias === routeAlias);
-
-    this.breadcrumbStore[breadcrumbIndex] = { ...this.breadcrumbStore[breadcrumbIndex], label };
     this.breadcrumbs.next(this.breadcrumbStore);
   }
 
