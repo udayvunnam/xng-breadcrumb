@@ -1,6 +1,7 @@
 # XngBreadcrumb
 
 [![CircleCI](https://circleci.com/gh/udayvunnam/xng-breadcrumb.svg?shield&circle-token=:circle-token)](https://circleci.com/gh/udayvunnam/xng-breadcrumb) [![npm](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb) [![npm License](https://img.shields.io/npm/l/xng-breadcrumb.svg)](https://github.com/udayvunnam/xng-breadcrumb/blob/master/LICENSE)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9349b719-39ff-4c7a-bc5a-e8bec8e0f2e1/deploy-status)](https://app.netlify.com/sites/xng-breadcrumb/deploys)
 
 > A lightweight, configurable and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb
 
