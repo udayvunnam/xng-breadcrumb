@@ -15,6 +15,8 @@ Breadcrumbs are useful when the app has more than two levels of hierarchy. User 
 
 [Live Demo](https://xng-breadcrumb.netlify.com) - _TechUnroll_ An imaginary mentor - mentee app, that demonstrates `xng-breadcrumb` usage.
 
+![](https://user-images.githubusercontent.com/20707504/60205896-0211f080-9870-11e9-9b14-9a3382945c64.gif)
+
 ## Features
 
 - **Quick start**: Show breadcrumbs just by adding `<breadcrumb></breadcrumb>` anywhere in the App.
