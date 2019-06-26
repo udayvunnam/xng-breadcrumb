@@ -4,6 +4,7 @@ import { MentorAddComponent } from './mentor-add.component';
 import { MENTOR_ROUTE_COMPONENETS, MentorRoutingModule } from '../mentor-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('MentorAddComponent', () => {
   let component: MentorAddComponent;
@@ -12,7 +13,7 @@ describe('MentorAddComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [MENTOR_ROUTE_COMPONENETS],
-      imports: [SharedModule, MentorRoutingModule, RouterModule.forRoot([])]
+      imports: [SharedModule, MentorRoutingModule, RouterModule.forRoot([]), NoopAnimationsModule]
     }).compileComponents();
   }));
 
