@@ -1,6 +1,7 @@
 # XngBreadcrumb
 
 [![CircleCI](https://circleci.com/gh/udayvunnam/xng-breadcrumb.svg?shield&circle-token=:circle-token)](https://circleci.com/gh/udayvunnam/xng-breadcrumb) [![npm](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb) [![npm License](https://img.shields.io/npm/l/xng-breadcrumb.svg)](https://github.com/udayvunnam/xng-breadcrumb/blob/master/LICENSE)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9349b719-39ff-4c7a-bc5a-e8bec8e0f2e1/deploy-status)](https://app.netlify.com/sites/xng-breadcrumb/deploys)
 
 > A lightweight, configurable and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb
 
@@ -61,8 +62,9 @@ ng add xng-breadcrumb
 
 ## Usage
 
+**Adding breadcrumb label while declaring routes**
+
 ```javascript
-// Add breadcrumb label while declaring routes
 {
     path: 'dashboard',
     loadChildren: './dashboard/dashboard.module#DashboardModule',
@@ -73,36 +75,64 @@ ng add xng-breadcrumb
     component: MentorAddComponent,
     data: { breadcrumb: 'New'}
 }
+```
 
+**Setting breadcrumb label dynamically by route path**
+
+```javascript
 // Add a label dynamically using 'set()' from BreadcrumbService
-// It takes either a direct path or a regex path
+// It takes static path as well as path with params
 {
-    path: 'id',
+    path: 'mentor',
     component: MentorDetailsComponent,
-}
-breadcrumbService.set(completePath, label);
-breadcrumbService.set(regexPath, label);
+    children: [
+        {
+            path: ':id',
+            component: MentorEditComponent
+        }
+    ]
 
-// Hide a route from displaying in Breadcrumbs
+}
+breadcrumbService.set('mentor', 'Enabler'); // static path
+breadcrumbService.set('mentor/:id', 'Uday Vunnam'); // path with params
+```
+
+**Setting breadcrumb label dynamically by breadcrumbAlias**
+
+```javascript
+// Add a label dynamically using 'setForAlias()' from BreadcrumbService
+{
+    path: 'mentor',
+    component: MentorDetailsComponent,
+    children: [
+        {
+            path: ':id',
+            component: MentorEditComponent
+            data: {
+                breadcrumbAlias: 'mentorName'
+            }
+        }
+    ]
+
+}
+breadcrumbService.setForAlias('mentorName', 'Uday Vunnam');
+```
+
+**Hiding a specific route from displaying in breadcrumbs**
+
+```javascript
+// Hide a route from displaying in Breadcrumbs using skipBreadcrumb or hide() or hideForAlias()
 {
     path: 'edit',
     component: MentorEditComponent,
     data: { skipBreadcrumb: true }
 }
-breadcrumbService.hide(completePath);
-breadcrumbService.hide(regexPath);
+breadcrumbService.skip('mentor/:id/edit');
+breadcrumbService.skipForAlias('breadcrumbAlias');
 
-
-// An Alias can be used instead of regex path with 'setForAlias()' and 'hideForAlias()'
-// Add 'breadcrumbAlias' during route declaration and it has to be unique.
-
-{
-    path: 'id',
-    component: MentorDetailsComponent,
-    data: { breadcrumbAlias: 'mentorName' }
-}
-breadcrumbService.hideForAlias(breadcrumbAlias);
-breadcrumbService.setForAlias(breadcrumbAlias, label);
+// An optional second parameter can be passed as false to make a hidden breadcrumb visible
+breadcrumbService.skip('mentor/:id/edit', false);
+breadcrumbService.skipForAlias('breadcrumbAlias', false);
 ```
 
 ## Local Development
