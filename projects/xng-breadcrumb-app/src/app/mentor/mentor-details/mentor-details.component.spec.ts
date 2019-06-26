@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MentorDetailsComponent } from './mentor-details.component';
 import { MENTOR_ROUTE_COMPONENETS, MentorRoutingModule } from '../mentor-routing.module';
 import { SharedModule } from '../../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 describe('MentorDetailsComponent', () => {
   let component: MentorDetailsComponent;
@@ -11,7 +12,7 @@ describe('MentorDetailsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [MENTOR_ROUTE_COMPONENETS],
-      imports: [SharedModule, MentorRoutingModule]
+      imports: [SharedModule, MentorRoutingModule, RouterModule.forRoot([])]
     }).compileComponents();
   }));
 
