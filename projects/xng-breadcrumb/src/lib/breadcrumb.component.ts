@@ -1,7 +1,4 @@
 import { OnInit, Component, Input } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { distinctUntilChanged, filter, map } from 'rxjs/operators';
-import { Breadcrumb } from './breadcrumb';
 import { BreadcrumbService } from './breadcrumb.service';
 import { Observable } from 'rxjs';
 
@@ -26,14 +23,7 @@ export class BreadcrumbComponent implements OnInit {
    */
   @Input() seperator = '/';
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private breadcrumbService: BreadcrumbService) {
-    this.router.events
-      .pipe(
-        filter(event => event instanceof NavigationEnd),
-        distinctUntilChanged()
-      )
-      .subscribe(event => this.breadcrumbService.setBreadcrumb(this.activatedRoute.root));
-  }
+  constructor(private breadcrumbService: BreadcrumbService) {}
 
   ngOnInit() {
     this.breadcrumbs$ = this.breadcrumbService.breadcrumbs$;

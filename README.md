@@ -23,6 +23,42 @@ Breadcrumbs are useful when the app has more than two levels of hierarchy. User 
 - **Skip Breadcrumb**: Skip specific routes from displaying in breadcrumbs.
 - **Schematics**: Use schematics to add and update the library with `ng add xng-breadcrumb` and `ng update xng-breadcrumb`
 
+## Getting Started
+
+1. Install xng-breadcrumb via npm or yarn
+
+```javascript
+npm install --save xng-breadcrumb
+//------------- OR --------------
+yarn add xng-breadcrumb
+```
+
+2. Import BreadcrumbModule in your Application
+
+```javascript
+import {BreadcrumbModule} from 'xng-breadcrumb';
+@NgModule({
+  ...
+  imports: [BreadcrumbModule],
+  ...
+})
+export class AppModule { }
+```
+
+3. Add Breadcrumb selector, whereever you plan to show breadcrumbs
+
+```
+<xng-breadcrumb></xng-breadcrumb>
+```
+
+### Alternative: Angular Devkit 6+
+
+If you are using Angular CLI 6+, just use `ng add` command to update your Angular project with all above steps.
+
+```
+ng add xng-breadcrumb
+```
+
 ## Usage
 
 ```javascript
@@ -93,4 +129,4 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 - The breadcrumb links are structured using an ordered list `<ol>`.
 - The last `<li>` element represents current page, so it doesn't have to be clickable.
 - Use `aria-current=page` and `class=active` for last `<li>` element.
-- Separators between links have `aria-hidden=true`. This prevents the screen reader announcement of separators which is of no use.
+- Separators between links have `aria-hidden=true`. This prevents the screen reader announcement of visual separators.

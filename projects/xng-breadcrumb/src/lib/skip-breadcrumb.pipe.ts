@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Breadcrumb } from 'xng-breadcrumb/lib/breadcrumb';
+import { Breadcrumb } from './breadcrumb';
 
 @Pipe({
   name: 'skipBreadcrumb',
