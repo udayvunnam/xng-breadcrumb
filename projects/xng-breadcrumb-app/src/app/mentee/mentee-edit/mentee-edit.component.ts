@@ -19,7 +19,7 @@ import { Mentee } from '../../shared/models/mentee';
 })
 export class MenteeEditComponent implements OnInit {
   code = menteeEdit;
-  mentee: any;
+  menteeId: any;
   menteeFG: FormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
@@ -41,13 +41,13 @@ export class MenteeEditComponent implements OnInit {
 
   ngOnInit() {
     this.getMentee();
-    this.breadcrumbService.setForAlias('menteeName', this.mentee.name);
+    this.breadcrumbService.skipForAlias('menteeEdit');
   }
 
   getMentee() {
-    const menteeId = this.route.snapshot.paramMap.get('id');
+    this.menteeId = this.route.snapshot.paramMap.get('id');
 
-    this.dataService.getMentee(menteeId).subscribe(response => {
+    this.dataService.getMentee(this.menteeId).subscribe(response => {
       this.skills = response.skills;
       this.createForm(response);
       this.filteredSkills = this.menteeFG.get('skills').valueChanges.pipe(
@@ -83,7 +83,7 @@ export class MenteeEditComponent implements OnInit {
 
       this.dataService.updateMentee(mentee).subscribe((response: any) => {
         this.snackBar.open(`Mentee updated - ${mentee.name}`, 'Ok');
-        this.router.navigate(['mentee']);
+        this.router.navigate(['mentee', this.menteeId]);
       });
     }
   }

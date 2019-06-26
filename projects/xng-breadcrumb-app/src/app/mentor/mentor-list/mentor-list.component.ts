@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
 import { mentorList } from '../../shared/constants/code';
+import { BreadcrumbService } from 'projects/xng-breadcrumb/src/public-api';
 
 @Component({
   selector: 'app-mentor-list',
@@ -12,10 +13,11 @@ import { mentorList } from '../../shared/constants/code';
 export class MentorListComponent implements OnInit {
   code = mentorList;
   mentors: Mentor[];
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private breadcrumbService: BreadcrumbService) {}
 
   ngOnInit() {
     this.getMentors();
+    this.breadcrumbService.set('mentor', 'Enabler');
   }
 
   getMentors() {

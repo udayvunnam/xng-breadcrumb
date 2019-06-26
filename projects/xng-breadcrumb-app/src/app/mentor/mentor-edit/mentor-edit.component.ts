@@ -10,6 +10,7 @@ import { allLanguages } from '../../core/in-memory-data.service';
 import { mentorEdit } from '../../shared/constants/code';
 import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
+import { BreadcrumbService } from 'projects/xng-breadcrumb/src/public-api';
 
 @Component({
   selector: 'app-mentor-edit',
@@ -18,7 +19,7 @@ import { Mentor } from '../../shared/models/mentor';
 })
 export class MentorEditComponent implements OnInit {
   code = mentorEdit;
-  mentor: any;
+  mentorId: any;
   mentorFG: FormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
@@ -34,17 +35,19 @@ export class MentorEditComponent implements OnInit {
     private dataService: DataService,
     private snackBar: MatSnackBar,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private breadcrumbService: BreadcrumbService
   ) {}
 
   ngOnInit() {
     this.getMentor();
+    this.breadcrumbService.skip('mentor/:id/edit');
   }
 
   getMentor() {
-    const mentorId = this.route.snapshot.paramMap.get('id');
+    this.mentorId = this.route.snapshot.paramMap.get('id');
 
-    this.dataService.getMentor(mentorId).subscribe(response => {
+    this.dataService.getMentor(this.mentorId).subscribe(response => {
       this.skills = response.skills;
       this.createForm(response);
       this.filteredSkills = this.mentorFG.get('skills').valueChanges.pipe(
@@ -80,7 +83,7 @@ export class MentorEditComponent implements OnInit {
 
       this.dataService.updateMentor(mentor).subscribe((response: any) => {
         this.snackBar.open(`Mentor updated - ${mentor.name}`, 'Ok');
-        this.router.navigate(['mentor']);
+        this.router.navigate(['mentor', this.mentorId]);
       });
     }
   }

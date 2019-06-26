@@ -18,21 +18,18 @@ export const appRoutes: Routes = [
   },
   {
     path: 'mentor',
-    loadChildren: './mentor/mentor.module#MentorModule',
-    data: {
-      breadcrumb: 'Mentors'
-    }
+    loadChildren: './mentor/mentor.module#MentorModule'
   },
   {
     path: 'mentee',
-    loadChildren: './mentee/mentee.module#MenteeModule'
+    loadChildren: './mentee/mentee.module#MenteeModule',
+    data: {
+      breadcrumb: 'Mentee'
+    }
   },
   {
     path: 'connect',
-    loadChildren: './connect/connect.module#ConnectModule',
-    data: {
-      breadcrumb: 'Assign'
-    }
+    loadChildren: './connect/connect.module#ConnectModule'
   },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
 ];

@@ -13,25 +13,18 @@ const routes: Routes = [
     children: [
       {
         path: 'add',
-        component: MentorAddComponent,
-        data: {
-          breadcrumb: 'New'
-        }
+        component: MentorAddComponent
       },
       {
         path: ':id',
         children: [
           {
             path: '',
-            component: MentorDetailsComponent,
-            data: {
-              breadcrumbAlias: 'mentorName'
-            }
+            component: MentorDetailsComponent
           },
           {
             path: 'edit',
-            component: MentorEditComponent,
-            data: { skipBreadcrumb: true }
+            component: MentorEditComponent
           }
         ]
       },

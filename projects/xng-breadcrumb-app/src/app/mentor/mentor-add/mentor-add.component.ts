@@ -10,6 +10,7 @@ import { Mentor } from '../../shared/models/mentor';
 import { allLanguages } from '../../core/in-memory-data.service';
 import { DataService } from '../../core/data.service';
 import { mentorAdd } from '../../shared/constants/code';
+import { BreadcrumbService } from 'projects/xng-breadcrumb/src/public-api';
 
 @Component({
   selector: 'app-mentor-add',
@@ -29,7 +30,13 @@ export class MentorAddComponent implements OnInit {
   @ViewChild('skillInput') skillInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
-  constructor(private fb: FormBuilder, private dataService: DataService, private snackBar: MatSnackBar, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private dataService: DataService,
+    private snackBar: MatSnackBar,
+    private router: Router,
+    private breadcrumbService: BreadcrumbService
+  ) {}
 
   ngOnInit() {
     this.createForm();
@@ -37,6 +44,7 @@ export class MentorAddComponent implements OnInit {
       startWith(null),
       map((fruit: string | null) => (fruit ? this._filter(fruit) : this.allSkills.slice()))
     );
+    this.breadcrumbService.set('mentor/add', 'New');
   }
 
   createForm() {

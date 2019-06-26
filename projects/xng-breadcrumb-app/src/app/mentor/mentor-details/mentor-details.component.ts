@@ -29,7 +29,7 @@ export class MentorDetailsComponent implements OnInit {
 
     this.dataService.getMentor(mentorId).subscribe(response => {
       this.mentor = response;
-      this.breadcrumbService.setForAlias('mentorName', this.mentor.name);
+      this.breadcrumbService.set('mentor/:id', this.mentor.name);
     });
   }
 

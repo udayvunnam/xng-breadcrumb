@@ -13,17 +13,18 @@ const routes: Routes = [
     children: [
       {
         path: 'add',
-        component: MenteeAddComponent
+        component: MenteeAddComponent,
+        data: { breadcrumb: 'New' }
       },
       {
         path: ':id',
+        data: {
+          breadcrumbAlias: 'menteeName'
+        },
         children: [
           {
             path: '',
-            component: MenteeDetailsComponent,
-            data: {
-              breadcrumbAlias: 'menteeName'
-            }
+            component: MenteeDetailsComponent
           },
           {
             path: 'edit',

@@ -5,41 +5,47 @@ export const dashboard = `
   loadChildren: './dashboard/dashboard.module#DashboardModule',
   data: { breadcrumb: 'Home' }
 }
-//-----------------------------OR-----------------------------
+
+//-----------------------ALTERNATIVE------------------------
+
 constructor(private breadcrumbService: BreadcrumbService) {}
 this.breadcrumbService.set('dashboard', 'Home');`;
 
 export const mentorList = `
-// 'mentor' mapped to 'Mentors'
+// 'mentor' mapped to 'Enabler' using BreadcrumbService set()
+constructor(private breadcrumbService: BreadcrumbService) {}
+this.breadcrumbService.set('mentor', 'Mentors');
+
+//-----------------------ALTERNATIVE------------------------
+
 {
   path: 'mentor',
   loadChildren: './mentor/mentor.module#MentorModule',
   data: { breadcrumb: 'Mentors' }
-}
-//-----------------------------OR-----------------------------
-constructor(private breadcrumbService: BreadcrumbService) {}
-this.breadcrumbService.set('mentor', 'Mentors');`;
+}`;
 
 export const mentorAdd = `
-// 'add' mapped to 'New'
+// 'mentor/add' mapped to 'New' using BreadcrumbService set()
+constructor(private breadcrumbService: BreadcrumbService) {}
+this.breadcrumbService.set('mentor/add', 'New');
+
+//-----------------------ALTERNATIVE------------------------
+
 {
   path: 'add',
   component: MentorAddComponent,
   data: { breadcrumb: 'New' }
-}
-//-----------------------------OR-----------------------------
-constructor(private breadcrumbService: BreadcrumbService) {}
-this.breadcrumbService.set('mentor/add', 'New');`;
+}`;
 
 export const mentorDetails = `
-// path param 'id' is resolved later through BreadcrumbService
+// path param 'id' in 'mentor/:id' is resolved later using BreadcrumbService
 {
   path: ':id',
   component: MentorDetailsComponent,
 }
 
 // In MentorDetailsComponent 'id' is resolved to Mentor Name using a server response
-// Breadcrumb is updated using BreadcrumbService.set() by passing the path
+// Breadcrumb is updated using by passing the route path
 
 constructor(
   private dataService: DataService,
@@ -53,40 +59,53 @@ ngOnInit() {
 }`;
 
 export const mentorEdit = `
+// Skip 'edit' in 'mentor/:id/edit' from displaying in breadcrumb
+constructor(private breadcrumbService: BreadcrumbService) {}
+this.breadcrumbService.skip('mentor/:id/edit');
+
+//-----------------------ALTERNATIVE------------------------
+
 // use 'skipBreadcrumb:true' for 'mentor/:id/edit' to skip the route from displaying in breadcrumb
 {
   path: 'edit',
   component: MentorEditComponent,
   data: { skipBreadcrumb: true }
-}
-//-----------------------------OR-----------------------------
-constructor(private breadcrumbService: BreadcrumbService) {}
-this.breadcrumbService.skip('mentor/:id/edit');`;
+}`;
 
 export const menteeList = `
-// No mapping for 'mentee'. Hence breadcrumb is same as route i.e 'Mentee' with initial letter capitalized
+// 'mentee' is mapped to 'Mentee' in route configuration
 {
   path: 'mentee',
-  loadChildren: './mentee/mentee.module#MenteeModule'
+  loadChildren: './mentee/mentee.module#MenteeModule',
+  data: { breadcrumb: 'Mentee' }
 }`;
 
 export const menteeAdd = `
-// 'add' mapped to 'New'
+// 'mentee/add' is mapped to 'New'
 {
   path: 'add',
   component: MenteeAddComponent,
   data: { breadcrumb: 'New' }
 }
-//-----------------------------OR-----------------------------
+
+//-----------------------ALTERNATIVE------------------------
+
 constructor(private breadcrumbService: BreadcrumbService) {}
 this.breadcrumbService.set('mentee/add', 'New');`;
 
 export const menteeDetails = `
-// path param 'id' is resolved through BreadcrumbService using breadcrumbAlias
+// path param 'id' in 'mentee/:id' is resolved through BreadcrumbService using breadcrumbAlias
 {
   path: ':id',
-  component: MenteeDetailsComponent,
-  data: { breadcrumbAlias: 'menteeName' }
+  data: {
+    breadcrumbAlias: 'menteeName'
+  },
+  children: [
+    {
+      path: '',
+      component: MenteeDetailsComponent
+    }
+  ]
 }
 
 // In MenteeDetailsComponent 'id' is resolved to Mentee Name using a server response
@@ -106,25 +125,33 @@ ngOnInit() {
 export const menteeEdit = `
 // 'mentee/:id/edit' can be skipped from displaying in breadcrumb dynamically
 {
-  path: 'edit',
-  component: MenteeEditComponent,
-  data: { breadcrumbAlias: 'menteeEdit' }
+  path: ':id',
+  data: {
+    breadcrumbAlias: 'menteeName'
+  },
+  children: [
+    {
+      path: 'edit',
+      component: MenteeEditComponent,
+      data: { breadcrumbAlias: 'menteeEdit' }
+    }
+  ]
 }
+
+//-----------------------ALTERNATIVE------------------------
 
 // use BreadcrumbService skip() or skipForAlias() methods
 constructor(private breadcrumbService: BreadcrumbService) {}
 this.breadcrumbService.skipForAlias('menteeEdit');
-//-----------------------------OR-----------------------------
+
+//-----------------------ALTERNATIVE------------------------
+
 constructor(private breadcrumbService: BreadcrumbService) {}
 this.breadcrumbService.skip('mentee/:id/edit');`;
 
 export const connect = `
-// 'connect' mapped to 'Assign'
+// No mapping for 'connect'. Hence breadcrumb is same as route i.e 'connect'
 {
   path: 'connect',
   loadChildren: './connect/connect.module#ConnectModule',
-  data: { breadcrumb: 'Assign' }
-}
-//-----------------------------OR-----------------------------
-constructor(private breadcrumbService: BreadcrumbService) {}
-this.breadcrumbService.set('connect', 'Assign');`;
+}`;
