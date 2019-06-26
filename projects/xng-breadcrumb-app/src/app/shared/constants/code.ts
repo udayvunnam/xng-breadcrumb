@@ -14,14 +14,14 @@ this.breadcrumbService.set('dashboard', 'Home');`;
 export const mentorList = `
 // 'mentor' mapped to 'Enabler' using BreadcrumbService set()
 constructor(private breadcrumbService: BreadcrumbService) {}
-this.breadcrumbService.set('mentor', 'Mentors');
+this.breadcrumbService.set('mentor', 'Enabler');
 
 //-----------------------ALTERNATIVE------------------------
 
 {
   path: 'mentor',
   loadChildren: './mentor/mentor.module#MentorModule',
-  data: { breadcrumb: 'Mentors' }
+  data: { breadcrumb: 'Enabler' }
 }`;
 
 export const mentorAdd = `

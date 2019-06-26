@@ -35,10 +35,6 @@ export class BreadcrumbService {
    * update a breadcrumb label by passing route
    * route is same as angular route definition for a route
    * Ex: /mentor or /mentor/:id/edit
-   *
-   * @param {string} route
-   * @param {string} label
-   * @memberof BreadcrumbService
    */
   set(route: string, label: string) {
     const storeItem = this.getRegexStoreItem({ route, label });
@@ -50,10 +46,6 @@ export class BreadcrumbService {
    * Ex: skip('/mentor') or skip('/mentor/:id/edit')
    * If you need to make a hidden breadcrumb visible, pass optional second param as false
    * skip('/mentor/:id/edit', false)
-   *
-   * @param {string} route
-   * @param {boolean} [skip=true]
-   * @memberof BreadcrumbService
    */
   skip(route: string, skip = true) {
     const storeItem = this.getRegexStoreItem({ route, skip });
@@ -63,10 +55,6 @@ export class BreadcrumbService {
   /**
    * update a breadcrumb label by passing breadcrumbAlias, that is defined during application routing
    * setForAlias('mentor', 'Enabler')
-   *
-   * @param {string} breadcrumbAlias
-   * @param {string} label
-   * @memberof BreadcrumbService
    */
   setForAlias(breadcrumbAlias: string, label: string) {
     this.updateStore({ breadcrumbAlias, label });
@@ -77,10 +65,6 @@ export class BreadcrumbService {
    * skipForAlias('mentorEdit')
    * If you need to make a hidden breadcrumb visible, pass optional second param as false
    * skipForAlias('mentorEdit', false)
-   *
-   * @param {string} breadcrumbAlias
-   * @param {boolean} [skip=true]
-   * @memberof BreadcrumbService
    */
   skipForAlias(breadcrumbAlias: string, skip = true) {
     this.updateStore({ breadcrumbAlias, skip });
@@ -135,11 +119,6 @@ export class BreadcrumbService {
 
   /**
    * regex string is built, if route has path params(contains with ':')
-   *
-   * @private
-   * @param {string} route
-   * @returns
-   * @memberof BreadcrumbService
    */
   private getRegexStoreItem({ route, ...props }) {
     // ensure leading slash is provided in the path
@@ -158,10 +137,6 @@ export class BreadcrumbService {
   /**
    * Update current breadcrumb definition and emit a new stream of breadcrumbs
    * Also update the store to reuse dynamic declarations
-   *
-   * @private
-   * @param {*} spec
-   * @memberof BreadcrumbService
    */
   private updateStore(spec) {
     const { breadcrumbAlias, route, routeRegex, ...prop } = spec;
@@ -183,24 +158,17 @@ export class BreadcrumbService {
 
     // if breadcrum is present in current breadcrumbs update it and emit new stream
     if (breadcrumbItemIndex > -1) {
-      this.currentBreadcrumbs[breadcrumbItemIndex] = { ...this.currentBreadcrumbs, ...prop };
-      this.breadcrumbs.next(this.currentBreadcrumbs);
+      this.currentBreadcrumbs[breadcrumbItemIndex] = { ...this.currentBreadcrumbs[breadcrumbItemIndex], ...prop };
+      this.breadcrumbs.next([...this.currentBreadcrumbs]);
     }
 
     // If the store already has this route definition update it, else add
     if (storeItemIndex > -1) {
-      this.store[storeItemIndex] = { ...this.store, ...prop };
+      this.store[storeItemIndex] = { ...this.store[storeItemIndex], ...prop };
     } else {
       this.store.push({ breadcrumbAlias, route, routeRegex, ...prop });
     }
   }
-
-  // private initCap(str: string) {
-  //   if (!str) {
-  //     return;
-  //   }
-  //   return str.slice(0, 1).toUpperCase() + str.slice(1);
-  // }
 
   private resolvePath(pathSegement: string, activatedRoute: ActivatedRoute) {
     if (pathSegement.startsWith(this.pathParamPrefix)) {
