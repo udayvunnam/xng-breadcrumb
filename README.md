@@ -139,15 +139,15 @@ breadcrumbService.skipForAlias('breadcrumbAlias', false);
 
 ## Available configurations
 
-| configuration                            | Usage                                                                |
-| ---------------------------------------- | -------------------------------------------------------------------- |
-| Declarative label - `breadcrumb`         | `data: {breadcrumb: 'breadcrumbLabel'}`                              |
-| Declarative alias - `breadcrumbAlias`    | `data: {breadcrumbAlias: 'aliasName'}`                               |
-| Declarative skip - `skipBreadcrumb`      | `data: {skipBreadcrumb: true | false }`                              |
-| Dynamic label by route path - `set()`    | `breadcrumbService.set('routePath', 'breadcrumbLabel')`              |
-| Dynamic skip by route path - `skip()`    | `breadcrumbService.skip('routePath', true| false(optional))`         |
-| Dynamic label by alias - `setForAlias()` | `breadcrumbService.setForAlias('aliasName', 'breadcrumbLabel')`      |
-| Dynamic skip by alias - `skipForAlias()` | `breadcrumbService.skipForAlias('aliasName', true| false(optional))` |
+| configuration                            | Usage                                                               |
+| ---------------------------------------- | ------------------------------------------------------------------- |
+| Declarative label - `breadcrumb`         | `data: {breadcrumb: 'breadcrumbLabel'}`                             |
+| Declarative alias - `breadcrumbAlias`    | `data: {breadcrumbAlias: 'aliasName'}`                              |
+| Declarative skip - `skipBreadcrumb`      | `data: {skipBreadcrumb: true/false }`                               |
+| Dynamic label by route path - `set()`    | `breadcrumbService.set('routePath', 'breadcrumbLabel')`             |
+| Dynamic skip by route path - `skip()`    | `breadcrumbService.skip('routePath', true/false(optional))`         |
+| Dynamic label by alias - `setForAlias()` | `breadcrumbService.setForAlias('aliasName', 'breadcrumbLabel')`     |
+| Dynamic skip by alias - `skipForAlias()` | `breadcrumbService.skipForAlias('aliasName', true/false(optional))` |
 
 ## Local Development
 
