@@ -174,3 +174,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 - The last `<li>` element represents current page, so it doesn't have to be clickable.
 - Use `aria-current=page` and `class=active` for last `<li>` element.
 - Separators between links have `aria-hidden=true`. This prevents the screen reader announcement of visual separators.
+
+## Motivation
+
+#####If you plan to create Angular library see this [guide on planning, setup and release of Angular library](https://medium.com/@udayvunnam/https-medium-com-udayvunnam-be-the-thanos-of-your-angular-library-320f93ddc9ec)
