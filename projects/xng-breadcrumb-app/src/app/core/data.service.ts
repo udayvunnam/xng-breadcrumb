@@ -11,6 +11,9 @@ const options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' 
   providedIn: 'root'
 })
 export class DataService {
+  mentorCount = 10;
+  menteeCount = 10;
+
   constructor(private http: HttpClient) {}
 
   getMentors(): Observable<Mentor[]> {
@@ -22,8 +25,10 @@ export class DataService {
   }
 
   addMentor(mentor: Mentor): Observable<Mentor> {
-    mentor.id = faker.random.uuid();
+    this.mentorCount = this.mentorCount + 1;
+    mentor.id = this.mentorCount;
     mentor.updatedTs = new Date();
+
     return this.http.post<Mentor>(`api/mentors/`, mentor, options);
   }
 
@@ -41,8 +46,10 @@ export class DataService {
   }
 
   addMentee(mentee: Mentee): Observable<Mentee> {
-    mentee.id = faker.random.uuid();
+    this.menteeCount = this.menteeCount + 1;
+    mentee.id = this.mentorCount;
     mentee.updatedTs = new Date();
+
     return this.http.post<Mentee>(`api/mentees/`, mentee, options);
   }
 
