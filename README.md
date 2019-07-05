@@ -177,4 +177,4 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Motivation
 
-_**If you plan to create Angular library see this [guide on planning, setup and release of Angular library](https://medium.com/@udayvunnam/https-medium-com-udayvunnam-be-the-thanos-of-your-angular-library-320f93ddc9ec)**_
+_**If you plan to create Angular library see this [guide on planning, setup and release of Angular library](https://dev.to/udayvunnam/be-the-thanos-of-your-angular-library-11oe)**_
