@@ -50,7 +50,7 @@ export class AppModule { }
 
 3. Add Breadcrumb selector, whereever you plan to show breadcrumbs
 
-```
+```html
 <xng-breadcrumb></xng-breadcrumb>
 ```
 
@@ -137,6 +137,18 @@ breadcrumbService.skip('mentor/:id/edit', false);
 breadcrumbService.skipForAlias('breadcrumbAlias', false);
 ```
 
+## Available configurations
+
+| configuration                            | Usage                                                               |
+| ---------------------------------------- | ------------------------------------------------------------------- |
+| Declarative label - `breadcrumb`         | `data: {breadcrumb: 'breadcrumbLabel'}`                             |
+| Declarative alias - `breadcrumbAlias`    | `data: {breadcrumbAlias: 'aliasName'}`                              |
+| Declarative skip - `skipBreadcrumb`      | `data: {skipBreadcrumb: true/false }`                               |
+| Dynamic label by route path - `set()`    | `breadcrumbService.set('routePath', 'breadcrumbLabel')`             |
+| Dynamic skip by route path - `skip()`    | `breadcrumbService.skip('routePath', true/false(optional))`         |
+| Dynamic label by alias - `setForAlias()` | `breadcrumbService.setForAlias('aliasName', 'breadcrumbLabel')`     |
+| Dynamic skip by alias - `skipForAlias()` | `breadcrumbService.skipForAlias('aliasName', true/false(optional))` |
+
 ## Local Development
 
 If you wish to contribute to this repository, below are the steps for local development.
@@ -162,3 +174,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 - The last `<li>` element represents current page, so it doesn't have to be clickable.
 - Use `aria-current=page` and `class=active` for last `<li>` element.
 - Separators between links have `aria-hidden=true`. This prevents the screen reader announcement of visual separators.
+
+## Motivation
+
+_**If you plan to create Angular library see this [guide on planning, setup and release of Angular library](https://medium.com/@udayvunnam/https-medium-com-udayvunnam-be-the-thanos-of-your-angular-library-320f93ddc9ec)**_

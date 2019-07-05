@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
      * Since we are generating random data using faker.js, id's won't same if app is refreshed
      * Navigate to homepage on browser refresh
      */
-    this.router.navigate(['']);
+    // this.router.navigate(['']);
   }
 
   updateTheme(theme) {

@@ -28,9 +28,9 @@ const getRandomArray = (sourceArray: Array<any>, targetArrayLength: number) => {
   return sourceArray.sort(() => 0.5 - Math.random()).slice(0, targetArrayLength);
 };
 
-const person = () => {
+const person = (index: number) => {
   return {
-    id: faker.random.uuid(),
+    id: index,
     name: `${faker.name.firstName()} ${faker.name.lastName()}`,
     country: faker.address.country(),
     active: faker.random.boolean(),
@@ -44,8 +44,8 @@ const person = () => {
 // faker.random.number(30)
 const persons = (count = 10) => {
   const res = [];
-  for (let i = 0; i < count; i++) {
-    res.push(person());
+  for (let i = 1; i <= count; i++) {
+    res.push(person(i));
   }
   return res;
 };
