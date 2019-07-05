@@ -1,5 +1,5 @@
 export class Mentor {
-  id: string;
+  id: number;
   name: string;
   country: string;
   description: string;

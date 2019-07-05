@@ -12,13 +12,7 @@ export class AppComponent implements OnInit {
 
   constructor(private router: Router) {}
 
-  ngOnInit() {
-    /*
-     * Since we are generating random data using faker.js, id's won't same if app is refreshed
-     * Navigate to homepage on browser refresh
-     */
-    // this.router.navigate(['']);
-  }
+  ngOnInit() {}
 
   updateTheme(theme) {
     this.darkMode = theme === 'dark';

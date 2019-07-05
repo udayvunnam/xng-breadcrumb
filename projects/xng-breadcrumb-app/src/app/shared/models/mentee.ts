@@ -1,5 +1,5 @@
 export class Mentee {
-  id: string;
+  id: number;
   name: string;
   country: string;
   description: string;
