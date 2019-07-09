@@ -19,12 +19,11 @@ Breadcrumbs are useful when the app has more than two levels of hierarchy. User 
 
 ## Features
 
-- **Quick start**: Show breadcrumbs just by adding `<breadcrumb></breadcrumb>` anywhere in the App.
-- **Default mapping**: Breadcrumb to route mapping by default, if no configuration is defined.
-- **Declarative mapping**: Specify breadcrumbs for each route while declaring App routes.
-- **Dynamic mapping**: Resolve a route label from server response using BreadcrumbService.
-- **Skip Breadcrumb**: Skip specific routes from displaying in breadcrumbs.
-- **Schematics**: Use schematics to add and update the library with `ng add xng-breadcrumb` and `ng update xng-breadcrumb`
+- ✅**Quick start with default mapping**: Just by adding `<breadcrumb></breadcrumb>` show breadcrumbs anywhere in the App. Breadcrumbs defualts to route segments even without any configuration.
+- ✅**Declarative mapping**: Ma breadcrumb label for each route, while declaring App routes.
+- ✅**Dynamic mapping**: Resolve a breadcrumb label dynamically, by using BreadcrumbService.
+- ✅**Skip Breadcrumb**: Skip specific routes from displaying in breadcrumbs, conditionally.
+- ✅**Schematics**: Use schematics to add and update the library with `ng add xng-breadcrumb` and `ng update xng-breadcrumb`
 
 ## Getting Started
 
