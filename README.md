@@ -13,7 +13,7 @@ Breadcrumbs are useful when the app has more than two levels of hierarchy. User 
 
 ## Demo
 
-[Live Demo](https://xng-breadcrumb.netlify.com) - _TechUnroll_ An imaginary mentor - mentee app, that demonstrates `xng-breadcrumb` usage.
+[Live Demo](https://xng-breadcrumb.netlify.com) - An Angular App showing `xng-breadcrumb` usage. It covers all available options.
 
 ![](https://user-images.githubusercontent.com/20707504/60205896-0211f080-9870-11e9-9b14-9a3382945c64.gif)
 
@@ -136,7 +136,7 @@ breadcrumbService.skip('mentor/:id/edit', false);
 breadcrumbService.skipForAlias('breadcrumbAlias', false);
 ```
 
-## Available configurations
+## API
 
 | configuration                            | Usage                                                               |
 | ---------------------------------------- | ------------------------------------------------------------------- |
@@ -147,6 +147,9 @@ breadcrumbService.skipForAlias('breadcrumbAlias', false);
 | Dynamic skip by route path - `skip()`    | `breadcrumbService.skip('routePath', true/false(optional))`         |
 | Dynamic label by alias - `setForAlias()` | `breadcrumbService.setForAlias('aliasName', 'breadcrumbLabel')`     |
 | Dynamic skip by alias - `skipForAlias()` | `breadcrumbService.skipForAlias('aliasName', true/false(optional))` |
+
+
+That's it! You are now ready to use breadcrumbs in your App! 🎉
 
 ## Local Development
 
