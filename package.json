@@ -1,6 +1,6 @@
 {
   "name": "xng-breadcrumb",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "license": "MIT",
   "description": "A declarative and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb",
   "author": {
