@@ -22,6 +22,13 @@ export class BreadcrumbService {
   private pathParamRegexIdentifier = '/:[^/]+';
   private pathParamRegexReplacer = '/[^/]+';
 
+  /**
+   * If true, breacrumb is formed even without any configuration
+   * Default mapping is same as route path
+   *
+   */
+  defaultMapping = true;
+
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {
     this.router.events
       .pipe(
@@ -92,8 +99,7 @@ export class BreadcrumbService {
 
     const route = `${url}/${pathSegement}`;
     const skip = this.getFromStore(breadcrumbAlias, route, 'skip') || skipBreadcrumb;
-    // label is same as path if a breadcrumb value is not provided.
-    const label = this.getFromStore(breadcrumbAlias, route, 'label') || breadcrumb || pathSegement;
+    const label = this.getFromStore(breadcrumbAlias, route, 'label') || breadcrumb || (this.defaultMapping ? pathSegement : '');
 
     return { label, route, skip, breadcrumbAlias };
   }
@@ -171,6 +177,7 @@ export class BreadcrumbService {
   }
 
   private resolvePath(pathSegement: string, activatedRoute: ActivatedRoute) {
+    // if the path segment is a route param, read the param value from url
     if (pathSegement.startsWith(this.pathParamPrefix)) {
       return activatedRoute.snapshot.params[pathSegement.slice(1)];
     }

@@ -3,7 +3,7 @@
 [![CircleCI](https://circleci.com/gh/udayvunnam/xng-breadcrumb.svg?shield&circle-token=:circle-token)](https://circleci.com/gh/udayvunnam/xng-breadcrumb) [![npm](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb) [![npm License](https://img.shields.io/npm/l/xng-breadcrumb.svg)](https://github.com/udayvunnam/xng-breadcrumb/blob/master/LICENSE)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9349b719-39ff-4c7a-bc5a-e8bec8e0f2e1/deploy-status)](https://app.netlify.com/sites/xng-breadcrumb/deploys)
 
-> A lightweight, configurable and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb
+> A lightweight, declarative and configurable breadcrumbs for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb
 
 ## About
 
@@ -13,18 +13,17 @@ Breadcrumbs are useful when the app has more than two levels of hierarchy. User 
 
 ## Demo
 
-[Live Demo](https://xng-breadcrumb.netlify.com) - _TechUnroll_ An imaginary mentor - mentee app, that demonstrates `xng-breadcrumb` usage.
+[Live Demo](https://xng-breadcrumb.netlify.com) - An Angular App showing `xng-breadcrumb` usage. It covers all available options.
 
 ![](https://user-images.githubusercontent.com/20707504/60205896-0211f080-9870-11e9-9b14-9a3382945c64.gif)
 
 ## Features
 
-- **Quick start**: Show breadcrumbs just by adding `<breadcrumb></breadcrumb>` anywhere in the App.
-- **Default mapping**: Breadcrumb to route mapping by default, if no configuration is defined.
-- **Declarative mapping**: Specify breadcrumbs for each route while declaring App routes.
-- **Dynamic mapping**: Resolve a route label from server response using BreadcrumbService.
-- **Skip Breadcrumb**: Skip specific routes from displaying in breadcrumbs.
-- **Schematics**: Use schematics to add and update the library with `ng add xng-breadcrumb` and `ng update xng-breadcrumb`
+- ✅ **Quick start with default mapping**: Just by adding `<breadcrumb></breadcrumb>` show breadcrumbs anywhere in the App. Breadcrumbs defualts to route segments even without any configuration.
+- ✅ **Declarative mapping**: Ma breadcrumb label for each route, while declaring App routes.
+- ✅ **Dynamic mapping**: Resolve a breadcrumb label dynamically, by using BreadcrumbService.
+- ✅ **Skip Breadcrumb**: Skip specific routes from displaying in breadcrumbs, conditionally.
+- ✅ **Schematics**: Use schematics to add and update the library with `ng add xng-breadcrumb` and `ng update xng-breadcrumb`
 
 ## Getting Started
 
@@ -137,7 +136,7 @@ breadcrumbService.skip('mentor/:id/edit', false);
 breadcrumbService.skipForAlias('breadcrumbAlias', false);
 ```
 
-## Available configurations
+## API
 
 | configuration                            | Usage                                                               |
 | ---------------------------------------- | ------------------------------------------------------------------- |
@@ -148,6 +147,8 @@ breadcrumbService.skipForAlias('breadcrumbAlias', false);
 | Dynamic skip by route path - `skip()`    | `breadcrumbService.skip('routePath', true/false(optional))`         |
 | Dynamic label by alias - `setForAlias()` | `breadcrumbService.setForAlias('aliasName', 'breadcrumbLabel')`     |
 | Dynamic skip by alias - `skipForAlias()` | `breadcrumbService.skipForAlias('aliasName', true/false(optional))` |
+
+That's it! You are now ready to use breadcrumbs in your App! 🎉
 
 ## Local Development
 
@@ -177,4 +178,4 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Motivation
 
-_**If you plan to create Angular library see this [guide on planning, setup and release of Angular library](https://medium.com/@udayvunnam/https-medium-com-udayvunnam-be-the-thanos-of-your-angular-library-320f93ddc9ec)**_
+_**If you plan to create Angular library see this [guide on planning, setup and release of Angular library](https://dev.to/udayvunnam/be-the-thanos-of-your-angular-library-11oe)**_

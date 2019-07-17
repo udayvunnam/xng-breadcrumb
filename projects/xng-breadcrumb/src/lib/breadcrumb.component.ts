@@ -14,7 +14,7 @@ export class BreadcrumbComponent implements OnInit {
    * Default mapping is same as route path with intial letter capitalized
    *
    */
-  @Input() defaultRouteMapping = true;
+  @Input() defaultMapping = true;
 
   /**
    * Seperator between breadcrumbs
@@ -26,6 +26,7 @@ export class BreadcrumbComponent implements OnInit {
   constructor(private breadcrumbService: BreadcrumbService) {}
 
   ngOnInit() {
+    this.breadcrumbService.defaultMapping = this.defaultMapping;
     this.breadcrumbs$ = this.breadcrumbService.breadcrumbs$;
   }
 }
