@@ -138,23 +138,23 @@ breadcrumbService.skipForAlias('breadcrumbAlias', false);
 
 ## Customization
 
-**Custom seperator**
-Breadcrumb by default uses '/' as the seperator. To use custom sepertor pass it as input to the component like below.
+**Custom separator**
+Breadcrumb by default uses '/' as the separator. To use custom sepertor pass it as input to the component like below.
 
 ```html
-<xng-breadcrumb seperator=">"></xng-breadcrumb>
+<xng-breadcrumb separator=">"></xng-breadcrumb>
 ```
 
 **Disabling default mapping of route to breadcrumb label**
 To avoid breadcrumb labels showing by default even for routes that don't have breadcrumb configuration set `defaultMapping=false`.
 
 ```html
-<xng-breadcrumb seperator=">"></xng-breadcrumb>
+<xng-breadcrumb separator=">"></xng-breadcrumb>
 ```
 
 **Styling breadcrumbs**
 The library uses the least specific selectors possible in order to make it easy to override them.
-you can override by changing the css for classes `.breadcrumb, .current-path, .seperator etc` with ::ng-deep
+you can override by changing the css for classes `.breadcrumb, .current-path, .separator etc` with ::ng-deep
 
 ```css
 ::ng-deep .breadcrumb {

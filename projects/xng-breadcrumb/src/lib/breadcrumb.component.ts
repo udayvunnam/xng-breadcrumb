@@ -17,11 +17,11 @@ export class BreadcrumbComponent implements OnInit {
   @Input() defaultMapping = true;
 
   /**
-   * Seperator between breadcrumbs
+   * separator between breadcrumbs
    * defaults to '/'. Other options could be '.' or '-' or '>' etc.
    *
    */
-  @Input() seperator = '/';
+  @Input() separator = '/';
 
   constructor(private breadcrumbService: BreadcrumbService) {}
 
