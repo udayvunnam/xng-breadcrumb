@@ -19,7 +19,7 @@ Breadcrumbs are useful when the app has more than two levels of hierarchy. User 
 
 ## Features
 
-- ✅ **Quick start with default mapping**: Just by adding `<breadcrumb></breadcrumb>` show breadcrumbs anywhere in the App. Breadcrumbs defualts to route segments even without any configuration.
+- ✅ **Quickstart with default mapping**: Just by adding `<breadcrumb></breadcrumb>` show breadcrumbs anywhere in the App. Breadcrumbs defaults to route segments even without any configuration.
 - ✅ **Declarative mapping**: Map breadcrumb label for each route, while declaring App routes.
 - ✅ **Dynamic mapping**: Resolve a breadcrumb label dynamically, by using BreadcrumbService.
 - ✅ **Skip Breadcrumb**: Skip specific routes from displaying in breadcrumbs, conditionally.
@@ -47,7 +47,7 @@ import {BreadcrumbModule} from 'xng-breadcrumb';
 export class AppModule { }
 ```
 
-3. Add Breadcrumb selector, whereever you plan to show breadcrumbs
+3. Add Breadcrumb selector, wherever you plan to show breadcrumbs
 
 ```html
 <xng-breadcrumb></xng-breadcrumb>
@@ -55,7 +55,7 @@ export class AppModule { }
 
 ### Alternative: Angular Devkit 6+
 
-If you are using Angular CLI 6+, just use `ng add` command to update your Angular project with all above steps.
+If you are using Angular CLI 6+, just use `ng add` command to update your Angular project with all the above steps.
 
 ```
 ng add xng-breadcrumb
@@ -82,7 +82,7 @@ ng add xng-breadcrumb
 
 ```javascript
 // Add a label dynamically using 'set()' from BreadcrumbService
-// It takes static path as well as path with params
+// It takes the static path as well as the path with params
 {
     path: 'mentor',
     component: MentorDetailsComponent,
@@ -139,7 +139,7 @@ breadcrumbService.skipForAlias('breadcrumbAlias', false);
 ## Customization
 
 **Custom separator**
-Breadcrumb by default uses '/' as the separator. To use custom sepertor pass it as input to the component like below.
+Breadcrumb by default uses '/' as the separator. To use custom seperator pass it as input to the component like below.
 
 ```html
 <xng-breadcrumb separator=">"></xng-breadcrumb>
@@ -154,7 +154,7 @@ To avoid breadcrumb labels showing by default even for routes that don't have br
 
 **Styling breadcrumbs**
 The library uses the least specific selectors possible in order to make it easy to override them.
-you can override by changing the css for classes `.breadcrumb, .current-path, .separator etc` with ::ng-deep
+you can override by changing the CSS for classes `.breadcrumb, .current-path, .separator etc` with ::ng-deep
 
 ```css
 ::ng-deep .breadcrumb {
@@ -183,7 +183,7 @@ If you wish to contribute to this repository, below are the steps for local deve
 
 - Clone the repository `git clone https://github.com/udayvunnam/xng-breadcrumb.git`
 - Run `npm install` to install the dependencies
-- Run `npm start` to build and watch both library and demo app. This opens app at `http://localhost:4200/` automatically.
+- Run `npm start` to build and watch both the library and demo app. This opens the app at `http://localhost:4200/` automatically.
 
 ## Build
 
