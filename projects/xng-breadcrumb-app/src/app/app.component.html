@@ -1,14 +1,14 @@
 <div class="app-container mat-app-background" [ngClass]="{ 'xng-dark-theme': darkMode }">
   <app-navbar (themeChanged)="updateTheme($event)"></app-navbar>
   <div fxLayout="column" fxLayout.gt-sm="row">
-    <section class="route-container">
+    <section fxFlex class="route-container">
       <xng-breadcrumb></xng-breadcrumb>
       <router-outlet></router-outlet>
     </section>
-    <div fxFlex.gt-sm="25%" class="tweets-container">
+    <section fxFlex.gt-sm="25%" class="tweets-container">
       <a class="twitter-timeline" href="https://twitter.com/asyncweb?ref_src=twsrc%5Etfw" data-chrome="transparent noborders"
         >Tweets by Uday Vunnam</a
       >
-    </div>
+    </section>
   </div>
 </div>
