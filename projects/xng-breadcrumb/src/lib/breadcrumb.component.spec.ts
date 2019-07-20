@@ -3,7 +3,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BreadcrumbComponent } from './breadcrumb.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { SkipBreadcrumbPipe } from './skip-breadcrumb.pipe';
 
 describe('BreadcrumbComponent', () => {
   let component: BreadcrumbComponent;
@@ -11,7 +10,7 @@ describe('BreadcrumbComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BreadcrumbComponent, SkipBreadcrumbPipe],
+      declarations: [BreadcrumbComponent],
       imports: [CommonModule, RouterModule.forRoot([])]
     }).compileComponents();
   }));
