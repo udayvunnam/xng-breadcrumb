@@ -7,13 +7,16 @@ export const appRoutes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    data: {
+      breadcrumb: 'Home'
+    }
   },
   {
     path: 'dashboard',
     loadChildren: './dashboard/dashboard.module#DashboardModule',
     data: {
-      breadcrumb: 'Home'
+      breadcrumb: 'MyDashboard'
     }
   },
   {

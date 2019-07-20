@@ -20,7 +20,7 @@ Breadcrumbs are useful when the app has more than two levels of hierarchy. User 
 ## Features
 
 - ✅ **Quick start with default mapping**: Just by adding `<breadcrumb></breadcrumb>` show breadcrumbs anywhere in the App. Breadcrumbs defualts to route segments even without any configuration.
-- ✅ **Declarative mapping**: Ma breadcrumb label for each route, while declaring App routes.
+- ✅ **Declarative mapping**: Map breadcrumb label for each route, while declaring App routes.
 - ✅ **Dynamic mapping**: Resolve a breadcrumb label dynamically, by using BreadcrumbService.
 - ✅ **Skip Breadcrumb**: Skip specific routes from displaying in breadcrumbs, conditionally.
 - ✅ **Schematics**: Use schematics to add and update the library with `ng add xng-breadcrumb` and `ng update xng-breadcrumb`
@@ -136,6 +136,33 @@ breadcrumbService.skip('mentor/:id/edit', false);
 breadcrumbService.skipForAlias('breadcrumbAlias', false);
 ```
 
+## Customization
+
+**Custom separator**
+Breadcrumb by default uses '/' as the separator. To use custom sepertor pass it as input to the component like below.
+
+```html
+<xng-breadcrumb separator=">"></xng-breadcrumb>
+```
+
+**Disabling default mapping of route to breadcrumb label**
+To avoid breadcrumb labels showing by default even for routes that don't have breadcrumb configuration set `defaultMapping=false`.
+
+```html
+<xng-breadcrumb separator=">"></xng-breadcrumb>
+```
+
+**Styling breadcrumbs**
+The library uses the least specific selectors possible in order to make it easy to override them.
+you can override by changing the css for classes `.breadcrumb, .current-path, .separator etc` with ::ng-deep
+
+```css
+::ng-deep .breadcrumb {
+  background-color: bisque;
+  border: 1px solid;
+}
+```
+
 ## API
 
 | configuration                            | Usage                                                               |
@@ -176,6 +203,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 - Use `aria-current=page` and `class=active` for last `<li>` element.
 - Separators between links have `aria-hidden=true`. This prevents the screen reader announcement of visual separators.
 
-## Motivation
+## Motivation 🎉🎉🎉
 
-_**If you plan to create Angular library see this [guide on planning, setup and release of Angular library](https://dev.to/udayvunnam/be-the-thanos-of-your-angular-library-11oe)**_
+_**You can create your own library with complete automated setup for build, tests and release. You can check this guide of best practices and implementation details in this [blog post](https://dev.to/udayvunnam/be-the-thanos-of-your-angular-library-11oe)**_

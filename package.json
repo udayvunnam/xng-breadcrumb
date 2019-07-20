@@ -1,6 +1,6 @@
 {
   "name": "xng-breadcrumb",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "license": "MIT",
   "description": "A declarative and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb",
   "author": {
@@ -23,16 +23,16 @@
   ],
   "scripts": {
     "watch:lib": "ng build xng-breadcrumb --watch",
-    "watch:app": "ng serve xng-breadcrumb-app --open=true",
+    "watch:app": "ng serve demo --open=true",
     "start": "npm-run-all --parallel copy:readme watch:* ",
     "build:lib": "ng build xng-breadcrumb",
-    "build:app": "ng build xng-breadcrumb-app --prod  --progress=false",
+    "build:app": "ng build demo --prod  --progress=false",
     "build": "npm-run-all copy:* build:* link:lib",
     "copy:readme": "cp README.md projects/xng-breadcrumb/README.md",
     "copy:version": "replace '@VERSION' $npm_package_version ./projects/xng-breadcrumb/package.json",
     "link:lib": " npm link ./dist/xng-breadcrumb && npm link xng-breadcrumb",
     "release:lib": "npm publish ./dist/xng-breadcrumb",
-    "deploy:app": "netlify deploy --prod --dir=dist/xng-breadcrumb-app",
+    "deploy:app": "netlify deploy --prod --dir=dist/demo",
     "test": "ng test --watch=false --progress=false",
     "lint": "ng lint",
     "e2e": "ng e2e"

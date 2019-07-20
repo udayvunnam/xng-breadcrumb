@@ -1,7 +1,7 @@
 <div class="app-container mat-app-background" [ngClass]="{ 'xng-dark-theme': darkMode }">
   <app-navbar (themeChanged)="updateTheme($event)"></app-navbar>
   <section class="route-container">
-    <xng-breadcrumb separator="/" [defaultMapping]="false"></xng-breadcrumb>
+    <xng-breadcrumb></xng-breadcrumb>
     <router-outlet></router-outlet>
   </section>
 </div>

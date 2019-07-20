@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <ng-container *ngFor="let breadcrumb of breadcrumbs$ | async | skipBreadcrumb; last as isLast">
+    <ng-container *ngFor="let breadcrumb of breadcrumbs$ | async; last as isLast">
       <li class="breadcrumb-item" [ngClass]="{ active: isLast }" [attr.aria-current]="isLast ? 'page' : null" *ngIf="!breadcrumb.skip">
         <a *ngIf="!isLast; else lastRoute" [routerLink]="[breadcrumb.route]" routerLinkActive="active">
           {{ breadcrumb.label }}
