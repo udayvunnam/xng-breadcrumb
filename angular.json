@@ -95,32 +95,6 @@
         }
       }
     },
-    "xng-breadcrumb-app-e2e": {
-      "root": "projects/xng-breadcrumb-app-e2e/",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/xng-breadcrumb-app-e2e/protractor.conf.js",
-            "devServerTarget": "xng-breadcrumb-app:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "xng-breadcrumb-app:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "projects/xng-breadcrumb-app-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
-    },
     "xng-breadcrumb": {
       "root": "projects/xng-breadcrumb",
       "sourceRoot": "projects/xng-breadcrumb/src",
