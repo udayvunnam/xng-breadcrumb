@@ -20,7 +20,7 @@ Breadcrumbs are useful when the app has more than two levels of hierarchy. User 
 ## Features
 
 - ✅ **Quickstart with default mapping**: Just by adding `<breadcrumb></breadcrumb>` show breadcrumbs anywhere in the App. Breadcrumbs defaults to route segments even without any configuration.
-- ✅ **Declarative mapping**: Map breadcrumb label for each route, while declaring App routes.
+- ✅ **Declarative mapping**: Map breadcrumb label for each route, while declaring App routes. Supports every variety of Angular route declaration.
 - ✅ **Dynamic mapping**: Resolve a breadcrumb label dynamically, by using BreadcrumbService.
 - ✅ **Skip Breadcrumb**: Skip specific routes from displaying in breadcrumbs, conditionally.
 - ✅ **Schematics**: Use schematics to add and update the library with `ng add xng-breadcrumb` and `ng update xng-breadcrumb`
@@ -134,6 +134,41 @@ breadcrumbService.skipForAlias('breadcrumbAlias');
 // An optional second parameter can be passed as false to make a hidden breadcrumb visible
 breadcrumbService.skip('mentor/:id/edit', false);
 breadcrumbService.skipForAlias('breadcrumbAlias', false);
+```
+
+**Declaration with children and parent relationship**
+breadcrumb data can be decalred either on parent or on child with empty path. The latter takes precedence.
+
+- With component children
+
+```javascript
+// declaring breadcrumb data on component parent
+  {
+    path: ':userId',
+    data: { breadcrumb: 'My User declared on parent' },
+    children: [
+      { path: '', component: ShowUserComponent }
+    ]
+  }
+// declaring breadcrumb data on component child with empty
+  {
+    path: ':userId',
+    children: [
+      { path: '', component: ShowUserComponent, data: { breadcrumb: 'My User declared on empty child' }
+    ]
+  }
+```
+
+- With Module children
+
+```javascript
+// declaring breadcrumb data on module
+  { path: 'home', loadChildren: './home/home.module#HomeModule', data: { breadcrumb: 'Dashboard' } }
+
+// declaring breadcrumb data on module child with empty
+  { path: 'home', loadChildren: './home/home.module#HomeModule' },
+  { path: '', pathMatch: 'full', component: HomeComponent, data: { breadcrumb: 'Dashboard' } }
+
 ```
 
 ## Customization
