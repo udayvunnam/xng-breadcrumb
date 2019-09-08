@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Breadcrumb } from './breadcrumb';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, distinctUntilChanged } from 'rxjs/operators';
 
@@ -31,7 +31,7 @@ export class BreadcrumbService {
   /**
    * Breadcrumbs observable to be subscibed by component
    */
-  private breadcrumbs = new Subject<Breadcrumb[]>();
+  private breadcrumbs = new BehaviorSubject<Breadcrumb[]>([]);
   public breadcrumbs$ = this.breadcrumbs.asObservable();
 
   private pathParamPrefix = ':';
