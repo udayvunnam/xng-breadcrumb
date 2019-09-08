@@ -131,8 +131,7 @@ export class BreadcrumbService {
   }
 
   private prepareBreadcrumbItem(activatedRoute: ActivatedRoute, url: string): Breadcrumb {
-    const { path, data = {} } = activatedRoute.routeConfig;
-    const { breadcrumb, breadcrumbAlias, skipBreadcrumb = false } = data;
+    const { path, breadcrumb, breadcrumbAlias, skipBreadcrumb } = this.parseRouteConfig(activatedRoute.routeConfig);
 
     const pathSegement = this.resolvePathSegment(path, activatedRoute);
     const route = `${url}${pathSegement}`;
@@ -140,6 +139,49 @@ export class BreadcrumbService {
     const skip = this.getFromStore(breadcrumbAlias, route, 'skip') || skipBreadcrumb;
 
     return { label, route, skip, alias: breadcrumbAlias };
+  }
+
+  /**
+   * breadcrumbs can be declared either on module or its children with empty path
+   * When both are defined child empty path takes precedence
+   * { path: 'home', loadChildren: './home/home.module#HomeModule' , data: {breadcrumb: "Defined On Module"}}
+   *                             ----OR----
+   * children: [
+      { path: '', component: ShowUserComponent, data: {breadcrumb: "Defined On Child" }
+    ]
+   */
+  private parseRouteConfig(routeConfig) {
+    const { path, data = {} } = routeConfig;
+    let { breadcrumb, breadcrumbAlias, skipBreadcrumb = false } = data;
+
+    // To handle a module with empty child route
+    if (routeConfig.loadChildren) {
+      const baseChild = routeConfig._loadedConfig.routes.find(route => route.path === '');
+      const baseChildData = baseChild && baseChild.data;
+      if (baseChildData) {
+        breadcrumb = baseChildData.breadcrumb || breadcrumb;
+        breadcrumbAlias = baseChildData.breadcrumbAlias || breadcrumbAlias;
+        skipBreadcrumb = baseChildData.skipBreadcrumb || skipBreadcrumb;
+      }
+    }
+
+    // To handle a component with empty child route
+    if (routeConfig.children) {
+      const baseChild = routeConfig.children.find(route => route.path === '');
+      const baseChildData = baseChild && baseChild.data;
+      if (baseChildData) {
+        breadcrumb = baseChildData.breadcrumb || breadcrumb;
+        breadcrumbAlias = baseChildData.breadcrumbAlias || breadcrumbAlias;
+        skipBreadcrumb = baseChildData.skipBreadcrumb || skipBreadcrumb;
+      }
+    }
+
+    return {
+      breadcrumb,
+      breadcrumbAlias,
+      skipBreadcrumb,
+      path
+    };
   }
 
   private getFromStore(breadcrumbAlias: string, route: string, prop: string) {
@@ -200,7 +242,7 @@ export class BreadcrumbService {
       storeItemIndex = this.store.findIndex(item => routeRegex === item.routeRegex);
     }
 
-    // if breadcrum is present in current breadcrumbs update it and emit new stream
+    // if breadcrumb is present in current breadcrumbs update it and emit new stream
     if (breadcrumbItemIndex > -1) {
       this.currentBreadcrumbs[breadcrumbItemIndex] = { ...this.currentBreadcrumbs[breadcrumbItemIndex], ...prop };
       const breacrumbsToShow = this.currentBreadcrumbs.filter(breadcrumb => !breadcrumb.skip && breadcrumb.label);

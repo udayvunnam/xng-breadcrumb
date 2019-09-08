@@ -3,6 +3,24 @@
   "version": "2.0.0",
   "license": "MIT",
   "description": "A declarative and dynamic breadcrumbs for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb",
+  "scripts": {
+    "watch:lib": "ng build xng-breadcrumb --watch",
+    "watch:app": "ng serve xng-breadcrumb-app --open=true",
+    "watch:demo": "ng serve demo --open=true",
+    "start": "npm-run-all -p copy:readme watch:* ",
+    "build:lib": "ng build xng-breadcrumb",
+    "build:app": "ng build xng-breadcrumb-app --prod  --progress=false",
+    "build": "npm-run-all copy:* build:* link:lib",
+    "copy:readme": "cp README.md projects/xng-breadcrumb/README.md",
+    "copy:version": "replace '@VERSION' $npm_package_version ./projects/xng-breadcrumb/package.json",
+    "link:lib": " npm link ./dist/xng-breadcrumb && npm link xng-breadcrumb",
+    "release:lib": "npm publish ./dist/xng-breadcrumb",
+    "deploy:app": "netlify deploy --prod --dir=dist/xng-breadcrumb-app",
+    "test": "ng test --watch=false --progress=false",
+    "demo": "npm-run-all -p watch:lib watch:demo",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
   "author": {
     "name": "Uday Vunnam",
     "email": "uday4vunnam@gmail.com"
@@ -21,22 +39,6 @@
     "breadcrumb",
     "ngx"
   ],
-  "scripts": {
-    "watch:lib": "ng build xng-breadcrumb --watch",
-    "watch:app": "ng serve xng-breadcrumb-app --open=true",
-    "start": "npm-run-all --parallel copy:readme watch:* ",
-    "build:lib": "ng build xng-breadcrumb",
-    "build:app": "ng build xng-breadcrumb-app --prod  --progress=false",
-    "build": "npm-run-all copy:* build:* link:lib",
-    "copy:readme": "cp README.md projects/xng-breadcrumb/README.md",
-    "copy:version": "replace '@VERSION' $npm_package_version ./projects/xng-breadcrumb/package.json",
-    "link:lib": " npm link ./dist/xng-breadcrumb && npm link xng-breadcrumb",
-    "release:lib": "npm publish ./dist/xng-breadcrumb",
-    "deploy:app": "netlify deploy --prod --dir=dist/xng-breadcrumb-app",
-    "test": "ng test --watch=false --progress=false",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
-  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~7.2.0",
