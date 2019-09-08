@@ -137,6 +137,7 @@ breadcrumbService.skipForAlias('breadcrumbAlias', false);
 ```
 
 **Declaration with children and parent relationship**
+
 breadcrumb data can be decalred either on parent or on child with empty path. The latter takes precedence.
 
 - With component children
