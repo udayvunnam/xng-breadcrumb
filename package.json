@@ -6,7 +6,6 @@
   "scripts": {
     "watch:lib": "ng build xng-breadcrumb --watch",
     "watch:app": "ng serve xng-breadcrumb-app --open=true",
-    "watch:demo": "ng serve demo --open=true",
     "start": "npm-run-all -p copy:readme watch:lib watch:app",
     "build:lib": "ng build xng-breadcrumb",
     "build:app": "ng build xng-breadcrumb-app --prod  --progress=false",
@@ -17,7 +16,6 @@
     "release:lib": "npm publish ./dist/xng-breadcrumb",
     "deploy:app": "netlify deploy --prod --dir=dist/xng-breadcrumb-app",
     "test": "ng test xng-breadcrumb-app --watch=false --progress=false",
-    "demo": "npm-run-all -p watch:lib watch:demo",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
