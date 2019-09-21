@@ -19,42 +19,6 @@ All notable changes to this project will be documented in this file. See [standa
 ### Bug Fixes
 
 - deployment ([b560aad](https://github.com/udayvunnam/xng-breadcrumb/commit/b560aad))
-- deployment ([dc2d483](https://github.com/udayvunnam/xng-breadcrumb/commit/dc2d483))
-- deployment ([5ac09be](https://github.com/udayvunnam/xng-breadcrumb/commit/5ac09be))
-- deployment ([9604424](https://github.com/udayvunnam/xng-breadcrumb/commit/9604424))
-- deployment ([4e01dab](https://github.com/udayvunnam/xng-breadcrumb/commit/4e01dab))
-- deployment ([5ea2bc6](https://github.com/udayvunnam/xng-breadcrumb/commit/5ea2bc6))
-
-### [3.1.11](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.1.10...v3.1.11) (2019-09-21)
-
-### Bug Fixes
-
-- deployment ([5ac09be](https://github.com/udayvunnam/xng-breadcrumb/commit/5ac09be))
-- deployment ([9604424](https://github.com/udayvunnam/xng-breadcrumb/commit/9604424))
-
-### [3.1.10](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.1.9...v3.1.10) (2019-09-21)
-
-### Bug Fixes
-
-- deployment ([4e01dab](https://github.com/udayvunnam/xng-breadcrumb/commit/4e01dab))
-- deployment ([5ea2bc6](https://github.com/udayvunnam/xng-breadcrumb/commit/5ea2bc6))
-
-### [3.1.9](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.1.8...v3.1.9) (2019-09-21)
-
-### [3.1.8](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.1.7...v3.1.8) (2019-09-21)
-
-### Bug Fixes
-
-- deployment ([179f623](https://github.com/udayvunnam/xng-breadcrumb/commit/179f623))
-- deployment ([4bacc6a](https://github.com/udayvunnam/xng-breadcrumb/commit/4bacc6a))
-- deployment ([d8c1e8f](https://github.com/udayvunnam/xng-breadcrumb/commit/d8c1e8f))
-- deployment ([3056b11](https://github.com/udayvunnam/xng-breadcrumb/commit/3056b11))
-
-### [3.1.7](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.1.6...v3.1.7) (2019-09-21)
-
-### Bug Fixes
-
-- scripts ([b19efad](https://github.com/udayvunnam/xng-breadcrumb/commit/b19efad))
 
 ### [3.1.6](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.1.5...v3.1.6) (2019-09-21)
 
