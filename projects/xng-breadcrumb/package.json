@@ -1,6 +1,6 @@
 {
   "name": "xng-breadcrumb",
-  "version": "@VERSION",
+  "version": "3.1.1",
   "license": "MIT",
   "description": "A declarative and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb",
   "author": {
@@ -24,6 +24,14 @@
     "breadcrumb",
     "ngx"
   ],
+  "scripts": {
+    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:schemas": "cp --parents schematics/*/schema.json ../../dist/xng-breadcrumb/",
+    "copy:files": "cp --parents -p schematics/*/files/** ../../dist/xng-breadcrumb/",
+    "copy:collection": "cp schematics/collection.json ../../dist/xng-breadcrumb/schematics/collection.json",
+    "postbuild": "npm run copy:schemas && npm run copy:files && npm run copy:collection"
+  },
+  "schematics": "./schematics/collection.json",
   "peerDependencies": {
     "@angular/core": ">=6.0.0 || <=9.0.0",
     "@angular/router": ">=6.0.0 || <=9.0.0"
