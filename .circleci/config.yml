@@ -81,15 +81,6 @@ jobs:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
-          name: Authenticate with github
-          command: git config --global user.email "uday4vunnam@gmail.com" && git config --global user.name "Uday Vunnam"
-      - run:
-          name: Authorize github
-          command: git remote rm origin && git remote add origin https://udayvunnam:$GH_TOKEN@github.com/udayvunnam/xng-breadcrumb.git
-      - run:
-          name: semantic version
-          command: npm run version
-      - run:
           name: publish library
           command: npm run publish:lib
 
