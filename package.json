@@ -13,10 +13,11 @@
     "link:lib": " npm link ./dist/xng-breadcrumb && npm link xng-breadcrumb",
     "test": "ng test xng-breadcrumb-app --watch=false --progress=false",
     "version": "standard-version",
-    "postversion": "npm-run-all copy:version commit:version",
+    "postversion": "npm-run-all copy:version commit:version push:tags",
     "copy:readme": "cp README.md projects/xng-breadcrumb/README.md",
     "copy:version": "cd projects/xng-breadcrumb && npm version $npm_package_version",
     "commit:version": "git add . && git commit -m 'build: version uptick' && git push origin master",
+    "push:tags": "git push origin --tags origin master",
     "publish:lib": "npm run build:lib && npm publish ./dist/xng-breadcrumb",
     "deploy:app": "netlify deploy --prod --dir=dist/xng-breadcrumb-app",
     "lint": "ng lint"
