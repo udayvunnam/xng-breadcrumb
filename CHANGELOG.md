@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.1.12...v3.2.0) (2019-09-21)
+
+### Features
+
+- making the base optional ([c8171a7](https://github.com/udayvunnam/xng-breadcrumb/commit/c8171a7))
+
 ### [3.1.12](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.1.9...v3.1.12) (2019-09-21)
 
 ### Bug Fixes
