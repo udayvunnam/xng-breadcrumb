@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.1.0...v3.1.1) (2019-09-21)
+
+### Bug Fixes
+
+- npm audit fix ([ca532df](https://github.com/udayvunnam/xng-breadcrumb/commit/ca532df))
+
+### Features
+
+- additional demo apps to be under demo branch ([2829b44](https://github.com/udayvunnam/xng-breadcrumb/commit/2829b44))
+
 <a name="2.0.0"></a>
 
 # [2.0.0](https://github.com/udayvunnam/xng-breadcrumb/releases/tag/v2.0.0)
