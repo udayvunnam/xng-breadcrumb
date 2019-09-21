@@ -81,8 +81,11 @@ jobs:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
-          name: npm package release
-          command: npm run release:lib
+          name: semantic version
+          command: npm run version
+      - run:
+          name: publish library
+          command: npm run publish:lib
 
   deploy:
     <<: *job_defaults
