@@ -81,6 +81,9 @@ jobs:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
+          name: Authenticate with github
+          command: git config --global user.name $GH_TOKEN
+      - run:
           name: semantic version
           command: npm run version
       - run:
