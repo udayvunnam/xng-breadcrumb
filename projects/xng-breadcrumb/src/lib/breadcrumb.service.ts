@@ -14,6 +14,7 @@ export class BreadcrumbService {
   private baseBreadcrumb: Breadcrumb;
 
   private baseHref = '/';
+  private baseHrefDefault = '/';
 
   /**
    * Store holds all dynamic breadcrumb updates, so that they can be resued across App routes
