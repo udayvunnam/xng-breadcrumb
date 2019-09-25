@@ -1,6 +1,6 @@
 {
   "name": "xng-breadcrumb-workspace",
-  "version": "3.5.0",
+  "version": "3.4.1",
   "license": "MIT",
   "description": "A declarative and dynamic breadcrumbs for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb",
   "scripts": {
@@ -14,7 +14,7 @@
     "link:lib": " npm link ./dist/xng-breadcrumb && npm link xng-breadcrumb",
     "test": "ng test xng-breadcrumb-app --watch=false --progress=false",
     "version": "git pull origin master && standard-version",
-    "postversion": "npm-run-all copy:* ",
+    "postversion": "npm-run-all copy:* commit:version push:tags",
     "copy:readme": "cp README.md projects/xng-breadcrumb/README.md",
     "copy:version": "cd projects/xng-breadcrumb && npm version $npm_package_version && cd ../..",
     "commit:version": "git add .",
