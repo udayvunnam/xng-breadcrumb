@@ -2,13 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### Bug Fixes
-
-- npm audit fix ([ca532df](https://github.com/udayvunnam/xng-breadcrumb/commit/ca532df))
+## [3.5.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.4.0...v3.5.0) (2019-09-25)
 
 ### Features
 
-- additional demo apps to be under demo branch ([2829b44](https://github.com/udayvunnam/xng-breadcrumb/commit/2829b44))
+- using imports from lib instead of relative imports ([dee0ad4](https://github.com/udayvunnam/xng-breadcrumb/commit/dee0ad4))
 
 <a name="2.0.0"></a>
 
