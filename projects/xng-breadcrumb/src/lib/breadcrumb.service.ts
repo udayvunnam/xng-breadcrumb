@@ -4,9 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, distinctUntilChanged } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class BreadcrumbService {
   /**
    * breadcrumb for base path. Usually This can be set as 'Home'
@@ -14,8 +12,6 @@ export class BreadcrumbService {
   private baseBreadcrumb: Breadcrumb;
 
   private baseHref = '/';
-  private baseHrefDefault = '/';
-
   /**
    * Store holds all dynamic breadcrumb updates, so that they can be resued across App routes
    * When breadcrumb is set in between any intermediate components, we use store data to power breadcrumbs

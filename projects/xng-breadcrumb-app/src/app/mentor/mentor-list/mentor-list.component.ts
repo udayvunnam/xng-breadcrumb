@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
 import { mentorList } from '../../shared/constants/code';
-import { BreadcrumbService } from 'projects/xng-breadcrumb/src/public-api';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-mentor-list',

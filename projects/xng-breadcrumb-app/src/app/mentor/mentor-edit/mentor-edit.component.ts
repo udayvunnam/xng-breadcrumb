@@ -10,7 +10,7 @@ import { allLanguages } from '../../core/in-memory-data.service';
 import { mentorEdit } from '../../shared/constants/code';
 import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
-import { BreadcrumbService } from 'projects/xng-breadcrumb/src/public-api';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-mentor-edit',
