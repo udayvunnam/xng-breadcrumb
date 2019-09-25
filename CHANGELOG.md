@@ -2,19 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [3.4.4](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.4.3...v3.4.4) (2019-09-25)
-
-### [3.4.3](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.4.2...v3.4.3) (2019-09-25)
-
-### [3.4.2](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.4.1...v3.4.2) (2019-09-25)
-
-### [3.4.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.5.0...v3.4.1) (2019-09-25)
-
-## [3.5.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.4.0...v3.5.0) (2019-09-25)
-
-### Features
-
-- using imports from lib instead of relative imports ([dee0ad4](https://github.com/udayvunnam/xng-breadcrumb/commit/dee0ad4))
+### [3.5.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.4.4...v3.5.1) (2019-09-25)
 
 <a name="2.0.0"></a>
 
