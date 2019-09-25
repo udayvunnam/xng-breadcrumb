@@ -11,10 +11,10 @@ import { BreadcrumbService } from './breadcrumb.service';
   exports: [BreadcrumbComponent]
 })
 export class BreadcrumbModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: BreadcrumbModule,
-      providers: [BreadcrumbService]
-    };
-  }
+  // static forRoot(): ModuleWithProviders {
+  //   return {
+  //     ngModule: BreadcrumbModule,
+  //     providers: [BreadcrumbService]
+  //   };
+  // }
 }

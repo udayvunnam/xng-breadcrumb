@@ -4,7 +4,9 @@ import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, distinctUntilChanged } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BreadcrumbService {
   /**
    * breadcrumb for base path. Usually This can be set as 'Home'
