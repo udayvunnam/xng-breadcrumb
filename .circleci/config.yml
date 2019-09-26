@@ -82,7 +82,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
           name: publish library
-          command: sudo npm run publish:lib
+          command: npm run publish:lib
 
   deploy:
     <<: *job_defaults
