@@ -1,31 +1,31 @@
-# XngBreadcrumb
+# xng-breadcrumb
 
 [![CircleCI](https://circleci.com/gh/udayvunnam/xng-breadcrumb.svg?shield&circle-token=:circle-token)](https://circleci.com/gh/udayvunnam/xng-breadcrumb) [![npm](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb) [![npm License](https://img.shields.io/npm/l/xng-breadcrumb.svg)](https://github.com/udayvunnam/xng-breadcrumb/blob/master/LICENSE)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9349b719-39ff-4c7a-bc5a-e8bec8e0f2e1/deploy-status)](https://app.netlify.com/sites/xng-breadcrumb/deploys)
 
-> A lightweight, declarative and configurable breadcrumbs for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb
+> A lightweight, declarative and configurable breadcrumbs solution for Angular 6 and beyond. https://www.npmjs.com/package/xng-breadcrumb
 
 ## About
 
-In applications with deep navigation hierarchy, it is essential to have breadcrumb navigation. Breadcrumbs provides links back to each previous page that the user navigated through and shows the current location in an application.
+In applications with deep navigation hierarchy, it is essential to have breadcrumb navigation. Breadcrumbs provides links back to each of the previous pages that the user navigated through and shows the current location in an application.
 
-Breadcrumbs are useful when the app has more than two levels of hierarchy. User can easily navigate back to any level.
+Breadcrumbs are useful when the App has more than two levels of hierarchy. User can easily navigate back to any level.
 
 ## Demo
 
-[Live Demo](https://xng-breadcrumb.netlify.com) - An Angular App showing `xng-breadcrumb` usage. It covers all available options.
+[Live Demo](https://xng-breadcrumb.netlify.com) - A demo app showcasing `xng-breadcrumb` library usage in Angular applications. Navigate through App to see the breadcrumb behaviour. Every route has a mapping code block that shows how breadcrumb is configured.
 
 ![](https://user-images.githubusercontent.com/20707504/65815404-9e031d80-e20c-11e9-9052-0a195da6c244.gif)
 
 ## Features
 
-- ✅ **Quickstart with default mapping**: Just by adding `<breadcrumb></breadcrumb>` show breadcrumbs anywhere in the App. Breadcrumbs defaults to route segments even without any configuration.
-- ✅ **Declarative mapping**: Map breadcrumb label for each route, while declaring App routes. Supports every variety of Angular route declaration.
-- ✅ **Dynamic mapping**: Resolve a breadcrumb label dynamically, by using BreadcrumbService.
+- ✅ **Quickstart with default mapping**: Just add `<xng-breadcrumb></xng-breadcrumb>` anywhere in the App. Breadcrumbs defaults to route segments even without any configuration.
+- ✅ **Declarative mapping**: Each route can have an associated breadcrumb. You can define this while declaring App routes. Supports every variety of Angular route declaration.
+- ✅ **Dynamic mapping**: Change breadcrumbs dynamically using `BreadcrumbService`. You can either use _route path_ or _breadcrumbAlias_ to access a path.
 - ✅ **Skip Breadcrumb**: Skip specific routes from displaying in breadcrumbs, conditionally.
 - ✅ **Schematics**: Use schematics to add and update the library with `ng add xng-breadcrumb` and `ng update xng-breadcrumb`
 
-### Compatiblity table
+### Angular Version Compatiblity
 
 | xng-breadcrumb | Angular  |
 | -------------- | -------- |
@@ -66,22 +66,22 @@ export class AppModule { }
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 constructor(private breadcrumbService: BreadcrumbService) {}
-// Code examples with BreadcrumbService are given below under Usage section
+// Code examples with BreadcrumbService are given below, under Usage section
 ```
 
 Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterModule` in App imports, if you haven't already.
 
-### Alternative: Angular Devkit 6+
+<!-- ### Alternative: Angular Devkit 6+
 
 If you are using Angular CLI 6+, just use `ng add` command to update your Angular project with all the above steps.
 
 ```
 ng add xng-breadcrumb
-```
+``` -->
 
 ## Usage
 
-**Adding breadcrumb label while declaring routes**
+**Define breadcrumb while declaring routes**
 
 ```javascript
 {
@@ -96,11 +96,11 @@ ng add xng-breadcrumb
 }
 ```
 
-**Setting breadcrumb label dynamically by route path**
+**Define breadcrumb dynamically, by routepath**
 
 ```javascript
-// Add a label dynamically using 'set()' from BreadcrumbService
-// It takes the static path as well as the path with params
+// Set a breadcrumb dynamically using `BreadcrumbService.set(routepath)`
+// routepath can contain path and params similary how you defined in routes
 {
     path: 'mentor',
     component: MentorDetailsComponent,
@@ -112,14 +112,15 @@ ng add xng-breadcrumb
     ]
 
 }
-breadcrumbService.set('mentor', 'Enabler'); // static path
-breadcrumbService.set('mentor/:id', 'Uday Vunnam'); // path with params
+breadcrumbService.set('mentor', 'Enabler'); // path for MentorDetailsComponent
+breadcrumbService.set('mentor/:id', 'Uday Vunnam'); // path for MentorEditComponent contains param (:id)
 ```
 
-**Setting breadcrumb label dynamically by breadcrumbAlias**
+**Define breadcrumb dynamically, by breadcrumbAlias**
 
 ```javascript
-// Add a label dynamically using 'setForAlias()' from BreadcrumbService
+// declare `breadcrumbAlias` while defining routes, in order to access it later.
+// Set a breadcrumb dynamically using `BreadcrumbService.setForAlias(breadcrumbAlias)`
 {
     path: 'mentor',
     component: MentorDetailsComponent,
@@ -137,26 +138,27 @@ breadcrumbService.set('mentor/:id', 'Uday Vunnam'); // path with params
 breadcrumbService.setForAlias('mentorName', 'Uday Vunnam');
 ```
 
-**Hiding a specific route from displaying in breadcrumbs**
+**Hide a specific route from displaying in breadcrumbs**
 
 ```javascript
-// Hide a route from displaying in Breadcrumbs using skipBreadcrumb or hide() or hideForAlias()
+// Hide a route from displaying in Breadcrumbs using `skipBreadcrumb` - declarative
 {
     path: 'edit',
     component: MentorEditComponent,
     data: { skipBreadcrumb: true }
 }
+// Hide a route from displaying in Breadcrumbs using breadcrumbService.hide() or breadcrumbService.hideForAlias() - dynamic
 breadcrumbService.skip('mentor/:id/edit');
 breadcrumbService.skipForAlias('breadcrumbAlias');
 
-// An optional second parameter can be passed as false to make a hidden breadcrumb visible
+// Pass the second parameter as `false` to make a hidden breadcrumb visible.
 breadcrumbService.skip('mentor/:id/edit', false);
 breadcrumbService.skipForAlias('breadcrumbAlias', false);
 ```
 
-**Declaration with children and parent relationship**
+**Define either on Children or Parent**
 
-You can define breadcrumb either on _parent_ or _child with empty path_. If both are defined, the latter takes the precedence.
+You can define breadcrumbs either on _parent_ or _child with empty path_. If both are defined, the latter takes the precedence.
 
 - With Component - Children
 
@@ -201,20 +203,24 @@ Breadcrumb by default uses '/' as the separator. To use custom seperator pass it
 ```
 
 **Disabling default mapping of route to breadcrumb label**
-To avoid breadcrumb labels showing by default even for routes that don't have breadcrumb configuration set `defaultMapping=false`.
+To avoid breadcrumb labels showing by default even for routes that don't specify breadcrumbs, set `[defaultMapping]=false`.
 
 ```html
-<xng-breadcrumb separator=">"></xng-breadcrumb>
+<xng-breadcrumb [defaultMapping]="false"></xng-breadcrumb>
 ```
 
 **Styling breadcrumbs**
-The library uses the least specific selectors possible in order to make it easy to override them.
-you can override by changing the CSS for classes `.breadcrumb, .current-path, .separator etc` with ::ng-deep
+`<xng-breadcrumb>` defines the least possible specificity for selectors, in order to make it easy to override them.
+you can override styles by changing the CSS for classes such as `.breadcrumb`, `.current-path`, `.separator` etc with `::ng-deep`
 
 ```css
 ::ng-deep .breadcrumb {
   background-color: bisque;
   border: 1px solid;
+}
+
+::ng-deep .seperator {
+  font-size: 2em;
 }
 ```
 
@@ -224,7 +230,7 @@ you can override by changing the CSS for classes `.breadcrumb, .current-path, .s
 | ---------------------------------------- | ------------------------------------------------------------------- |
 | Declarative label - `breadcrumb`         | `data: {breadcrumb: 'breadcrumbLabel'}`                             |
 | Declarative alias - `breadcrumbAlias`    | `data: {breadcrumbAlias: 'aliasName'}`                              |
-| Declarative skip - `skipBreadcrumb`      | `data: {skipBreadcrumb: true/false }`                               |
+| Declarative skip - `skipBreadcrumb`      | `data: {[skipBreadcrumb]: true/false }`                             |
 | Dynamic label by route path - `set()`    | `breadcrumbService.set('routePath', 'breadcrumbLabel')`             |
 | Dynamic skip by route path - `skip()`    | `breadcrumbService.skip('routePath', true/false(optional))`         |
 | Dynamic label by alias - `setForAlias()` | `breadcrumbService.setForAlias('aliasName', 'breadcrumbLabel')`     |
