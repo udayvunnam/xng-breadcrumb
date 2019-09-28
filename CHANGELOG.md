@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.6.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v2.1.2...v3.6.0) (2019-09-28)
+
+### Features
+
+- Angular8.x version upgrade. Angular 6.x and Angular 7.x are no longer supported. If you are using these versions, please, stick with version xng-beadcrumb@2.x.x ([4f73ec3](https://github.com/udayvunnam/xng-breadcrumb/commit/4f73ec3))
+
 ### [2.1.2](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.5.2...v2.1.2) (2019-09-28)
 
 ### Bug Fixes
