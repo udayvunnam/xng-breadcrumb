@@ -60,7 +60,16 @@ export class AppModule { }
 <xng-breadcrumb></xng-breadcrumb>
 ```
 
-Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterModule` in App imports.
+4. (Optional) Use BreadcrumbService, if you want to alter breadcrumbs behaviour(visibility, label) dynamically.
+
+```javascript
+import { BreadcrumbService } from 'xng-breadcrumb';
+
+constructor(private breadcrumbService: BreadcrumbService) {}
+// Code examples with BreadcrumbService are given below under Usage section
+```
+
+Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterModule` in App imports, if you haven't already.
 
 ### Alternative: Angular Devkit 6+
 
