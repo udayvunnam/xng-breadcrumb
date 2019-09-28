@@ -15,7 +15,7 @@ Breadcrumbs are useful when the app has more than two levels of hierarchy. User 
 
 [Live Demo](https://xng-breadcrumb.netlify.com) - An Angular App showing `xng-breadcrumb` usage. It covers all available options.
 
-![](https://user-images.githubusercontent.com/20707504/60205896-0211f080-9870-11e9-9b14-9a3382945c64.gif)
+![](https://user-images.githubusercontent.com/20707504/65815404-9e031d80-e20c-11e9-9052-0a195da6c244.gif)
 
 ## Features
 
