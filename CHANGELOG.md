@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.2](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.5.2...v2.1.2) (2019-09-28)
+
+### Bug Fixes
+
+- Compiling with v7 to support Angular 6 and 7. Closes https://github.com/udayvunnam/xng-breadcrumb/issues/12 ([89bf7d7](https://github.com/udayvunnam/xng-breadcrumb/commit/89bf7d7))
+
 ### [3.5.2](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.5.1...v3.5.2) (2019-09-26)
 
 ### Bug Fixes
