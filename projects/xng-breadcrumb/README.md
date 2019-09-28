@@ -25,6 +25,13 @@ Breadcrumbs are useful when the app has more than two levels of hierarchy. User 
 - ✅ **Skip Breadcrumb**: Skip specific routes from displaying in breadcrumbs, conditionally.
 - ✅ **Schematics**: Use schematics to add and update the library with `ng add xng-breadcrumb` and `ng update xng-breadcrumb`
 
+### Compatiblity table
+
+| xng-breadcrumb | Angular  |
+| -------------- | -------- |
+| 2.x.x          | 6.x, 7.x |
+| 3.x.x          | 8.x, 9.x |
+
 ## Getting Started
 
 1. Install xng-breadcrumb via npm or yarn
@@ -52,6 +59,8 @@ export class AppModule { }
 ```html
 <xng-breadcrumb></xng-breadcrumb>
 ```
+
+Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterModule` in App imports.
 
 ### Alternative: Angular Devkit 6+
 
@@ -138,12 +147,12 @@ breadcrumbService.skipForAlias('breadcrumbAlias', false);
 
 **Declaration with children and parent relationship**
 
-breadcrumb data can be decalred either on parent or on child with empty path. The latter takes precedence.
+You can define breadcrumb either on _parent_ or _child with empty path_. If both are defined, the latter takes the precedence.
 
-- With component children
+- With Component - Children
 
 ```javascript
-// declaring breadcrumb data on component parent
+// defining breadcrumb on Component Route
   {
     path: ':userId',
     data: { breadcrumb: 'My User declared on parent' },
@@ -151,7 +160,7 @@ breadcrumb data can be decalred either on parent or on child with empty path. Th
       { path: '', component: ShowUserComponent }
     ]
   }
-// declaring breadcrumb data on component child with empty
+// defining breadcrumb on children with empty path
   {
     path: ':userId',
     children: [
@@ -160,14 +169,15 @@ breadcrumb data can be decalred either on parent or on child with empty path. Th
   }
 ```
 
-- With Module children
+- With Module - Children
 
 ```javascript
-// declaring breadcrumb data on module
+// defining breadcrumb on Module route
   { path: 'home', loadChildren: './home/home.module#HomeModule', data: { breadcrumb: 'Dashboard' } }
 
-// declaring breadcrumb data on module child with empty
+// defining breadcrumb on Module children with empty path
   { path: 'home', loadChildren: './home/home.module#HomeModule' },
+// Within HomeModule Routes -
   { path: '', pathMatch: 'full', component: HomeComponent, data: { breadcrumb: 'Dashboard' } }
 
 ```
