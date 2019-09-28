@@ -28,8 +28,8 @@ export class MenteeAddComponent implements OnInit {
   allSkills = allLanguages;
   filteredSkills: Observable<string[]>;
 
-  @ViewChild('skillInput') skillInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+  @ViewChild('skillInput', { static: true }) skillInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto', { static: true }) matAutocomplete: MatAutocomplete;
 
   constructor(private fb: FormBuilder, private dataService: DataService, private snackBar: MatSnackBar, private router: Router) {}
 

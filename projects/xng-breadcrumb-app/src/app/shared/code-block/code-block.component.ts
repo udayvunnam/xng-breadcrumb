@@ -9,7 +9,7 @@ import { CodeBlockService } from '../../core/code-block.service';
 export class CodeBlockComponent implements OnInit, AfterViewChecked {
   @Input() language = 'javascript';
   @Input() code: string;
-  @ViewChild('el', { read: ElementRef }) el: ElementRef;
+  @ViewChild('el', { read: ElementRef, static: true }) el: ElementRef;
 
   constructor(private codeBlockService: CodeBlockService) {}
 
