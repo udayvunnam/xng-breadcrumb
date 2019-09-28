@@ -10,11 +10,4 @@ import { BreadcrumbService } from './breadcrumb.service';
   imports: [CommonModule, RouterModule],
   exports: [BreadcrumbComponent]
 })
-export class BreadcrumbModule {
-  // static forRoot(): ModuleWithProviders {
-  //   return {
-  //     ngModule: BreadcrumbModule,
-  //     providers: [BreadcrumbService]
-  //   };
-  // }
-}
+export class BreadcrumbModule {}
