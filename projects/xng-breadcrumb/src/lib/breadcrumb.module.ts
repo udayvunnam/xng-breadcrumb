@@ -1,9 +1,7 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BreadcrumbComponent } from './breadcrumb.component';
-import { ModuleWithProviders } from '@angular/compiler/src/core';
-import { BreadcrumbService } from './breadcrumb.service';
 
 @NgModule({
   declarations: [BreadcrumbComponent],

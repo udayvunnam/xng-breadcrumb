@@ -1,34 +1,38 @@
 import { Injectable } from '@angular/core';
-import { Breadcrumb } from './breadcrumb';
-import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter, distinctUntilChanged } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
+import { distinctUntilChanged, filter } from 'rxjs/operators';
+import { Breadcrumb } from './breadcrumb';
+import { BreadcrumbData } from './breadcrumb-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BreadcrumbService {
   /**
-   * breadcrumb for base path. Usually This can be set as 'Home'
+   * breadcrumb label for base OR root path. Usually, this can be set as 'Home'
    */
   private baseBreadcrumb: Breadcrumb;
 
   private baseHref = '/';
-  /**
-   * Store holds all dynamic breadcrumb updates, so that they can be resued across App routes
-   * When breadcrumb is set in between any intermediate components, we use store data to power breadcrumbs
-   * TO REVISIT
-   */
-  private store: Breadcrumb[] = [];
 
   /**
-   * currentBreadcrumbs holds the current route's breadcrumb definition
-   * This is updated whenever breadcrumbs are updated dynamically a new stream is emitted
+   * dynamicBreadcrumbStore holds information about dynamically updated breadcrumbs.
+   * Breadcrumbs can be set from anywhere (component, service) in the app.
+   * On every breadcrumb update check this store and use the info if available.
+   */
+  private dynamicBreadcrumbStore: Breadcrumb[] = [];
+
+  /**
+   * breadcrumbList for the current route
+   * When breadcrumb info is changed dynamically, check if the currentBreadcrumbs is effected
+   * If effected, update the change and emit a new stream
    */
   private currentBreadcrumbs: Breadcrumb[] = [];
 
   /**
-   * Breadcrumbs observable to be subscibed by component
+   * Breadcrumbs observable to be subscribed by BreadcrumbComponent
+   * Emits on every route change OR dynamic update of breadcrumb
    */
   private breadcrumbs = new BehaviorSubject<Breadcrumb[]>([]);
   public breadcrumbs$ = this.breadcrumbs.asObservable();
@@ -38,8 +42,8 @@ export class BreadcrumbService {
   private pathParamRegexReplacer = '/[^/]+';
 
   /**
-   * If true, breacrumb is formed even without any configuration
-   * Default mapping is same as route path
+   * If true, breacrumb is formed even without defining any mapping labels
+   * breadcrumb label will be same as route path segment
    */
   public defaultMapping = true;
 
@@ -49,39 +53,44 @@ export class BreadcrumbService {
   }
 
   /**
-   * update a breadcrumb label by passing route
-   * route is same as angular route definition for a route
-   * Ex: /mentor or /mentor/:id/edit
+   * update breadcrumb label for a route (complete route path)
+   * route can be passed the same way you define angular routes
+   *
+   * Ex: set('/mentor', 'Mentor') OR set('/mentor/:id/edit', 'Update Mentor')
    */
-  set(route: string, label: string) {
-    const storeItem = this.buildRouteRegex({ route, label });
+  set(path: string, label: string) {
+    const storeItem = this.buildRouteRegExp({ path, label });
     this.updateStore(storeItem);
   }
 
   /**
-   * skip a breadcrumb visibility by passing route
-   * Ex: skip('/mentor') or skip('/mentor/:id/edit')
-   * If you need to make a hidden breadcrumb visible, pass optional second param as false
-   * skip('/mentor/:id/edit', false)
+   * hide breadcrumb for a specific route
+   * Ex: skip('/mentor') OR skip('/mentor/:id/edit')
+   *
+   * If you need to make a hidden breadcrumb visible, pass second param as false
+   * Ex: skip('/mentor/:id/edit', false)
    */
-  skip(route: string, skip = true) {
-    const storeItem = this.buildRouteRegex({ route, skip });
+  skip(path: string, skip = true) {
+    const storeItem = this.buildRouteRegExp({ path, skip });
     this.updateStore(storeItem);
   }
 
   /**
-   * update a breadcrumb label by passing breadcrumbAlias, that is defined during application routing
-   * setForAlias('mentor', 'Enabler')
+   * update breadcrumb label for a breadcrumbAlias
+   * breadcrumbAlias is unique for a route and is defined during application routes
+   *
+   * Ex: setForAlias('mentor', 'Enabler')
    */
   setForAlias(alias: string, label: string) {
     this.updateStore({ alias, label });
   }
 
   /**
-   * update a breadcrumb visibilty by passing breadcrumbAlias, that is defined during application routing
-   * skipForAlias('mentorEdit')
-   * If you need to make a hidden breadcrumb visible, pass optional second param as false
-   * skipForAlias('mentorEdit', false)
+   * hide breadcrumb for a specific route
+   * Ex: skipForAlias('mentorEdit')
+   *
+   * If you need to make a hidden breadcrumb visible, pass second param as false
+   * Ex: skipForAlias('mentorEdit', false)
    */
   skipForAlias(alias: string, skipBreadcrumb = true) {
     this.updateStore({ alias, skipBreadcrumb });
@@ -94,13 +103,16 @@ export class BreadcrumbService {
 
       this.baseBreadcrumb = {
         label: breadcrumb,
-        route: this.baseHref,
+        routeLink: this.baseHref,
         alias: breadcrumbAlias,
         skip: skipBreadcrumb
       };
     }
   }
 
+  /**
+   * Whenever route changes build breadcrumb list again
+   */
   private detectRouteChanges() {
     this.router.events
       .pipe(
@@ -109,89 +121,70 @@ export class BreadcrumbService {
       )
       .subscribe(event => {
         this.currentBreadcrumbs = this.baseBreadcrumb ? [this.baseBreadcrumb] : [];
-        this.setBreadcrumbs(this.activatedRoute.root, this.baseHref);
+        this.prepareBreadcrumbList(this.activatedRoute.root, this.baseHref);
       });
   }
 
-  private setBreadcrumbs(activatedRoute: ActivatedRoute, url: string): Breadcrumb[] {
+  private prepareBreadcrumbList(activatedRoute: ActivatedRoute, routeLinkPrefix: string): Breadcrumb[] {
     if (activatedRoute.routeConfig && activatedRoute.routeConfig.path) {
-      const breadcrumbItem = this.prepareBreadcrumbItem(activatedRoute, url);
+      const breadcrumbItem = this.prepareBreadcrumbItem(activatedRoute, routeLinkPrefix);
       this.currentBreadcrumbs.push(breadcrumbItem);
 
       if (activatedRoute.firstChild) {
-        return this.setBreadcrumbs(activatedRoute.firstChild, breadcrumbItem.route + '/');
+        return this.prepareBreadcrumbList(activatedRoute.firstChild, breadcrumbItem.routeLink + '/');
       }
     } else if (activatedRoute.firstChild) {
-      return this.setBreadcrumbs(activatedRoute.firstChild, url);
+      return this.prepareBreadcrumbList(activatedRoute.firstChild, routeLinkPrefix);
     }
-
+    // remove breadcrumb items that needs to be hidden or don't have a label
     const breacrumbsToShow = this.currentBreadcrumbs.filter(breadcrumb => !breadcrumb.skip && breadcrumb.label);
     this.breadcrumbs.next(breacrumbsToShow);
   }
 
-  private prepareBreadcrumbItem(activatedRoute: ActivatedRoute, url: string): Breadcrumb {
-    const { path, breadcrumb, breadcrumbAlias, skipBreadcrumb } = this.parseRouteConfig(activatedRoute.routeConfig);
+  private prepareBreadcrumbItem(activatedRoute: ActivatedRoute, routeLinkPrefix: string): Breadcrumb {
+    const { path, breadcrumb, breadcrumbAlias, skipBreadcrumb } = this.parseRouteData(activatedRoute.routeConfig);
 
-    const pathSegement = this.resolvePathSegment(path, activatedRoute);
-    const route = `${url}${pathSegement}`;
-    const label = this.getFromStore(breadcrumbAlias, route, 'label') || breadcrumb || (this.defaultMapping ? pathSegement : '');
-    const skip = this.getFromStore(breadcrumbAlias, route, 'skip') || skipBreadcrumb;
+    // in case of path param get the resolved for param
+    const resolvedPath = this.resolvePathParam(path, activatedRoute);
 
-    return { label, route, skip, alias: breadcrumbAlias };
+    const routeLink = `${routeLinkPrefix}${resolvedPath}`;
+    const label = this.getFromStore(breadcrumbAlias, routeLink, 'label') || breadcrumb || (this.defaultMapping ? resolvedPath : '');
+    const skip = this.getFromStore(breadcrumbAlias, routeLink, 'skip') || skipBreadcrumb;
+
+    return { label, routeLink, skip, alias: breadcrumbAlias };
   }
 
   /**
-   * breadcrumbs can be declared either on module or its children with empty path
-   * When both are defined child empty path takes precedence
+   * For a specific route, breadcrumb can be defined either on parent data OR it's child(which has empty path) data
+   * When both are defined, child takes precedence
+   *
+   * Ex: Below we are setting breadcrumb on both parent and child.
+   * So, child takes precedence and "Defined On Child" is displayed for the route 'home'
    * { path: 'home', loadChildren: './home/home.module#HomeModule' , data: {breadcrumb: "Defined On Module"}}
-   *                             ----OR----
+   *                                                AND
    * children: [
-      { path: '', component: ShowUserComponent, data: {breadcrumb: "Defined On Child" }
-    ]
+   *   { path: '', component: ShowUserComponent, data: {breadcrumb: "Defined On Child" }
+   * ]
    */
-  private parseRouteConfig(routeConfig) {
-    const { path, data = {} } = routeConfig;
-    let { breadcrumb, breadcrumbAlias, skipBreadcrumb = false } = data;
-
-    // To handle a module with empty child route
-    if (routeConfig.loadChildren) {
-      const baseChild = routeConfig._loadedConfig.routes.find(route => route.path === '');
-      const baseChildData = baseChild && baseChild.data;
-      if (baseChildData) {
-        breadcrumb = baseChildData.breadcrumb || breadcrumb;
-        breadcrumbAlias = baseChildData.breadcrumbAlias || breadcrumbAlias;
-        skipBreadcrumb = baseChildData.skipBreadcrumb || skipBreadcrumb;
-      }
+  private parseRouteData(routeConfig) {
+    let { path, data = {} } = routeConfig;
+    const baseChildData = this.getImmediateBaseChildData(routeConfig);
+    if (baseChildData) {
+      data = this.mergeParentWithChild(data, baseChildData);
     }
 
-    // To handle a component with empty child route
-    if (routeConfig.children) {
-      const baseChild = routeConfig.children.find(route => route.path === '');
-      const baseChildData = baseChild && baseChild.data;
-      if (baseChildData) {
-        breadcrumb = baseChildData.breadcrumb || breadcrumb;
-        breadcrumbAlias = baseChildData.breadcrumbAlias || breadcrumbAlias;
-        skipBreadcrumb = baseChildData.skipBreadcrumb || skipBreadcrumb;
-      }
-    }
-
-    return {
-      breadcrumb,
-      breadcrumbAlias,
-      skipBreadcrumb,
-      path
-    };
+    return { path, ...data };
   }
 
-  private getFromStore(breadcrumbAlias: string, route: string, prop: string) {
+  private getFromStore(breadcrumbAlias: string, routeLink: string, prop: string) {
     let matchingItem;
     if (breadcrumbAlias) {
-      matchingItem = this.store.find(item => item.alias === breadcrumbAlias);
+      matchingItem = this.dynamicBreadcrumbStore.find(item => item.alias === breadcrumbAlias);
     }
 
-    if (!matchingItem && route) {
-      matchingItem = this.store.find(item => {
-        return (item.route && item.route === route) || (item.routeRegex && new RegExp(item.routeRegex).test(route + '/'));
+    if (!matchingItem && routeLink) {
+      matchingItem = this.dynamicBreadcrumbStore.find(item => {
+        return (item.routeLink && item.routeLink === routeLink) || (item.routeRegex && new RegExp(item.routeRegex).test(routeLink + '/'));
       });
     }
 
@@ -203,19 +196,28 @@ export class BreadcrumbService {
   }
 
   /**
+   * To update breadcrumb label for a route with path param, we need regex that matches route.
+   * Instead of user providing regex, we help in preparing regex dynamically
+   *
+   * Ex: route declaration - path: '/mentor/:id'
+   * breadcrumbService.set('/mentor/:id', 'Uday');
+   * '/mentor/2' OR 'mentor/adasd' we should use 'Uday' as label
+   *
    * regex string is built, if route has path params(contains with ':')
    */
-  private buildRouteRegex({ route, ...props }) {
+  private buildRouteRegExp({ path, ...rest }) {
     // ensure leading slash is provided in the path
-    if (!route.startsWith('/')) {
-      route = '/' + route;
+    if (!path.startsWith('/')) {
+      path = '/' + path;
     }
 
-    if (route.includes(this.pathParamPrefix)) {
-      const routeRegex = route.replace(new RegExp(this.pathParamRegexIdentifier, 'g'), this.pathParamRegexReplacer);
-      return { routeRegex, ...props };
+    if (path.includes(this.pathParamPrefix)) {
+      // replace mathing path param with a regex
+      // '/mentor/:id' becomes '/mentor/[^/]', which further will be matched in updateStore
+      const routeRegex = path.replace(new RegExp(this.pathParamRegexIdentifier, 'g'), this.pathParamRegexReplacer);
+      return { routeRegex, ...rest };
     } else {
-      return { route, ...props };
+      return { routeLink: path, ...rest };
     }
   }
 
@@ -224,7 +226,7 @@ export class BreadcrumbService {
    * Also update the store to reuse dynamic declarations
    */
   private updateStore(spec) {
-    const { alias, route, routeRegex, ...prop } = spec;
+    const { alias, routeLink, routeRegex, ...rest } = spec;
 
     let breadcrumbItemIndex;
     let storeItemIndex;
@@ -232,35 +234,62 @@ export class BreadcrumbService {
     // identify macthing breadcrumb and store item
     if (alias) {
       breadcrumbItemIndex = this.currentBreadcrumbs.findIndex(item => alias === item.alias);
-      storeItemIndex = this.store.findIndex(item => alias === item.alias);
-    } else if (route) {
-      breadcrumbItemIndex = this.currentBreadcrumbs.findIndex(item => route === item.route);
-      storeItemIndex = this.store.findIndex(item => route === item.route);
+      storeItemIndex = this.dynamicBreadcrumbStore.findIndex(item => alias === item.alias);
+    } else if (routeLink) {
+      breadcrumbItemIndex = this.currentBreadcrumbs.findIndex(item => routeLink === item.routeLink);
+      storeItemIndex = this.dynamicBreadcrumbStore.findIndex(item => routeLink === item.routeLink);
     } else if (routeRegex) {
-      breadcrumbItemIndex = this.currentBreadcrumbs.findIndex(item => new RegExp(routeRegex).test(item.route + '/'));
-      storeItemIndex = this.store.findIndex(item => routeRegex === item.routeRegex);
+      breadcrumbItemIndex = this.currentBreadcrumbs.findIndex(item => new RegExp(routeRegex).test(item.routeLink + '/'));
+      storeItemIndex = this.dynamicBreadcrumbStore.findIndex(item => routeRegex === item.routeRegex);
     }
 
     // if breadcrumb is present in current breadcrumbs update it and emit new stream
     if (breadcrumbItemIndex > -1) {
-      this.currentBreadcrumbs[breadcrumbItemIndex] = { ...this.currentBreadcrumbs[breadcrumbItemIndex], ...prop };
+      this.currentBreadcrumbs[breadcrumbItemIndex] = { ...this.currentBreadcrumbs[breadcrumbItemIndex], ...rest };
       const breacrumbsToShow = this.currentBreadcrumbs.filter(breadcrumb => !breadcrumb.skip && breadcrumb.label);
       this.breadcrumbs.next([...breacrumbsToShow]);
     }
 
     // If the store already has this route definition update it, else add
     if (storeItemIndex > -1) {
-      this.store[storeItemIndex] = { ...this.store[storeItemIndex], ...prop };
+      this.dynamicBreadcrumbStore[storeItemIndex] = { ...this.dynamicBreadcrumbStore[storeItemIndex], ...rest };
     } else {
-      this.store.push({ alias, route, routeRegex, ...prop });
+      this.dynamicBreadcrumbStore.push({ alias, routeLink, routeRegex, ...rest });
     }
   }
 
-  private resolvePathSegment(pathSegement: string, activatedRoute: ActivatedRoute) {
+  private resolvePathParam(path: string, activatedRoute: ActivatedRoute) {
     // if the path segment is a route param, read the param value from url
-    if (pathSegement.startsWith(this.pathParamPrefix)) {
-      return activatedRoute.snapshot.params[pathSegement.slice(1)];
+    if (path.startsWith(this.pathParamPrefix)) {
+      return activatedRoute.snapshot.params[path.slice(1)];
     }
-    return pathSegement;
+    return path;
+  }
+
+  /**
+   * get immediate child of a module or Component
+   * empty child is the one with path: ''
+   *
+   */
+  private getImmediateBaseChildData(routeConfig): BreadcrumbData {
+    let baseChild;
+
+    if (routeConfig.loadChildren) {
+      // To handle a module with empty child route
+      baseChild = routeConfig._loadedConfig.routes.find(route => route.path === '');
+    } else if (routeConfig.children) {
+      // To handle a component with empty child route
+      baseChild = routeConfig.children.find(route => route.path === '');
+    }
+    return baseChild && baseChild.data;
+  }
+
+  /**
+   * When parent and it's children (that has empty route path) define data
+   * merge them both with child taking precedence
+   *
+   */
+  private mergeParentWithChild(parentData: BreadcrumbData = {}, childData: BreadcrumbData = {}): BreadcrumbData {
+    return { ...parentData, ...childData };
   }
 }

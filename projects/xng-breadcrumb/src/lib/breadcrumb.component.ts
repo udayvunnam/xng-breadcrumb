@@ -1,8 +1,6 @@
-import { OnInit, Component, Input } from '@angular/core';
-import { BreadcrumbService } from './breadcrumb.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
-import { Breadcrumb } from './breadcrumb';
+import { BreadcrumbService } from './breadcrumb.service';
 
 @Component({
   selector: 'xng-breadcrumb',
