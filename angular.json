@@ -25,7 +25,8 @@
             "assets": ["projects/xng-breadcrumb-app/src/favicon.ico", "projects/xng-breadcrumb-app/src/assets"],
             "styles": ["projects/xng-breadcrumb-app/src/assets/scss/xng-breadcrumb.scss", "projects/xng-breadcrumb-app/src/styles.scss"],
             "scripts": [],
-            "es5BrowserSupport": true
+            "es5BrowserSupport": true,
+            "vendorSourceMap": true
           },
           "configurations": {
             "production": {

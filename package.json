@@ -11,7 +11,7 @@
     "build:lib": "ng build xng-breadcrumb",
     "build:app": "ng build xng-breadcrumb-app --prod --progress=false",
     "build": "npm-run-all build:lib link:lib build:app",
-    "link:lib": " npm link ./dist/xng-breadcrumb && npm link xng-breadcrumb",
+    "link:lib": "npm link ./dist/xng-breadcrumb && npm link xng-breadcrumb",
     "test": "ng test xng-breadcrumb-app --watch=false --progress=false",
     "version": "git pull origin master && standard-version",
     "postversion": "npm-run-all copy:* commit:version push:tags",
