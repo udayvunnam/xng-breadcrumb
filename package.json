@@ -16,7 +16,7 @@
     "version": "git pull origin master && standard-version",
     "postversion": "npm-run-all copy:* commit:version push:tags",
     "copy:readme": "cp README.md projects/xng-breadcrumb/README.md",
-    "copy:version": "cd projects/xng-breadcrumb && npm version $npm_package_version && cd ../..",
+    "copy:version": "VERSION=$npm_package_version && cd projects/xng-breadcrumb && npm version $VERSION && cd ../..",
     "commit:version": "git add . && git commit -m $npm_package_version ",
     "push:tags": "git push --follow-tags origin master",
     "publish:lib": "npm publish ./dist/xng-breadcrumb",

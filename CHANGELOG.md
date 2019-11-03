@@ -2,18 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [3.7.2](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.7.1...v3.7.2) (2019-11-03)
-
-### Bug Fixes
-
-- build fix remove cache ([cec314e](https://github.com/udayvunnam/xng-breadcrumb/commit/cec314e))
-
-### [3.7.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.7.0...v3.7.1) (2019-11-03)
-
-### Bug Fixes
-
-- build fix remove cache ([59dcf01](https://github.com/udayvunnam/xng-breadcrumb/commit/59dcf01))
-
 ## [3.7.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.6.0...v3.7.0) (2019-11-03)
 
 ### Bug Fixes

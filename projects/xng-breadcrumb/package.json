@@ -2,7 +2,7 @@
   "name": "xng-breadcrumb",
   "version": "3.7.2",
   "license": "MIT",
-  "description": "A declarative and reactive breadcrumb for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb",
+  "description": "A declarative and reactive breadcrumb approach for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb",
   "author": {
     "name": "Uday Vunnam",
     "email": "uday4vunnam@gmail.com"
@@ -18,8 +18,8 @@
   },
   "keywords": [
     "angular",
-    "angular2+",
-    "ng",
+    "ng-breadcrumb",
+    "ngx-breadcrumb",
     "breadcrumb",
     "ngx"
   ],
