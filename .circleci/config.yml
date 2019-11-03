@@ -107,7 +107,11 @@ workflows:
             tags:
               only: /^v.*/ # runs for no branches and only for tags starting with 'v'
             branches:
-              ignore: /.*/
+              only:
+                - master
+                - 2.x
+                - 3.x
+                - 4.x
       - deploy:
           requires:
             - build
