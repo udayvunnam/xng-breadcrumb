@@ -29,7 +29,7 @@ export class MenteeDetailsComponent implements OnInit {
 
     this.dataService.getMentee(menteeId).subscribe(response => {
       this.mentee = response;
-      this.breadcrumbService.setForAlias('menteeName', this.mentee.name);
+      this.breadcrumbService.set('@menteeName', this.mentee.name);
     });
   }
 

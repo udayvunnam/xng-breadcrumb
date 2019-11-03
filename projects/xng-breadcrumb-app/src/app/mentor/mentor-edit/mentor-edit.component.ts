@@ -41,7 +41,7 @@ export class MentorEditComponent implements OnInit {
 
   ngOnInit() {
     this.getMentor();
-    this.breadcrumbService.skip('mentor/:id/edit');
+    this.breadcrumbService.set('mentor/:id/edit', { skip: true });
   }
 
   getMentor() {

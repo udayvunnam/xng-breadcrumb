@@ -61,7 +61,7 @@
     "lodash": "^4.17.15",
     "prismjs": "^1.17.1",
     "rxjs": "^6.5.3",
-    "xng-breadcrumb": "^3.6.0",
+    "xng-breadcrumb": "^3.7.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

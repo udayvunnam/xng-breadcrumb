@@ -121,11 +121,11 @@ breadcrumbService.set('mentor', 'Enabler'); // path for MentorDetailsComponent
 breadcrumbService.set('mentor/:id', 'Uday Vunnam'); // path for MentorEditComponent contains param (:id)
 ```
 
-**Define breadcrumb dynamically, by breadcrumbAlias**
+**Define breadcrumb dynamically, by breadcrumb alias**
 
 ```javascript
-// declare `breadcrumbAlias` while defining routes, in order to access it later.
-// Set a breadcrumb dynamically using `BreadcrumbService.setForAlias(breadcrumbAlias)`
+// declare `breadcrumb alias` while defining routes, in order to access it later.
+// Set a breadcrumb dynamically using `BreadcrumbService.set(@alias)`
 {
     path: 'mentor',
     component: MentorDetailsComponent,
@@ -134,13 +134,15 @@ breadcrumbService.set('mentor/:id', 'Uday Vunnam'); // path for MentorEditCompon
             path: ':id',
             component: MentorEditComponent
             data: {
-                breadcrumbAlias: 'mentorName'
+                breadcrumb: {
+                  alias: 'mentorName'
+                }
             }
         }
     ]
 
 }
-breadcrumbService.setForAlias('mentorName', 'Uday Vunnam');
+breadcrumbService.set('@mentorName', 'Uday Vunnam');
 ```
 
 **Hide a specific route from displaying in breadcrumbs**

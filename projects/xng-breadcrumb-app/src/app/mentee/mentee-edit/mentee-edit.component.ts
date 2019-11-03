@@ -41,7 +41,7 @@ export class MenteeEditComponent implements OnInit {
 
   ngOnInit() {
     this.getMentee();
-    this.breadcrumbService.skipForAlias('menteeEdit');
+    this.breadcrumbService.set('@menteeEdit', { skip: true });
   }
 
   getMentee() {

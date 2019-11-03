@@ -19,7 +19,9 @@ const routes: Routes = [
       {
         path: ':id',
         data: {
-          breadcrumbAlias: 'menteeName'
+          breadcrumb: {
+            alias: 'menteeName'
+          }
         },
         children: [
           {
@@ -29,7 +31,11 @@ const routes: Routes = [
           {
             path: 'edit',
             component: MenteeEditComponent,
-            data: { breadcrumbAlias: 'menteeEdit' }
+            data: {
+              breadcrumb: {
+                alias: 'menteeEdit'
+              }
+            }
           }
         ]
       },

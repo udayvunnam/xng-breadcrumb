@@ -61,15 +61,17 @@ ngOnInit() {
 export const mentorEdit = `
 // Skip 'edit' in 'mentor/:id/edit' from displaying in breadcrumb
 constructor(private breadcrumbService: BreadcrumbService) {}
-this.breadcrumbService.skip('mentor/:id/edit');
+this.breadcrumbService.set('mentor/:id/edit', { skip: true });
 
 //-----------------------ALTERNATIVE------------------------
 
-// use 'skipBreadcrumb:true' for 'mentor/:id/edit' to skip the route from displaying in breadcrumb
+// use 'breadcrumb: { skip: true }' for 'mentor/:id/edit' to skip the route from displaying in breadcrumb
 {
   path: 'edit',
   component: MentorEditComponent,
-  data: { skipBreadcrumb: true }
+  data: {
+    breadcrumb: { skip: true }
+  }
 }`;
 
 export const menteeList = `
@@ -94,11 +96,11 @@ constructor(private breadcrumbService: BreadcrumbService) {}
 this.breadcrumbService.set('mentee/add', 'New');`;
 
 export const menteeDetails = `
-// path param 'id' in 'mentee/:id' is resolved through BreadcrumbService using breadcrumbAlias
+// path param 'id' in 'mentee/:id' is resolved through BreadcrumbService using alias
 {
   path: ':id',
   data: {
-    breadcrumbAlias: 'menteeName'
+    breadcrumb: { alias: 'menteeName' }
   },
   children: [
     {
@@ -109,7 +111,7 @@ export const menteeDetails = `
 }
 
 // In MenteeDetailsComponent 'id' is resolved to Mentee Name using a server response
-// Breadcrumb is updated using BreadcrumbService.setForAlias()
+// Breadcrumb is updated using BreadcrumbService.set()
 
 constructor(
   private dataService: DataService,
@@ -118,7 +120,7 @@ constructor(
 
 ngOnInit() {
   this.dataService.getMentee(menteeId).subscribe(mentee => {
-    this.breadcrumbService.setForAlias('menteeName', mentee.name)
+    this.breadcrumbService.set('@menteeName', mentee.name)
   });
 }`;
 
@@ -127,13 +129,13 @@ export const menteeEdit = `
 {
   path: ':id',
   data: {
-    breadcrumbAlias: 'menteeName'
+    data: { breadcrumb: { alias: 'menteeName' } }
   },
   children: [
     {
       path: 'edit',
       component: MenteeEditComponent,
-      data: { breadcrumbAlias: 'menteeEdit' }
+      data: { breadcrumb: { alias: 'menteeEdit' } }
     }
   ]
 }
@@ -142,12 +144,12 @@ export const menteeEdit = `
 
 // use BreadcrumbService skip() or skipForAlias() methods
 constructor(private breadcrumbService: BreadcrumbService) {}
-this.breadcrumbService.skipForAlias('menteeEdit');
+this.breadcrumbService.set('@menteeEdit', { skip: true });
 
 //-----------------------ALTERNATIVE------------------------
 
 constructor(private breadcrumbService: BreadcrumbService) {}
-this.breadcrumbService.skip('mentee/:id/edit');`;
+this.breadcrumbService.set('mentee/:id/edit', { skip: true });`;
 
 export const connect = `
 // No mapping for 'connect'. Hence breadcrumb is same as route i.e 'connect'

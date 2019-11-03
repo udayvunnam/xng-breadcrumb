@@ -87,7 +87,7 @@ export class BreadcrumbService {
   private setBaseBreadcrumb() {
     const baseConfig = this.router.config.find(pathConfig => pathConfig.path === '');
     if (baseConfig && baseConfig.data) {
-      const { label, alias, skip = false, info } = this.convertObsoleteBreadcrumbData(baseConfig.data);
+      const { label, alias, skip = false, info } = this.getBreadcrumbOptions(baseConfig.data);
 
       this.baseBreadcrumb = {
         label,
@@ -132,8 +132,6 @@ export class BreadcrumbService {
 
   private prepareBreadcrumbItem(activatedRoute: ActivatedRoute, routeLinkPrefix: string): Breadcrumb {
     const { path, breadcrumb } = this.parseRouteData(activatedRoute.routeConfig);
-
-    // breadcrumb, breadcrumbAlias, skipBreadcrumb
 
     // in case of path param get the resolved for param
     const resolvedPath = this.resolvePathParam(path, activatedRoute);
@@ -270,7 +268,7 @@ export class BreadcrumbService {
    */
   private mergeWithBaseChildData(routeConfig, data): Breadcrumb {
     if (!routeConfig) {
-      return this.convertObsoleteBreadcrumbData(data);
+      return this.getBreadcrumbOptions(data);
     }
 
     let baseChild;
@@ -284,10 +282,10 @@ export class BreadcrumbService {
 
     return baseChild && baseChild.data
       ? this.mergeWithBaseChildData(baseChild, {
-          ...this.convertObsoleteBreadcrumbData(data),
-          ...this.convertObsoleteBreadcrumbData(baseChild.data)
+          ...this.getBreadcrumbOptions(data),
+          ...this.getBreadcrumbOptions(baseChild.data)
         })
-      : this.convertObsoleteBreadcrumbData(data);
+      : this.getBreadcrumbOptions(data);
   }
 
   private validateArguments(pathOrAlias, breadcrumb) {
@@ -302,81 +300,16 @@ export class BreadcrumbService {
   }
 
   /**
-   * @deprecated and will be removed in future major release.
+   * breadcrumb can be passed a label or an options object
+   * If passed as a string convert to breadcrumb options object
    */
-  private convertObsoleteBreadcrumbData(data) {
-    let { breadcrumb, breadcrumbAlias, skipBreadcrumb } = data;
+  private getBreadcrumbOptions(data) {
+    let { breadcrumb } = data;
     if (typeof breadcrumb === 'string' || !breadcrumb) {
       breadcrumb = {
         label: breadcrumb
       };
     }
-
-    if (breadcrumbAlias) {
-      console.warn(
-        [
-          '[Deprecation] "breadcrumbAlias" is deprecated and will be removed in next major release.',
-          'Please use breadcrumb: { alias: "aliasName" } instead.'
-        ].join('\n')
-      );
-      breadcrumb.alias = breadcrumbAlias;
-    }
-
-    if (skipBreadcrumb) {
-      console.warn(
-        [
-          '[Deprecation] "skipBreadcrumb" is deprecated and will be removed in next major release.',
-          'Please use breadcrumb: { skip : true} instead.'
-        ].join('\n')
-      );
-      breadcrumb.skip = skipBreadcrumb;
-    }
-
     return breadcrumb;
-  }
-
-  /**
-   * @deprecated and will be removed in future major release.
-   * Please use set() method instead, with second argument for breadcrumb options
-   * set('/mentor/:id/edit', { skip: true })
-   */
-  skip(path: string, skip = true) {
-    console.warn(
-      [
-        '[Deprecation] BreadcrumbService.skip() is deprecated and will be removed in next major release.',
-        'Please use set() method instead.'
-      ].join('\n')
-    );
-    this.set(path, { skip });
-  }
-
-  /**
-   * @deprecated and will be removed in future major release.
-   * Please use set() method instead, with first argument as alias. Simply prefix with '@' for alias
-   * Ex: set('@mentor', 'Enabler')
-   */
-  setForAlias(alias: string, label: string) {
-    console.warn(
-      [
-        '[Deprecation] BreadcrumbService.setForAlias() is deprecated and will be removed in next major release.',
-        'Please use set() method instead.'
-      ].join('\n')
-    );
-    this.set(`@${alias}`, { label });
-  }
-
-  /**
-   * @deprecated BreadcrumbService.skipForAlias() is deprecated and will be removed in next major release.
-   * Please use set() method instead, with first argument as alias and second argument for breadcrumb options
-   * Ex: change visibility Ex: set('@mentorEdit', { skip: true })
-   */
-  skipForAlias(alias: string, skip = true) {
-    console.warn(
-      [
-        '[Deprecation] BreadcrumbService.skipForAlias() is deprecated and will be removed in next major release.',
-        'Please use set() method instead.'
-      ].join('\n')
-    );
-    this.set(`@${alias}`, { skip });
   }
 }
