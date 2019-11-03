@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './core/page-not-found.component';
+import { HomeComponent } from './home/home.component';
 
 // when deafalt route has no path or breadcrumb diplay home
 export const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
     pathMatch: 'full',
+    component: HomeComponent,
     data: {
       breadcrumb: {
         label: '',
