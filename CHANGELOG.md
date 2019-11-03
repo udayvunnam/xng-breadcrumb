@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v2.2.0...v2.2.1) (2019-11-03)
+
+### Bug Fixes
+
+- correcting peer Angular dependency ([b2b2ab4](https://github.com/udayvunnam/xng-breadcrumb/commit/b2b2ab45362d68b29e11b397f6b0b1b9297f4fc4))
+
 ## [2.2.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.7.1...v2.2.0) (2019-11-03)
 
 ### Features
