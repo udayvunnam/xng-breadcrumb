@@ -79,8 +79,8 @@ export class BreadcrumbService {
     if (pathOrAlias.startsWith('@')) {
       this.updateStore({ ...breadcrumb, alias: pathOrAlias });
     } else {
-      const breadcrumbExtraProps = this.buildRouteRegExp({ ...breadcrumb, path: pathOrAlias });
-      this.updateStore({ ...breadcrumb, breadcrumbExtraProps });
+      const breadcrumbExtraProps = this.buildRouteRegExp(pathOrAlias);
+      this.updateStore({ ...breadcrumb, ...breadcrumbExtraProps });
     }
   }
 
