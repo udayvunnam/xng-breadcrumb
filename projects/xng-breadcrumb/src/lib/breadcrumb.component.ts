@@ -22,7 +22,7 @@ export class BreadcrumbComponent implements OnInit {
    * 2) i18n. {{breadcrumb | translate}} or {{breadcrumb | transloco}}
    * 3) Change text case {{breadcrumb | titlecase}}
    */
-  @ContentChild(BreadcrumbItemDirective, { static: false, read: TemplateRef }) itemTemplate;
+  @ContentChild(BreadcrumbItemDirective, { read: TemplateRef }) itemTemplate;
 
   /**
    * If true, breacrumb is auto generated even without any mapping label
