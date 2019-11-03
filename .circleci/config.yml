@@ -100,15 +100,15 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - test:
-          requires:
-            - build
-          filters:
-            tags:
-              only: /.*/
+      # - test:
+      #     requires:
+      #       - build
+      #     filters:
+      #       tags:
+      #         only: /.*/
       - release:
           requires:
-            - test
+            - build
           filters:
             tags:
               only: /^v.*/ # runs for no branches and only for tags starting with 'v'
@@ -116,7 +116,7 @@ workflows:
               ignore: /.*/
       - deploy:
           requires:
-            - test
+            - build
           filters:
             tags:
               only: /.*/
