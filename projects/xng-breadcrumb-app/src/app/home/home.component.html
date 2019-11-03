@@ -1,0 +1,18 @@
+<section style="margin: 64px;">
+  <blockquote>
+    <p>
+      This is a demo app showcasing <b>xng-breadcrumb</b> library usage in Angular applications. Navigate through App to see the breadcrumb
+      mapped to a certain URL pattern.
+    </p>
+    <br />
+    <br />
+    <p>Every route has a mapping code block that shows how breadcrumb is configured. All types of use-cases are covered.</p>
+  </blockquote>
+
+  <div fxLayout="column" fxLayoutGap="16px">
+    <mat-card [routerLink]="['/dashboard']">Dashboard</mat-card>
+    <mat-card [routerLink]="['/mentor']">Mentor</mat-card>
+    <mat-card [routerLink]="['/mentee']">Mentee</mat-card>
+    <mat-card [routerLink]="['/connect']">Connect</mat-card>
+  </div>
+</section>

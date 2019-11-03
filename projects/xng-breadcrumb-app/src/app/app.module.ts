@@ -10,9 +10,10 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { InMemoryDataService } from './core/in-memory-data.service';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     SharedModule,

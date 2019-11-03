@@ -9,14 +9,17 @@ export const appRoutes: Routes = [
     redirectTo: 'dashboard',
     pathMatch: 'full',
     data: {
-      breadcrumb: 'Home'
+      breadcrumb: {
+        label: 'Home',
+        info: 'dashboard'
+      }
     }
   },
   {
     path: 'dashboard',
     loadChildren: './dashboard/dashboard.module#DashboardModule',
     data: {
-      breadcrumb: 'MyDashboard'
+      breadcrumb: 'my dashboard'
     }
   },
   {
@@ -25,10 +28,7 @@ export const appRoutes: Routes = [
   },
   {
     path: 'mentee',
-    loadChildren: './mentee/mentee.module#MenteeModule',
-    data: {
-      breadcrumb: 'Mentee'
-    }
+    loadChildren: './mentee/mentee.module#MenteeModule'
   },
   {
     path: 'connect',
