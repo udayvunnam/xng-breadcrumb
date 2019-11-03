@@ -1,12 +1,12 @@
 # xng-breadcrumb
 
-[![npm](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/xng-breadcrumb)
-![npm](https://img.shields.io/npm/dt/xng-breadcrumb)
-[![npm License](https://img.shields.io/npm/l/xng-breadcrumb.svg)](https://github.com/udayvunnam/xng-breadcrumb/blob/master/LICENSE)
+[![npm version](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb)
+![bundle size](https://img.shields.io/bundlephobia/minzip/xng-breadcrumb)
+[![license](https://img.shields.io/npm/l/xng-breadcrumb.svg)](https://github.com/udayvunnam/xng-breadcrumb/blob/master/LICENSE)
+![npm downloads](https://img.shields.io/npm/dt/xng-breadcrumb?style=social)
 
 [![CircleCI](https://circleci.com/gh/udayvunnam/xng-breadcrumb.svg?shield&circle-token=:circle-token)](https://circleci.com/gh/udayvunnam/xng-breadcrumb)
-![Twitter Follow](https://img.shields.io/twitter/follow/udayvunnam_?style=social)
+![Twitter follow](https://img.shields.io/twitter/follow/udayvunnam_?style=social)
 
 > A lightweight, declarative and configurable breadcrumbs solution for Angular 6 and beyond. https://www.npmjs.com/package/xng-breadcrumb
 
