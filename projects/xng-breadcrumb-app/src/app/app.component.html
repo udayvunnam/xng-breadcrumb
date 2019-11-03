@@ -3,7 +3,7 @@
   <section class="route-container">
     <xng-breadcrumb [separator]="separatorTemplate">
       <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info">
-        <mat-icon *ngIf="info">{{ info.icon }}</mat-icon>
+        <mat-icon *ngIf="info">{{ info }}</mat-icon>
         {{ breadcrumb | titlecase }}
       </ng-container>
     </xng-breadcrumb>

@@ -10,8 +10,8 @@ export const appRoutes: Routes = [
     pathMatch: 'full',
     data: {
       breadcrumb: {
-        label: 'Home',
-        info: 'dashboard'
+        label: '',
+        info: 'home'
       }
     }
   },
