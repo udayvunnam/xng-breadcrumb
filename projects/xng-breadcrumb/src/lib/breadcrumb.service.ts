@@ -3,7 +3,6 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged, filter } from 'rxjs/operators';
 import { Breadcrumb } from './breadcrumb';
-import { BreadcrumbData } from './breadcrumb-data';
 
 @Injectable({
   providedIn: 'root'
@@ -42,8 +41,8 @@ export class BreadcrumbService {
   private pathParamRegexReplacer = '/[^/]+';
 
   /**
-   * If true, breacrumb is formed even without defining any mapping labels
-   * breadcrumb label will be same as route path segment
+   * If true, breacrumb is auto generated even without any mapping label
+   * Default label is same as route segment
    */
   public defaultMapping = true;
 
@@ -53,59 +52,49 @@ export class BreadcrumbService {
   }
 
   /**
-   * update breadcrumb label for a route (complete route path)
-   * route can be passed the same way you define angular routes
+   * Update breadcrumb label or options for -
    *
-   * Ex: set('/mentor', 'Mentor') OR set('/mentor/:id/edit', 'Update Mentor')
+   * route (complete route path). route can be passed the same way you define angular routes
+   * 1) update label Ex: set('/mentor', 'Mentor'), set('/mentor/:id', 'Mentor Details')
+   * 2) change visibility Ex: set('/mentor/:id/edit', { skip: true })
+   * 3) add info Ex: set('/mentor/:id/edit', { info: { icon: 'edit', iconColor: 'blue' } })
+   * ------------------------ OR -------------------------
+   *
+   * alias (prefixed with '@'). breadcrumb alias is unique for a route
+   * 1) update label Ex: set('@mentor', 'Enabler')
+   * 2) change visibility Ex: set('@mentorEdit', { skip: true })
+   * 3) add info Ex: set('@mentorEdit', { info: { icon: 'edit', iconColor: 'blue' } })
    */
-  set(path: string, label: string) {
-    const storeItem = this.buildRouteRegExp({ path, label });
-    this.updateStore(storeItem);
-  }
+  set(pathOrAlias: string, breadcrumb: string | Breadcrumb) {
+    if (!this.validateArguments(pathOrAlias, breadcrumb)) {
+      return;
+    }
 
-  /**
-   * hide breadcrumb for a specific route
-   * Ex: skip('/mentor') OR skip('/mentor/:id/edit')
-   *
-   * If you need to make a hidden breadcrumb visible, pass second param as false
-   * Ex: skip('/mentor/:id/edit', false)
-   */
-  skip(path: string, skip = true) {
-    const storeItem = this.buildRouteRegExp({ path, skip });
-    this.updateStore(storeItem);
-  }
+    if (typeof breadcrumb === 'string') {
+      breadcrumb = {
+        label: breadcrumb
+      };
+    }
 
-  /**
-   * update breadcrumb label for a breadcrumbAlias
-   * breadcrumbAlias is unique for a route and is defined during application routes
-   *
-   * Ex: setForAlias('mentor', 'Enabler')
-   */
-  setForAlias(alias: string, label: string) {
-    this.updateStore({ alias, label });
-  }
-
-  /**
-   * hide breadcrumb for a specific route
-   * Ex: skipForAlias('mentorEdit')
-   *
-   * If you need to make a hidden breadcrumb visible, pass second param as false
-   * Ex: skipForAlias('mentorEdit', false)
-   */
-  skipForAlias(alias: string, skipBreadcrumb = true) {
-    this.updateStore({ alias, skipBreadcrumb });
+    if (pathOrAlias.startsWith('@')) {
+      this.updateStore({ ...breadcrumb, alias: pathOrAlias });
+    } else {
+      const breadcrumbExtraProps = this.buildRouteRegExp({ ...breadcrumb, path: pathOrAlias });
+      this.updateStore({ ...breadcrumb, breadcrumbExtraProps });
+    }
   }
 
   private setBaseBreadcrumb() {
     const baseConfig = this.router.config.find(pathConfig => pathConfig.path === '');
     if (baseConfig && baseConfig.data) {
-      const { breadcrumb, breadcrumbAlias, skipBreadcrumb = false } = baseConfig.data;
+      const { label, alias, skip = false, info } = this.convertObsoleteBreadcrumbData(baseConfig.data);
 
       this.baseBreadcrumb = {
-        label: breadcrumb,
-        routeLink: this.baseHref,
-        alias: breadcrumbAlias,
-        skip: skipBreadcrumb
+        label,
+        alias,
+        skip,
+        info,
+        routeLink: this.baseHref
       };
     }
   }
@@ -137,21 +126,36 @@ export class BreadcrumbService {
       return this.prepareBreadcrumbList(activatedRoute.firstChild, routeLinkPrefix);
     }
     // remove breadcrumb items that needs to be hidden or don't have a label
-    const breacrumbsToShow = this.currentBreadcrumbs.filter(breadcrumb => !breadcrumb.skip && breadcrumb.label);
+    const breacrumbsToShow = this.currentBreadcrumbs.filter(breadcrumb => !breadcrumb.skip);
     this.breadcrumbs.next(breacrumbsToShow);
   }
 
   private prepareBreadcrumbItem(activatedRoute: ActivatedRoute, routeLinkPrefix: string): Breadcrumb {
-    const { path, breadcrumb, breadcrumbAlias, skipBreadcrumb } = this.parseRouteData(activatedRoute.routeConfig);
+    const { path, breadcrumb } = this.parseRouteData(activatedRoute.routeConfig);
+
+    // breadcrumb, breadcrumbAlias, skipBreadcrumb
 
     // in case of path param get the resolved for param
     const resolvedPath = this.resolvePathParam(path, activatedRoute);
-
     const routeLink = `${routeLinkPrefix}${resolvedPath}`;
-    const label = this.getFromStore(breadcrumbAlias, routeLink, 'label') || breadcrumb || (this.defaultMapping ? resolvedPath : '');
-    const skip = this.getFromStore(breadcrumbAlias, routeLink, 'skip') || skipBreadcrumb;
 
-    return { label, routeLink, skip, alias: breadcrumbAlias };
+    let { label, alias, skip, info } = this.getFromStore(breadcrumb.alias, routeLink);
+
+    if (typeof label !== 'string') {
+      if (typeof breadcrumb.label === 'string') {
+        label = breadcrumb.label;
+      } else if (this.defaultMapping) {
+        label = resolvedPath;
+      }
+    }
+
+    return {
+      label,
+      alias: alias || breadcrumb.alias,
+      skip: skip || breadcrumb.skip,
+      info: info || breadcrumb.info,
+      routeLink
+    };
   }
 
   /**
@@ -167,16 +171,13 @@ export class BreadcrumbService {
    * ]
    */
   private parseRouteData(routeConfig) {
-    let { path, data = {} } = routeConfig;
-    const baseChildData = this.getImmediateBaseChildData(routeConfig);
-    if (baseChildData) {
-      data = this.mergeParentWithChild(data, baseChildData);
-    }
+    const { path, data = {} } = routeConfig;
+    const breadcrumb = this.mergeWithBaseChildData(routeConfig, { ...data });
 
-    return { path, ...data };
+    return { path, breadcrumb };
   }
 
-  private getFromStore(breadcrumbAlias: string, routeLink: string, prop: string) {
+  private getFromStore(breadcrumbAlias: string, routeLink: string): Breadcrumb {
     let matchingItem;
     if (breadcrumbAlias) {
       matchingItem = this.dynamicBreadcrumbStore.find(item => item.alias === breadcrumbAlias);
@@ -188,11 +189,7 @@ export class BreadcrumbService {
       });
     }
 
-    if (matchingItem) {
-      return matchingItem[prop];
-    }
-
-    return;
+    return matchingItem || {};
   }
 
   /**
@@ -205,7 +202,7 @@ export class BreadcrumbService {
    *
    * regex string is built, if route has path params(contains with ':')
    */
-  private buildRouteRegExp({ path, ...rest }) {
+  private buildRouteRegExp(path) {
     // ensure leading slash is provided in the path
     if (!path.startsWith('/')) {
       path = '/' + path;
@@ -215,9 +212,9 @@ export class BreadcrumbService {
       // replace mathing path param with a regex
       // '/mentor/:id' becomes '/mentor/[^/]', which further will be matched in updateStore
       const routeRegex = path.replace(new RegExp(this.pathParamRegexIdentifier, 'g'), this.pathParamRegexReplacer);
-      return { routeRegex, ...rest };
+      return { routeRegex };
     } else {
-      return { routeLink: path, ...rest };
+      return { routeLink: path };
     }
   }
 
@@ -246,7 +243,7 @@ export class BreadcrumbService {
     // if breadcrumb is present in current breadcrumbs update it and emit new stream
     if (breadcrumbItemIndex > -1) {
       this.currentBreadcrumbs[breadcrumbItemIndex] = { ...this.currentBreadcrumbs[breadcrumbItemIndex], ...rest };
-      const breacrumbsToShow = this.currentBreadcrumbs.filter(breadcrumb => !breadcrumb.skip && breadcrumb.label);
+      const breacrumbsToShow = this.currentBreadcrumbs.filter(breadcrumb => !breadcrumb.skip);
       this.breadcrumbs.next([...breacrumbsToShow]);
     }
 
@@ -267,13 +264,16 @@ export class BreadcrumbService {
   }
 
   /**
-   * get immediate child of a module or Component
-   * empty child is the one with path: ''
-   *
+   * get empty children of a module or Component. Empty child is the one with path: ''
+   * When parent and it's children (that has empty route path) define data
+   * merge them both with child taking precedence
    */
-  private getImmediateBaseChildData(routeConfig): BreadcrumbData {
-    let baseChild;
+  private mergeWithBaseChildData(routeConfig, data): Breadcrumb {
+    if (!routeConfig) {
+      return this.convertObsoleteBreadcrumbData(data);
+    }
 
+    let baseChild;
     if (routeConfig.loadChildren) {
       // To handle a module with empty child route
       baseChild = routeConfig._loadedConfig.routes.find(route => route.path === '');
@@ -281,15 +281,102 @@ export class BreadcrumbService {
       // To handle a component with empty child route
       baseChild = routeConfig.children.find(route => route.path === '');
     }
-    return baseChild && baseChild.data;
+
+    return baseChild && baseChild.data
+      ? this.mergeWithBaseChildData(baseChild, {
+          ...this.convertObsoleteBreadcrumbData(data),
+          ...this.convertObsoleteBreadcrumbData(baseChild.data)
+        })
+      : this.convertObsoleteBreadcrumbData(data);
+  }
+
+  private validateArguments(pathOrAlias, breadcrumb) {
+    if (pathOrAlias === null || pathOrAlias === undefined) {
+      console.error('Invalid first argument. Please pass a route path or a breadcrumb alias.');
+      return false;
+    } else if (breadcrumb === null || breadcrumb === undefined) {
+      console.error('Invalid second argument. Please pass a string or an Object with breadcrumb options.');
+      return false;
+    }
+    return true;
   }
 
   /**
-   * When parent and it's children (that has empty route path) define data
-   * merge them both with child taking precedence
-   *
+   * @deprecated and will be removed in future major release.
    */
-  private mergeParentWithChild(parentData: BreadcrumbData = {}, childData: BreadcrumbData = {}): BreadcrumbData {
-    return { ...parentData, ...childData };
+  private convertObsoleteBreadcrumbData(data) {
+    let { breadcrumb, breadcrumbAlias, skipBreadcrumb } = data;
+    if (typeof breadcrumb === 'string' || !breadcrumb) {
+      breadcrumb = {
+        label: breadcrumb
+      };
+    }
+
+    if (breadcrumbAlias) {
+      console.warn(
+        [
+          '[Deprecation] "breadcrumbAlias" is deprecated and will be removed in next major release.',
+          'Please use breadcrumb: { alias: "aliasName" } instead.'
+        ].join('\n')
+      );
+      breadcrumb.alias = breadcrumbAlias;
+    }
+
+    if (skipBreadcrumb) {
+      console.warn(
+        [
+          '[Deprecation] "skipBreadcrumb" is deprecated and will be removed in next major release.',
+          'Please use breadcrumb: { skip : true} instead.'
+        ].join('\n')
+      );
+      breadcrumb.skip = skipBreadcrumb;
+    }
+
+    return breadcrumb;
+  }
+
+  /**
+   * @deprecated and will be removed in future major release.
+   * Please use set() method instead, with second argument for breadcrumb options
+   * set('/mentor/:id/edit', { skip: true })
+   */
+  skip(path: string, skip = true) {
+    console.warn(
+      [
+        '[Deprecation] BreadcrumbService.skip() is deprecated and will be removed in next major release.',
+        'Please use set() method instead.'
+      ].join('\n')
+    );
+    this.set(path, { skip });
+  }
+
+  /**
+   * @deprecated and will be removed in future major release.
+   * Please use set() method instead, with first argument as alias. Simply prefix with '@' for alias
+   * Ex: set('@mentor', 'Enabler')
+   */
+  setForAlias(alias: string, label: string) {
+    console.warn(
+      [
+        '[Deprecation] BreadcrumbService.setForAlias() is deprecated and will be removed in next major release.',
+        'Please use set() method instead.'
+      ].join('\n')
+    );
+    this.set(`@${alias}`, { label });
+  }
+
+  /**
+   * @deprecated BreadcrumbService.skipForAlias() is deprecated and will be removed in next major release.
+   * Please use set() method instead, with first argument as alias and second argument for breadcrumb options
+   * Ex: change visibility Ex: set('@mentorEdit', { skip: true })
+   */
+  skipForAlias(alias: string, skip = true) {
+    console.warn(
+      [
+        '[Deprecation] BreadcrumbService.skipForAlias() is deprecated and will be removed in next major release.',
+        'Please use set() method instead.'
+      ].join('\n')
+    );
+    this.set(`@${alias}`, { skip });
   }
 }
