@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.7.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.6.0...v3.7.0) (2019-11-03)
+
+### Bug Fixes
+
+- minor fixes ([8d46872](https://github.com/udayvunnam/xng-breadcrumb/commit/8d46872))
+- missed module ([6db5cc6](https://github.com/udayvunnam/xng-breadcrumb/commit/6db5cc6))
+- set verndorSourceMap true, to debug in local ([65db615](https://github.com/udayvunnam/xng-breadcrumb/commit/65db615))
+
+### Features
+
+- better comments and code seperation ([6257035](https://github.com/udayvunnam/xng-breadcrumb/commit/6257035))
+- customization support for breadcrumb ([b9aff64](https://github.com/udayvunnam/xng-breadcrumb/commit/b9aff64))
+- types for internal breadcrumb list and route data for breadcrumb ([58c4729](https://github.com/udayvunnam/xng-breadcrumb/commit/58c4729))
+
 ### [3.6.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.6.0...v3.6.1) (2019-09-28)
 
 ## [3.6.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v2.1.2...v3.6.0) (2019-09-28)
