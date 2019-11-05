@@ -1,4 +1,4 @@
-import { Component, ContentChild, Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, ContentChild, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BreadcrumbItemDirective } from './breadcrumb-item.directive';
 import { BreadcrumbService } from './breadcrumb.service';
@@ -7,7 +7,8 @@ import { Breadcrumb } from './breadcrumb';
 @Component({
   selector: 'xng-breadcrumb',
   templateUrl: './breadcrumb.component.html',
-  styleUrls: ['./breadcrumb.component.scss']
+  styleUrls: ['./breadcrumb.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BreadcrumbComponent implements OnInit {
   breadcrumbs$: Observable<Breadcrumb[]>;
@@ -28,7 +29,13 @@ export class BreadcrumbComponent implements OnInit {
    * If true, breacrumb is auto generated even without any mapping label
    * Default label is same as route segment
    */
-  @Input() defaultMapping = true;
+  @Input() autoGenerate = true;
+
+  /**
+   * custom class provided by consumer to increase specificity
+   * This will benefit to override styles that are conflicting
+   */
+  @Input() class = '';
 
   /**
    * separator between breadcrumbs, defaults to '/'.
@@ -56,7 +63,6 @@ export class BreadcrumbComponent implements OnInit {
   constructor(private breadcrumbService: BreadcrumbService) {}
 
   ngOnInit() {
-    this.breadcrumbService.defaultMapping = this.defaultMapping;
     this.breadcrumbs$ = this.breadcrumbService.breadcrumbs$;
   }
 }
