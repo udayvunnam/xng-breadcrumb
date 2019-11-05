@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.9.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.8.0...v3.9.0) (2019-11-05)
+
+### Features
+
+- custom separator and template. ([38f8ec1](https://github.com/udayvunnam/xng-breadcrumb/commit/38f8ec12213998a299913f784b06aa65f1130703))
+
 ## [3.8.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v5.0.0...v3.8.0) (2019-11-05)
 
 ### Features
