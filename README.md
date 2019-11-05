@@ -339,7 +339,7 @@ like below.
 | info       | arbitrary info for a breadcrumb. passed back to template | `string | object`     | `undefined` |
 | label      | same as breadcrumb, if breadcrumb declared as string     | `string`              | `undefined` |
 
-**<xng-breadcrumb>**
+**xng-breadcrumb**
 
 | property            | Description                                              | Type                         | Default |
 | ------------------- | -------------------------------------------------------- | ---------------------------- | ------- |
