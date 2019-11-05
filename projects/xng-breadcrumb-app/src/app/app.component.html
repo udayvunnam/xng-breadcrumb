@@ -1,12 +1,30 @@
 <div class="app-container mat-app-background" [ngClass]="{ 'xng-dark-theme': darkMode }">
   <app-navbar (themeChanged)="updateTheme($event)"></app-navbar>
-  <section class="route-container">
-    <xng-breadcrumb [separator]="separatorTemplate">
-      <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info">
-        <mat-icon *ngIf="info">{{ info }}</mat-icon>
+  <section class="route-container" fxLayout="column" fxLayoutGap="16px">
+    <xng-breadcrumb></xng-breadcrumb>
+
+    <xng-breadcrumb separator=">>">
+      <ng-container *xngBreadcrumbItem="let breadcrumb">
         {{ breadcrumb | titlecase }}
       </ng-container>
     </xng-breadcrumb>
+
+    <xng-breadcrumb [separator]="separatorTemplate"></xng-breadcrumb>
+
+    <xng-breadcrumb [separator]="separatorTemplate" class="myapp-breadcrumb">
+      <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info; let first = first">
+        <mat-icon *ngIf="info">{{ info }}</mat-icon>
+        <ng-container>{{ breadcrumb | titlecase }}</ng-container>
+      </ng-container>
+    </xng-breadcrumb>
+
+    <xng-breadcrumb [separator]="separatorTemplate" class="myapp-breadcrumb">
+      <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info; let first = first">
+        <mat-icon *ngIf="info && first">{{ info }}</mat-icon>
+        <ng-container *ngIf="!first">{{ breadcrumb | titlecase }}</ng-container>
+      </ng-container>
+    </xng-breadcrumb>
+
     <router-outlet></router-outlet>
   </section>
 </div>

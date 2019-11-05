@@ -11,7 +11,7 @@ export const appRoutes: Routes = [
     component: HomeComponent,
     data: {
       breadcrumb: {
-        label: '',
+        label: 'app home',
         info: 'home'
       }
     }
@@ -25,11 +25,21 @@ export const appRoutes: Routes = [
   },
   {
     path: 'mentor',
-    loadChildren: './mentor/mentor.module#MentorModule'
+    loadChildren: './mentor/mentor.module#MentorModule',
+    data: {
+      breadcrumb: {
+        info: 'person'
+      }
+    }
   },
   {
     path: 'mentee',
-    loadChildren: './mentee/mentee.module#MenteeModule'
+    loadChildren: './mentee/mentee.module#MenteeModule',
+    data: {
+      breadcrumb: {
+        info: 'person_outline'
+      }
+    }
   },
   {
     path: 'connect',

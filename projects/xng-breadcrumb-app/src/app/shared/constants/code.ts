@@ -1,15 +1,17 @@
 export const dashboard = `
-// 'dashboard' mapped to 'Home'
+// 'dashboard' mapped to 'my dashboard'
 {
   path: 'dashboard',
   loadChildren: './dashboard/dashboard.module#DashboardModule',
-  data: { breadcrumb: 'Home' }
+  data: {
+    breadcrumb: 'my dashboard'
+  }
 }
 
 //-----------------------ALTERNATIVE------------------------
 
 constructor(private breadcrumbService: BreadcrumbService) {}
-this.breadcrumbService.set('dashboard', 'Home');`;
+this.breadcrumbService.set('dashboard', 'my dashboard');`;
 
 export const mentorList = `
 // 'mentor' mapped to 'Enabler' using BreadcrumbService set()
@@ -142,7 +144,7 @@ export const menteeEdit = `
 
 //-----------------------ALTERNATIVE------------------------
 
-// use BreadcrumbService skip() or skipForAlias() methods
+// use BreadcrumbService set() method
 constructor(private breadcrumbService: BreadcrumbService) {}
 this.breadcrumbService.set('@menteeEdit', { skip: true });
 
