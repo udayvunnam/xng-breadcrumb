@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.7.1...v5.0.0) (2019-11-05)
+
+### ⚠ BREAKING CHANGES
+
+- Modified API for component and service.
+
+### Features
+
+- custom separator icon, custom template and i18n ([f11980e](https://github.com/udayvunnam/xng-breadcrumb/commit/f11980ece279a215a8b2d702c90f6a1e1acd54a0))
+- remove deprectaed methods and update demo app to work with latest syntax ([6e6304e](https://github.com/udayvunnam/xng-breadcrumb/commit/6e6304e2724a2bd1ea1667838fb4a74f9fe9fd22))
+- **app:** update demo app to work with new API ([0548981](https://github.com/udayvunnam/xng-breadcrumb/commit/05489816caff87731521bca345f2b1ff91661276))
+
 ### [3.7.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.7.0...v3.7.1) (2019-11-03)
 
 ### Bug Fixes

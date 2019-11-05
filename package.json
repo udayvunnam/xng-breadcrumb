@@ -1,6 +1,6 @@
 {
   "name": "xng-breadcrumb-workspace",
-  "version": "3.7.1",
+  "version": "5.0.0",
   "license": "MIT",
   "description": "A declarative and dynamic breadcrumbs approach for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb",
   "scripts": {
