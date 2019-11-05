@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.8.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v5.0.0...v3.8.0) (2019-11-05)
+
+### Features
+
+- latest API chnages to work with Angular 7. building with v7 compiler. ([bc44336](https://github.com/udayvunnam/xng-breadcrumb/commit/bc44336f470d8278193f7e803d05d4332e2db10d))
+
 ## [5.0.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.7.1...v5.0.0) (2019-11-05)
 
 ### ⚠ BREAKING CHANGES
