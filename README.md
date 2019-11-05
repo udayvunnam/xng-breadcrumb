@@ -83,7 +83,7 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
 
 ## Setup Guide
 
-#### Defining breadcrumb labels along with Route Configuration
+### Defining breadcrumb labels along with Route Configuration
 
 - define 'breadcrumb' within data property of route.
 - breadcrumb can be provided as a string OR as an object.
@@ -123,7 +123,7 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
 }
 ```
 
-#### Update breadcrumb label dynamically
+### Update breadcrumb label dynamically
 
 - Breadcrumb label can be updated based on _route path_ or _alias_
 - For simple routes _route path_ is enough. Ex: `breadcrumbService.set(<route path> , <breadcrumb label>)`
@@ -172,7 +172,7 @@ breadcrumbService.set('mentor/:id', 'Uday Vunnam'); // path for MentorEditCompon
 breadcrumbService.set('@mentorName', 'Uday Vunnam');
 ```
 
-#### Skip a specific route from displaying in breadcrumbs
+### Skip a specific route from displaying in breadcrumbs
 
 - You can skip a route from breacrumbs either by declaring in route config or dynamically changing using set() method
 - pass second arugument as an options object with 'skip' option as true
@@ -198,7 +198,9 @@ breadcrumbService.set('mentor/:id/edit', { skip: false });
 breadcrumbService.set('@mentorName', { skip: false }); // using alias '@mentorName'
 ```
 
-#### Customize breadcrumb template (Add icons, change text, i18n)
+## Customization
+
+### Customize breadcrumb template (Add icons, change text, i18n)
 
 You can display whatever you want in the place of breadcrumb text by providing a custom template.
 
@@ -270,7 +272,7 @@ You can display whatever you want in the place of breadcrumb text by providing a
 </xng-breadcrumb>
 ```
 
-#### Custom separator
+### Custom separator
 
 - Breadcrumb by default uses '/' as the separator.
 - To use custom seperator pass **separator** as input to the component.
@@ -293,7 +295,7 @@ like below.
 </ng-template>
 ```
 
-#### Disable Auto Generation of breadcrumb labels
+### Disable Auto Generation of breadcrumb labels
 
 - Breadcrumbs are integrated with Angular Router and labels are auto generated. (if a label is not provided for a route)
 - Auto generated label is same as route path segment.
@@ -303,7 +305,7 @@ like below.
 <xng-breadcrumb [autoGenerate]="false"></xng-breadcrumb>
 ```
 
-#### Customize Breadcrumb Styles
+### Customize Breadcrumb Styles
 
 - `<xng-breadcrumb>` defines the least possible specificity for selectors, in order to make it easy to override them.
 - override styles by changing the CSS for corresponding classes. (Keep this styles in app root styles file if you don't want to use ::ng-deep)
@@ -337,18 +339,20 @@ like below.
 | info       | arbitrary info for a breadcrumb. passed back to template | `string | object`     | `undefined` |
 | label      | same as breadcrumb, if breadcrumb declared as string     | `string`              | `undefined` |
 
-**<xng-breadcrumb>**
-| property | Description | Type | Default |
-| ------------- | ------------------------------------ | ---------------------------- | --- |
-| separator | input: separator between breadcrumbs | `string | TemplateRef<void>` | `/` |
-| autoGenerate | whether to auto generate breacrumb labels | `boolean` | `true` |
-| \*xngBreadcrumbItem | directive to read context in custom breadcrumb templates | `Boolean` | `false`|
+**xng-breadcrumb**
+
+| property            | Description                                              | Type                         | Default |
+| ------------------- | -------------------------------------------------------- | ---------------------------- | ------- |
+| separator           | input: separator between breadcrumbs                     | `string | TemplateRef<void>` | `/`     |
+| autoGenerate        | whether to auto generate breacrumb labels                | `boolean`                    | `true`  |
+| \*xngBreadcrumbItem | directive to read context in custom breadcrumb templates | `Boolean`                    | `false` |
 
 **BreadcrumbService.set(pathOrAlias, breadcrumb)**
-| argument | Description | Type |
-| ------------- | ------------------------------------ | ---------------------------- |
-| pathOrAlias | full route path or alias prefixed with '@' | `string` |
-| breadcrumb | breadcrumb data to update for a route | `string | Breadcrumb` |
+
+| argument    | Description                                | Type                  |
+| ----------- | ------------------------------------------ | --------------------- |
+| pathOrAlias | full route path or alias prefixed with '@' | `string`              |
+| breadcrumb  | breadcrumb data to update for a route      | `string | Breadcrumb` |
 
 ## Where to define breadcrumbs, if they have Route specificity -
 
