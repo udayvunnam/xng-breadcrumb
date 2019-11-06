@@ -10,6 +10,14 @@
 
 > A lightweight, declarative and configurable breadcrumbs solution for Angular 6 and beyond. https://www.npmjs.com/package/xng-breadcrumb
 
+- [About](#about)
+- [Demo](#demo)
+- [Features](#features)
+- [Quickstart](#quickstart)
+- [Setup Guide](#setup-guide)
+- [Customization](#customization)
+- [API](#api)
+
 ## About
 
 - In applications with deep navigation hierarchy, it is essential to have breadcrumbs.
