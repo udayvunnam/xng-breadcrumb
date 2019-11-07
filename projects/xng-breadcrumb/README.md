@@ -27,7 +27,11 @@
   - [Custom Breadcrumb Styles](#custom-breadcrumb-styles)
   - [Disable Auto Generation of breadcrumb labels](#disable-auto-generation-of-breadcrumb-labels)
 
-- [API](#api) -[Route Config](#route-config) -[xng-breadcrumb](#xng-breadcrumb) -[BreadcrumbService.set(pathOrAlias, breadcrumb)](#BreadcrumbService.set(pathOrAlias, breadcrumb))
+- [API](#api)
+
+  - [Route Config](#route-config)
+  - [xng-breadcrumb](#xng-breadcrumb)
+  - [BreadcrumbService.set(pathOrAlias, breadcrumb)](<#BreadcrumbService.set(pathOrAlias,-breadcrumb)>)
 
 ## About
 
