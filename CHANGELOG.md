@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v5.0.0...v5.0.1) (2019-11-07)
+
+### Bug Fixes
+
+- lock typescript to only patch updates ([cd0e295](https://github.com/udayvunnam/xng-breadcrumb/commit/cd0e2953b3f42db01fc3944fdaccd5b064fbfcf7))
+
 ## [5.0.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v3.7.1...v5.0.0) (2019-11-05)
 
 ### ⚠ BREAKING CHANGES
