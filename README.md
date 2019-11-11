@@ -41,8 +41,7 @@
 ## Demo
 
 [Live Demo](https://xng-breadcrumb.netlify.com) - A demo app showcasing `xng-breadcrumb` usage in an Angular app. Navigate through different links to see breadcrumbs behavior.
-
-![](https://user-images.githubusercontent.com/20707504/65815404-9e031d80-e20c-11e9-9052-0a195da6c244.gif)
+![image](https://user-images.githubusercontent.com/20707504/68561438-8b1a7480-046b-11ea-8086-fec027f5848d.png)
 
 ## Features
 
@@ -448,6 +447,7 @@ _**You can create your library with complete automated setup for build, tests, a
 <!-- ### Alternative: Angular Devkit 6+
 
 If you are using Angular CLI 6+, just use `ng add` command to update your Angular project with all the above steps.
+![](https://user-images.githubusercontent.com/20707504/65815404-9e031d80-e20c-11e9-9052-0a195da6c244.gif)
 
 ```
 ng add xng-breadcrumb
