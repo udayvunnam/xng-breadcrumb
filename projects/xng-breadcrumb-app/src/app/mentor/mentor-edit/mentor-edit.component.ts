@@ -7,7 +7,6 @@ import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { MatAutocomplete, MatSnackBar, MatChipInputEvent, MatAutocompleteSelectedEvent } from '@angular/material';
 
 import { allLanguages } from '../../core/in-memory-data.service';
-import { mentorEdit } from '../../shared/constants/code';
 import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
 import { BreadcrumbService } from 'xng-breadcrumb';
@@ -18,7 +17,6 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./mentor-edit.component.scss']
 })
 export class MentorEditComponent implements OnInit {
-  code = mentorEdit;
   mentorId: any;
   mentorFG: FormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];

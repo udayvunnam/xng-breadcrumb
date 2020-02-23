@@ -38,8 +38,8 @@
     "angular",
     "ng-breadcrumb",
     "ngx-breadcrumb",
-    "breadcrumb",
-    "ngx"
+    "xng-breadcrumb",
+    "breadcrumb"
   ],
   "private": true,
   "dependencies": {
@@ -58,10 +58,8 @@
     "core-js": "^3.3.5",
     "faker": "^4.1.0",
     "hammerjs": "^2.0.8",
-    "lodash": "^4.17.15",
-    "prismjs": "^1.17.1",
     "rxjs": "^6.5.3",
-    "xng-breadcrumb": "^3.7.2",
+    "xng-breadcrumb": "^5.0.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
@@ -73,9 +71,7 @@
     "@types/faker": "^4.1.7",
     "@types/jasmine": "^3.4.4",
     "@types/jasminewd2": "^2.0.8",
-    "@types/lodash": "^4.14.144",
     "@types/node": "~8.9.4",
-    "@types/prismjs": "^1.16.0",
     "codelyzer": "~4.5.0",
     "husky": "^2.7.0",
     "jasmine-core": "~2.99.1",

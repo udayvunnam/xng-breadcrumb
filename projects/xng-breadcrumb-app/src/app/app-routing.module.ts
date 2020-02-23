@@ -11,7 +11,7 @@ export const appRoutes: Routes = [
     component: HomeComponent,
     data: {
       breadcrumb: {
-        label: 'app home',
+        label: 'my home',
         info: 'home'
       }
     }
@@ -21,7 +21,7 @@ export const appRoutes: Routes = [
     loadChildren: './dashboard/dashboard.module#DashboardModule',
     data: {
       breadcrumb: {
-        label: 'my dashboard',
+        label: 'dashboard',
         info: 'dashboard'
       }
     }

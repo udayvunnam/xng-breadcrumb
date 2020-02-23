@@ -9,7 +9,6 @@ import { startWith, map } from 'rxjs/operators';
 import { Mentor } from '../../shared/models/mentor';
 import { allLanguages } from '../../core/in-memory-data.service';
 import { DataService } from '../../core/data.service';
-import { mentorAdd } from '../../shared/constants/code';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -18,7 +17,6 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./mentor-add.component.scss']
 })
 export class MentorAddComponent implements OnInit {
-  code = mentorAdd;
   mentor: any;
   mentorFG: FormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];

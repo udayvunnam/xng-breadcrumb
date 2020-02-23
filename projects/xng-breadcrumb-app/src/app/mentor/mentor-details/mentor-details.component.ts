@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 import { DataService } from '../../core/data.service';
-import { mentorDetails } from '../../shared/constants/code';
 
 @Component({
   selector: 'app-mentor-details',
@@ -11,7 +10,6 @@ import { mentorDetails } from '../../shared/constants/code';
   styleUrls: ['./mentor-details.component.scss']
 })
 export class MentorDetailsComponent implements OnInit {
-  code = mentorDetails;
   mentor: any;
   constructor(
     private breadcrumbService: BreadcrumbService,

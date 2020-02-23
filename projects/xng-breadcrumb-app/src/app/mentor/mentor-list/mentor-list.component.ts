@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
-import { mentorList } from '../../shared/constants/code';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -11,7 +10,6 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./mentor-list.component.scss']
 })
 export class MentorListComponent implements OnInit {
-  code = mentorList;
   mentors: Mentor[];
   constructor(private dataService: DataService, private breadcrumbService: BreadcrumbService) {}
 

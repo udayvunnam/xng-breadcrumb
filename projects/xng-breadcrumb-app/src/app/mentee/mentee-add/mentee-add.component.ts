@@ -11,7 +11,6 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Mentee } from '../../shared/models/mentee';
 import { DataService } from '../../core/data.service';
 import { allLanguages } from '../../core/in-memory-data.service';
-import { menteeAdd } from '../../shared/constants/code';
 
 @Component({
   selector: 'app-mentee-add',
@@ -19,7 +18,6 @@ import { menteeAdd } from '../../shared/constants/code';
   styleUrls: ['./mentee-add.component.scss']
 })
 export class MenteeAddComponent implements OnInit {
-  code = menteeAdd;
   mentee: any;
   menteeFG: FormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];

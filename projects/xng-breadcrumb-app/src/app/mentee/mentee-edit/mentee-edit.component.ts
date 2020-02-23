@@ -7,7 +7,6 @@ import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { MatAutocomplete, MatSnackBar, MatChipInputEvent, MatAutocompleteSelectedEvent } from '@angular/material';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
-import { menteeEdit } from '../../shared/constants/code';
 import { DataService } from '../../core/data.service';
 import { allLanguages } from '../../core/in-memory-data.service';
 import { Mentee } from '../../shared/models/mentee';
@@ -18,7 +17,6 @@ import { Mentee } from '../../shared/models/mentee';
   styleUrls: ['./mentee-edit.component.scss']
 })
 export class MenteeEditComponent implements OnInit {
-  code = menteeEdit;
   menteeId: any;
   menteeFG: FormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];
