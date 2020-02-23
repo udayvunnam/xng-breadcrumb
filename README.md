@@ -10,29 +10,6 @@
 
 > A lightweight, declarative and configurable breadcrumbs solution for Angular 6 and beyond. https://www.npmjs.com/package/xng-breadcrumb
 
-- [About](#about)
-- [Demo](#demo)
-- [Features](#features)
-- [Quickstart](#quickstart)
-- [Setup Guide](#setup-guide)
-
-  - [Map Breadcrumb labels to Routes in Route Config](#Map-Breadcrumb-labels-to-Routes-in-Route-Config)
-  - [Update labels dynamically](#Update-labels-dynamically)
-  - [Skip Breadcrumbs for certain routes](#Skip-Breadcrumbs-for-certain-routes)
-
-- [Customization](#customization)
-
-  - [Custom Breadcrumb template (add icons, change text, add i18n ability, etc)](<#Custom-Breadcrumb-template-(add-icons,-change-text,-add-i18n-ability,-etc)>)
-  - [Custom separator](#custom-separator)
-  - [Custom Breadcrumb Styles](#custom-breadcrumb-styles)
-  - [Disable Auto Generation of breadcrumb labels](#disable-auto-generation-of-breadcrumb-labels)
-
-- [API](#api)
-
-  - [Route Config](#route-config)
-  - [xng-breadcrumb](#xng-breadcrumb)
-  - [BreadcrumbService.set(pathOrAlias, breadcrumb)](<#BreadcrumbService.set(pathOrAlias,-breadcrumb)>)
-
 ## About
 
 - In applications with deep navigation hierarchy, it is essential to have breadcrumbs.

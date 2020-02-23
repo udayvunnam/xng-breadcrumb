@@ -20,7 +20,10 @@ export const appRoutes: Routes = [
     path: 'dashboard',
     loadChildren: './dashboard/dashboard.module#DashboardModule',
     data: {
-      breadcrumb: 'my dashboard'
+      breadcrumb: {
+        label: 'my dashboard',
+        info: 'dashboard'
+      }
     }
   },
   {
