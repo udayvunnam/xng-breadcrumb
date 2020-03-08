@@ -1,46 +1,60 @@
-# Configuration file for https://circleci.com/gh/udayvunnam/workflows/xng-breadcrumb
+version: 2.1
 
-# Note: YAML anchors allow an object to be re-used, reducing duplication.
-# The ampersand declares an alias for an object, then later the `<<: *name` syntax dereferences it.
-# See http://blog.daemonl.com/2016/02/yaml.html.
-# To validate changes, use an online parser, eg. http://yaml-online-parser.appspot.com/
+aliases:
+  - &docker-node
+    - image: circleci/node:10.16.3
+  - &docker-browsers
+    - image: circleci/node:10.16.3-browsers
+  - &persist_workspace
+    persist_to_workspace:
+      root: ~/repo
+      paths: .
+  - &attach_workspace
+    attach_workspace:
+      at: ~/repo
+  - &job_defaults
+    working_directory: ~/repo
+    docker: *docker-node
+  - &restore_cache
+    restore_cache:
+      keys:
+        - v1-dep-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
+        - v1-dep-cache-{{ .Branch }}-
+  - &save_cache
+    save_cache:
+      key: v1-dep-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      paths:
+        - ./node_modules
 
-# Set default docker image and version
-var_1: &docker_image circleci/node:10.12
-var_2: &browsers_docker_image circleci/node:10.12-browsers
+commands:
+  install_js_dependencies:
+    steps:
+      - *restore_cache
+      - run:
+          name: Install npm dependencies
+          command: npm install --quiet --no-progress
+      - *save_cache
 
-# Setup a cache key, that restores by checking checksum of package.json.
-var_3: &cache_key v1-xng-breadcrumb-{{ checksum "package.json" }}
-var_4: &cache_fallback_key v1-xng-breadcrumb- # used if checksum fails
+  build_lib_and_demo_app:
+    steps:
+      - run:
+          name: Build library and app
+          command: sudo npm run build
 
-# Settings common to each job
-var_5: &job_defaults
-  working_directory: ~/repo
-  docker:
-    - image: *docker_image
+  publish_lib_to_npm:
+    steps:
+      - run:
+          name: Authenticate with npm registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      - run:
+          name: Publish library to npm
+          command: npm run publish:lib
 
-# Cache the node modules installed
-var_6: &restore_cache
-  restore_cache:
-    keys:
-      - *cache_key
-      - *cache_fallback_key
-
-# Saves the cache for the current package lock file. We store the node modules
-var_7: &save_cache
-  save_cache:
-    key: *cache_key
-    paths:
-      - 'node_modules'
-
-# attach saved workspace
-var_8: &attach_workspace
-  attach_workspace:
-    at: ~/repo
-# -----------------------------
-# Container version of CircleCI
-# -----------------------------
-version: 2
+  deploy_demo_app_to_netlify:
+    steps:
+      - run:
+          name: Deploy demo app to Netlify
+          command: npm run deploy:app
 
 # -----------------------------------------------------------------------------------------
 # Job definitions. Jobs which are defined just here, will not run automatically. Each job
@@ -51,22 +65,13 @@ jobs:
     <<: *job_defaults
     steps:
       - checkout
-      - *restore_cache
-      - run:
-          name: Install Dependencies
-          command: npm install --quiet --no-progress
-      - *save_cache
-      - run:
-          name: Build Library and App
-          command: sudo npm run build
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
+      - install_js_dependencies
+      - build_lib_and_demo_app
+      - *persist_workspace
 
   test:
     <<: *job_defaults
-    docker:
-      - image: *browsers_docker_image # Needed because tests depend on Chrome being available.
+    docker: *docker-browsers # running tests require Chrome being available on the docker image.
     steps:
       - *attach_workspace
       - run:
@@ -77,20 +82,13 @@ jobs:
     <<: *job_defaults
     steps:
       - *attach_workspace
-      - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-      - run:
-          name: publish library
-          command: npm run publish:lib
+      - publish_lib_to_npm
 
   deploy:
     <<: *job_defaults
     steps:
       - *attach_workspace
-      - run:
-          name: Netlify Deploy
-          command: ./node_modules/.bin/netlify deploy --prod --dir=dist/xng-breadcrumb-app
+      - deploy_demo_app_to_netlify
 
 workflows:
   version: 2
@@ -116,3 +114,6 @@ workflows:
               only: /.*/
             branches:
               only: master
+# Note: YAML anchors allow an object to be re-used, reducing duplication.
+# The ampersand declares an alias for an object, then later the `<<: *name` syntax dereferences it.
+# See http://blog.daemonl.com/2016/02/yaml.html.
