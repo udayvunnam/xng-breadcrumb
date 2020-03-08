@@ -1,4 +1,15 @@
-import { message, danger } from 'danger';
+/**
+ * BEFORE EDITING THIS FILE, PLEASE READ http://danger.systems/js/usage/culture.html
+ *
+ * This file is split into two parts:
+ * 1) Rules that require or suggest changes to the code, the PR, etc.
+ * 2) Rules that celebrate achievements
+ */
+import { keepPackageAndLockInSync } from './scripts/danger/keep-package-and-lock-in-sync';
+import { celebrateCleanCode } from './scripts/danger/celebrate-clean-code';
 
-const modifiedMD = danger.git.modified_files.join('\n- ');
-message('Changed files in this PR: \n' + modifiedMD);
+/* ~ Required or suggested changes ~ */
+keepPackageAndLockInSync();
+
+/* ~ Achievements                  ~ */
+celebrateCleanCode();
