@@ -3,9 +3,10 @@
  * Reason: With package.json changes you probably want a change the package-lock.json too.
  * Yes, not every change to the package.json represents a dependency update.
  */
-import { danger, fail, warn } from 'danger';
 
-export function keepPackageAndLockInSync() {
+export function keepPackageAndLockInSync(dangerModule) {
+  const { danger, fail, warn } = dangerModule;
+
   const changedFiles = [...danger.git.modified_files, ...danger.git.created_files, ...danger.git.deleted_files];
 
   if (danger.git.deleted_files.includes('package-lock.json')) {
