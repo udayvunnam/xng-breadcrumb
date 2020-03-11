@@ -56,6 +56,11 @@ commands:
           name: Deploy demo app to Netlify
           command: npm run deploy:app
 
+  verify_pr:
+    steps:
+      - run:
+          name: Danger
+          command: npx danger ci
 # -----------------------------------------------------------------------------------------
 # Job definitions. Jobs which are defined just here, will not run automatically. Each job
 # must be part of a workflow definition in order to run for PRs and push builds.
@@ -67,6 +72,7 @@ jobs:
       - checkout
       - install_js_dependencies
       - build_lib_and_demo_app
+      - verify_pr
       - *persist_workspace
 
   test:
