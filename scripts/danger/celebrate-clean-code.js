@@ -5,7 +5,7 @@ import { message } from "danger";
  * Reason: Less is more!
  */
 
-export function celebrateCleanCode(dangerModule) {
+export function celebrateCleanCode(...dangerModule) {
   const { danger, message } = dangerModule;
   if (danger.github.pr.deletions > danger.github.pr.additions) {
     message(`đ Great job! I see more lines deleted than added. Thanks for keeping us lean!`);

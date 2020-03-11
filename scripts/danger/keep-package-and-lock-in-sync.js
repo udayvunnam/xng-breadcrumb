@@ -4,7 +4,7 @@
  * Yes, not every change to the package.json represents a dependency update.
  */
 
-export function keepPackageAndLockInSync(dangerModule) {
+export function keepPackageAndLockInSync(...dangerModule) {
   const { danger, fail, warn } = dangerModule;
 
   const changedFiles = [...danger.git.modified_files, ...danger.git.created_files, ...danger.git.deleted_files];

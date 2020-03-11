@@ -1,4 +1,4 @@
-export function commonChecks(dangerModule) {
+export function commonChecks(...dangerModule) {
   const { danger, message, warn, markdown } = dangerModule;
 
   const modifiedMD = danger.git.modified_files.join('\n- ');
