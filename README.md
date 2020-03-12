@@ -403,13 +403,26 @@ If you wish to contribute to this repository, below are the steps for local deve
 
 - Clone the repository `git clone https://github.com/udayvunnam/xng-breadcrumb.git`
 - Run `npm install` to install the dependencies
-- Run `npm start` to build and watch both the library and the demo app. This opens the app at `http://localhost:4200/` automatically.
+- Run `npm run dev` to build and watch both the library and the demo app. This opens the demo app at `http://localhost:4200/` automatically.
 
 ## Build
 
 Run `npm run build` to build the library and demo app together. The build artifacts will be stored in the `dist/` directory.
 
-This step is used by CircleCI to build both the library and the demo app. After a successful build, a new semantic version of the library is published to npm and the demo app is deployed to Netlify.
+This step is used by CircleCI to build both the library and the demo app. After a successful build, the demo app is deployed to Netlify.
+
+## Publish to npm
+
+Use `npm run version` if you wish to publish a new version of library to npm
+
+This ingternally uses standard-version to
+
+- bump the library version based on the commits
+- generates changelog
+- commit bump files and changelog
+- create a new tag with the new version number
+
+CircleCI gets notified on every new tag push and publishes the library if build and tests are success
 
 ## Tests
 

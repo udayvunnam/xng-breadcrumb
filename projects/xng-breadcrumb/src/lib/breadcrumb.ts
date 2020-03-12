@@ -3,7 +3,7 @@
  */
 export interface Breadcrumb {
   /**
-   * breacrumb label for a route
+   * breadcrumb label for a route
    */
   label?: string;
   /**

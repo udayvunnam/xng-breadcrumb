@@ -10,6 +10,7 @@
     "watch:lib": "ng build xng-breadcrumb --watch & sleep 10",
     "watch:app": "ng serve xng-breadcrumb-app --open=true",
     "dev": "npm-run-all watch:lib link:lib watch:app",
+    "start": "npm run dev",
     "link:lib": "npm link ./dist/xng-breadcrumb && npm link xng-breadcrumb",
     "preversion": "npm run build",
     "version": "git pull origin master && standard-version",
