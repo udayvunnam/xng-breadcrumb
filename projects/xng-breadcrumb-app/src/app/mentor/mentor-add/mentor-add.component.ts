@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MatAutocomplete, MatSnackBar, MatChipInputEvent, MatAutocompleteSelectedEvent } from '@angular/material';
 import { startWith, map } from 'rxjs/operators';
@@ -68,8 +68,12 @@ export class MentorAddComponent implements OnInit {
       mentor.skills = this.skills;
 
       this.dataService.addMentor(mentor).subscribe((response: any) => {
+        let navigationExtras: NavigationExtras = {
+          queryParams: { addedMentor: mentor.id }
+        };
+
         this.snackBar.open(`Mentor added - ${mentor.name}`, 'Ok');
-        this.router.navigate(['mentor']);
+        this.router.navigate(['mentor'], navigationExtras);
       });
     }
   }

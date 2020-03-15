@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -62,8 +62,12 @@ export class MenteeAddComponent implements OnInit {
       mentee.skills = this.skills;
 
       this.dataService.addMentee(mentee).subscribe((response: any) => {
+        let navigationExtras: NavigationExtras = {
+          queryParams: { addedMentor: mentee.id }
+        };
+
         this.snackBar.open(`Mentee added - ${mentee.name}`, 'Ok');
-        this.router.navigate(['mentee']);
+        this.router.navigate(['mentee'], navigationExtras);
       });
     }
   }
