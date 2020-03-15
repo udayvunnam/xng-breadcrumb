@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb" class="xng-breadcrumb-root" [ngClass]="class">
   <ol class="xng-breadcrumb-list">
-    <ng-container *ngFor="let breadcrumb of breadcrumbs$ | async | autoLabel: autoGenerate; last as isLast; first as isFirst">
+    <ng-container *ngFor="let breadcrumb of breadcrumbs; last as isLast; first as isFirst">
       <li class="xng-breadcrumb-item">
         <a *ngIf="!isLast" [routerLink]="[breadcrumb.routeLink]" class="xng-breadcrumb-link">
           <ng-container
