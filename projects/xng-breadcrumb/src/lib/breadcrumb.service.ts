@@ -127,9 +127,9 @@ export class BreadcrumbService {
       return this.prepareBreadcrumbList(activatedRoute.firstChild, routeLinkPrefix);
     }
     // remove breadcrumb items that needs to be hidden or don't have a label
-    const breacrumbsToShow = this.currentBreadcrumbs.filter(item => !item.skip);
+    const breadcrumbsToShow = this.currentBreadcrumbs.filter(item => !item.skip);
 
-    this.breadcrumbs.next(breacrumbsToShow);
+    this.breadcrumbs.next(breadcrumbsToShow);
   }
 
   private prepareBreadcrumbItem(activatedRoute: ActivatedRoute, routeLinkPrefix: string): Breadcrumb {
@@ -201,7 +201,7 @@ export class BreadcrumbService {
    *
    * Ex: route declaration - path: '/mentor/:id'
    * breadcrumbService.set('/mentor/:id', 'Uday');
-   * '/mentor/2' OR 'mentor/adasd' we should use 'Uday' as label
+   * '/mentor/2' OR 'mentor/ada' we should use 'Uday' as label
    *
    * regex string is built, if route has path params(contains with ':')
    */
@@ -231,8 +231,8 @@ export class BreadcrumbService {
     // if breadcrumb is present in current breadcrumbs update it and emit new stream
     if (breadcrumbItemIndex > -1) {
       this.currentBreadcrumbs[breadcrumbItemIndex] = { ...this.currentBreadcrumbs[breadcrumbItemIndex], ...breadcrumb };
-      const breacrumbsToShow = this.currentBreadcrumbs.filter(item => !item.skip);
-      this.breadcrumbs.next([...breacrumbsToShow]);
+      const breadcrumbsToShow = this.currentBreadcrumbs.filter(item => !item.skip);
+      this.breadcrumbs.next([...breadcrumbsToShow]);
     }
 
     // If the store already has this route definition update it, else add
