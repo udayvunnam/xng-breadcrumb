@@ -7,7 +7,7 @@
     "build:lib": "ng build xng-breadcrumb",
     "build:app": "ng build xng-breadcrumb-app --prod --progress=false",
     "build": "npm-run-all build:lib link:lib build:app",
-    "watch:lib": "ng build xng-breadcrumb --watch & sleep 10",
+    "watch:lib": "ng build xng-breadcrumb --watch & sleep 15",
     "watch:app": "ng serve xng-breadcrumb-app --open=true",
     "dev": "npm-run-all watch:lib link:lib watch:app",
     "start": "npm run dev",
