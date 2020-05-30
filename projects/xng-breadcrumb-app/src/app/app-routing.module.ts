@@ -46,7 +46,12 @@ export const appRoutes: Routes = [
   },
   {
     path: 'connect',
-    loadChildren: './connect/connect.module#ConnectModule'
+    loadChildren: './connect/connect.module#ConnectModule',
+    data: {
+      breadcrumb: {
+        disable: true
+      }
+    }
   },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
 ];

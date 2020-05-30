@@ -1,4 +1,8 @@
-# xng-breadcrumb
+<h1 align="center" style="color: teal">xng-breadcrumb</h1>
+
+<div align="center">
+
+> A lightweight, declarative and configurable breadcrumbs solution for Angular 6 and beyond. https://www.npmjs.com/package/xng-breadcrumb
 
 [![npm version](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb)
 ![bundle size](https://img.shields.io/bundlephobia/minzip/xng-breadcrumb)
@@ -8,7 +12,7 @@
 [![CircleCI](https://circleci.com/gh/udayvunnam/xng-breadcrumb.svg?shield&circle-token=:circle-token)](https://circleci.com/gh/udayvunnam/xng-breadcrumb)
 ![Twitter follow](https://img.shields.io/twitter/follow/udayvunnam_?style=social)
 
-> A lightweight, declarative and configurable breadcrumbs solution for Angular 6 and beyond. https://www.npmjs.com/package/xng-breadcrumb
+</div>
 
 ## About
 
@@ -18,7 +22,10 @@
 ## Demo
 
 [Live Demo](https://xng-breadcrumb.netlify.com/dashboard) - A demo app showcasing `xng-breadcrumb` usage in an Angular app. Navigate through different links to see breadcrumbs behavior.
-![image](https://user-images.githubusercontent.com/20707504/68575589-61287880-0492-11ea-9084-80587321c5c4.png)
+
+<p align="center">
+  <a href="https://xng-breadcrumb.netlify.com/dashboard" rel="noopener" target="_blank" ><img width="500" style="box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12)" src="https://user-images.githubusercontent.com/20707504/68575589-61287880-0492-11ea-9084-80587321c5c4.png" alt="xng-breadcrumb usage"></a></p>
+</p>
 
 ## Features
 

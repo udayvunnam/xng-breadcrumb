@@ -2,7 +2,13 @@
   <ol class="xng-breadcrumb-list">
     <ng-container *ngFor="let breadcrumb of breadcrumbs; last as isLast; first as isFirst">
       <li class="xng-breadcrumb-item">
-        <a *ngIf="!isLast" [routerLink]="[breadcrumb.routeLink]" class="xng-breadcrumb-link">
+        <a
+          *ngIf="!isLast"
+          [routerLink]="[breadcrumb.routeLink]"
+          class="xng-breadcrumb-link"
+          [ngClass]="{ 'xng-breadcrumb-link-disabled': breadcrumb.disable }"
+          [attr.aria-disabled]="breadcrumb.disable"
+        >
           <ng-container
             *ngTemplateOutlet="itemTemplate; context: { $implicit: breadcrumb.label, info: breadcrumb.info, last: isLast, first: isFirst }"
           ></ng-container>
