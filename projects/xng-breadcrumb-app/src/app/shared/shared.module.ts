@@ -4,11 +4,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppMaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CodeBlockComponent } from './code-block/code-block.component';
 
 @NgModule({
-  declarations: [CodeBlockComponent],
+  declarations: [],
   imports: [CommonModule, AppMaterialModule, FlexLayoutModule, HttpClientModule, ReactiveFormsModule],
-  exports: [CommonModule, AppMaterialModule, FlexLayoutModule, HttpClientModule, ReactiveFormsModule, CodeBlockComponent]
+  exports: [CommonModule, AppMaterialModule, FlexLayoutModule, HttpClientModule, ReactiveFormsModule]
 })
 export class SharedModule {}

@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 import { DataService } from '../../core/data.service';
-import { menteeDetails } from '../../shared/constants/code';
 
 @Component({
   selector: 'app-mentee-details',
@@ -11,7 +10,6 @@ import { menteeDetails } from '../../shared/constants/code';
   styleUrls: ['./mentee-details.component.scss']
 })
 export class MenteeDetailsComponent implements OnInit {
-  code = menteeDetails;
   mentee: any;
   constructor(
     private breadcrumbService: BreadcrumbService,

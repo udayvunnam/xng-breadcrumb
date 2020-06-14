@@ -5,11 +5,25 @@
 
 .route-container {
   padding: 16px;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    label {
+      min-width: 240px;
+    }
+  }
 }
 
 @media (max-width: 960px) {
   .app-container {
     padding-top: 112px;
     min-height: calc(100% - 112px);
+  }
+
+  .route-container div {
+    flex-direction: column;
+    align-items: start;
   }
 }

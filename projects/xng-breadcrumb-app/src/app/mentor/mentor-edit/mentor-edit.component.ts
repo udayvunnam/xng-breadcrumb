@@ -1,13 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { MatAutocomplete, MatSnackBar, MatChipInputEvent, MatAutocompleteSelectedEvent } from '@angular/material';
 
 import { allLanguages } from '../../core/in-memory-data.service';
-import { mentorEdit } from '../../shared/constants/code';
 import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
 import { BreadcrumbService } from 'xng-breadcrumb';
@@ -18,7 +17,6 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./mentor-edit.component.scss']
 })
 export class MentorEditComponent implements OnInit {
-  code = mentorEdit;
   mentorId: any;
   mentorFG: FormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -81,9 +79,13 @@ export class MentorEditComponent implements OnInit {
       mentor.available = this.mentorFG.value.available;
       mentor.skills = this.skills;
 
+      let navigationExtras: NavigationExtras = {
+        queryParams: { editedMentee: this.mentorId }
+      };
+
       this.dataService.updateMentor(mentor).subscribe((response: any) => {
         this.snackBar.open(`Mentor updated - ${mentor.name}`, 'Ok');
-        this.router.navigate(['mentor', this.mentorId]);
+        this.router.navigate(['mentor', this.mentorId], navigationExtras);
       });
     }
   }

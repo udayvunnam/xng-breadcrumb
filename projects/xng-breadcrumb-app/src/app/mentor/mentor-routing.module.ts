@@ -17,6 +17,11 @@ const routes: Routes = [
       },
       {
         path: ':id',
+        data: {
+          breadcrumb: {
+            disable: true
+          }
+        },
         children: [
           {
             path: '',

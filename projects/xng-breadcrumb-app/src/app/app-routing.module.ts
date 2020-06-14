@@ -11,7 +11,7 @@ export const appRoutes: Routes = [
     component: HomeComponent,
     data: {
       breadcrumb: {
-        label: 'app home',
+        label: 'my home',
         info: 'home'
       }
     }
@@ -20,7 +20,10 @@ export const appRoutes: Routes = [
     path: 'dashboard',
     loadChildren: './dashboard/dashboard.module#DashboardModule',
     data: {
-      breadcrumb: 'my dashboard'
+      breadcrumb: {
+        label: 'dashboard',
+        info: 'dashboard'
+      }
     }
   },
   {
@@ -43,7 +46,12 @@ export const appRoutes: Routes = [
   },
   {
     path: 'connect',
-    loadChildren: './connect/connect.module#ConnectModule'
+    loadChildren: './connect/connect.module#ConnectModule',
+    data: {
+      breadcrumb: {
+        disable: true
+      }
+    }
   },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
 ];

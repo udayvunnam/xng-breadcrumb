@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -11,7 +11,6 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Mentee } from '../../shared/models/mentee';
 import { DataService } from '../../core/data.service';
 import { allLanguages } from '../../core/in-memory-data.service';
-import { menteeAdd } from '../../shared/constants/code';
 
 @Component({
   selector: 'app-mentee-add',
@@ -19,7 +18,6 @@ import { menteeAdd } from '../../shared/constants/code';
   styleUrls: ['./mentee-add.component.scss']
 })
 export class MenteeAddComponent implements OnInit {
-  code = menteeAdd;
   mentee: any;
   menteeFG: FormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -64,8 +62,12 @@ export class MenteeAddComponent implements OnInit {
       mentee.skills = this.skills;
 
       this.dataService.addMentee(mentee).subscribe((response: any) => {
+        let navigationExtras: NavigationExtras = {
+          queryParams: { addedMentor: mentee.id }
+        };
+
         this.snackBar.open(`Mentee added - ${mentee.name}`, 'Ok');
-        this.router.navigate(['mentee']);
+        this.router.navigate(['mentee'], navigationExtras);
       });
     }
   }

@@ -1,29 +1,44 @@
 <div class="app-container mat-app-background" [ngClass]="{ 'xng-dark-theme': darkMode }">
   <app-navbar (themeChanged)="updateTheme($event)"></app-navbar>
   <section class="route-container" fxLayout="column" fxLayoutGap="16px">
-    <xng-breadcrumb></xng-breadcrumb>
+    <div>
+      <label for="default">Default breadcrumbs </label>
+      <xng-breadcrumb id="default"></xng-breadcrumb>
+    </div>
 
-    <xng-breadcrumb separator=">>">
-      <ng-container *xngBreadcrumbItem="let breadcrumb">
-        {{ breadcrumb | titlecase }}
-      </ng-container>
-    </xng-breadcrumb>
+    <div>
+      <label for="titleCase">Titlecase and custom seperator </label>
+      <xng-breadcrumb separator=">>" id="titleCase">
+        <ng-container *xngBreadcrumbItem="let breadcrumb">
+          {{ breadcrumb | titlecase }}
+        </ng-container>
+      </xng-breadcrumb>
+    </div>
 
-    <xng-breadcrumb [separator]="separatorTemplate"></xng-breadcrumb>
+    <div>
+      <label for="materialIcon">Material icon as seperator </label>
+      <xng-breadcrumb [separator]="separatorTemplate" id="materialIcon" class="custom-breadcrumb"></xng-breadcrumb>
+    </div>
 
-    <xng-breadcrumb [separator]="separatorTemplate" class="myapp-breadcrumb">
-      <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info; let first = first">
-        <mat-icon *ngIf="info">{{ info }}</mat-icon>
-        <ng-container>{{ breadcrumb | titlecase }}</ng-container>
-      </ng-container>
-    </xng-breadcrumb>
+    <div>
+      <label for="advancedTemplate1">Advanced template1 </label>
+      <xng-breadcrumb [separator]="separatorTemplate" class="myapp-breadcrumb" id="advancedTemplate1">
+        <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info; let first = first">
+          <mat-icon *ngIf="info">{{ info }}</mat-icon>
+          <ng-container>{{ breadcrumb | titlecase }}</ng-container>
+        </ng-container>
+      </xng-breadcrumb>
+    </div>
 
-    <xng-breadcrumb [separator]="separatorTemplate" class="myapp-breadcrumb">
-      <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info; let first = first">
-        <mat-icon *ngIf="info && first">{{ info }}</mat-icon>
-        <ng-container *ngIf="!first">{{ breadcrumb | titlecase }}</ng-container>
-      </ng-container>
-    </xng-breadcrumb>
+    <div>
+      <label for="advancedTemplate2">Advanced template2 </label>
+      <xng-breadcrumb [separator]="separatorTemplate" class="myapp-breadcrumb" id="advancedTemplate2">
+        <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info; let first = first">
+          <mat-icon *ngIf="info">{{ info }}</mat-icon>
+          <ng-container *ngIf="!first">{{ breadcrumb | titlecase }}</ng-container>
+        </ng-container>
+      </xng-breadcrumb>
+    </div>
 
     <router-outlet></router-outlet>
   </section>

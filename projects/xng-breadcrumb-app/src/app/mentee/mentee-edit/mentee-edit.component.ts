@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
@@ -7,7 +7,6 @@ import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { MatAutocomplete, MatSnackBar, MatChipInputEvent, MatAutocompleteSelectedEvent } from '@angular/material';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
-import { menteeEdit } from '../../shared/constants/code';
 import { DataService } from '../../core/data.service';
 import { allLanguages } from '../../core/in-memory-data.service';
 import { Mentee } from '../../shared/models/mentee';
@@ -18,7 +17,6 @@ import { Mentee } from '../../shared/models/mentee';
   styleUrls: ['./mentee-edit.component.scss']
 })
 export class MenteeEditComponent implements OnInit {
-  code = menteeEdit;
   menteeId: any;
   menteeFG: FormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -81,9 +79,13 @@ export class MenteeEditComponent implements OnInit {
       mentee.available = this.menteeFG.value.available;
       mentee.skills = this.skills;
 
+      let navigationExtras: NavigationExtras = {
+        queryParams: { editedMentee: this.menteeId }
+      };
+
       this.dataService.updateMentee(mentee).subscribe((response: any) => {
         this.snackBar.open(`Mentee updated - ${mentee.name}`, 'Ok');
-        this.router.navigate(['mentee', this.menteeId]);
+        this.router.navigate(['mentee', this.menteeId], navigationExtras);
       });
     }
   }
