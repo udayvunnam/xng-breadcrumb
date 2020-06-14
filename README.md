@@ -29,15 +29,21 @@
 
 ## Features
 
-- ✅ **Angular Router integration**: Just add `<xng-breadcrumb></xng-breadcrumb>` anywhere in the app. Breadcrumb labels will be **auto-generated** even without any configuration.
+- ✅ **Zero configuration**: Just add `<xng-breadcrumb></xng-breadcrumb>` anywhere in the app. Breadcrumb labels will be **auto-generated** by analyzing Angular Route configuration in your App.
 
-- ✅ **Map Breadcrumb labels to Routes in Route Config**: Define breadcrumbs in Application Route Config itself.
+- ✅ **Custom labels**: each route can have a custom label defined via Angular Route Config. The labels will be picked automatically while forming breadcrumbs
 
 - ✅ **Update labels dynamically**: Change breadcrumbs dynamically using `BreadcrumbService.set()`. You can either use _route path_ or _breadcrumb alias_ to change breadcrumb for a route.
 
-- ✅ **Skip Breadcrumbs for certain routes**: Skip specific routes from displaying in breadcrumbs, conditionally.
+- ✅ **Skip breadcrumb**: Skip specific routes from displaying in breadcrumbs, conditionally.
 
-- ✅ **Customization**: You can the customize breadcrumb template to show **icons as label prefix**, **use pipes on text**, **add i18n**, etc. **Separator** and **Styles** can also be customized with ease.
+- ✅ **Disable breadcrumb**: Disable specific routes so that navigation is disbaled to intermediate routes.
+
+- ✅ **Customization**: Customize breadcrumb template to show **icons as label prefix**, **use pipes on text**, **add i18n**, etc.
+
+- ✅ **Styling**: **Separator** and **Styles** can be customized with ease.
+
+- ✅ **QueryParams and Fragment**: Preserves QueryParams and Fragemnet while navigating via breadcrumbs
 
 ## Quickstart
 
@@ -94,7 +100,7 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
 - define 'breadcrumb' within the data property of route.
 - a 'breadcrumb' can be defined as a string OR as an object.
 - Use **breadcrumb as a string** if you are just providing breadcrumb text
-- Use **breadcrumb as an object** if you are providing additional properties like 'alias', 'skip', 'info'. In this case, 'label' property denotes breadcrumb text.
+- Use **breadcrumb as an object** if you are providing additional properties like 'alias', 'skip', 'info', 'disable'. In this case, 'label' property denotes breadcrumb text.
 
 #### breadcrumb as a string
 
@@ -184,7 +190,7 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
 You can skip a route from displaying in breadcrumbs in two ways
 
 - make 'skip' as true for breadcrumb in route config `breadcrumb: { skip: true }`
-- Use the 'set()' method and pass second argument as an object with 'skip' as true
+- dynamically skip using `set(<myPathOrAlias>, { skip:true })`;
 
 #### skip breadcrumb in route config
 
@@ -206,6 +212,13 @@ breadcrumbService.set('@mentorName', { skip: true }); // using alias '@mentorNam
 breadcrumbService.set('mentor/:id/edit', { skip: false });
 breadcrumbService.set('@mentorName', { skip: false }); // using alias '@mentorName'
 ```
+
+### Dibsable Breadcrumb navigation for certain routes
+
+You can show an intermediate breadcrumb, but disable navigation if the route has no meaning.
+
+- make 'disable' as true for breadcrumb in route config `breadcrumb: { disable: true }`
+- dynamically skip using `set(<myPathOrAlias>, { disable:true })`;
 
 ## Customization
 
@@ -338,13 +351,14 @@ You can display whatever you want in the place of breadcrumb text by providing a
 
 #### Route Config
 
-| property            | Description                                                        | Type                  | Default     |
-| ------------------- | ------------------------------------------------------------------ | --------------------- | ----------- |
-| breadcrumb          | Breadcrumb data provided in App route config                       | `string | Breadcrumb` | `undefined` |
-| breadcrumb: {alias} | alias name for a route                                             | `string`              | `undefined` |
-| breadcrumb: {skip}  | whether to skip route from showing in breadcrumbs                  | `boolean`             | `false`     |
-| breadcrumb: {info}  | arbitrary info for a breadcrumb.                                   | `string | object`     | `undefined` |
-| breadcrumb: {label} | same as breadcrumb. Use label when breadcrumb is defined as object | `string`              | `undefined` |
+| property              | Description                                                      | Type                  | Default     |
+| --------------------- | ---------------------------------------------------------------- | --------------------- | ----------- |
+| breadcrumb            | Breadcrumb data provided in App route config                     | `string | Breadcrumb` | `undefined` |
+| breadcrumb: {alias}   | alias name for a route                                           | `string`              | `undefined` |
+| breadcrumb: {skip}    | skip a route from showing in breadcrumbs                         | `boolean`             | `false`     |
+| breadcrumb: {disable} | disable navigation for a breadcrumb item                         | `boolean`             | `false`     |
+| breadcrumb: {info}    | arbitrary info for a breadcrumb.                                 | `string | object`     | `undefined` |
+| breadcrumb: {label}   | same as breadcrumb. Use label if breadcrumb is defined as object | `string`              | `undefined` |
 
 #### xng-breadcrumb
 

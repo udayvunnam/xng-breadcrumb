@@ -8,6 +8,8 @@
           class="xng-breadcrumb-link"
           [ngClass]="{ 'xng-breadcrumb-link-disabled': breadcrumb.disable }"
           [attr.aria-disabled]="breadcrumb.disable"
+          [queryParams]="breadcrumb.queryParams"
+          [fragment]="breadcrumb.fragment"
         >
           <ng-container
             *ngTemplateOutlet="itemTemplate; context: { $implicit: breadcrumb.label, info: breadcrumb.info, last: isLast, first: isFirst }"
