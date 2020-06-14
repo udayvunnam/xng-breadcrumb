@@ -45,7 +45,7 @@ commands:
     steps:
       - run:
           name: Authenticate with npm registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
       - run:
           name: Publish library to npm
           command: npm run publish:lib
