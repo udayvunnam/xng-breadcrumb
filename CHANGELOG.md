@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v5.0.1...v4.1.0) (2020-06-14)
+
+### Features
+
+- **app:** remove code block components and service as they are less useful ([b7d647f](https://github.com/udayvunnam/xng-breadcrumb/commit/b7d647f803727e20ccceca1e55ce59bddeb5228a))
+- ability to disable a bredcurmb link in between the stack ([fcb66cc](https://github.com/udayvunnam/xng-breadcrumb/commit/fcb66cc6486f524ac8a37bcc43f06c5e1944a8ab))
+- ability to disable a bredcurmb link in between the stack ([5704fde](https://github.com/udayvunnam/xng-breadcrumb/commit/5704fdeaca7a71509a0ae666c02b42e30c230937))
+- navigate with query params, disabled state, dynamic set method issue fix ([90a5980](https://github.com/udayvunnam/xng-breadcrumb/commit/90a5980ab36d1b11ab52c15357a46c263be90360))
+- navigate with query params, disabled state, dynamic set method issue fix ([9077b4d](https://github.com/udayvunnam/xng-breadcrumb/commit/9077b4dacfb867011cf9d5611fe72090c6179942))
+- pointing the dashboard screen for demo ([acdecb6](https://github.com/udayvunnam/xng-breadcrumb/commit/acdecb6a2458bd9e930d2a7afe539df702a9c29f))
+- remove async pipe and use with subscrbe to have more control ([abc07da](https://github.com/udayvunnam/xng-breadcrumb/commit/abc07da2df80d9a0a724c164e3b92a8ea2f0eb97))
+- update node version ([8e460e5](https://github.com/udayvunnam/xng-breadcrumb/commit/8e460e54a69b02e9003945927e640be9aa2536bd))
+
+### Bug Fixes
+
+- spelling correction ([8cf78d9](https://github.com/udayvunnam/xng-breadcrumb/commit/8cf78d92bcc86d08aea865b35d75fc35509f228d))
+
+## [4.0.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v5.0.0...v4.0.0) (2019-11-05)
+
+### Features
+
+- custom separator and template. ([38f8ec1](https://github.com/udayvunnam/xng-breadcrumb/commit/38f8ec12213998a299913f784b06aa65f1130703))
+- latest API chnages to work with Angular 7. building with v7 compiler ([455b217](https://github.com/udayvunnam/xng-breadcrumb/commit/455b217d8b001fb43c3cd4b743d9c4af60696cc3))
+- latest API chnages to work with Angular 7. building with v7 compiler. ([bc44336](https://github.com/udayvunnam/xng-breadcrumb/commit/bc44336f470d8278193f7e803d05d4332e2db10d))
+
 ## [4.0.0](2019-11-05)
 
 ### Features
