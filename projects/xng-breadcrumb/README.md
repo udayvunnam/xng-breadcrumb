@@ -1,4 +1,8 @@
-# xng-breadcrumb
+<h1 align="center" style="color: teal">xng-breadcrumb</h1>
+
+<div align="center">
+
+> A lightweight, declarative and configurable breadcrumbs solution for Angular 6 and beyond. https://www.npmjs.com/package/xng-breadcrumb
 
 [![npm version](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb)
 ![bundle size](https://img.shields.io/bundlephobia/minzip/xng-breadcrumb)
@@ -8,30 +12,7 @@
 [![CircleCI](https://circleci.com/gh/udayvunnam/xng-breadcrumb.svg?shield&circle-token=:circle-token)](https://circleci.com/gh/udayvunnam/xng-breadcrumb)
 ![Twitter follow](https://img.shields.io/twitter/follow/udayvunnam_?style=social)
 
-> A lightweight, declarative and configurable breadcrumbs solution for Angular 6 and beyond. https://www.npmjs.com/package/xng-breadcrumb
-
-- [About](#about)
-- [Demo](#demo)
-- [Features](#features)
-- [Quickstart](#quickstart)
-- [Setup Guide](#setup-guide)
-
-  - [Map Breadcrumb labels to Routes in Route Config](#Map-Breadcrumb-labels-to-Routes-in-Route-Config)
-  - [Update labels dynamically](#Update-labels-dynamically)
-  - [Skip Breadcrumbs for certain routes](#Skip-Breadcrumbs-for-certain-routes)
-
-- [Customization](#customization)
-
-  - [Custom Breadcrumb template (add icons, change text, add i18n ability, etc)](<#Custom-Breadcrumb-template-(add-icons,-change-text,-add-i18n-ability,-etc)>)
-  - [Custom separator](#custom-separator)
-  - [Custom Breadcrumb Styles](#custom-breadcrumb-styles)
-  - [Disable Auto Generation of breadcrumb labels](#disable-auto-generation-of-breadcrumb-labels)
-
-- [API](#api)
-
-  - [Route Config](#route-config)
-  - [xng-breadcrumb](#xng-breadcrumb)
-  - [BreadcrumbService.set(pathOrAlias, breadcrumb)](<#BreadcrumbService.set(pathOrAlias,-breadcrumb)>)
+</div>
 
 ## About
 
@@ -40,21 +21,29 @@
 
 ## Demo
 
-[Live Demo](https://xng-breadcrumb.netlify.com) - A demo app showcasing `xng-breadcrumb` usage in an Angular app. Navigate through different links to see breadcrumbs behavior.
+[Live Demo](https://xng-breadcrumb.netlify.com/dashboard) - A demo app showcasing `xng-breadcrumb` usage in an Angular app. Navigate through different links to see breadcrumbs behavior.
 
-![](https://user-images.githubusercontent.com/20707504/65815404-9e031d80-e20c-11e9-9052-0a195da6c244.gif)
+<p align="center">
+  <a href="https://xng-breadcrumb.netlify.com/dashboard" rel="noopener" target="_blank" ><img width="500" src="https://user-images.githubusercontent.com/20707504/68575589-61287880-0492-11ea-9084-80587321c5c4.png" alt="xng-breadcrumb usage"></a></p>
+</p>
 
 ## Features
 
-- ✅ **Angular Router integration**: Just add `<xng-breadcrumb></xng-breadcrumb>` anywhere in the app. Breadcrumb labels will be **auto-generated** even without any configuration.
+- ✅ **Zero configuration**: Just add `<xng-breadcrumb></xng-breadcrumb>` anywhere in the app. Breadcrumb labels will be **auto-generated** by analyzing Angular Route configuration in your App.
 
-- ✅ **Map Breadcrumb labels to Routes in Route Config**: Define breadcrumbs in Application Route Config itself.
+- ✅ **Custom labels**: each route can have a custom label defined via Angular Route Config. The labels will be picked automatically while forming breadcrumbs
 
 - ✅ **Update labels dynamically**: Change breadcrumbs dynamically using `BreadcrumbService.set()`. You can either use _route path_ or _breadcrumb alias_ to change breadcrumb for a route.
 
-- ✅ **Skip Breadcrumbs for certain routes**: Skip specific routes from displaying in breadcrumbs, conditionally.
+- ✅ **Skip breadcrumb**: Skip specific routes from displaying in breadcrumbs, conditionally.
 
-- ✅ **Customization**: You can the customize breadcrumb template to show **icons as label prefix**, **use pipes on text**, **add i18n**, etc. **Separator** and **Styles** can also be customized with ease.
+- ✅ **Disable breadcrumb**: Disable specific routes so that navigation is disbaled to intermediate routes.
+
+- ✅ **Customization**: Customize breadcrumb template to show **icons as label prefix**, **use pipes on text**, **add i18n**, etc.
+
+- ✅ **Styling**: **Separator** and **Styles** can be customized with ease.
+
+- ✅ **QueryParams and Fragment**: Preserves QueryParams and Fragemnet while navigating via breadcrumbs
 
 ## Quickstart
 
@@ -106,16 +95,12 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
 
 ## Setup Guide
 
-<<<<<<< HEAD
-### Defining breadcrumb labels along with Route Configuration
-=======
 ### Map Breadcrumb labels to Routes in Route Config
->>>>>>> 99867c84490a3dbfd20c23adaf8910fafe7d42ec
 
 - define 'breadcrumb' within the data property of route.
 - a 'breadcrumb' can be defined as a string OR as an object.
 - Use **breadcrumb as a string** if you are just providing breadcrumb text
-- Use **breadcrumb as an object** if you are providing additional properties like 'alias', 'skip', 'info'. In this case, 'label' property denotes breadcrumb text.
+- Use **breadcrumb as an object** if you are providing additional properties like 'alias', 'skip', 'info', 'disable'. In this case, 'label' property denotes breadcrumb text.
 
 #### breadcrumb as a string
 
@@ -152,11 +137,7 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
   }
 ```
 
-<<<<<<< HEAD
-### Update breadcrumb label dynamically
-=======
 ### Update labels dynamically
->>>>>>> 99867c84490a3dbfd20c23adaf8910fafe7d42ec
 
 - Breadcrumb label can be updated based on _route path_ or _alias_
 - For simple routes, _route path_ is enough. Ex: `breadcrumbService.set(<route path> , <breadcrumb label>)`
@@ -204,16 +185,12 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
   breadcrumbService.set('@mentorName', 'Uday Vunnam');
 ```
 
-<<<<<<< HEAD
-### Skip a specific route from displaying in breadcrumbs
-=======
 ### Skip Breadcrumbs for certain routes
 
 You can skip a route from displaying in breadcrumbs in two ways
->>>>>>> 99867c84490a3dbfd20c23adaf8910fafe7d42ec
 
 - make 'skip' as true for breadcrumb in route config `breadcrumb: { skip: true }`
-- Use the 'set()' method and pass second argument as an object with 'skip' as true
+- dynamically skip using `set(<myPathOrAlias>, { skip:true })`;
 
 #### skip breadcrumb in route config
 
@@ -236,13 +213,16 @@ breadcrumbService.set('mentor/:id/edit', { skip: false });
 breadcrumbService.set('@mentorName', { skip: false }); // using alias '@mentorName'
 ```
 
+### Dibsable Breadcrumb navigation for certain routes
+
+You can show an intermediate breadcrumb, but disable navigation if the route has no meaning.
+
+- make 'disable' as true for breadcrumb in route config `breadcrumb: { disable: true }`
+- dynamically skip using `set(<myPathOrAlias>, { disable:true })`;
+
 ## Customization
 
-<<<<<<< HEAD
-### Customize breadcrumb template (Add icons, change text, i18n)
-=======
 ### Custom Breadcrumb template (add icons, change text, add i18n ability, etc)
->>>>>>> 99867c84490a3dbfd20c23adaf8910fafe7d42ec
 
 You can display whatever you want in the place of breadcrumb text by providing a custom template.
 
@@ -335,25 +315,9 @@ You can display whatever you want in the place of breadcrumb text by providing a
 </ng-template>
 ```
 
-<<<<<<< HEAD
-### Disable Auto Generation of breadcrumb labels
-
-- Breadcrumbs are integrated with Angular Router and labels are auto generated. (if a label is not provided for a route)
-- Auto generated label is same as route path segment.
-- If you want to avoid labels showing by default even for routes that don't specify breadcrumbs, set `[autoGenerate]=false`.
-
-```html
-<xng-breadcrumb [autoGenerate]="false"></xng-breadcrumb>
-```
-
-### Customize Breadcrumb Styles
-
-- `<xng-breadcrumb>` defines the least possible specificity for selectors, in order to make it easy to override them.
-=======
 ### Custom Breadcrumb Styles
 
 - `<xng-breadcrumb>` defines the least possible specificity for selectors, to make it easy to override them.
->>>>>>> 99867c84490a3dbfd20c23adaf8910fafe7d42ec
 - override styles by changing the CSS for corresponding classes. (Keep this styles in app root styles file if you don't want to use ::ng-deep)
 - Below are classes visualization to help which class maps to which box
 - (Optional)xng-breadcrumb takes 'class' as input. This class will be applied to the root of the breadcrumb. This can be used to increase specificity when there are conflicting styles.
@@ -387,13 +351,14 @@ You can display whatever you want in the place of breadcrumb text by providing a
 
 #### Route Config
 
-| property            | Description                                                        | Type                  | Default     |
-| ------------------- | ------------------------------------------------------------------ | --------------------- | ----------- |
-| breadcrumb          | Breadcrumb data provided in App route config                       | `string | Breadcrumb` | `undefined` |
-| breadcrumb: {alias} | alias name for a route                                             | `string`              | `undefined` |
-| breadcrumb: {skip}  | whether to skip route from showing in breadcrumbs                  | `boolean`             | `false`     |
-| breadcrumb: {info}  | arbitrary info for a breadcrumb.                                   | `string | object`     | `undefined` |
-| breadcrumb: {label} | same as breadcrumb. Use label when breadcrumb is defined as object | `string`              | `undefined` |
+| property              | Description                                                      | Type                  | Default     |
+| --------------------- | ---------------------------------------------------------------- | --------------------- | ----------- |
+| breadcrumb            | Breadcrumb data provided in App route config                     | `string | Breadcrumb` | `undefined` |
+| breadcrumb: {alias}   | alias name for a route                                           | `string`              | `undefined` |
+| breadcrumb: {skip}    | skip a route from showing in breadcrumbs                         | `boolean`             | `false`     |
+| breadcrumb: {disable} | disable navigation for a breadcrumb item                         | `boolean`             | `false`     |
+| breadcrumb: {info}    | arbitrary info for a breadcrumb.                                 | `string | object`     | `undefined` |
+| breadcrumb: {label}   | same as breadcrumb. Use label if breadcrumb is defined as object | `string`              | `undefined` |
 
 #### xng-breadcrumb
 
@@ -403,21 +368,8 @@ You can display whatever you want in the place of breadcrumb text by providing a
 | autoGenerate        | input:whether to auto generate breacrumb labels           | `boolean`                    | `true`  |
 | \*xngBreadcrumbItem | directive: to read context in custom breadcrumb templates | NA                           | NA      |
 
-<<<<<<< HEAD
-**xng-breadcrumb**
-
-| property            | Description                                              | Type                         | Default |
-| ------------------- | -------------------------------------------------------- | ---------------------------- | ------- |
-| separator           | input: separator between breadcrumbs                     | `string | TemplateRef<void>` | `/`     |
-| autoGenerate        | whether to auto generate breacrumb labels                | `boolean`                    | `true`  |
-| \*xngBreadcrumbItem | directive to read context in custom breadcrumb templates | `Boolean`                    | `false` |
-
-**BreadcrumbService.set(pathOrAlias, breadcrumb)**
-
-=======
 #### BreadcrumbService.set(pathOrAlias, breadcrumb)
 
->>>>>>> 99867c84490a3dbfd20c23adaf8910fafe7d42ec
 | argument    | Description                                | Type                  |
 | ----------- | ------------------------------------------ | --------------------- |
 | pathOrAlias | full route path or alias prefixed with '@' | `string`              |
@@ -472,13 +424,26 @@ If you wish to contribute to this repository, below are the steps for local deve
 
 - Clone the repository `git clone https://github.com/udayvunnam/xng-breadcrumb.git`
 - Run `npm install` to install the dependencies
-- Run `npm start` to build and watch both the library and the demo app. This opens the app at `http://localhost:4200/` automatically.
+- Run `npm run dev` to build and watch both the library and the demo app. This opens the demo app at `http://localhost:4200/` automatically.
 
 ## Build
 
 Run `npm run build` to build the library and demo app together. The build artifacts will be stored in the `dist/` directory.
 
-This step is used by CircleCI to build both the library and the demo app. After a successful build, a new semantic version of the library is published to npm and the demo app is deployed to Netlify.
+This step is used by CircleCI to build both the library and the demo app. After a successful build, the demo app is deployed to Netlify.
+
+## Publish to npm
+
+Use `npm run version` if you wish to publish a new version of library to npm
+
+This ingternally uses standard-version to
+
+- bump the library version based on the commits
+- generates changelog
+- commit bump files and changelog
+- create a new tag with the new version number
+
+CircleCI gets notified on every new tag push and publishes the library if build and tests are success
 
 ## Tests
 
@@ -493,6 +458,7 @@ _**You can create your library with complete automated setup for build, tests, a
 <!-- ### Alternative: Angular Devkit 6+
 
 If you are using Angular CLI 6+, just use `ng add` command to update your Angular project with all the above steps.
+![](https://user-images.githubusercontent.com/20707504/65815404-9e031d80-e20c-11e9-9052-0a195da6c244.gif)
 
 ```
 ng add xng-breadcrumb
