@@ -61,3 +61,12 @@ body {
 .myapp-breadcrumb .xng-breadcrumb-trail {
   color: teal;
 }
+
+.custom-breadcrumb.xng-breadcrumb-root {
+  background-color: #fff;
+  .xng-breadcrumb-item {
+    border-radius: 16px;
+    background-color: #f5f5f5;
+    padding: 4px 8px;
+  }
+}
