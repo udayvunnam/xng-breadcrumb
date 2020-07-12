@@ -2,7 +2,7 @@
 
 <div align="center">
 
-> A lightweight, declarative and configurable breadcrumbs solution for Angular 6 and beyond. https://www.npmjs.com/package/xng-breadcrumb
+> A lightweight, declarative and configurable breadcrumbs solution for Angular 6 and beyond. <https://www.npmjs.com/package/xng-breadcrumb>
 
 [![npm version](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb)
 ![bundle size](https://img.shields.io/bundlephobia/minzip/xng-breadcrumb)
@@ -349,7 +349,7 @@ You can display whatever you want in the place of breadcrumb text by providing a
 
 ## API
 
-#### Route Config
+### Route Config
 
 | property              | Description                                                      | Type                  | Default     |
 | --------------------- | ---------------------------------------------------------------- | --------------------- | ----------- |
@@ -380,7 +380,7 @@ You can display whatever you want in the place of breadcrumb text by providing a
 - For the same route path, you can define breadcrumbs either on _parent_ or _any descendant with empty path_.
 - If both are defined, the children take the precedence.
 
-#### With Component and its Children
+### With Component and its Children
 
 ```javascript
   // defining breadcrumb on Component Route
