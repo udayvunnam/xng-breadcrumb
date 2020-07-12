@@ -33,6 +33,10 @@ If applicable, add screenshots to help explain your problem.
  - OS: [e.g. iOS8.1]
  - Browser [e.g. stock browser, safari]
  - Version [e.g. 22]
+ 
+**Stackblitz example:**
+Can you create a minimal reproducible example with the issue you are facing?
+To help you start with, refer to the Stackblitz example - stackblitz.com/edit/angular-xng-breadcrumbs.
 
 **Additional context**
 Add any other context about the problem here.
