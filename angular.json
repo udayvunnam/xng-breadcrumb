@@ -21,11 +21,8 @@
             "polyfills": "apps/breadcrumb-demo/src/polyfills.ts",
             "tsConfig": "apps/breadcrumb-demo/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/breadcrumb-demo/src/favicon.ico",
-              "apps/breadcrumb-demo/src/assets"
-            ],
-            "styles": ["apps/breadcrumb-demo/src/styles.scss"],
+            "assets": ["apps/breadcrumb-demo/src/favicon.ico", "apps/breadcrumb-demo/src/assets"],
+            "styles": ["apps/breadcrumb-demo/src/assets/scss/xng-breadcrumb.scss", "apps/breadcrumb-demo/src/styles.scss"],
             "scripts": []
           },
           "configurations": {

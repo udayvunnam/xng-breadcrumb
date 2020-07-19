@@ -4,12 +4,13 @@ import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
-import { MatAutocomplete, MatSnackBar, MatChipInputEvent, MatAutocompleteSelectedEvent } from '@angular/material';
-
+import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatChipInputEvent } from '@angular/material/chips';
 import { allLanguages } from '../../core/in-memory-data.service';
 import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
-import { BreadcrumbService } from 'xng-breadcrumb';
+import { BreadcrumbService } from '@xng/xng-breadcrumb';
 
 @Component({
   selector: 'app-mentor-edit',
@@ -79,7 +80,7 @@ export class MentorEditComponent implements OnInit {
       mentor.available = this.mentorFG.value.available;
       mentor.skills = this.skills;
 
-      let navigationExtras: NavigationExtras = {
+      const navigationExtras: NavigationExtras = {
         queryParams: { editedMentee: this.mentorId }
       };
 

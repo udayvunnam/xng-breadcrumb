@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'xng-breadcrumb',
+  name: '@xng/xng-breadcrumb',
   preset: '../../jest.config.js',
   coverageDirectory: '../../coverage/libs/xng-breadcrumb',
   snapshotSerializers: [

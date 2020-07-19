@@ -18,7 +18,7 @@ export const appRoutes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: './dashboard/dashboard.module#DashboardModule',
+    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
     data: {
       breadcrumb: {
         label: 'dashboard',
@@ -28,7 +28,7 @@ export const appRoutes: Routes = [
   },
   {
     path: 'mentor',
-    loadChildren: './mentor/mentor.module#MentorModule',
+    loadChildren: () => import('./mentor/mentor.module').then(m => m.MentorModule),
     data: {
       breadcrumb: {
         info: 'person'
@@ -37,7 +37,7 @@ export const appRoutes: Routes = [
   },
   {
     path: 'mentee',
-    loadChildren: './mentee/mentee.module#MenteeModule',
+    loadChildren: () => import('./mentee/mentee.module').then(m => m.MenteeModule),
     data: {
       breadcrumb: {
         info: 'person_outline'
@@ -46,7 +46,7 @@ export const appRoutes: Routes = [
   },
   {
     path: 'connect',
-    loadChildren: './connect/connect.module#ConnectModule',
+    loadChildren: () => import('./connect/connect.module').then(m => m.ConnectModule),
     data: {
       breadcrumb: {
         disable: true

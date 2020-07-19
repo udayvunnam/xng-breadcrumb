@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { InMemoryDataService } from './core/in-memory-data.service';
-import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
