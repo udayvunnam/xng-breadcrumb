@@ -10,7 +10,7 @@
       },
       "root": "apps/breadcrumb-demo",
       "sourceRoot": "apps/breadcrumb-demo/src",
-      "prefix": "xng",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
