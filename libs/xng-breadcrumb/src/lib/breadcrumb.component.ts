@@ -1,4 +1,4 @@
-import { Component, ContentChild, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, ContentChild, Input, OnInit, TemplateRef, ViewEncapsulation, OnDestroy, Output } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { BreadcrumbItemDirective } from './breadcrumb-item.directive';
 import { BreadcrumbService } from './breadcrumb.service';
@@ -10,7 +10,7 @@ import { Breadcrumb } from './breadcrumb';
   styleUrls: ['./breadcrumb.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class BreadcrumbComponent implements OnInit {
+export class BreadcrumbComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   breadcrumbs: Breadcrumb[];
   breadcrumbs$: Observable<Breadcrumb[]>;
