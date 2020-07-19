@@ -123,6 +123,46 @@
           }
         }
       }
+    },
+    "xng-breadcrumb": {
+      "projectType": "library",
+      "root": "libs/xng-breadcrumb",
+      "sourceRoot": "libs/xng-breadcrumb/src",
+      "prefix": "xng",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/xng-breadcrumb/tsconfig.lib.json",
+            "project": "libs/xng-breadcrumb/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/xng-breadcrumb/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/xng-breadcrumb/tsconfig.lib.json",
+              "libs/xng-breadcrumb/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/xng-breadcrumb/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/xng-breadcrumb/jest.config.js",
+            "tsConfig": "libs/xng-breadcrumb/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/xng-breadcrumb/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

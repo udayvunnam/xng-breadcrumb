@@ -28,6 +28,9 @@
     "breadcrumb-demo-e2e": {
       "tags": [],
       "implicitDependencies": ["breadcrumb-demo"]
+    },
+    "xng-breadcrumb": {
+      "tags": ["xng-breadcrumb"]
     }
   }
 }
