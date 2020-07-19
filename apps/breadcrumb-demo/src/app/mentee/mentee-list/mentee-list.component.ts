@@ -4,7 +4,7 @@ import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
 
 @Component({
-  selector: 'app-mentee-list',
+  selector: 'bd-mentee-list',
   templateUrl: './mentee-list.component.html',
   styleUrls: ['./mentee-list.component.scss']
 })

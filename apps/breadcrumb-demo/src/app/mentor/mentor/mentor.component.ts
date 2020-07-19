@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-mentor',
+  selector: 'bd-mentor',
   templateUrl: './mentor.component.html',
   styleUrls: ['./mentor.component.scss']
 })

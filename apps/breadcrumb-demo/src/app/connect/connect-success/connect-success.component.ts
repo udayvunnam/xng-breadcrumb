@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-connect-success',
+  selector: 'bd-connect-success',
   templateUrl: './connect-success.component.html',
   styleUrls: ['./connect-success.component.scss']
 })

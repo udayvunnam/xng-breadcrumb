@@ -5,7 +5,7 @@ import { Mentor } from '../../shared/models/mentor';
 import { BreadcrumbService } from '@xng/xng-breadcrumb';
 
 @Component({
-  selector: 'app-mentor-list',
+  selector: 'bd-mentor-list',
   templateUrl: './mentor-list.component.html',
   styleUrls: ['./mentor-list.component.scss']
 })

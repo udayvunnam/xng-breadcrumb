@@ -13,7 +13,7 @@ import { allLanguages } from '../../core/in-memory-data.service';
 import { Mentee } from '../../shared/models/mentee';
 
 @Component({
-  selector: 'app-mentee-edit',
+  selector: 'bd-mentee-edit',
   templateUrl: './mentee-edit.component.html',
   styleUrls: ['./mentee-edit.component.scss']
 })

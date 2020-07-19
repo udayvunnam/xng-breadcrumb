@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-mentee',
+  selector: 'bd-mentee',
   templateUrl: './mentee.component.html',
   styleUrls: ['./mentee.component.scss']
 })

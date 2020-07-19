@@ -13,7 +13,7 @@ import { DataService } from '../../core/data.service';
 import { allLanguages } from '../../core/in-memory-data.service';
 
 @Component({
-  selector: 'app-mentee-add',
+  selector: 'bd-mentee-add',
   templateUrl: './mentee-add.component.html',
   styleUrls: ['./mentee-add.component.scss']
 })

@@ -13,7 +13,7 @@ import { Mentor } from '../../shared/models/mentor';
 import { BreadcrumbService } from '@xng/xng-breadcrumb';
 
 @Component({
-  selector: 'app-mentor-edit',
+  selector: 'bd-mentor-edit',
   templateUrl: './mentor-edit.component.html',
   styleUrls: ['./mentor-edit.component.scss']
 })

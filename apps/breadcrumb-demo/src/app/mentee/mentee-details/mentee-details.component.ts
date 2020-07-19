@@ -5,7 +5,7 @@ import { BreadcrumbService } from '@xng/xng-breadcrumb';
 import { DataService } from '../../core/data.service';
 
 @Component({
-  selector: 'app-mentee-details',
+  selector: 'bd-mentee-details',
   templateUrl: './mentee-details.component.html',
   styleUrls: ['./mentee-details.component.scss']
 })

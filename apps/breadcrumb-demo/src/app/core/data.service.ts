@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Mentor } from '../shared/models/mentor';
 import { Mentee } from '../shared/models/mentee';
-import * as faker from 'faker';
 
 const options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 

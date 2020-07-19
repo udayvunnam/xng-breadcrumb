@@ -10,7 +10,7 @@
       },
       "root": "apps/breadcrumb-demo",
       "sourceRoot": "apps/breadcrumb-demo/src",
-      "prefix": "app",
+      "prefix": "",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -131,7 +131,7 @@
       "projectType": "library",
       "root": "libs/xng-breadcrumb",
       "sourceRoot": "libs/xng-breadcrumb/src",
-      "prefix": "xng",
+      "prefix": "",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -176,7 +176,7 @@
       },
       "root": "apps/star-wars",
       "sourceRoot": "apps/star-wars/src",
-      "prefix": "xng",
+      "prefix": "",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

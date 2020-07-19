@@ -5,7 +5,7 @@ import { BreadcrumbService } from '@xng/xng-breadcrumb';
 import { DataService } from '../../core/data.service';
 
 @Component({
-  selector: 'app-mentor-details',
+  selector: 'bd-mentor-details',
   templateUrl: './mentor-details.component.html',
   styleUrls: ['./mentor-details.component.scss']
 })

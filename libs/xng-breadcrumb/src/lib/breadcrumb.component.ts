@@ -5,7 +5,7 @@ import { BreadcrumbService } from './breadcrumb.service';
 import { Breadcrumb } from './breadcrumb';
 
 @Component({
-  selector: '@xng/xng-breadcrumb',
+  selector: 'xng-breadcrumb',
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss'],
   encapsulation: ViewEncapsulation.None
