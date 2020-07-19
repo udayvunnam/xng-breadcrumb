@@ -1,0 +1,125 @@
+version: 2.1
+
+aliases:
+  - &docker-node
+    - image: circleci/node:10.16.3
+  - &docker-browsers
+    - image: circleci/node:10.16.3-browsers
+  - &persist_workspace
+    persist_to_workspace:
+      root: ~/repo
+      paths: .
+  - &attach_workspace
+    attach_workspace:
+      at: ~/repo
+  - &job_defaults
+    working_directory: ~/repo
+    docker: *docker-node
+  - &restore_cache
+    restore_cache:
+      keys:
+        - v1-dep-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
+        - v1-dep-cache-{{ .Branch }}-
+  - &save_cache
+    save_cache:
+      key: v1-dep-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      paths:
+        - ./node_modules
+
+commands:
+  install_js_dependencies:
+    steps:
+      - *restore_cache
+      - run:
+          name: Install npm dependencies
+          command: npm install --quiet --no-progress
+      - *save_cache
+
+  build_lib_and_demo_app:
+    steps:
+      - run:
+          name: Build library and app
+          command: sudo npm run build
+
+  publish_lib_to_npm:
+    steps:
+      - run:
+          name: Authenticate with npm registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish library to npm
+          command: npm run publish:lib
+
+  deploy_demo_app_to_netlify:
+    steps:
+      - run:
+          name: Deploy demo app to Netlify
+          command: npm run deploy:app
+
+  verify_pr:
+    steps:
+      - run:
+          name: Danger
+          command: npx danger ci
+# -----------------------------------------------------------------------------------------
+# Job definitions. Jobs which are defined just here, will not run automatically. Each job
+# must be part of a workflow definition in order to run for PRs and push builds.
+# -----------------------------------------------------------------------------------------
+jobs:
+  build:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - install_js_dependencies
+      - build_lib_and_demo_app
+      - verify_pr
+      - *persist_workspace
+
+  test:
+    <<: *job_defaults
+    docker: *docker-browsers # running tests require Chrome being available on the docker image.
+    steps:
+      - *attach_workspace
+      - run:
+          name: Run tests
+          command: npm test
+
+  publish:
+    <<: *job_defaults
+    steps:
+      - *attach_workspace
+      - publish_lib_to_npm
+
+  deploy:
+    <<: *job_defaults
+    steps:
+      - *attach_workspace
+      - deploy_demo_app_to_netlify
+
+workflows:
+  version: 2
+  build-test-publish:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
+      - publish:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v.*/ # runs for no branches and only for tags starting with 'v'
+            branches:
+              ignore: /.*/
+      - deploy:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              only: master
+# Note: YAML anchors allow an object to be re-used, reducing duplication.
+# The ampersand declares an alias for an object, then later the `<<: *name` syntax dereferences it.
+# See http://blog.daemonl.com/2016/02/yaml.html.
