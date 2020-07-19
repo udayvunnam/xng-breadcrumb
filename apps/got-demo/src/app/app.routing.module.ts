@@ -1,16 +1,12 @@
 import { RouterModule, Routes } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { HousesComponent } from './houses/houses.component';
-import { CharactersComponent } from './characters/characters.component';
 import { BooksComponent } from './books/books.component';
 
 export const appRoutes: Routes = [
   {
     path: "books",
     component: BooksComponent,
-  }, {
-    path: "characters",
-    component: CharactersComponent,
   }, {
     path: "houses",
     component: HousesComponent,
@@ -23,4 +19,4 @@ export const appRoutes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const ROUTER_COMPONENTS = [BooksComponent, CharactersComponent, HousesComponent];
+export const ROUTER_COMPONENTS = [BooksComponent, HousesComponent];
