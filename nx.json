@@ -32,12 +32,12 @@
     "xng-breadcrumb": {
       "tags": ["xng-breadcrumb"]
     },
-    "star-wars": {
+    "got-demo": {
       "tags": []
     },
-    "star-wars-e2e": {
+    "got-demo-e2e": {
       "tags": [],
-      "implicitDependencies": ["star-wars"]
+      "implicitDependencies": ["got-demo"]
     }
   }
 }

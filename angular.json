@@ -167,39 +167,60 @@
       },
       "schematics": {}
     },
-    "star-wars": {
+    "got-demo": {
       "projectType": "application",
       "schematics": {
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@nrwl/angular:class": {
+          "skipTests": true
+        },
         "@nrwl/angular:component": {
-          "style": "scss"
+          "skipTests": true
+        },
+        "@nrwl/angular:directive": {
+          "skipTests": true
+        },
+        "@nrwl/angular:guard": {
+          "skipTests": true
+        },
+        "@nrwl/angular:module": {
+          "skipTests": true
+        },
+        "@nrwl/angular:pipe": {
+          "skipTests": true
+        },
+        "@nrwl/angular:service": {
+          "skipTests": true
         }
       },
-      "root": "apps/star-wars",
-      "sourceRoot": "apps/star-wars/src",
-      "prefix": "",
+      "root": "apps/got-demo",
+      "sourceRoot": "apps/got-demo/src",
+      "prefix": "got",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/star-wars",
-            "index": "apps/star-wars/src/index.html",
-            "main": "apps/star-wars/src/main.ts",
-            "polyfills": "apps/star-wars/src/polyfills.ts",
-            "tsConfig": "apps/star-wars/tsconfig.app.json",
+            "outputPath": "dist/apps/got-demo",
+            "index": "apps/got-demo/src/index.html",
+            "main": "apps/got-demo/src/main.ts",
+            "polyfills": "apps/got-demo/src/polyfills.ts",
+            "tsConfig": "apps/got-demo/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/star-wars/src/favicon.ico",
-              "apps/star-wars/src/assets"
+              "apps/got-demo/src/favicon.ico",
+              "apps/got-demo/src/assets"
             ],
-            "styles": ["apps/star-wars/src/styles.scss"],
+            "styles": ["apps/got-demo/src/styles.css"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/star-wars/src/environments/environment.ts",
-                  "with": "apps/star-wars/src/environments/environment.prod.ts"
+                  "replace": "apps/got-demo/src/environments/environment.ts",
+                  "with": "apps/got-demo/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -228,64 +249,64 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "star-wars:build"
+            "browserTarget": "got-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "star-wars:build:production"
+              "browserTarget": "got-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "star-wars:build"
+            "browserTarget": "got-demo:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/star-wars/tsconfig.app.json",
-              "apps/star-wars/tsconfig.spec.json"
+              "apps/got-demo/tsconfig.app.json",
+              "apps/got-demo/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/star-wars/**/*"]
+            "exclude": ["**/node_modules/**", "!apps/got-demo/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/star-wars/jest.config.js",
-            "tsConfig": "apps/star-wars/tsconfig.spec.json",
+            "jestConfig": "apps/got-demo/jest.config.js",
+            "tsConfig": "apps/got-demo/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "apps/star-wars/src/test-setup.ts"
+            "setupFile": "apps/got-demo/src/test-setup.ts"
           }
         }
       }
     },
-    "star-wars-e2e": {
-      "root": "apps/star-wars-e2e",
-      "sourceRoot": "apps/star-wars-e2e/src",
+    "got-demo-e2e": {
+      "root": "apps/got-demo-e2e",
+      "sourceRoot": "apps/got-demo-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/star-wars-e2e/cypress.json",
-            "tsConfig": "apps/star-wars-e2e/tsconfig.e2e.json",
-            "devServerTarget": "star-wars:serve"
+            "cypressConfig": "apps/got-demo-e2e/cypress.json",
+            "tsConfig": "apps/got-demo-e2e/tsconfig.e2e.json",
+            "devServerTarget": "got-demo:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "star-wars:serve:production"
+              "devServerTarget": "got-demo:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/star-wars-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/star-wars-e2e/**/*"]
+            "tsConfig": ["apps/got-demo-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/got-demo-e2e/**/*"]
           }
         }
       }
