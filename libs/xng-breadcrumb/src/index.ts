@@ -1,1 +1,2 @@
-export * from './lib/xng-breadcrumb.module';
+export * from './lib/breadcrumb.module';
+export * from './lib/breadcrumb.component';
