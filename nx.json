@@ -31,6 +31,13 @@
     },
     "xng-breadcrumb": {
       "tags": ["xng-breadcrumb"]
+    },
+    "star-wars": {
+      "tags": []
+    },
+    "star-wars-e2e": {
+      "tags": [],
+      "implicitDependencies": ["star-wars"]
     }
   }
 }
