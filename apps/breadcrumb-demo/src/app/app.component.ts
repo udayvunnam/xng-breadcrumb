@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'xng-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'breadcrumb-demo';
+export class AppComponent implements OnInit {
+  title = 'xng-breadcrumb-app';
+  darkMode = false;
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {}
+
+  updateTheme(theme) {
+    this.darkMode = theme === 'dark';
+  }
 }

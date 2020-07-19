@@ -1,0 +1,22 @@
+<section class="add-item">
+  <a mat-fab routerLink="add" color="accent" routerLink="add">
+    <mat-icon matTooltip="Add a Mentee">add</mat-icon>
+  </a>
+</section>
+
+<section fxLayout="column" fxLayoutGap="12px">
+  <mat-card *ngFor="let mentee of mentees" [routerLink]="[mentee.id]">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon class="person" matTooltip="Add a Mentee">person</mat-icon>
+      </div>
+      <mat-card-title>{{ mentee.name }}</mat-card-title>
+      <mat-card-subtitle>{{ mentee.description }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-chip-list aria-label="Looking for mentoring">
+        <mat-chip *ngFor="let skill of mentee.skills">{{ skill }}</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+  </mat-card>
+</section>

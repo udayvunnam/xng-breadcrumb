@@ -1,2 +1,8 @@
-export * from './lib/breadcrumb.module';
+/*
+ * Public API Surface of xng-breadcrumb
+ */
+
+export * from './lib/breadcrumb-item.directive';
 export * from './lib/breadcrumb.component';
+export * from './lib/breadcrumb.module';
+export * from './lib/breadcrumb.service';
