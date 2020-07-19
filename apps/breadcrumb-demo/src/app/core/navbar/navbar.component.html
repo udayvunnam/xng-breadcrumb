@@ -1,7 +1,7 @@
 <div class="navbar mat-elevation-z6">
   <nav class="navbar-header">
     <a mat-button [routerLink]="['/']" class="home">TechUnroll</a>
-    <a mat-button [routerLink]="['/mentor']" [queryParams]="{ viaNav: 'true' }" fxHide.lt-md="true">Mentors</a>
+    <a mat-button [routerLink]="['/mentor']" [queryParams]="{ viaNav: 'true', type: 'list' }" fxHide.lt-md="true">Mentors</a>
     <a mat-button [routerLink]="['/mentee']" [queryParams]="{ viaNav: 'true' }" fxHide.lt-md="true">Mentees</a>
     <a mat-button [routerLink]="['/connect']" [queryParams]="{ viaNav: 'true', loggedIn: 'false' }" fxHide.lt-md="true">Connect</a>
     <div fxFlex></div>

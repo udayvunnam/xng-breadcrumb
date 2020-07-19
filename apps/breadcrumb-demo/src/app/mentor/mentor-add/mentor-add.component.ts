@@ -27,8 +27,8 @@ export class MentorAddComponent implements OnInit {
   allSkills = allLanguages;
   filteredSkills: Observable<string[]>;
 
-  @ViewChild('skillInput', { static: true }) skillInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto', { static: true }) matAutocomplete: MatAutocomplete;
+  @ViewChild('skillInput') skillInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor(
     private fb: FormBuilder,
@@ -70,7 +70,7 @@ export class MentorAddComponent implements OnInit {
       mentor.skills = this.skills;
 
       this.dataService.addMentor(mentor).subscribe((response: any) => {
-        let navigationExtras: NavigationExtras = {
+        const navigationExtras: NavigationExtras = {
           queryParams: { addedMentor: mentor.id }
         };
 
@@ -81,7 +81,7 @@ export class MentorAddComponent implements OnInit {
   }
 
   add(event: MatChipInputEvent): void {
-    if (!this.matAutocomplete.isOpen) {
+    if (!this.matAutocomplete?.isOpen) {
       const input = event.input;
       const value = event.value;
 

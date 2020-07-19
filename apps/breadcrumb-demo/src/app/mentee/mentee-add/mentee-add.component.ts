@@ -26,8 +26,8 @@ export class MenteeAddComponent implements OnInit {
   allSkills = allLanguages;
   filteredSkills: Observable<string[]>;
 
-  @ViewChild('skillInput', { static: true }) skillInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto', { static: true }) matAutocomplete: MatAutocomplete;
+  @ViewChild('skillInput') skillInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor(private fb: FormBuilder, private dataService: DataService, private snackBar: MatSnackBar, private router: Router) {}
 
@@ -62,7 +62,7 @@ export class MenteeAddComponent implements OnInit {
       mentee.skills = this.skills;
 
       this.dataService.addMentee(mentee).subscribe((response: any) => {
-        let navigationExtras: NavigationExtras = {
+        const navigationExtras: NavigationExtras = {
           queryParams: { addedMentor: mentee.id }
         };
 
@@ -73,7 +73,7 @@ export class MenteeAddComponent implements OnInit {
   }
 
   add(event: MatChipInputEvent): void {
-    if (!this.matAutocomplete.isOpen) {
+    if (!this.matAutocomplete?.isOpen) {
       const input = event.input;
       const value = event.value;
 

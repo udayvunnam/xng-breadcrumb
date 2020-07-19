@@ -16,7 +16,7 @@ export class MentorDetailsComponent implements OnInit {
     private dataService: DataService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getMentor();
@@ -32,6 +32,6 @@ export class MentorDetailsComponent implements OnInit {
   }
 
   editMentor() {
-    this.router.navigate(['./edit'], { relativeTo: this.route });
+    this.router.navigate(['./edit'], { relativeTo: this.route, queryParams: { type: 'edit' } });
   }
 }

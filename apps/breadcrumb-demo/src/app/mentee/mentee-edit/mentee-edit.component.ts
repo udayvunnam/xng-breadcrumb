@@ -26,8 +26,8 @@ export class MenteeEditComponent implements OnInit {
   allSkills = allLanguages;
   filteredSkills: Observable<string[]>;
 
-  @ViewChild('skillInput', { static: true }) skillInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto', { static: true }) matAutocomplete: MatAutocomplete;
+  @ViewChild('skillInput') skillInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor(
     private fb: FormBuilder,
@@ -80,7 +80,7 @@ export class MenteeEditComponent implements OnInit {
       mentee.available = this.menteeFG.value.available;
       mentee.skills = this.skills;
 
-      let navigationExtras: NavigationExtras = {
+      const navigationExtras: NavigationExtras = {
         queryParams: { editedMentee: this.menteeId }
       };
 
@@ -92,7 +92,7 @@ export class MenteeEditComponent implements OnInit {
   }
 
   add(event: MatChipInputEvent): void {
-    if (!this.matAutocomplete.isOpen) {
+    if (!this.matAutocomplete?.isOpen) {
       const input = event.input;
       const value = event.value;
 
