@@ -1,18 +1,22 @@
 import { TestBed } from '@angular/core/testing';
-import { CommonModule } from '@angular/common';
+import { CommonModule,APP_BASE_HREF } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import 'zone.js/dist/zone-testing'
 
 import { BreadcrumbService } from './breadcrumb.service';
 
-describe('XngBreadcrumbService', () => {
+describe('BreadcrumbService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [CommonModule, RouterModule.forRoot([])]
+      imports: [CommonModule, RouterModule.forRoot([])],
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' }
+      ]
     })
   );
 
   it('should be created', () => {
-    const service: BreadcrumbService = TestBed.get(BreadcrumbService);
+    const service: BreadcrumbService = TestBed.inject(BreadcrumbService);
     expect(service).toBeTruthy();
   });
 });
