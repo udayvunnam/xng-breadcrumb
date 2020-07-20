@@ -1,42 +1,38 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: '🐞 Bug report'
+about: Report a bug in Scully
 title: ''
-labels: ''
+labels: bug
 assignees: ''
-
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## 🐞 Bug report
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+### Description
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+#### 🔬 Minimal Reproduction
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+#### 💻Your Environment
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+**Angular Version:**
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
- 
-**Stackblitz example:**
-Can you create a minimal reproducible example with the issue you are facing?
-To help you start with, refer to the Stackblitz example - stackblitz.com/edit/angular-xng-breadcrumbs.
+<pre><code>
+<!-- run `ng --version` and paste output below -->
+<!-- ✍️-->
 
-**Additional context**
-Add any other context about the problem here.
+</code></pre>
+
+**Scully Version:**
+
+<pre><code>
+<!-- Check `package.json` and paste output below -->
+<!-- ✍️-->
+
+</code></pre>
+
+## 🔥 Exception or Error
+
+<pre><code>
+<!-- If the issue is accompanied by an exception or an error, please share it below: -->
+<!-- ✍️-->
+</code></pre>

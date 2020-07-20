@@ -1,13 +1,36 @@
-<!-- Please make sure that your commit message follows our format -->
-<!-- Example: `fix(nx): must begin with lowercase` -->
+## PR Checklist
 
-## Current Behavior
-<!-- This is the behavior we have today -->
+Please check if your PR fulfills the following requirements:
 
-## Expected Behavior
-<!-- This is the behavior we should expect with the changes in this PR -->
+- [ ] The commit message follows our guidelines: https://github.com/scullyio/scully/blob/main/CONTRIBUTING.md#commit
+- [ ] Tests for the changes have been added (for bug fixes / features)
+- [ ] Docs have been added / updated (for bug fixes / features)
 
-## Related Issue(s)
-<!-- Please link the issue being fixed so it gets closed when this is merged. -->
+## PR Type
 
-Fixes #
+What kind of change does this PR introduce?
+
+<!-- Please check the one that applies to this PR using "x". -->
+
+- [ ] Bugfix
+- [ ] Feature
+- [ ] Code style update (formatting, local variables)
+- [ ] Refactoring (no functional changes, no api changes)
+- [ ] Other... Please describe:
+
+## What is the current behavior?
+
+<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->
+
+Issue Number: N/A
+
+## What is the new behavior?
+
+## Does this PR introduce a breaking change?
+
+- [ ] Yes
+- [ ] No
+
+<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->
+
+## Other information
