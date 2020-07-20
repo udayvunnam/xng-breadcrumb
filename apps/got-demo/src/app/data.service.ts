@@ -17,6 +17,11 @@ export class DataService {
     return this.http.get<any[]>(`${this.API}/books`);
   }
 
+  getBook(id: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.API}/books/${id}`);
+  }
+
+
   getCharacters(): Observable<any[]> {
     return this.http.get<any[]>(`${this.API}/characters`);
   }

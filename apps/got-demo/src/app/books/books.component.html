@@ -1,3 +1,5 @@
+<router-outlet></router-outlet>
+
 <div *ngIf="books$ | async as books; else loading">
   <ul>
     <li *ngFor="let book of books">
