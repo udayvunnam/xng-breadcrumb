@@ -301,8 +301,10 @@ export class BreadcrumbService {
   private resolveQueryParamForLastItem(lastItem: Breadcrumb, activatedRoute: ActivatedRoute) {
     const { queryParams, fragment } = activatedRoute.snapshot;
     // For last item in the crumbs set queryParams from activatedRoute
-    lastItem.queryParams = Object.keys(queryParams).length > 0 ? { ...queryParams } : undefined
-    lastItem.fragment = fragment
+    if(lastItem){
+      lastItem.queryParams = Object.keys(queryParams).length > 0 ? { ...queryParams } : undefined;
+      lastItem.fragment = fragment
+    }
   }
 
   /**
