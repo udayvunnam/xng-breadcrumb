@@ -1,6 +1,6 @@
 {
   "name": "xng",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
@@ -25,7 +25,10 @@
     "update": "ng update @nrwl/workspace",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "copy-readme": "cp README.md libs/xng-breadcrumb/README.md",
+    "version": "standard-version",
+    "push-tags": "git push --follow-tags origin master"
   },
   "private": true,
   "dependencies": {
