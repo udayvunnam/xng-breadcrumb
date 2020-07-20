@@ -282,8 +282,10 @@ export class BreadcrumbService {
 
   private resolvePathParam(path: string, activatedRoute: ActivatedRoute) {
     // if the path segment is a route param, read the param value from url
-    if (path.startsWith(this.pathParamPrefix)) {
-      return activatedRoute.snapshot.params[path.slice(1)];
+    if (path.includes(this.pathParamPrefix)) {
+      Object.entries(activatedRoute.snapshot.params).forEach(([key, value]) => {
+        path = path.replace(`:${key}`, `${value}`);
+      })
     }
     return path;
   }
