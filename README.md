@@ -88,19 +88,19 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
 
 ### Angular Version Compatibility
 
-| xng-breadcrumb | Angular  |
-| -------------- | -------- |
-| 4.x.x          | 6.x, 7.x |
-| 5.x.x          | 8.x, 9.x |
+| xng-breadcrumb | Angular        |
+| -------------- | -------------- |
+| 4.x.x          | 6.x, 7.x       |
+| 6.x.x          | 8.x, 9.x, 10.x |
 
 ## Setup Guide
 
-### Map Breadcrumb labels to Routes in Route Config
+### Custom breadcrumb labels via Angular Route Config
 
 - define 'breadcrumb' within the data property of route.
-- a 'breadcrumb' can be defined as a string OR as an object.
+- a 'breadcrumb' can be defined as a **string** OR **object**.
 - Use **breadcrumb as a string** if you are just providing breadcrumb text
-- Use **breadcrumb as an object** if you are providing additional properties like 'alias', 'skip', 'info', 'disable'. In this case, 'label' property denotes breadcrumb text.
+- Use **breadcrumb as an object** if you are providing additional properties like 'alias', 'skip', 'info', 'disable'. In you define breadcrumb as an object, **label** property denotes breadcrumb text.
 
 #### breadcrumb as a string
 
@@ -126,7 +126,7 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
     data: {
       breadcrumb: {
         label: 'Home',
-        info: { mydata: { icon: 'home', iconType: 'material' } }
+        info: { myData: { icon: 'home', iconType: 'material' } }
       }
     }
   },
@@ -139,40 +139,40 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
 
 ### Update labels dynamically
 
-- Breadcrumb label can be updated based on _route path_ or _alias_
+- Breadcrumb label can be updated dynamically using _route path_ or _alias_
 - For simple routes, _route path_ is enough. Ex: `breadcrumbService.set(<route path> , <breadcrumb label>)`
-- For long deep routes, you can use _alias_.
+- For long deep routes, you can use _alias_ instead.
 - Create an _alias_ for a route in route config. Prefix alias with '@' while using the set() method. Ex: `breadcrumbService.set(@<alias> , <breadcrumb label>)`
 
-#### Update using route path
+#### using route path to update labels dynamically
 
 ```javascript
   {
-    path: 'mentor',
-    component: MentorDetailsComponent,
+    path: 'mentors',
+    component: MentorListComponent,
     children: [
       {
         path: ':id',
-        component: MentorEditComponent
+        component: MentorDetailsComponent
       }
     ]
   }
 
-  // routepath can contain path and params similary how you defined in routes
-  breadcrumbService.set('mentor', 'Enabler'); // path for MentorDetailsComponent
-  breadcrumbService.set('mentor/:id', 'Uday Vunnam'); // path for MentorEditComponent contains param (:id)
+  // routepath can contain path params similar to how you define in routes
+  breadcrumbService.set('mentors', 'Mentor View'); // path for MentorListComponent
+  breadcrumbService.set('mentor/:id', 'Uday Vunnam'); // path for MentorDetailsComponent contains param (:id)
 ```
 
-#### Update using alias
+#### using alias to update labels dynamically
 
 ```javascript
   {
-    path: 'mentor',
-    component: MentorDetailsComponent,
+    path: 'mentors',
+    component: MentorListComponent,
     children: [
       {
         path: ':id',
-          component: MentorEditComponent
+          component: MentorDetailsComponent
           data: {
             breadcrumb: {
               alias: 'mentorName'
@@ -185,11 +185,11 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
   breadcrumbService.set('@mentorName', 'Uday Vunnam');
 ```
 
-### Skip Breadcrumbs for certain routes
+### Skip Breadcrumbs for certain route path
 
 You can skip a route from displaying in breadcrumbs in two ways
 
-- make 'skip' as true for breadcrumb in route config `breadcrumb: { skip: true }`
+- make **skip: true** in route config `breadcrumb: { skip: true }`
 - dynamically skip using `set(<myPathOrAlias>, { skip:true })`;
 
 #### skip breadcrumb in route config
@@ -217,7 +217,7 @@ breadcrumbService.set('@mentorName', { skip: false }); // using alias '@mentorNa
 
 You can show an intermediate breadcrumb, but disable navigation if the route has no meaning.
 
-- make 'disable' as true for breadcrumb in route config `breadcrumb: { disable: true }`
+- make **disable: true** in route config `breadcrumb: { disable: true }`
 - dynamically skip using `set(<myPathOrAlias>, { disable:true })`;
 
 ## Customization
@@ -281,11 +281,11 @@ You can display whatever you want in the place of breadcrumb text by providing a
 </xng-breadcrumb>
 ```
 
-#### i18n ability
+#### Internationalization - i18n
 
 - Usually, internationalization is achieved in Angular using libraries like ngx-translate or transloco.
 - These libraries provide a pipe to change text while language is changed.
-- With ngx-translate you can change the language for breadcrumb text as shown below.
+- For example, if you are using ngx-translate you can change the language for breadcrumb text as shown below.
 
 ```html
 <xng-breadcrumb>
@@ -321,8 +321,8 @@ You can display whatever you want in the place of breadcrumb text by providing a
 
 - `<xng-breadcrumb>` defines the least possible specificity for selectors, to make it easy to override them.
 - override styles by changing the CSS for corresponding classes. (Keep this styles in app root styles file if you don't want to use ::ng-deep)
-- Below are classes visualization to help which class maps to which box
-- (Optional)xng-breadcrumb takes 'class' as input. This class will be applied to the root of the breadcrumb. This can be used to increase specificity when there are conflicting styles.
+- Below is a visualization of various classes involved in xng-breadcrumb to help you for easy identification.
+- (Optional) xng-breadcrumb takes 'class' as input. This class will be applied to the root of the breadcrumb. This can be used to increase specificity when there are conflicting styles.
 
   ![image](https://user-images.githubusercontent.com/20707504/68110000-f61af700-ff11-11e9-8834-bc754a46b39d.png)
 
@@ -341,9 +341,9 @@ You can display whatever you want in the place of breadcrumb text by providing a
 
 ### Disable Auto Generation of breadcrumb labels
 
-- Breadcrumbs are integrated with Angular Router and labels are auto-generated(if a label is not provided for a route).
+- Breadcrumbs are integrated with Angular Router and labels are auto-generated (if a label is not provided for a route).
 - Auto-generated label is the same as route the path segment.
-- If you want to disable this, set `[autoGenerate]=false`.
+- If you want to disable this behavior, set `[autoGenerate]=false`.
 
 ```html
 <xng-breadcrumb [autoGenerate]="false"></xng-breadcrumb>
@@ -427,18 +427,19 @@ This project was generated using [Nx](https://nx.dev).
 If you wish to contribute to this repository, below are the steps for local development.
 
 - Clone the repository `git clone https://github.com/udayvunnam/xng-breadcrumb.git`
-- Run `npm install` to install the dependencies
-- Run `npm run dev` to build and watch both the library and the demo app. This opens the demo app at `http://localhost:4200/` automatically.
+- Run `yarn` to install the dependencies
+- Run `yarn start` to build and watch both the library and the demo app. This opens the demo app at `http://localhost:4200/` automatically.
 
 ## Build
 
-Run `npm run build` to build the library and demo app together. The build artifacts will be stored in the `dist/` directory.
+Run `yarn build` to build the library and demo app together. The build artifacts will be stored in the `dist/` directory.
 
-This step is used by CircleCI to build both the library and the demo app. After a successful build, the demo app is deployed to Netlify.
+This step is used by CircleCI to build both the library and the demo app.
+After a successful build, the two demo apps are deployed to Netlify.
 
 ## Publish to npm
 
-Use `npm run version` if you wish to publish a new version of library to npm
+Use `yarn version` if you wish to publish a new version of library to npm
 
 This ingternally uses standard-version to
 
@@ -451,7 +452,8 @@ CircleCI gets notified on every new tag push and publishes the library if build 
 
 ## Tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Unit tests: `yarn test` to execute the unit tests via [Jest](https://www.xfive.co/blog/testing-angular-faster-jest/)
+- e2e: `yarn e2e` to execute the e2e tests via [Cypress.io](https://docs.cypress.io/guides/overview/why-cypress.html)
 
 ## Motivation 🎉🎉🎉
 
