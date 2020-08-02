@@ -91,7 +91,7 @@ jobs:
           <<: *set_env
       - restore_cache:
           <<: *yarn_cache
-      - run: yarn affected:build -- ${AFFECTED_ARGS} --parallel --configuration production
+      - run: yarn affected:build ${AFFECTED_ARGS} --parallel --configuration production
       - save_cache:
           key: build-{{ .Environment.CIRCLE_WORKFLOW_ID }}
           paths:
@@ -108,7 +108,7 @@ jobs:
           <<: *set_env
       - restore_cache:
           <<: *yarn_cache
-      - run: yarn affected:test -- ${AFFECTED_ARGS} --parallel -- --ci --code-coverage
+      - run: yarn affected:test ${AFFECTED_ARGS} --parallel --ci --code-coverage
   e2e:
     <<: *defaults
     steps:
@@ -119,7 +119,7 @@ jobs:
           <<: *set_env
       - restore_cache:
           <<: *yarn_cache
-      - run: yarn affected:e2e -- ${AFFECTED_ARGS} --configuration production -- --headless
+      - run: yarn affected:e2e ${AFFECTED_ARGS} --configuration production --headless
       - store_artifacts:
           path: dist/cypress
 
@@ -135,7 +135,7 @@ jobs:
           <<: *yarn_cache
       - restore_cache:
           key: build-{{ .Environment.CIRCLE_WORKFLOW_ID }}
-      - run: yarn affected -- --target deploy ${AFFECTED_ARGS}
+      - run: yarn affected --target deploy ${AFFECTED_ARGS}
       - run: git rev-parse HEAD > dist/last-deploy.txt
       - save_cache:
           key: last-deploy-sha
