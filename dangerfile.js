@@ -9,7 +9,9 @@ celebrateCleanCode();
  */
 function celebrateCleanCode() {
   if (danger.github.pr.deletions > danger.github.pr.additions) {
-    message(`đ Great job! I see more lines deleted than added. Thanks for keeping us lean!`);
+    message(
+      `đ Great job! I see more lines deleted than added. Thanks for keeping us lean!`
+    );
   }
 }
 
@@ -19,7 +21,11 @@ function celebrateCleanCode() {
  * Yes, not every change to the package.json represents a dependency update.
  */
 function keepPackageAndLockInSync() {
-  const changedFiles = [...danger.git.modified_files, ...danger.git.created_files, ...danger.git.deleted_files];
+  const changedFiles = [
+    ...danger.git.modified_files,
+    ...danger.git.created_files,
+    ...danger.git.deleted_files,
+  ];
 
   if (danger.git.deleted_files.includes('package-lock.json')) {
     fail('Do not delete the lockfile', 'package-lock.json', 1);
@@ -30,7 +36,8 @@ function keepPackageAndLockInSync() {
 
   if (packageChanged && !lockfileChanged) {
     const message = 'There are package.json changes without package-lock.json';
-    const idea = 'Perhaps you need to run `npm install`? Ignore if it is not a dependency update.';
+    const idea =
+      'Perhaps you need to run `npm install`? Ignore if it is not a dependency update.';
     warn(`${message} - _${idea}_`, 'package.json');
   }
 }
@@ -44,7 +51,10 @@ function commonChecks() {
   }
 
   const bigPRThreshold = 600;
-  if (danger.github.pr.additions + danger.github.pr.deletions > bigPRThreshold) {
+  if (
+    danger.github.pr.additions + danger.github.pr.deletions >
+    bigPRThreshold
+  ) {
     warn(`:exclamation: Big PR`);
     markdown(
       `Pull Request size seems relatively large. If Pull Request contains multiple changes, split each into separate PR will helps faster, easier review.`
@@ -52,7 +62,9 @@ function commonChecks() {
   }
 
   if (danger.github.pr.assignee === null) {
-    fail('Please assign someone to merge this PR, and optionally include people who should review.');
+    fail(
+      'Please assign someone to merge this PR, and optionally include people who should review.'
+    );
   }
 
   // // People can add themselves to CODEOWNERS in order to be automatically added as reviewers when a file matching a glob pattern is modified. The following will have the bot add a mention in that case.

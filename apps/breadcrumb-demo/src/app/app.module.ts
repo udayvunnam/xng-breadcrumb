@@ -21,9 +21,11 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     BreadcrumbModule,
     BrowserAnimationsModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
-  providers: [{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } }],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

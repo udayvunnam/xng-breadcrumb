@@ -2,7 +2,11 @@
   <mat-card>
     <section fxLayout="row" fxLayoutAlign="stretch center" fxLayoutGap="32px">
       <div class="illustration-wrapper" fxFlex="50%" fxHide.lt-sm="true">
-        <img alt="Mentor" class="illustration mentor-logo" src="../../../assets/img/mentor.svg" />
+        <img
+          alt="Mentor"
+          class="illustration mentor-logo"
+          src="../../../assets/img/mentor.svg"
+        />
       </div>
 
       <section fxLayout="column" fxLayoutGap="8px" fxFlex>
@@ -19,15 +23,27 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Available From</mat-label>
-          <input matInput [matDatepicker]="available" formControlName="available" />
-          <mat-datepicker-toggle matSuffix [for]="available"></mat-datepicker-toggle>
+          <input
+            matInput
+            [matDatepicker]="available"
+            formControlName="available"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="available"
+          ></mat-datepicker-toggle>
           <mat-datepicker #available></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Known Skills</mat-label>
           <mat-chip-list #chipList>
-            <mat-chip *ngFor="let skill of skills" selectable="true" removable="true" (removed)="remove(skill)">
+            <mat-chip
+              *ngFor="let skill of skills"
+              selectable="true"
+              removable="true"
+              (removed)="remove(skill)"
+            >
               {{ skill }}
               <mat-icon matChipRemove>cancel</mat-icon>
             </mat-chip>
@@ -41,8 +57,14 @@
               (matChipInputTokenEnd)="add($event)"
             />
           </mat-chip-list>
-          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-            <mat-option *ngFor="let skill of filteredSkills | async" [value]="skill">
+          <mat-autocomplete
+            #auto="matAutocomplete"
+            (optionSelected)="selected($event)"
+          >
+            <mat-option
+              *ngFor="let skill of filteredSkills | async"
+              [value]="skill"
+            >
               {{ skill }}
             </mat-option>
           </mat-autocomplete>
@@ -50,15 +72,23 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Description</mat-label>
-          <textarea matInput #description formControlName="description"></textarea>
+          <textarea
+            matInput
+            #description
+            formControlName="description"
+          ></textarea>
           <mat-hint align="end">{{ description.value.length }} / 1024</mat-hint>
         </mat-form-field>
       </section>
     </section>
     <mat-card-actions>
       <section class="button-row">
-        <button mat-button type="button" [routerLink]="['/mentor', mentorId]">Cancel</button>
-        <button mat-button mat-raised-button type="submit" color="primary">Update</button>
+        <button mat-button type="button" [routerLink]="['/mentor', mentorId]">
+          Cancel
+        </button>
+        <button mat-button mat-raised-button type="submit" color="primary">
+          Update
+        </button>
       </section>
     </mat-card-actions>
   </mat-card>

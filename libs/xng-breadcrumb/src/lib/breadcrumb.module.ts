@@ -7,6 +7,6 @@ import { BreadcrumbComponent } from './breadcrumb.component';
 @NgModule({
   declarations: [BreadcrumbComponent, BreadcrumbItemDirective],
   imports: [CommonModule, RouterModule],
-  exports: [BreadcrumbComponent, BreadcrumbItemDirective]
+  exports: [BreadcrumbComponent, BreadcrumbItemDirective],
 })
 export class BreadcrumbModule {}

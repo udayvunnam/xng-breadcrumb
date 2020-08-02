@@ -3,7 +3,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { Router, NavigationExtras } from '@angular/router';
 import { Observable } from 'rxjs';
-import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import {
+  MatAutocomplete,
+  MatAutocompleteSelectedEvent,
+} from '@angular/material/autocomplete';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { startWith, map } from 'rxjs/operators';
@@ -16,7 +19,7 @@ import { BreadcrumbService } from '@xng/xng-breadcrumb';
 @Component({
   selector: 'bd-mentor-add',
   templateUrl: './mentor-add.component.html',
-  styleUrls: ['./mentor-add.component.scss']
+  styleUrls: ['./mentor-add.component.scss'],
 })
 export class MentorAddComponent implements OnInit {
   mentor: any;
@@ -42,7 +45,9 @@ export class MentorAddComponent implements OnInit {
     this.createForm();
     this.filteredSkills = this.mentorFG.get('skills').valueChanges.pipe(
       startWith(null),
-      map((fruit: string | null) => (fruit ? this._filter(fruit) : this.allSkills.slice()))
+      map((fruit: string | null) =>
+        fruit ? this._filter(fruit) : this.allSkills.slice()
+      )
     );
     this.breadcrumbService.set('mentor/add', 'New');
   }
@@ -53,7 +58,7 @@ export class MentorAddComponent implements OnInit {
       country: [''],
       description: [''],
       available: [new Date()],
-      skills: ['']
+      skills: [''],
     });
   }
 
@@ -71,7 +76,7 @@ export class MentorAddComponent implements OnInit {
 
       this.dataService.addMentor(mentor).subscribe((response: any) => {
         const navigationExtras: NavigationExtras = {
-          queryParams: { addedMentor: mentor.id }
+          queryParams: { addedMentor: mentor.id },
         };
 
         this.snackBar.open(`Mentor added - ${mentor.name}`, 'Ok');
@@ -113,6 +118,8 @@ export class MentorAddComponent implements OnInit {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.allSkills.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
+    return this.allSkills.filter(
+      (fruit) => fruit.toLowerCase().indexOf(filterValue) === 0
+    );
   }
 }

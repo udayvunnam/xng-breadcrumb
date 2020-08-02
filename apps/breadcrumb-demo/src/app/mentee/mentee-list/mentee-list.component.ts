@@ -6,7 +6,7 @@ import { Mentor } from '../../shared/models/mentor';
 @Component({
   selector: 'bd-mentee-list',
   templateUrl: './mentee-list.component.html',
-  styleUrls: ['./mentee-list.component.scss']
+  styleUrls: ['./mentee-list.component.scss'],
 })
 export class MenteeListComponent implements OnInit {
   mentees: Mentor[];
@@ -18,9 +18,11 @@ export class MenteeListComponent implements OnInit {
   }
 
   getMentees() {
-    this.dataService.getMentees().subscribe(response => {
+    this.dataService.getMentees().subscribe((response) => {
       this.mentees = response.sort((a, b) => {
-        return new Date(b.updatedTs).getTime() - new Date(a.updatedTs).getTime();
+        return (
+          new Date(b.updatedTs).getTime() - new Date(a.updatedTs).getTime()
+        );
       });
     });
   }

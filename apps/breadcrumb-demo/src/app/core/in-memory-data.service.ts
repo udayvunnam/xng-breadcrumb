@@ -21,11 +21,13 @@ export const allLanguages = [
   'Node',
   'Express',
   'CSS',
-  'HTML'
+  'HTML',
 ];
 
 const getRandomArray = (sourceArray: Array<any>, targetArrayLength: number) => {
-  return sourceArray.sort(() => 0.5 - Math.random()).slice(0, targetArrayLength);
+  return sourceArray
+    .sort(() => 0.5 - Math.random())
+    .slice(0, targetArrayLength);
 };
 
 const person = (index: number) => {
@@ -37,7 +39,7 @@ const person = (index: number) => {
     description: faker.lorem.sentence(),
     available: faker.date.future(),
     updatedTs: faker.date.past(),
-    skills: getRandomArray(allLanguages, 5)
+    skills: getRandomArray(allLanguages, 5),
   };
 };
 
@@ -51,7 +53,7 @@ const persons = (count = 10) => {
 };
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class InMemoryDataService implements InMemoryDbService {
   constructor() {}

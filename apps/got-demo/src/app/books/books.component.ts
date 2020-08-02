@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'got-books',
   templateUrl: './books.component.html',
-  styleUrls: ['./books.component.css']
+  styleUrls: ['./books.component.css'],
 })
 export class BooksComponent implements OnInit {
-  books$: Observable<any[]>
-  constructor(private dataService: DataService) { }
+  books$: Observable<any[]>;
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
     this.books$ = this.dataService.getBooks();

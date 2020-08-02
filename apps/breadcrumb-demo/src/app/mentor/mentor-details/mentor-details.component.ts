@@ -7,7 +7,7 @@ import { DataService } from '../../core/data.service';
 @Component({
   selector: 'bd-mentor-details',
   templateUrl: './mentor-details.component.html',
-  styleUrls: ['./mentor-details.component.scss']
+  styleUrls: ['./mentor-details.component.scss'],
 })
 export class MentorDetailsComponent implements OnInit {
   mentor: any;
@@ -16,7 +16,7 @@ export class MentorDetailsComponent implements OnInit {
     private dataService: DataService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.getMentor();
@@ -25,13 +25,16 @@ export class MentorDetailsComponent implements OnInit {
   getMentor() {
     const mentorId = this.route.snapshot.paramMap.get('id');
 
-    this.dataService.getMentor(mentorId).subscribe(response => {
+    this.dataService.getMentor(mentorId).subscribe((response) => {
       this.mentor = response;
       this.breadcrumbService.set('mentor/:id', this.mentor.name);
     });
   }
 
   editMentor() {
-    this.router.navigate(['./edit'], { relativeTo: this.route, queryParams: { type: 'edit' } });
+    this.router.navigate(['./edit'], {
+      relativeTo: this.route,
+      queryParams: { type: 'edit' },
+    });
   }
 }

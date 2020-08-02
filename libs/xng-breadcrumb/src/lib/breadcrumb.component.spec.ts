@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import 'zone.js/dist/zone-testing'
-import { APP_BASE_HREF,CommonModule } from '@angular/common';
+import 'zone.js/dist/zone-testing';
+import { APP_BASE_HREF, CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { BreadcrumbComponent } from './breadcrumb.component';
@@ -13,9 +13,7 @@ describe('BreadcrumbComponent', () => {
     TestBed.configureTestingModule({
       declarations: [BreadcrumbComponent],
       imports: [CommonModule, RouterModule.forRoot([])],
-      providers: [
-        { provide: APP_BASE_HREF, useValue : '/' }
-    ]
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
     }).compileComponents();
   }));
 

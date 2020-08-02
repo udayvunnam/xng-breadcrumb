@@ -1,7 +1,6 @@
 version: 2.1
 
 aliases:
-
   - &defaults
     working_directory: ~/repo
     docker:
@@ -65,10 +64,7 @@ jobs:
           <<: *set_env
       - restore_cache:
           <<: *yarn_cache
-      - run:
-          name: This is failing. To be checked.
-          command: echo "Formatting todo"
-      # - run: yarn format:check ${AFFECTED_ARGS}
+      - run: yarn format:check ${AFFECTED_ARGS}
   lint:
     <<: *defaults
     steps:

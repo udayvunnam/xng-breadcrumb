@@ -6,7 +6,7 @@ import { Directive } from '@angular/core';
  * Usage: refer to demo app.component.html
  */
 @Directive({
-  selector: '[xngBreadcrumbItem]'
+  selector: '[xngBreadcrumbItem]',
 })
 export class BreadcrumbItemDirective {
   constructor() {}

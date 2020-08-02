@@ -8,8 +8,16 @@
 $xng-app-primary: mat-palette($mat-teal);
 $xng-app-accent: mat-palette($mat-green, A200, A100, A400);
 $xng-app-warn: mat-palette($mat-red);
-$xng-light-theme: mat-light-theme($xng-app-primary, $xng-app-accent, $xng-app-warn);
-$xng-dark-theme: mat-dark-theme($xng-app-primary, $xng-app-accent, $xng-app-warn);
+$xng-light-theme: mat-light-theme(
+  $xng-app-primary,
+  $xng-app-accent,
+  $xng-app-warn
+);
+$xng-dark-theme: mat-dark-theme(
+  $xng-app-primary,
+  $xng-app-accent,
+  $xng-app-warn
+);
 
 @include angular-material-theme($xng-light-theme);
 

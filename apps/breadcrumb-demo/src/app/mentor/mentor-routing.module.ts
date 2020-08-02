@@ -13,37 +13,37 @@ const routes: Routes = [
     children: [
       {
         path: 'add',
-        component: MentorAddComponent
+        component: MentorAddComponent,
       },
       {
         path: ':id',
         data: {
           breadcrumb: {
-            disable: true
-          }
+            disable: true,
+          },
         },
         children: [
           {
             path: '',
-            component: MentorDetailsComponent
+            component: MentorDetailsComponent,
           },
           {
             path: 'edit',
-            component: MentorEditComponent
-          }
-        ]
+            component: MentorEditComponent,
+          },
+        ],
       },
       {
         path: '',
-        component: MentorListComponent
-      }
-    ]
-  }
+        component: MentorListComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class MentorRoutingModule {}
 export const MENTOR_ROUTE_COMPONENETS = [
@@ -51,5 +51,5 @@ export const MENTOR_ROUTE_COMPONENETS = [
   MentorListComponent,
   MentorDetailsComponent,
   MentorAddComponent,
-  MentorComponent
+  MentorComponent,
 ];

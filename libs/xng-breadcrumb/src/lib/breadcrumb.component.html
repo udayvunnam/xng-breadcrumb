@@ -1,6 +1,8 @@
 <nav aria-label="breadcrumb" class="xng-breadcrumb-root" [ngClass]="class">
   <ol class="xng-breadcrumb-list">
-    <ng-container *ngFor="let breadcrumb of breadcrumbs; last as isLast; first as isFirst">
+    <ng-container
+      *ngFor="let breadcrumb of breadcrumbs; last as isLast; first as isFirst"
+    >
       <li class="xng-breadcrumb-item">
         <a
           *ngIf="!isLast"
@@ -12,20 +14,45 @@
           [fragment]="breadcrumb.fragment"
         >
           <ng-container
-            *ngTemplateOutlet="itemTemplate; context: { $implicit: breadcrumb.label, info: breadcrumb.info, last: isLast, first: isFirst }"
+            *ngTemplateOutlet="
+              itemTemplate;
+              context: {
+                $implicit: breadcrumb.label,
+                info: breadcrumb.info,
+                last: isLast,
+                first: isFirst
+              }
+            "
           ></ng-container>
-          <ng-container *ngIf="!itemTemplate">{{ breadcrumb.label }}</ng-container>
+          <ng-container *ngIf="!itemTemplate">{{
+            breadcrumb.label
+          }}</ng-container>
         </a>
 
         <label *ngIf="isLast" class="xng-breadcrumb-trail">
           <ng-container
-            *ngTemplateOutlet="itemTemplate; context: { $implicit: breadcrumb.label, info: breadcrumb.info, last: isLast, first: isFirst }"
+            *ngTemplateOutlet="
+              itemTemplate;
+              context: {
+                $implicit: breadcrumb.label,
+                info: breadcrumb.info,
+                last: isLast,
+                first: isFirst
+              }
+            "
           ></ng-container>
-          <ng-container *ngIf="!itemTemplate">{{ breadcrumb.label }}</ng-container>
+          <ng-container *ngIf="!itemTemplate">{{
+            breadcrumb.label
+          }}</ng-container>
         </label>
       </li>
 
-      <li *ngIf="!isLast" class="xng-breadcrumb-separator" aria-hidden="true" role="separator">
+      <li
+        *ngIf="!isLast"
+        class="xng-breadcrumb-separator"
+        aria-hidden="true"
+        role="separator"
+      >
         <ng-container *ngTemplateOutlet="separatorTemplate"></ng-container>
         <ng-container *ngIf="!separatorTemplate">{{ separator }}</ng-container>
       </li>

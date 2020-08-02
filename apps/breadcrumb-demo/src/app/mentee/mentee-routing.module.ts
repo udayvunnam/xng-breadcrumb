@@ -14,42 +14,42 @@ const routes: Routes = [
       {
         path: 'add',
         component: MenteeAddComponent,
-        data: { breadcrumb: 'New' }
+        data: { breadcrumb: 'New' },
       },
       {
         path: ':id',
         data: {
           breadcrumb: {
-            alias: 'menteeName'
-          }
+            alias: 'menteeName',
+          },
         },
         children: [
           {
             path: '',
-            component: MenteeDetailsComponent
+            component: MenteeDetailsComponent,
           },
           {
             path: 'edit',
             component: MenteeEditComponent,
             data: {
               breadcrumb: {
-                alias: 'menteeEdit'
-              }
-            }
-          }
-        ]
+                alias: 'menteeEdit',
+              },
+            },
+          },
+        ],
       },
       {
         path: '',
-        component: MenteeListComponent
-      }
-    ]
-  }
+        component: MenteeListComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class MenteeRoutingModule {}
 export const MENTEE_ROUTE_COMPONENETS = [
@@ -57,5 +57,5 @@ export const MENTEE_ROUTE_COMPONENETS = [
   MenteeListComponent,
   MenteeDetailsComponent,
   MenteeAddComponent,
-  MenteeComponent
+  MenteeComponent,
 ];

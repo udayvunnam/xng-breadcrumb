@@ -1,8 +1,8 @@
 <div *ngIf="houses$ | async as houses; else loading">
   <ul>
     <li *ngFor="let book of houses">
-      {{book.name}}
+      {{ book.name }}
     </li>
   </ul>
- </div>
+</div>
 <ng-template #loading>loading ...</ng-template>

@@ -4,29 +4,27 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 6.0.0 (2020-07-20)
 
-
 ### Features
 
-* base CI ([6bff025](https://github.com/udayvunnam/xng-breadcrumb/commit/6bff025b8a396af638fc3bc57c1e4dfa7a90f708))
-* env example ([d52eb4c](https://github.com/udayvunnam/xng-breadcrumb/commit/d52eb4c3d92e2b61c674c94ab1a7bf651677b946))
-* examples with deep routes ([c0f9e1b](https://github.com/udayvunnam/xng-breadcrumb/commit/c0f9e1b01a227d133e111405a90c9502a7440584))
-* got demo app to test breadcrumbs ([5dc1acb](https://github.com/udayvunnam/xng-breadcrumb/commit/5dc1acb8aba82de2243d949af42024192ac9f1bc))
-* got demo app to test breadcrumbs ([5d491d7](https://github.com/udayvunnam/xng-breadcrumb/commit/5d491d7941c8663dfbdb250e4309392c606b97da))
-* lib added with nx ([2c7d3bc](https://github.com/udayvunnam/xng-breadcrumb/commit/2c7d3bcca8e59dbc82cd48072ff9eccd0ceb50dc))
-* star war demo ([d284135](https://github.com/udayvunnam/xng-breadcrumb/commit/d284135376b924bd3fca0e3efa7fd7f7f6e381e2))
-* star wars demo app ([5bd26cb](https://github.com/udayvunnam/xng-breadcrumb/commit/5bd26cb8519f7d6d422b10868c2fe50031213e0b))
-* **app:** usecase for repeated query param ([b364d02](https://github.com/udayvunnam/xng-breadcrumb/commit/b364d02f675d51c00ea94fe4ee69ce95ec1221d0))
-* xng-breadcrumb base library setup ([37cdb35](https://github.com/udayvunnam/xng-breadcrumb/commit/37cdb3513c95fb8e96cdb638b62d111b1b9e7336))
-* xng-breadcrumb import ([abb4948](https://github.com/udayvunnam/xng-breadcrumb/commit/abb4948709bb8863896c11a8a9765d8567e8ffd5))
-
+- base CI ([6bff025](https://github.com/udayvunnam/xng-breadcrumb/commit/6bff025b8a396af638fc3bc57c1e4dfa7a90f708))
+- env example ([d52eb4c](https://github.com/udayvunnam/xng-breadcrumb/commit/d52eb4c3d92e2b61c674c94ab1a7bf651677b946))
+- examples with deep routes ([c0f9e1b](https://github.com/udayvunnam/xng-breadcrumb/commit/c0f9e1b01a227d133e111405a90c9502a7440584))
+- got demo app to test breadcrumbs ([5dc1acb](https://github.com/udayvunnam/xng-breadcrumb/commit/5dc1acb8aba82de2243d949af42024192ac9f1bc))
+- got demo app to test breadcrumbs ([5d491d7](https://github.com/udayvunnam/xng-breadcrumb/commit/5d491d7941c8663dfbdb250e4309392c606b97da))
+- lib added with nx ([2c7d3bc](https://github.com/udayvunnam/xng-breadcrumb/commit/2c7d3bcca8e59dbc82cd48072ff9eccd0ceb50dc))
+- star war demo ([d284135](https://github.com/udayvunnam/xng-breadcrumb/commit/d284135376b924bd3fca0e3efa7fd7f7f6e381e2))
+- star wars demo app ([5bd26cb](https://github.com/udayvunnam/xng-breadcrumb/commit/5bd26cb8519f7d6d422b10868c2fe50031213e0b))
+- **app:** usecase for repeated query param ([b364d02](https://github.com/udayvunnam/xng-breadcrumb/commit/b364d02f675d51c00ea94fe4ee69ce95ec1221d0))
+- xng-breadcrumb base library setup ([37cdb35](https://github.com/udayvunnam/xng-breadcrumb/commit/37cdb3513c95fb8e96cdb638b62d111b1b9e7336))
+- xng-breadcrumb import ([abb4948](https://github.com/udayvunnam/xng-breadcrumb/commit/abb4948709bb8863896c11a8a9765d8567e8ffd5))
 
 ### Bug Fixes
 
-* fixes QueryParams being assigned to incorrect routes ([37bf824](https://github.com/udayvunnam/xng-breadcrumb/commit/37bf824132a3d5124e01a9ed0503c253ef20223c))
-* implement onDestroy ([be01ebc](https://github.com/udayvunnam/xng-breadcrumb/commit/be01ebcbace1875a66753ae69f5bebf45123ad83))
-* unit tests ([f6350a4](https://github.com/udayvunnam/xng-breadcrumb/commit/f6350a42f74265d6835c223d6a2397aff31b86d3))
-* verify if breadcrumb array is not empty ([13f9151](https://github.com/udayvunnam/xng-breadcrumb/commit/13f915164f4e18326534a18cd80ff981e627dca6))
-* **app:** update prefix ([a3ccc32](https://github.com/udayvunnam/xng-breadcrumb/commit/a3ccc325ab6175e9ab1c38e832cbd1e741d8e5f1))
+- fixes QueryParams being assigned to incorrect routes ([37bf824](https://github.com/udayvunnam/xng-breadcrumb/commit/37bf824132a3d5124e01a9ed0503c253ef20223c))
+- implement onDestroy ([be01ebc](https://github.com/udayvunnam/xng-breadcrumb/commit/be01ebcbace1875a66753ae69f5bebf45123ad83))
+- unit tests ([f6350a4](https://github.com/udayvunnam/xng-breadcrumb/commit/f6350a42f74265d6835c223d6a2397aff31b86d3))
+- verify if breadcrumb array is not empty ([13f9151](https://github.com/udayvunnam/xng-breadcrumb/commit/13f915164f4e18326534a18cd80ff981e627dca6))
+- **app:** update prefix ([a3ccc32](https://github.com/udayvunnam/xng-breadcrumb/commit/a3ccc325ab6175e9ab1c38e832cbd1e741d8e5f1))
 
 ## [5.1.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v5.0.1...v5.1.0) (2020-06-14)
 

@@ -5,7 +5,10 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material/autocomplete';
+import {
+  MatAutocompleteSelectedEvent,
+  MatAutocomplete,
+} from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
 
 import { Mentee } from '../../shared/models/mentee';
@@ -15,7 +18,7 @@ import { allLanguages } from '../../core/in-memory-data.service';
 @Component({
   selector: 'bd-mentee-add',
   templateUrl: './mentee-add.component.html',
-  styleUrls: ['./mentee-add.component.scss']
+  styleUrls: ['./mentee-add.component.scss'],
 })
 export class MenteeAddComponent implements OnInit {
   mentee: any;
@@ -29,13 +32,20 @@ export class MenteeAddComponent implements OnInit {
   @ViewChild('skillInput') skillInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
-  constructor(private fb: FormBuilder, private dataService: DataService, private snackBar: MatSnackBar, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private dataService: DataService,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.createForm();
     this.filteredSkills = this.menteeFG.get('skills').valueChanges.pipe(
       startWith(null),
-      map((fruit: string | null) => (fruit ? this._filter(fruit) : this.allSkills.slice()))
+      map((fruit: string | null) =>
+        fruit ? this._filter(fruit) : this.allSkills.slice()
+      )
     );
   }
 
@@ -45,7 +55,7 @@ export class MenteeAddComponent implements OnInit {
       country: [''],
       description: [''],
       available: [new Date()],
-      skills: ['']
+      skills: [''],
     });
   }
 
@@ -63,7 +73,7 @@ export class MenteeAddComponent implements OnInit {
 
       this.dataService.addMentee(mentee).subscribe((response: any) => {
         const navigationExtras: NavigationExtras = {
-          queryParams: { addedMentor: mentee.id }
+          queryParams: { addedMentor: mentee.id },
         };
 
         this.snackBar.open(`Mentee added - ${mentee.name}`, 'Ok');
@@ -105,6 +115,8 @@ export class MenteeAddComponent implements OnInit {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.allSkills.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
+    return this.allSkills.filter(
+      (fruit) => fruit.toLowerCase().indexOf(filterValue) === 0
+    );
   }
 }

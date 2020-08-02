@@ -7,6 +7,6 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [PageNotFoundComponent, NavbarComponent],
   imports: [SharedModule, RouterModule.forChild([])],
-  exports: [PageNotFoundComponent, NavbarComponent]
+  exports: [PageNotFoundComponent, NavbarComponent],
 })
 export class CoreModule {}

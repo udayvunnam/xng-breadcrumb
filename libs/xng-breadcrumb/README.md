@@ -272,7 +272,9 @@ You can display whatever you want in the place of breadcrumb text by providing a
 
 ```html
 <xng-breadcrumb>
-  <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info; let first = first">
+  <ng-container
+    *xngBreadcrumbItem="let breadcrumb; let info = info; let first = first"
+  >
     <mat-icon *ngIf="info">{{ info }}</mat-icon>
     <ng-container *ngIf="!first">{{ breadcrumb }}</ng-container>
   </ng-container>

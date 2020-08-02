@@ -12,52 +12,56 @@ export const appRoutes: Routes = [
     data: {
       breadcrumb: {
         label: 'my home',
-        info: 'home'
-      }
-    }
+        info: 'home',
+      },
+    },
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
     data: {
       breadcrumb: {
         label: 'dashboard',
-        info: 'dashboard'
-      }
-    }
+        info: 'dashboard',
+      },
+    },
   },
   {
     path: 'mentor',
-    loadChildren: () => import('./mentor/mentor.module').then(m => m.MentorModule),
+    loadChildren: () =>
+      import('./mentor/mentor.module').then((m) => m.MentorModule),
     data: {
       breadcrumb: {
-        info: 'person'
-      }
-    }
+        info: 'person',
+      },
+    },
   },
   {
     path: 'mentee',
-    loadChildren: () => import('./mentee/mentee.module').then(m => m.MenteeModule),
+    loadChildren: () =>
+      import('./mentee/mentee.module').then((m) => m.MenteeModule),
     data: {
       breadcrumb: {
-        info: 'person_outline'
-      }
-    }
+        info: 'person_outline',
+      },
+    },
   },
   {
     path: 'connect',
-    loadChildren: () => import('./connect/connect.module').then(m => m.ConnectModule),
+    loadChildren: () =>
+      import('./connect/connect.module').then((m) => m.ConnectModule),
     data: {
       breadcrumb: {
-        disable: true
-      }
-    }
+        disable: true,
+      },
+    },
   },
-  { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
+  { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

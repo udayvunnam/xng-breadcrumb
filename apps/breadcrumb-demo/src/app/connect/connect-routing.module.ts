@@ -6,17 +6,20 @@ import { ConnectSuccessComponent } from './connect-success/connect-success.compo
 const routes: Routes = [
   {
     path: '',
-    component: ConnectComponent
+    component: ConnectComponent,
   },
   {
     path: 'connect-success',
-    component: ConnectSuccessComponent
-  }
+    component: ConnectSuccessComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class ConnectRoutingModule {}
-export const CONNECT_ROUTE_COMPONENETS = [ConnectComponent, ConnectSuccessComponent];
+export const CONNECT_ROUTE_COMPONENETS = [
+  ConnectComponent,
+  ConnectSuccessComponent,
+];

@@ -7,11 +7,14 @@ import { BreadcrumbService } from '@xng/xng-breadcrumb';
 @Component({
   selector: 'bd-mentor-list',
   templateUrl: './mentor-list.component.html',
-  styleUrls: ['./mentor-list.component.scss']
+  styleUrls: ['./mentor-list.component.scss'],
 })
 export class MentorListComponent implements OnInit {
   mentors: Mentor[];
-  constructor(private dataService: DataService, private breadcrumbService: BreadcrumbService) {}
+  constructor(
+    private dataService: DataService,
+    private breadcrumbService: BreadcrumbService
+  ) {}
 
   ngOnInit() {
     this.getMentors();
@@ -19,9 +22,11 @@ export class MentorListComponent implements OnInit {
   }
 
   getMentors() {
-    this.dataService.getMentors().subscribe(response => {
+    this.dataService.getMentors().subscribe((response) => {
       this.mentors = response.sort((a, b) => {
-        return new Date(b.updatedTs).getTime() - new Date(a.updatedTs).getTime();
+        return (
+          new Date(b.updatedTs).getTime() - new Date(a.updatedTs).getTime()
+        );
       });
     });
   }

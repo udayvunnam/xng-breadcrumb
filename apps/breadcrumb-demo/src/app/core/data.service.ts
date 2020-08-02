@@ -4,10 +4,12 @@ import { Observable } from 'rxjs';
 import { Mentor } from '../shared/models/mentor';
 import { Mentee } from '../shared/models/mentee';
 
-const options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+const options = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+};
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
   mentorCount = 10;

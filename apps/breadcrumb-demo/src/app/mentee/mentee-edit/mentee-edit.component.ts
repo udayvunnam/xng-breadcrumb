@@ -5,7 +5,10 @@ import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { BreadcrumbService } from '@xng/xng-breadcrumb';
-import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import {
+  MatAutocomplete,
+  MatAutocompleteSelectedEvent,
+} from '@angular/material/autocomplete';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { DataService } from '../../core/data.service';
@@ -15,7 +18,7 @@ import { Mentee } from '../../shared/models/mentee';
 @Component({
   selector: 'bd-mentee-edit',
   templateUrl: './mentee-edit.component.html',
-  styleUrls: ['./mentee-edit.component.scss']
+  styleUrls: ['./mentee-edit.component.scss'],
 })
 export class MenteeEditComponent implements OnInit {
   menteeId: any;
@@ -46,12 +49,14 @@ export class MenteeEditComponent implements OnInit {
   getMentee() {
     this.menteeId = this.route.snapshot.paramMap.get('id');
 
-    this.dataService.getMentee(this.menteeId).subscribe(response => {
+    this.dataService.getMentee(this.menteeId).subscribe((response) => {
       this.skills = response.skills;
       this.createForm(response);
       this.filteredSkills = this.menteeFG.get('skills').valueChanges.pipe(
         startWith(null),
-        map((fruit: string | null) => (fruit ? this._filter(fruit) : this.allSkills.slice()))
+        map((fruit: string | null) =>
+          fruit ? this._filter(fruit) : this.allSkills.slice()
+        )
       );
     });
   }
@@ -63,7 +68,7 @@ export class MenteeEditComponent implements OnInit {
       description: [mentee.description],
       available: [mentee.available],
       skills: [''],
-      id: [mentee.id]
+      id: [mentee.id],
     });
   }
 
@@ -81,7 +86,7 @@ export class MenteeEditComponent implements OnInit {
       mentee.skills = this.skills;
 
       const navigationExtras: NavigationExtras = {
-        queryParams: { editedMentee: this.menteeId }
+        queryParams: { editedMentee: this.menteeId },
       };
 
       this.dataService.updateMentee(mentee).subscribe((response: any) => {
@@ -124,6 +129,8 @@ export class MenteeEditComponent implements OnInit {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.allSkills.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
+    return this.allSkills.filter(
+      (fruit) => fruit.toLowerCase().indexOf(filterValue) === 0
+    );
   }
 }

@@ -1,4 +1,3 @@
-
 describe('got-demo', () => {
   it('should contain breadcrumbs for books', () => {
     cy.visit('/');
@@ -18,11 +17,9 @@ describe('got-demo', () => {
   });
 
   it('should got to valid path via breadcrumb navigation', () => {
-    cy.get('.xng-breadcrumb-list').contains('books/1').click()
+    cy.get('.xng-breadcrumb-list').contains('books/1').click();
     cy.location().should((loc) => {
-      expect(loc.pathname).to.eq('/books/1')
-    })
+      expect(loc.pathname).to.eq('/books/1');
+    });
   });
-
-
 });

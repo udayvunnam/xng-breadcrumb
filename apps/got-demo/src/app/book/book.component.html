@@ -1,8 +1,10 @@
 <div *ngIf="book$ | async as book; else loading">
   <ul>
     <li *ngFor="let character of book.characters">
-      <a [routerLink]="['./characters', character.split('/').pop()]">{{character}}</a>
+      <a [routerLink]="['./characters', character.split('/').pop()]">{{
+        character
+      }}</a>
     </li>
   </ul>
- </div>
+</div>
 <ng-template #loading>loading ...</ng-template>

@@ -9,14 +9,19 @@ import { CharacterComponent } from './character/character.component';
 import { BreadcrumbModule } from '@xng/xng-breadcrumb';
 
 @NgModule({
-  declarations: [AppComponent, ...ROUTER_COMPONENTS, BookComponent, CharacterComponent],
+  declarations: [
+    AppComponent,
+    ...ROUTER_COMPONENTS,
+    BookComponent,
+    CharacterComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BreadcrumbModule
+    BreadcrumbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

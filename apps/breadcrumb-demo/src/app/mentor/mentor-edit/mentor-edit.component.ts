@@ -4,7 +4,10 @@ import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
-import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import {
+  MatAutocomplete,
+  MatAutocompleteSelectedEvent,
+} from '@angular/material/autocomplete';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { allLanguages } from '../../core/in-memory-data.service';
@@ -15,7 +18,7 @@ import { BreadcrumbService } from '@xng/xng-breadcrumb';
 @Component({
   selector: 'bd-mentor-edit',
   templateUrl: './mentor-edit.component.html',
-  styleUrls: ['./mentor-edit.component.scss']
+  styleUrls: ['./mentor-edit.component.scss'],
 })
 export class MentorEditComponent implements OnInit {
   mentorId: any;
@@ -46,12 +49,14 @@ export class MentorEditComponent implements OnInit {
   getMentor() {
     this.mentorId = this.route.snapshot.paramMap.get('id');
 
-    this.dataService.getMentor(this.mentorId).subscribe(response => {
+    this.dataService.getMentor(this.mentorId).subscribe((response) => {
       this.skills = response.skills;
       this.createForm(response);
       this.filteredSkills = this.mentorFG.get('skills').valueChanges.pipe(
         startWith(null),
-        map((fruit: string | null) => (fruit ? this._filter(fruit) : this.allSkills.slice()))
+        map((fruit: string | null) =>
+          fruit ? this._filter(fruit) : this.allSkills.slice()
+        )
       );
     });
   }
@@ -63,7 +68,7 @@ export class MentorEditComponent implements OnInit {
       description: [mentor.description],
       available: [mentor.available],
       skills: [''],
-      id: [mentor.id]
+      id: [mentor.id],
     });
   }
 
@@ -81,7 +86,7 @@ export class MentorEditComponent implements OnInit {
       mentor.skills = this.skills;
 
       const navigationExtras: NavigationExtras = {
-        queryParams: { editedMentee: this.mentorId }
+        queryParams: { editedMentee: this.mentorId },
       };
 
       this.dataService.updateMentor(mentor).subscribe((response: any) => {
@@ -124,6 +129,8 @@ export class MentorEditComponent implements OnInit {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.allSkills.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
+    return this.allSkills.filter(
+      (fruit) => fruit.toLowerCase().indexOf(filterValue) === 0
+    );
   }
 }
