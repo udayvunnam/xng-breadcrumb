@@ -362,15 +362,17 @@ You can display whatever you want in the place of breadcrumb text by providing a
 | breadcrumb: {info}    | arbitrary info for a breadcrumb.                                 | `string | object`     | `undefined` |
 | breadcrumb: {label}   | same as breadcrumb. Use label if breadcrumb is defined as object | `string`              | `undefined` |
 
-#### xng-breadcrumb
+### xng-breadcrumb
 
 | property            | Description                                               | Type                         | Default |
 | ------------------- | --------------------------------------------------------- | ---------------------------- | ------- |
 | separator           | input: separator between breadcrumbs                      | `string | TemplateRef<void>` | `/`     |
-| autoGenerate        | input:whether to auto generate breacrumb labels           | `boolean`                    | `true`  |
+| autoGenerate        | input:whether to auto generate breadcrumb labels          | `boolean`                    | `true`  |
 | \*xngBreadcrumbItem | directive: to read context in custom breadcrumb templates | NA                           | NA      |
+| preserveQueryParams | preserve query params while navigating via breadcrumbs    | `boolean`                    | `true`  |
+| preserveFragment    | preserve fragment while navigating via breadcrumbs        | `boolean`                    | `true`  |
 
-#### BreadcrumbService.set(pathOrAlias, breadcrumb)
+### BreadcrumbService.set(pathOrAlias, breadcrumb)
 
 | argument    | Description                                | Type                  |
 | ----------- | ------------------------------------------ | --------------------- |

@@ -11,7 +11,6 @@ describe('breadcrumb-demo', () => {
   it('should have valid path and breadcrumbs for Metors via navbar', () => {
     cy.get('.navbar').contains('Mentors').click();
     cy.location().should((loc) => {
-      // expect(loc.hash).to.eq('#/users/123/edit')
       expect(loc.pathname).to.eq('/mentor');
       expect(loc.search).to.eq('?viaNav=true&type=list');
     });
