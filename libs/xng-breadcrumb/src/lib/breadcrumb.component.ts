@@ -49,6 +49,11 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
   @Input() preserveQueryParams = true;
 
   /**
+   * By default query fragments will be preserved with breadcrumbs
+   */
+  @Input() preserveFragment = true;
+
+  /**
    * custom class provided by consumer to increase specificity
    * This will benefit to override styles that are conflicting
    */
@@ -86,6 +91,9 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
           .map((breadcrumb) => {
             if (!this.preserveQueryParams) {
               breadcrumb.routeLink = breadcrumb.routeLink.split('?')[0];
+            }
+            if (!this.preserveFragment) {
+              breadcrumb.fragment = undefined;
             }
             return breadcrumb;
           })
