@@ -7,8 +7,6 @@ Please check if your PR fulfills the following requirements:
 
 ## What is the current behavior?
 
-<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->
-
 Issue Number: N/A
 
 ## What is the new behavior?
@@ -17,7 +15,5 @@ Issue Number: N/A
 
 - [ ] Yes
 - [ ] No
-
-<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->
 
 ## Other information
