@@ -29,7 +29,10 @@
               "apps/breadcrumb-demo/src/assets/scss/xng-breadcrumb.scss",
               "apps/breadcrumb-demo/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "faker"
+           ]
           },
           "configurations": {
             "production": {
