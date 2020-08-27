@@ -4,7 +4,6 @@ Please check if your PR fulfills the following requirements:
 
 - [ ] The commit message follows conventional [commit messages](https://github.com/scullyio/scully/blob/main/CONTRIBUTING.md#commit)
 - [ ] Tests for the changes have been added (for bug fixes / features)
-- [ ] Docs have been added / updated (for bug fixes / features)
 
 ## What is the current behavior?
 
