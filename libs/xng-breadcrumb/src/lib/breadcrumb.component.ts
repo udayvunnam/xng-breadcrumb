@@ -49,6 +49,11 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
   @Input() preserveQueryParams = true;
 
   /**
+   * By default query fragments will be preserved with breadcrumbs
+   */
+  @Input() preserveFragment = true;
+
+  /**
    * custom class provided by consumer to increase specificity
    * This will benefit to override styles that are conflicting
    */
@@ -84,10 +89,15 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
       (breadcrumbs) => {
         this.breadcrumbs = breadcrumbs
           .map((breadcrumb) => {
-            if (!this.preserveQueryParams) {
-              breadcrumb.routeLink = breadcrumb.routeLink.split('?')[0];
-            }
-            return breadcrumb;
+            // Do not mutate breadcrumb as its source of truth.
+            // There can be scenarios where we can have multiple xng-breadcrumb instances in page
+            return {
+              ...breadcrumb,
+              queryParams: this.preserveQueryParams
+                ? breadcrumb.queryParams
+                : undefined,
+              fragment: this.preserveFragment ? breadcrumb.fragment : undefined,
+            };
           })
           .filter((breadcrumb) => {
             // Usually, breadcrumb list can contain a combination of auto generated and user specified labels
