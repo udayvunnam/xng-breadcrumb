@@ -98,9 +98,10 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
 ### Custom breadcrumb labels via Angular Route Config
 
 - define 'breadcrumb' within the data property of route.
-- a 'breadcrumb' can be defined as a **string** OR **object**.
+- a 'breadcrumb' can be defined as a **string** OR **object** OR **function**.
 - Use **breadcrumb as a string** if you are just providing breadcrumb text
 - Use **breadcrumb as an object** if you are providing additional properties like 'alias', 'skip', 'info', 'disable'. In you define breadcrumb as an object, **label** property denotes breadcrumb text.
+- Use **breadcrumb as a function** if you want to alter the auto-generated label as needed.
 
 #### breadcrumb as a string
 
@@ -135,6 +136,20 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
     component: MentorAddComponent,
     data: { breadcrumb: { skip: true, alias: 'mentorAdd' } }
   }
+```
+
+#### breadcrumb as a function
+
+```javascript
+{
+  path: '/orders',
+  children: [{
+    ':id',
+    data: {
+      breadcrumb: (resolvedId: string) => `Viewing ${resolvedId} now`
+    }
+  }]
+}
 ```
 
 ### Update labels dynamically
@@ -351,20 +366,20 @@ You can display whatever you want in the place of breadcrumb text by providing a
 
 ## API
 
-### Route Config
+### App Route Config -> data -> breadcrumb
 
-| property              | Description                                                      | Type                  | Default     |
-| --------------------- | ---------------------------------------------------------------- | --------------------- | ----------- |
-| breadcrumb            | Breadcrumb data provided in App route config                     | `string | Breadcrumb` | `undefined` |
-| breadcrumb: {alias}   | alias name for a route                                           | `string`              | `undefined` |
-| breadcrumb: {skip}    | skip a route from showing in breadcrumbs                         | `boolean`             | `false`     |
-| breadcrumb: {disable} | disable navigation for a breadcrumb item                         | `boolean`             | `false`     |
-| breadcrumb: {info}    | arbitrary info for a breadcrumb.                                 | `string | object`     | `undefined` |
-| breadcrumb: {label}   | same as breadcrumb. Use label if breadcrumb is defined as object | `string`              | `undefined` |
+| property              | Description                                                      | Type                             | Default     |
+| --------------------- | ---------------------------------------------------------------- | -------------------------------- | ----------- |
+| breadcrumb            | Breadcrumb data provided in App route config                     | `string | Breadcrumb | Function` | `undefined` |
+| breadcrumb: {alias}   | alias name for a route                                           | `string`                         | `undefined` |
+| breadcrumb: {skip}    | skip a route from showing in breadcrumbs                         | `boolean`                        | `false`     |
+| breadcrumb: {disable} | disable navigation for a breadcrumb item                         | `boolean`                        | `false`     |
+| breadcrumb: {info}    | arbitrary info for a breadcrumb.                                 | `string | object`                | `undefined` |
+| breadcrumb: {label}   | same as breadcrumb. Use label if breadcrumb is defined as object | `string`                         | `undefined` |
 
-### xng-breadcrumb
+### xng-breadcrumb component
 
-| property            | Description                                               | Type                         | Default |
+| Input               | Description                                               | Type                         | Default |
 | ------------------- | --------------------------------------------------------- | ---------------------------- | ------- |
 | separator           | input: separator between breadcrumbs                      | `string | TemplateRef<void>` | `/`     |
 | autoGenerate        | input:whether to auto generate breadcrumb labels          | `boolean`                    | `true`  |
@@ -390,7 +405,7 @@ You can display whatever you want in the place of breadcrumb text by providing a
   // defining breadcrumb on Component Route
   {
     path: ':userId',
-    data: { breadcrumb: 'Declaraed on Parent Component' },
+    data: { breadcrumb: 'Declared on Parent Component' },
     children: [
       { path: '', component: ShowUserComponent }
     ]

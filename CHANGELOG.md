@@ -2,13 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [6.3.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.1.0...v6.3.0) (2020-09-07)
-
+## [6.2.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.1.0...v6.3.0) (2020-09-07)
 
 ### Features
 
-* auto generation of label ([9e40dfb](https://github.com/udayvunnam/xng-breadcrumb/commit/9e40dfb9ae02c607255430414ca070e51c8e913b))
-* breadcrumb as a function, merge with child breadcrumbs properly ([#45](https://github.com/udayvunnam/xng-breadcrumb/issues/45)) ([fee7608](https://github.com/udayvunnam/xng-breadcrumb/commit/fee7608eda2932c12e8ab2cce6e4238dece352a6))
+- breadcrumb as a function, merge with child breadcrumbs properly ([#45](https://github.com/udayvunnam/xng-breadcrumb/issues/45)) ([fee7608](https://github.com/udayvunnam/xng-breadcrumb/commit/fee7608eda2932c12e8ab2cce6e4238dece352a6))
 
 ### [6.1.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.1.0...v6.1.1) (2020-08-28)
 
