@@ -191,6 +191,8 @@ workflows:
             branches:
               only:
                 - master
+            tags:
+              only: /.*/
           requires:
             - check-formatting
             - lint

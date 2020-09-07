@@ -7,7 +7,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "nx": "nx",
     "start": "nx serve",
-    "build": "nx build",
+    "build": "nx build xng-breadcrumb --configuration production",
     "test": "nx test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "nx e2e",
@@ -30,7 +30,6 @@
     "copy-version": "VERSION=$npm_package_version && cd libs/xng-breadcrumb && npm version $VERSION && cd ../..",
     "commit-version": "git add . && git commit -m $npm_package_version",
     "push-tags": "git push --follow-tags origin master",
-    "prerelease": "yarn build",
     "release": "git pull origin master && standard-version",
     "postrelease": "npm-run-all copy-* commit-version push-tags"
   },
