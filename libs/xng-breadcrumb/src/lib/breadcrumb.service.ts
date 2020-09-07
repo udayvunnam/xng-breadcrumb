@@ -183,9 +183,13 @@ export class BreadcrumbService {
    * for mentor/:id/view - it gets called with mentor, :id, view 3 times
    */
   private resolvePathSegment(segment: string, activatedRoute: ActivatedRoute) {
-    return segment.startsWith(PATH_PARAM.PREFIX)
-      ? activatedRoute.snapshot.params?.[segment.slice(1)]
-      : segment;
+    //quirk -segment can be defined as view/:id in route config in which case you need to make it view/<resolved-param>
+    if (segment.includes(PATH_PARAM.PREFIX)) {
+      Object.entries(activatedRoute.snapshot.params).forEach(([key, value]) => {
+        segment = segment.replace(`:${key}`, `${value}`);
+      });
+    }
+    return segment;
   }
 
   /**

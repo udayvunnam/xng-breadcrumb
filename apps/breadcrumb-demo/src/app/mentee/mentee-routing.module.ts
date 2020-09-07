@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     data: {
-      breadcrumb: 'Mentee',
+      breadcrumb: 'student',
     },
     component: MenteeComponent,
     children: [
@@ -45,6 +45,11 @@ const routes: Routes = [
       {
         path: '',
         component: MenteeListComponent,
+        data: {
+          breadcrumb: {
+            disable: true,
+          },
+        },
       },
     ],
   },
