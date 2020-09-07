@@ -456,7 +456,7 @@ After a successful build, the two demo apps are deployed to Netlify.
 
 ## Publish to npm
 
-Use `yarn version` if you wish to publish a new version of library to npm
+Use `yarn release` if you wish to publish a new version of library to npm
 
 This ingternally uses standard-version to
 
