@@ -11,7 +11,7 @@ import {
 import { Observable, Subscription } from 'rxjs';
 import { BreadcrumbItemDirective } from './breadcrumb-item.directive';
 import { BreadcrumbService } from './breadcrumb.service';
-import { Breadcrumb } from './breadcrumb';
+import { Breadcrumb } from './types/breadcrumb';
 
 @Component({
   selector: 'xng-breadcrumb',

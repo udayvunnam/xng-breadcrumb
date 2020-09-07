@@ -44,6 +44,7 @@ export const appRoutes: Routes = [
     data: {
       breadcrumb: {
         info: 'person_outline',
+        label: 'Mentee (Root)',
       },
     },
   },
