@@ -3,27 +3,6 @@
  */
 export interface Breadcrumb {
   /**
-   * breadcrumb label for a route
-   */
-  label?: string;
-  /**
-   * unique alias name for a route path
-   */
-  alias?: string;
-  /**
-   * hide or show the breadcrumb item
-   */
-  skip?: boolean;
-  /**
-   * disable the link for the breadcrumb.
-   * It may be needed when the routing has the path, but navigating to that path is of no use
-   */
-  disable?: boolean;
-  /**
-   * custom data for each breadcrumb that is passed back to ng-template
-   */
-  info?: any;
-  /**
    * actual route path with resolved param. Ex /mentor/2, connect/edit
    */
   routeLink?: string;

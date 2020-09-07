@@ -9,6 +9,9 @@ import { MenteeEditComponent } from './mentee-edit/mentee-edit.component';
 const routes: Routes = [
   {
     path: '',
+    data: {
+      breadcrumb: 'student',
+    },
     component: MenteeComponent,
     children: [
       {
@@ -42,6 +45,11 @@ const routes: Routes = [
       {
         path: '',
         component: MenteeListComponent,
+        data: {
+          breadcrumb: {
+            disable: true,
+          },
+        },
       },
     ],
   },
