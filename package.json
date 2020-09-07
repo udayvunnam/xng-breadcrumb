@@ -1,6 +1,6 @@
 {
   "name": "xng",
-  "version": "6.1.0",
+  "version": "6.3.0",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
@@ -30,7 +30,7 @@
     "cop-version": "VERSION=$npm_package_version && cd libs/xng-breadcrumb && npm version $VERSION && cd ../.. && ",
     "commit:version": "git add . && git commit -m $npm_package_version",
     "push-tags": "git push --follow-tags origin master",
-    "preversion": "yarn build --production",
+    "preversion": "yarn build",
     "version": "git pull origin master && standard-version",
     "postversion": "npm-run-all copy:* commit:version push:tags"
   },
@@ -79,6 +79,7 @@
     "minimist": "^1.2.5",
     "netlify": "^4.3.8",
     "ng-packagr": "^9.0.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "2.0.4",
     "pretty-quick": "^2.0.1",
     "standard-version": "^8.0.2",
