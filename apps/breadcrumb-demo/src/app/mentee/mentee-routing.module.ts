@@ -19,8 +19,8 @@ const routes: Routes = [
       {
         path: ':id',
         data: {
-          breadcrumb: {
-            alias: 'menteeName',
+          breadcrumb: (id) => {
+            return `Viewing ${id} now`;
           },
         },
         children: [
