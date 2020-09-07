@@ -27,7 +27,7 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "copy-readme": "cp README.md libs/xng-breadcrumb/README.md",
-    "cop-version": "VERSION=$npm_package_version && cd libs/xng-breadcrumb && npm version $VERSION && cd ../.. && ",
+    "copy-version": "VERSION=$npm_package_version && cd libs/xng-breadcrumb && npm version $VERSION && cd ../.. && ",
     "commit-version": "git add . && git commit -m $npm_package_version",
     "push-tags": "git push --follow-tags origin master",
     "preversion": "yarn build",
