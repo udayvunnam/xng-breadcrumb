@@ -81,4 +81,12 @@ describe('breadcrumb-demo', () => {
       getDefaultBreadcrumbs().contains(`Viewing ${resolvedId} now`);
     });
   });
+
+  it('Should have used alias to skip a breadcrumb', () => {
+    cy.visit('/');
+    cy.get('.navbar-header').contains('Mentees').click();
+    cy.get('bd-mentee-list .mat-card-avatar').eq(0).click();
+    cy.get('.mat-card-actions button').click(); // Mentee Edit route uses set(@menteeEdit, {skip: true})
+    getDefaultBreadcrumbs().contains('edit').should('not.exist');
+  });
 });
