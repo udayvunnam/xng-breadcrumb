@@ -1,8 +1,12 @@
 # Changelog
 
-<!-- markdownlint-disable -->
-
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [6.2.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.2.0...v6.2.1) (2020-09-08)
+
+### Bug Fixes
+
+- should be able to specify breadcrumb alias without @ prefix ([#48](https://github.com/udayvunnam/xng-breadcrumb/issues/48)) ([c29f4d4](https://github.com/udayvunnam/xng-breadcrumb/commit/c29f4d40b96e852acbc4cc08dd6f24872f1af6eb))
 
 ## [6.2.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.1.0...v6.2.0) (2020-09-07)
 
