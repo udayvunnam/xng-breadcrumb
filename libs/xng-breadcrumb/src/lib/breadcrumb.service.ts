@@ -292,7 +292,7 @@ export class BreadcrumbService {
     let updateArgs: [StoreMatcherKey, BreadcrumbDefinition];
 
     if (key.startsWith(ALIAS_PREFIX)) {
-      updateArgs = ['alias', { ...breadcrumbObject, alias: key }];
+      updateArgs = ['alias', { ...breadcrumbObject, alias: key.slice(1) }];
     } else if (key.includes(PATH_PARAM.PREFIX)) {
       updateArgs = [
         'routeRegex',

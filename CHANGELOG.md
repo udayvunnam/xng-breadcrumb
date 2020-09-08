@@ -1,5 +1,7 @@
 # Changelog
 
+<!-- markdownlint-disable -->
+
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 ## [6.2.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.1.0...v6.2.0) (2020-09-07)
