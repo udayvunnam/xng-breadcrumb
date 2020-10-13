@@ -1,3 +1,5 @@
+import { Breadcrumb } from './breadcrumb';
+
 /**
  * Breadcrumb config provided as part of App Route Config
  */
@@ -23,6 +25,11 @@ export interface BreadcrumbObject {
    * custom data for each breadcrumb that is passed back to ng-template
    */
   info?: any;
+  /**
+   * Interceptor for breadcrumb click action that returns the dynamic path
+   * Consumers can change the breadcrumb routing dynamically with this approach
+   */
+  routeInterceptor?: (routeLink: string, breadcrumb: Breadcrumb) => string;
 }
 
 // resolved label for a route can further be enhanced based on a function

@@ -13,6 +13,10 @@ export const appRoutes: Routes = [
       breadcrumb: {
         label: 'my home',
         info: 'home',
+        routeInterceptor: (routeLink) => {
+          console.log(routeLink);
+          return routeLink;
+        },
       },
     },
   },
