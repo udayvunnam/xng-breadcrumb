@@ -364,6 +364,40 @@ You can display whatever you want in the place of breadcrumb text by providing a
 <xng-breadcrumb [autoGenerate]="false"></xng-breadcrumb>
 ```
 
+### Intercept the routing via breadcrumb navigation - routeInterceptor
+
+When we have conditional routing in App components (Ex: for a certain role navigate to pathA vs pathB from a component), it might be useful to have conditional routing from breadcrumb too
+
+- **With App's RouteConfig:** Provide routeInterceptor callback in RouteConfig if you know the redirection logic upfront
+
+```javascript
+  {
+    path: '',
+    pathMatch: 'full',
+    component: HomeComponent,
+    data: {
+      breadcrumb: {
+        label: 'my home',
+        info: 'home',
+        routeInterceptor: (routeLink, breadcrumb)=> {
+          console.log(routeLink);
+          return routeLink;
+        }
+      },
+    },
+  }
+```
+
+- **With Breadcrumb service:** If you want to access Application context within the interceptor, use breadcrumbService that can be called from anywhere in the App
+
+```javascript
+const isDesigner = true;
+breadcrumbService.set('home', {
+  routeInterceptor: (routeLink, breadcrumb) =>
+    isDesigner ? '/designer' : routeLink,
+});
+```
+
 ## API
 
 ### App Route Config -> data -> breadcrumb
