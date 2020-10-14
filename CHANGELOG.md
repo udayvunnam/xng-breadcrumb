@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.3.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.2.1...v6.3.0) (2020-10-14)
+
+### Features
+
+- provide breadcrumb route interceptor for conditional routing and access to routeLink ([#51](https://github.com/udayvunnam/xng-breadcrumb/issues/51)) ([bc4a5bc](https://github.com/udayvunnam/xng-breadcrumb/commit/bc4a5bc4e39707f4e6d93517b9ab6eadd5b568cc))
+
 ### [6.2.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.2.0...v6.2.1) (2020-09-08)
 
 ### Bug Fixes
