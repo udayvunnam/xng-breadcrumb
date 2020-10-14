@@ -6,12 +6,10 @@
       <li class="xng-breadcrumb-item">
         <a
           *ngIf="!isLast"
-          [routerLink]="[breadcrumb.routeLink]"
+          (click)="handleRoute(breadcrumb)"
           class="xng-breadcrumb-link"
           [ngClass]="{ 'xng-breadcrumb-link-disabled': breadcrumb.disable }"
           [attr.aria-disabled]="breadcrumb.disable"
-          [queryParams]="breadcrumb.queryParams"
-          [fragment]="breadcrumb.fragment"
         >
           <ng-container
             *ngTemplateOutlet="

@@ -17,4 +17,9 @@ export class AppComponent implements OnInit {
   updateTheme(theme) {
     this.darkMode = theme === 'dark';
   }
+
+  handleRoute(link) {
+    console.log(link);
+    return link;
+  }
 }

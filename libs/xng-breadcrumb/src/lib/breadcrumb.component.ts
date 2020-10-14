@@ -6,8 +6,8 @@ import {
   TemplateRef,
   ViewEncapsulation,
   OnDestroy,
-  Output,
 } from '@angular/core';
+import { Router, UrlTree } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { BreadcrumbItemDirective } from './breadcrumb-item.directive';
 import { BreadcrumbService } from './breadcrumb.service';
@@ -82,7 +82,10 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
     return this._separator;
   }
 
-  constructor(private breadcrumbService: BreadcrumbService) {}
+  constructor(
+    private breadcrumbService: BreadcrumbService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.subscription = this.breadcrumbService.breadcrumbs$.subscribe(
@@ -112,5 +115,13 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  handleRoute(breadcrumb: Breadcrumb) {
+    const routeLink = breadcrumb.routeInterceptor
+      ? breadcrumb.routeInterceptor(breadcrumb.routeLink, breadcrumb)
+      : breadcrumb.routeLink;
+    const { queryParams, fragment } = breadcrumb;
+    this.router.navigate([routeLink], { queryParams, fragment });
   }
 }

@@ -22,4 +22,5 @@ export interface Breadcrumb {
    */
   queryParams?: any;
   fragment?: string;
+  routeInterceptor?: (routeLink: string, breadcrumb: Breadcrumb) => string;
 }
