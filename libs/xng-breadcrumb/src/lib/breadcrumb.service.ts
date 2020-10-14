@@ -79,7 +79,7 @@ export class BreadcrumbService {
     if (baseConfig?.data?.breadcrumb) {
       const rootBreadcrumb = this.extractObject(baseConfig?.data?.breadcrumb);
 
-      // Even if label isn't defined info can be used for icons etc
+      // Even if label isn't defined, info can be used for icons etc
       if (rootBreadcrumb?.label || rootBreadcrumb?.info) {
         this.baseBreadcrumb = {
           ...rootBreadcrumb,

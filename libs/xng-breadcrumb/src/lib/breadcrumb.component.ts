@@ -122,6 +122,6 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
       ? breadcrumb.routeInterceptor(breadcrumb.routeLink, breadcrumb)
       : breadcrumb.routeLink;
     const { queryParams, fragment } = breadcrumb;
-    this.router.navigateByUrl(routeLink, { queryParams, fragment });
+    this.router.navigate([routeLink], { queryParams, fragment });
   }
 }
