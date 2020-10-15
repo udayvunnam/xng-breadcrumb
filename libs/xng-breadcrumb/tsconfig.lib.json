@@ -4,6 +4,7 @@
     "outDir": "../../dist/out-tsc",
     "target": "es2015",
     "declaration": true,
+    "declarationMap": true,
     "inlineSources": true,
     "types": [],
     "lib": ["dom", "es2018"]
@@ -13,5 +14,6 @@
     "strictMetadataEmit": true,
     "enableResourceInlining": true
   },
-  "exclude": ["src/test-setup.ts", "**/*.spec.ts"]
+  "exclude": ["src/test-setup.ts", "**/*.spec.ts"],
+  "include": ["**/*.ts"]
 }
