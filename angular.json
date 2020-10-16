@@ -182,7 +182,7 @@
               "apps/got-demo/src/favicon.ico",
               "apps/got-demo/src/assets"
             ],
-            "styles": ["apps/got-demo/src/styles.scss"],
+            "styles": [],
             "scripts": []
           },
           "configurations": {
