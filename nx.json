@@ -39,6 +39,9 @@
     "got-demo-e2e": {
       "tags": [],
       "implicitDependencies": ["got-demo"]
+    },
+    "demo": {
+      "tags": []
     }
   }
 }
