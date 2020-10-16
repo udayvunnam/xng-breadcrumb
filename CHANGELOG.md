@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.3.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.3.0...v6.3.1) (2020-10-16)
+
+### Bug Fixes
+
+- bug fix that handles the root breadcrumb same as remaining items, version upgrades ([#52](https://github.com/udayvunnam/xng-breadcrumb/issues/52)) ([71316da](https://github.com/udayvunnam/xng-breadcrumb/commit/71316daa1678b850a455f94cdefa651de42f2db0))
+- lint and material theme ([#53](https://github.com/udayvunnam/xng-breadcrumb/issues/53)) ([2317fa5](https://github.com/udayvunnam/xng-breadcrumb/commit/2317fa54e490b9039c297a41bf66a347e332431a))
+- remove styles ([37fc12d](https://github.com/udayvunnam/xng-breadcrumb/commit/37fc12d27f306958e495ed330985541d9a58371b))
+
 ## [6.3.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.2.1...v6.3.0) (2020-10-14)
 
 ### Features
