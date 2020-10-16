@@ -21,7 +21,7 @@ import { Mentee } from '../../shared/models/mentee';
   styleUrls: ['./mentee-edit.component.scss'],
 })
 export class MenteeEditComponent implements OnInit {
-  menteeId: any;
+  menteeId: string;
   menteeFG: FormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
@@ -89,7 +89,7 @@ export class MenteeEditComponent implements OnInit {
         queryParams: { editedMentee: this.menteeId },
       };
 
-      this.dataService.updateMentee(mentee).subscribe((response: any) => {
+      this.dataService.updateMentee(mentee).subscribe(() => {
         this.snackBar.open(`Mentee updated - ${mentee.name}`, 'Ok');
         this.router.navigate(['mentee', this.menteeId], navigationExtras);
       });

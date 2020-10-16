@@ -10,7 +10,7 @@ import { DataService } from '../../core/data.service';
   styleUrls: ['./mentee-details.component.scss'],
 })
 export class MenteeDetailsComponent implements OnInit {
-  mentee: any;
+  mentee: unknown;
   constructor(
     private breadcrumbService: BreadcrumbService,
     private dataService: DataService,

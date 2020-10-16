@@ -8,7 +8,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./houses.component.css'],
 })
 export class HousesComponent implements OnInit {
-  houses$: Observable<any[]>;
+  houses$: Observable<unknown[]>;
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./books.component.css'],
 })
 export class BooksComponent implements OnInit {
-  books$: Observable<any[]>;
+  books$: Observable<unknown[]>;
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {

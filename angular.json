@@ -25,7 +25,10 @@
               "apps/breadcrumb-demo/src/favicon.ico",
               "apps/breadcrumb-demo/src/assets"
             ],
-            "styles": ["apps/breadcrumb-demo/src/styles.scss"],
+            "styles": [
+              "apps/breadcrumb-demo/src/assets/scss/material-theme.scss",
+              "apps/breadcrumb-demo/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {

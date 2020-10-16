@@ -24,7 +24,7 @@ export interface BreadcrumbObject {
   /**
    * custom data for each breadcrumb that is passed back to ng-template
    */
-  info?: any;
+  info?: unknown;
   /**
    * Interceptor for breadcrumb click action that returns the dynamic path
    * Consumers can change the breadcrumb routing dynamically with this approach

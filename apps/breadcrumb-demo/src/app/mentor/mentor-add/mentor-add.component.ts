@@ -22,7 +22,7 @@ import { BreadcrumbService } from '@xng/xng-breadcrumb';
   styleUrls: ['./mentor-add.component.scss'],
 })
 export class MentorAddComponent implements OnInit {
-  mentor: any;
+  mentor: unknown;
   mentorFG: FormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
@@ -74,7 +74,7 @@ export class MentorAddComponent implements OnInit {
       mentor.available = this.mentorFG.value.available;
       mentor.skills = this.skills;
 
-      this.dataService.addMentor(mentor).subscribe((response: any) => {
+      this.dataService.addMentor(mentor).subscribe(() => {
         const navigationExtras: NavigationExtras = {
           queryParams: { addedMentor: mentor.id },
         };

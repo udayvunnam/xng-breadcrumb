@@ -24,7 +24,10 @@ export const allLanguages = [
   'HTML',
 ];
 
-const getRandomArray = (sourceArray: Array<any>, targetArrayLength: number) => {
+const getRandomArray = (
+  sourceArray: Array<unknown>,
+  targetArrayLength: number
+) => {
   return sourceArray
     .sort(() => 0.5 - Math.random())
     .slice(0, targetArrayLength);
@@ -56,8 +59,6 @@ const persons = (count = 10) => {
   providedIn: 'root',
 })
 export class InMemoryDataService implements InMemoryDbService {
-  constructor() {}
-
   createDb() {
     const mentors = persons(10);
     const mentees = persons(10);

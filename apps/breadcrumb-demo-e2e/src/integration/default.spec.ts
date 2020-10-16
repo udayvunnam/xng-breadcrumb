@@ -1,9 +1,8 @@
 import { getDefaultBreadcrumbs } from '../support/app.po';
-import { resolve } from 'cypress/types/bluebird';
+//import { resolve } from 'cypress/types/bluebird';
 
 describe('breadcrumb-demo', () => {
   // beforeEach(() => cy.visit('/'));
-  let mentorDetailsPath = '';
   it('should display default breadcrumbs for home', () => {
     cy.visit('/');
     getDefaultBreadcrumbs().contains('my home');
@@ -23,7 +22,6 @@ describe('breadcrumb-demo', () => {
   it('should have valid path and breadcrumbs for Mentor Details', () => {
     cy.get('bd-mentor-list .mat-card-avatar').eq(0).click();
     cy.location().should((loc) => {
-      mentorDetailsPath = loc.pathname;
       expect(loc.search).to.eq('?type=details');
     });
     getDefaultBreadcrumbs().contains('my home');

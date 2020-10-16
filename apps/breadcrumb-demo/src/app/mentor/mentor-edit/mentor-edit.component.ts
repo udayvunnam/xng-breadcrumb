@@ -21,7 +21,7 @@ import { BreadcrumbService } from '@xng/xng-breadcrumb';
   styleUrls: ['./mentor-edit.component.scss'],
 })
 export class MentorEditComponent implements OnInit {
-  mentorId: any;
+  mentorId: string;
   mentorFG: FormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
@@ -89,7 +89,7 @@ export class MentorEditComponent implements OnInit {
         queryParams: { editedMentee: this.mentorId },
       };
 
-      this.dataService.updateMentor(mentor).subscribe((response: any) => {
+      this.dataService.updateMentor(mentor).subscribe(() => {
         this.snackBar.open(`Mentor updated - ${mentor.name}`, 'Ok');
         this.router.navigate(['mentor', this.mentorId], navigationExtras);
       });

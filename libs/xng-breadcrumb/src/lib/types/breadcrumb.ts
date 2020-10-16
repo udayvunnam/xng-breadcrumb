@@ -20,7 +20,7 @@ export interface Breadcrumb {
   /**
    * Query params in string form.
    */
-  queryParams?: any;
+  queryParams?: unknown;
   fragment?: string;
   routeInterceptor?: (routeLink: string, breadcrumb: Breadcrumb) => string;
 }
