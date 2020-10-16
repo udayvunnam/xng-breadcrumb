@@ -20,8 +20,8 @@ export class LayoutComponent implements OnInit {
       const role = 'Designer';
       if (role === 'Designer') {
         const isDesigner = true;
-        this.breadcrumbService.set('/', {
-          routeInterceptor: (routeLink, breadcrumb) =>
+        this.breadcrumbService.set('', {
+          routeInterceptor: (routeLink) =>
             isDesigner ? '/designer' : routeLink,
         });
         this.router.navigate(['/designer']);
