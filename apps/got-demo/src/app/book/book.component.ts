@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./book.component.css'],
 })
 export class BookComponent implements OnInit {
-  book$: Observable<any[]>;
+  book$: Observable<unknown[]>;
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute

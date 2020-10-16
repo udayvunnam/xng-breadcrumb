@@ -10,7 +10,7 @@ import { DataService } from '../../core/data.service';
   styleUrls: ['./mentor-details.component.scss'],
 })
 export class MentorDetailsComponent implements OnInit {
-  mentor: any;
+  mentor: { name: string };
   constructor(
     private breadcrumbService: BreadcrumbService,
     private dataService: DataService,

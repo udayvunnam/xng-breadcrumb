@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-const options = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-};
 
 @Injectable({
   providedIn: 'root',
@@ -14,19 +10,19 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  getBooks(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.API}/books`);
+  getBooks(): Observable<unknown[]> {
+    return this.http.get<unknown[]>(`${this.API}/books`);
   }
 
-  getBook(id: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.API}/books/${id}`);
+  getBook(id: string): Observable<unknown[]> {
+    return this.http.get<unknown[]>(`${this.API}/books/${id}`);
   }
 
-  getCharacters(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.API}/characters`);
+  getCharacters(): Observable<unknown[]> {
+    return this.http.get<unknown[]>(`${this.API}/characters`);
   }
 
-  getHouses(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.API}/houses`);
+  getHouses(): Observable<unknown[]> {
+    return this.http.get<unknown[]>(`${this.API}/houses`);
   }
 }

@@ -21,7 +21,7 @@ import { allLanguages } from '../../core/in-memory-data.service';
   styleUrls: ['./mentee-add.component.scss'],
 })
 export class MenteeAddComponent implements OnInit {
-  mentee: any;
+  mentee: unknown;
   menteeFG: FormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
@@ -71,7 +71,7 @@ export class MenteeAddComponent implements OnInit {
       mentee.available = this.menteeFG.value.available;
       mentee.skills = this.skills;
 
-      this.dataService.addMentee(mentee).subscribe((response: any) => {
+      this.dataService.addMentee(mentee).subscribe(() => {
         const navigationExtras: NavigationExtras = {
           queryParams: { addedMentor: mentee.id },
         };

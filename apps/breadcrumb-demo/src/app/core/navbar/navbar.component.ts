@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 
 @Component({
@@ -6,13 +6,9 @@ import { EventEmitter } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   theme = 'light';
   @Output() themeChanged: EventEmitter<string> = new EventEmitter();
-
-  constructor() {}
-
-  ngOnInit() {}
 
   toggleTheme() {
     this.theme = this.theme === 'light' ? 'dark' : 'light';
