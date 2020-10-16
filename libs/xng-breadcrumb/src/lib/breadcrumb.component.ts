@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
   OnDestroy,
 } from '@angular/core';
-import { Router, UrlTree } from '@angular/router';
+import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { BreadcrumbItemDirective } from './breadcrumb-item.directive';
 import { BreadcrumbService } from './breadcrumb.service';

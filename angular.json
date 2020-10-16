@@ -4,13 +4,13 @@
     "breadcrumb-demo": {
       "projectType": "application",
       "schematics": {
-        "@nrwl/angular:component": {
+        "@schematics/angular:component": {
           "style": "scss"
         }
       },
       "root": "apps/breadcrumb-demo",
       "sourceRoot": "apps/breadcrumb-demo/src",
-      "prefix": "",
+      "prefix": "bd",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -25,12 +25,8 @@
               "apps/breadcrumb-demo/src/favicon.ico",
               "apps/breadcrumb-demo/src/assets"
             ],
-            "styles": [
-              "apps/breadcrumb-demo/src/assets/scss/xng-breadcrumb.scss",
-              "apps/breadcrumb-demo/src/styles.scss"
-            ],
-            "scripts": [],
-            "allowedCommonJsDependencies": ["faker"]
+            "styles": ["apps/breadcrumb-demo/src/styles.scss"],
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -81,32 +77,16 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "apps/breadcrumb-demo/tsconfig.app.json",
-              "apps/breadcrumb-demo/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/breadcrumb-demo/**/*"]
+            "lintFilePatterns": ["apps/breadcrumb-demo/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/breadcrumb-demo/jest.config.js",
-            "tsConfig": "apps/breadcrumb-demo/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/breadcrumb-demo/src/test-setup.ts"
-          }
-        },
-        "deploy": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "npx ts-node --project tools/tsconfig.tools.json tools/scripts/deploy --siteName xng-breadcrumb --outputPath dist/apps/breadcrumb-demo"
-              }
-            ]
+            "passWithNoTests": true
           }
         }
       }
@@ -130,10 +110,9 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["apps/breadcrumb-demo-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/breadcrumb-demo-e2e/**/*"]
+            "lintFilePatterns": ["apps/breadcrumb-demo-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -142,7 +121,7 @@
       "projectType": "library",
       "root": "libs/xng-breadcrumb",
       "sourceRoot": "libs/xng-breadcrumb/src",
-      "prefix": "",
+      "prefix": "xng",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -157,53 +136,30 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/xng-breadcrumb/tsconfig.lib.json",
-              "libs/xng-breadcrumb/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/xng-breadcrumb/**/*"]
+            "lintFilePatterns": ["libs/xng-breadcrumb/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/xng-breadcrumb/jest.config.js",
-            "tsConfig": "libs/xng-breadcrumb/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/xng-breadcrumb/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "got-demo": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:interceptor": {
-          "skipTests": true
-        },
-        "@nrwl/angular:class": {
-          "skipTests": true
-        },
-        "@nrwl/angular:component": {
-          "skipTests": true
-        },
-        "@nrwl/angular:directive": {
-          "skipTests": true
-        },
-        "@nrwl/angular:guard": {
-          "skipTests": true
-        },
-        "@nrwl/angular:module": {
-          "skipTests": true
-        },
-        "@nrwl/angular:pipe": {
-          "skipTests": true
-        },
-        "@nrwl/angular:service": {
-          "skipTests": true
+        "@schematics/angular:component": {
+          "style": "scss"
         }
       },
       "root": "apps/got-demo",
@@ -223,7 +179,7 @@
               "apps/got-demo/src/favicon.ico",
               "apps/got-demo/src/assets"
             ],
-            "styles": ["apps/got-demo/src/styles.css"],
+            "styles": ["apps/got-demo/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -275,32 +231,16 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "apps/got-demo/tsconfig.app.json",
-              "apps/got-demo/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/got-demo/**/*"]
+            "lintFilePatterns": ["apps/got-demo/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/got-demo/jest.config.js",
-            "tsConfig": "apps/got-demo/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/got-demo/src/test-setup.ts"
-          }
-        },
-        "deploy": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "npx ts-node --project tools/tsconfig.tools.json tools/scripts/deploy --siteName xng-breadcrumb-got --outputPath dist/apps/got-demo"
-              }
-            ]
+            "passWithNoTests": true
           }
         }
       }
@@ -324,10 +264,89 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["apps/got-demo-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/got-demo-e2e/**/*"]
+            "lintFilePatterns": ["apps/got-demo-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "demo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/demo",
+      "sourceRoot": "apps/demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/demo",
+            "index": "apps/demo/src/index.html",
+            "main": "apps/demo/src/main.ts",
+            "polyfills": "apps/demo/src/polyfills.ts",
+            "tsConfig": "apps/demo/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/demo/src/favicon.ico", "apps/demo/src/assets"],
+            "styles": ["apps/demo/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/demo/src/environments/environment.ts",
+                  "with": "apps/demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "demo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "demo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "demo:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/demo/src/**/*.ts"]
           }
         }
       }
@@ -337,6 +356,17 @@
     "defaultCollection": "@nrwl/angular"
   },
   "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
     "@nrwl/angular:application": {
       "unitTestRunner": "jest",
       "e2eTestRunner": "cypress"

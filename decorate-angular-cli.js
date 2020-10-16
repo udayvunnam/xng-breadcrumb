@@ -25,7 +25,15 @@ const fs = require('fs');
 const os = require('os');
 const cp = require('child_process');
 const isWindows = os.platform() === 'win32';
-const { output } = require('@nrwl/workspace');
+let output;
+try {
+  output = require('@nrwl/workspace').output;
+} catch (e) {
+  console.warn(
+    'Angular CLI could not be decorated to enable computation caching. Please ensure @nrwl/workspace is installed.'
+  );
+  process.exit(0);
+}
 
 /**
  * Paths to files being patched
@@ -66,7 +74,8 @@ function symlinkNgCLItoNxCLI() {
        * Such that it works in all shells and works with npx.
        */
       ['', '.cmd', '.ps1'].forEach((ext) => {
-        fs.writeFileSync(ngPath + ext, fs.readFileSync(nxPath + ext));
+        if (fs.existsSync(nxPath + ext))
+          fs.writeFileSync(ngPath + ext, fs.readFileSync(nxPath + ext));
       });
     } else {
       // If unix-based, symlink

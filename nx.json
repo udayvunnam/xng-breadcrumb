@@ -9,8 +9,9 @@
       "dependencies": "*",
       "devDependencies": "*"
     },
-    "tsconfig.json": "*",
+    "tsconfig.base.json": "*",
     "tslint.json": "*",
+    ".eslintrc.json": "*",
     "nx.json": "*"
   },
   "tasksRunnerOptions": {
@@ -30,7 +31,7 @@
       "implicitDependencies": ["breadcrumb-demo"]
     },
     "xng-breadcrumb": {
-      "tags": ["xng-breadcrumb"]
+      "tags": []
     },
     "got-demo": {
       "tags": []
@@ -38,6 +39,9 @@
     "got-demo-e2e": {
       "tags": [],
       "implicitDependencies": ["got-demo"]
+    },
+    "demo": {
+      "tags": []
     }
   }
 }
