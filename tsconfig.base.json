@@ -15,10 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@xng/xng-breadcrumb": ["libs/xng-breadcrumb/src/index.ts"]
+    }
   },
-  "exclude": ["node_modules", "tmp"],
-  "paths": {
-    "@xng/xng-breadcrumb": ["libs/xng-breadcrumb/src/index.ts"]
-  }
+  "exclude": ["node_modules", "tmp"]
 }
