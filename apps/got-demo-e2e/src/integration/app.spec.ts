@@ -3,6 +3,8 @@ describe('got-demo', () => {
     cy.visit('/');
     cy.contains('Books').click();
     cy.get('xng-breadcrumb').contains('books');
+    // shouldn't have default seperator if Home breadcrumb is not defined
+    cy.get('.xng-breadcrumb-list').contains('/').should('not.exist');
   });
 
   it('should contain breadcrumbs for book with id', () => {
