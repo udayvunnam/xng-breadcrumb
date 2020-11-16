@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { distinctUntilChanged, filter } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 import { Breadcrumb } from './types/breadcrumb';
 import {
   BreadcrumbObject,
@@ -10,7 +10,7 @@ import {
 
 type BreadcrumbConfig = BreadcrumbObject | BreadcrumbFunction | string;
 type StoreMatcherKey = 'routeLink' | 'routeRegex' | 'alias';
-type BreadcrumbDefinition = Breadcrumb & BreadcrumbObject;
+export type BreadcrumbDefinition = Breadcrumb & BreadcrumbObject;
 const PATH_PARAM = {
   PREFIX: ':',
   REGEX_IDENTIFIER: '/:[^/]+',
@@ -55,10 +55,7 @@ export class BreadcrumbService {
    */
   private detectRouteChanges() {
     this.router.events
-      .pipe(
-        filter((event) => event instanceof NavigationEnd),
-        distinctUntilChanged()
-      )
+      .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
         this.previousBreadcrumbs = this.currentBreadcrumbs;
         // breadcrumb label for base OR root path. Usually, this can be set as 'Home'
@@ -73,7 +70,7 @@ export class BreadcrumbService {
     const rootBreadcrumb = this.extractObject(rootConfig?.data?.breadcrumb);
     const storeItem = this.getFromStore(rootBreadcrumb.alias, '/');
 
-    if (rootBreadcrumb || storeItem) {
+    if (rootConfig || storeItem) {
       return {
         ...storeItem,
         ...rootBreadcrumb,
@@ -304,7 +301,7 @@ export class BreadcrumbService {
 
   /**
    * Update the store to reuse for dynamic declarations
-   * If the store already has this route definition update it else add
+   * If the store already has this route definition update it, else add
    */
   private updateStore(key: string, breadcrumb: BreadcrumbDefinition) {
     const storeItemIndex = this.dynamicBreadcrumbStore.findIndex((item) => {
