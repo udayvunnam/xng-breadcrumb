@@ -10,8 +10,7 @@ import {
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { BreadcrumbItemDirective } from './breadcrumb-item.directive';
-import { BreadcrumbService } from './breadcrumb.service';
-import { Breadcrumb } from './types/breadcrumb';
+import { BreadcrumbService, BreadcrumbDefinition } from './breadcrumb.service';
 
 @Component({
   selector: 'xng-breadcrumb',
@@ -21,8 +20,8 @@ import { Breadcrumb } from './types/breadcrumb';
 })
 export class BreadcrumbComponent implements OnInit, OnDestroy {
   subscription: Subscription;
-  breadcrumbs: Breadcrumb[];
-  breadcrumbs$: Observable<Breadcrumb[]>;
+  breadcrumbs: BreadcrumbDefinition[];
+  breadcrumbs$: Observable<BreadcrumbDefinition[]>;
   separatorTemplate: TemplateRef<void>;
   private _separator = '/';
 
@@ -117,7 +116,7 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  handleRoute(breadcrumb: Breadcrumb) {
+  handleRoute(breadcrumb: BreadcrumbDefinition) {
     const routeLink = breadcrumb.routeInterceptor
       ? breadcrumb.routeInterceptor(breadcrumb.routeLink, breadcrumb)
       : breadcrumb.routeLink;
