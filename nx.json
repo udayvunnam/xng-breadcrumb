@@ -42,6 +42,13 @@
     },
     "demo": {
       "tags": []
+    },
+    "simple-demo": {
+      "tags": []
+    },
+    "simple-demo-e2e": {
+      "tags": [],
+      "implicitDependencies": ["simple-demo"]
     }
   }
 }

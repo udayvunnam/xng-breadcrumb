@@ -30,7 +30,7 @@
     "copy-version": "VERSION=$npm_package_version && cd libs/xng-breadcrumb && npm version $VERSION && cd ../..",
     "commit-version": "git add . && git commit -m $npm_package_version",
     "push-tags": "git push --follow-tags origin master",
-    "release": "git pull origin master && standard-version",
+    "release": "git checkput master && git pull origin master && standard-version",
     "postrelease": "npm-run-all copy-* commit-version push-tags"
   },
   "private": true,
