@@ -17,6 +17,9 @@ const PATH_PARAM = {
   REGEX_REPLACER: '/[^/]+',
 };
 const ALIAS_PREFIX = '@';
+const isNonEmpty = (obj: unknown): boolean => {
+  return obj && Object.keys(obj).length > 0;
+};
 
 @Injectable({
   providedIn: 'root',
@@ -70,7 +73,7 @@ export class BreadcrumbService {
     const rootBreadcrumb = this.extractObject(rootConfig?.data?.breadcrumb);
     const storeItem = this.getFromStore(rootBreadcrumb.alias, '/');
 
-    if (rootConfig || storeItem) {
+    if (isNonEmpty(rootBreadcrumb) || isNonEmpty(storeItem)) {
       return {
         ...storeItem,
         ...rootBreadcrumb,
