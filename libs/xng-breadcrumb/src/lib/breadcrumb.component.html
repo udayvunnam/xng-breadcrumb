@@ -2,11 +2,13 @@
   <ol class="xng-breadcrumb-list">
     <ng-container
       *ngFor="
-        let breadcrumb of breadcrumbs; 
-        last as isLast; 
-        first as isFirst; 
-        index as index; 
-        count as count;">
+        let breadcrumb of breadcrumbs;
+        last as isLast;
+        first as isFirst;
+        index as index;
+        count as count
+      "
+    >
       <li class="xng-breadcrumb-item">
         <a
           *ngIf="!isLast"
