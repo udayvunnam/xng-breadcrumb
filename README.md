@@ -269,7 +269,7 @@ You can display whatever you want in the place of breadcrumb text by providing a
 
 - define 'info' associated with breadcrumb in route config. 'info' has type <any>. you can pass string or object as you need.
 - 'info' is available in the context of _\*xngBreadcrumbItem_.
-- Additionally 'first' and 'last' are passed to identify 'first' and 'last' items respectively.
+- Additionally 'first', 'last', 'index' and count are passed to identify the respective items.
 
 ```javascript
   {
