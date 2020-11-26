@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.4.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.3.4...v6.4.0) (2020-11-26)
+
+### Features
+
+- index and count ([#62](https://github.com/udayvunnam/xng-breadcrumb/issues/62)) ([ecd6ff8](https://github.com/udayvunnam/xng-breadcrumb/commit/ecd6ff8f8307511d5099456667e3c546ef4a8026))
+
 ### [6.3.4](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.3.3...v6.3.4) (2020-11-17)
 
 ### Bug Fixes
