@@ -1,6 +1,6 @@
 ---
 name: '🐞 Bug report'
-about: Report a bug in Scully
+about: Report a bug in xng-breadcrumb
 title: ''
 labels: bug
 assignees: ''
