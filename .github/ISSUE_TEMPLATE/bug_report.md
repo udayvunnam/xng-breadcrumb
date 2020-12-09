@@ -20,16 +20,6 @@ assignees: ''
 <!-- run `ng --version` and paste output below -->
 <!-- ✍️-->
 
-</code></pre>
-
-**Scully Version:**
-
-<pre><code>
-<!-- Check `package.json` and paste output below -->
-<!-- ✍️-->
-
-</code></pre>
-
 ## 🔥 Exception or Error
 
 <pre><code>
