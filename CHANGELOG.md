@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.5.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.4.0...v6.5.0) (2020-12-09)
+
+### Features
+
+- angular material upgrade ([0fd151d](https://github.com/udayvunnam/xng-breadcrumb/commit/0fd151d4b68d80b9b0c459a81a1e8ecc7b734f36))
+- angular version upgrade ([f9388b5](https://github.com/udayvunnam/xng-breadcrumb/commit/f9388b5b68e213f9778f9265a48f2abce66f7edb))
+- nx version upgrade ([#63](https://github.com/udayvunnam/xng-breadcrumb/issues/63)) ([50dbf89](https://github.com/udayvunnam/xng-breadcrumb/commit/50dbf89ae9e6c1604344460903ad470475302142))
+
+### Bug Fixes
+
+- use tabindex and listen to keyboard enter since routerLink is no longer used ([#67](https://github.com/udayvunnam/xng-breadcrumb/issues/67)) ([de6d7fa](https://github.com/udayvunnam/xng-breadcrumb/commit/de6d7fae41cdbf182afc42824349a10a401e8983))
+
 ## [6.4.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.3.4...v6.4.0) (2020-11-26)
 
 ### Features
