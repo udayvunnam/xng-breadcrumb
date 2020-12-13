@@ -29,8 +29,8 @@
     "copy-readme": "cp README.md libs/xng-breadcrumb/README.md",
     "copy-version": "VERSION=$npm_package_version && cd libs/xng-breadcrumb && npm version $VERSION && cd ../..",
     "commit-version": "git add . && git commit -m $npm_package_version",
-    "push-tags": "git push --follow-tags origin master",
-    "release": "git checkout master && git pull origin master && standard-version",
+    "push-tags": "git push --follow-tags origin main",
+    "release": "git checkout main && git pull origin main && standard-version",
     "postrelease": "npm-run-all copy-* commit-version push-tags"
   },
   "private": true,
