@@ -6,7 +6,7 @@
 
 [![npm version](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb)
 ![bundle size](https://img.shields.io/bundlephobia/minzip/xng-breadcrumb)
-[![license](https://img.shields.io/npm/l/xng-breadcrumb.svg)](https://github.com/udayvunnam/xng-breadcrumb/blob/master/LICENSE)
+[![license](https://img.shields.io/npm/l/xng-breadcrumb.svg)](https://github.com/udayvunnam/xng-breadcrumb/blob/main/LICENSE)
 ![npm downloads](https://img.shields.io/npm/dt/xng-breadcrumb?style=social)
 
 [![CircleCI](https://circleci.com/gh/udayvunnam/xng-breadcrumb.svg?shield&circle-token=:circle-token)](https://circleci.com/gh/udayvunnam/xng-breadcrumb)
