@@ -49,6 +49,13 @@
     "simple-demo-e2e": {
       "tags": [],
       "implicitDependencies": ["simple-demo"]
+    },
+    "cashbox": {
+      "tags": []
+    },
+    "cashbox-e2e": {
+      "tags": [],
+      "implicitDependencies": ["cashbox"]
     }
   }
 }

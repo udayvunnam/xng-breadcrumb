@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  ActivatedRouteSnapshot,
+  NavigationEnd,
+  NavigationStart,
+  Router,
+} from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { Breadcrumb } from './types/breadcrumb';
@@ -58,13 +64,16 @@ export class BreadcrumbService {
    */
   private detectRouteChanges() {
     this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
+      .pipe(filter((event) => event instanceof NavigationStart))
       .subscribe(() => {
         this.previousBreadcrumbs = this.currentBreadcrumbs;
         // breadcrumb label for base OR root path. Usually, this can be set as 'Home'
         const rootBreadcrumb = this.getRootBreadcrumb();
         this.currentBreadcrumbs = rootBreadcrumb ? [rootBreadcrumb] : [];
-        this.prepareBreadcrumbList(this.activatedRoute.root, this.baseHref);
+        this.prepareBreadcrumbList(
+          this.activatedRoute.snapshot.root,
+          this.baseHref
+        );
       });
   }
 
@@ -84,7 +93,7 @@ export class BreadcrumbService {
   }
 
   private prepareBreadcrumbItem(
-    activatedRoute: ActivatedRoute,
+    activatedRoute: ActivatedRouteSnapshot,
     routeLinkPrefix: string
   ): BreadcrumbDefinition {
     const { path, breadcrumb } = this.parseRouteData(
@@ -116,7 +125,7 @@ export class BreadcrumbService {
   }
 
   private prepareBreadcrumbList(
-    activatedRoute: ActivatedRoute,
+    activatedRoute: ActivatedRouteSnapshot,
     routeLinkPrefix: string
   ): Breadcrumb[] {
     if (activatedRoute.routeConfig && activatedRoute.routeConfig.path) {
@@ -176,10 +185,13 @@ export class BreadcrumbService {
    *
    * for mentor/:id/view - it gets called with mentor, :id, view 3 times
    */
-  private resolvePathSegment(segment: string, activatedRoute: ActivatedRoute) {
+  private resolvePathSegment(
+    segment: string,
+    activatedRoute: ActivatedRouteSnapshot
+  ) {
     //quirk -segment can be defined as view/:id in route config in which case you need to make it view/<resolved-param>
     if (segment.includes(PATH_PARAM.PREFIX)) {
-      Object.entries(activatedRoute.snapshot.params).forEach(([key, value]) => {
+      Object.entries(activatedRoute.params).forEach(([key, value]) => {
         segment = segment.replace(`:${key}`, `${value}`);
       });
     }
@@ -201,10 +213,10 @@ export class BreadcrumbService {
    */
   private setQueryParamsForActiveBreadcrumb(
     lastItem: Breadcrumb,
-    activatedRoute: ActivatedRoute
+    activatedRoute: ActivatedRouteSnapshot
   ) {
     if (lastItem) {
-      const { queryParams, fragment } = activatedRoute.snapshot;
+      const { queryParams, fragment } = activatedRoute;
       lastItem.queryParams = queryParams ? { ...queryParams } : undefined;
       lastItem.fragment = fragment;
     }

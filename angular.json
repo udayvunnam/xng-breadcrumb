@@ -461,6 +461,142 @@
           }
         }
       }
+    },
+    "cashbox": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:component": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "apps/cashbox",
+      "sourceRoot": "apps/cashbox/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/cashbox",
+            "index": "apps/cashbox/src/index.html",
+            "main": "apps/cashbox/src/main.ts",
+            "polyfills": "apps/cashbox/src/polyfills.ts",
+            "tsConfig": "apps/cashbox/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/cashbox/src/favicon.ico",
+              "apps/cashbox/src/assets"
+            ],
+            "styles": ["apps/cashbox/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/cashbox/src/environments/environment.ts",
+                  "with": "apps/cashbox/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "cashbox:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cashbox:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cashbox:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/cashbox/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/cashbox/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "cashbox-e2e": {
+      "root": "apps/cashbox-e2e",
+      "sourceRoot": "apps/cashbox-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/cashbox-e2e/cypress.json",
+            "tsConfig": "apps/cashbox-e2e/tsconfig.e2e.json",
+            "devServerTarget": "cashbox:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cashbox:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/cashbox-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
     }
   },
   "cli": {
