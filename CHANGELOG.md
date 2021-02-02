@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.6.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.5.0...v6.6.0) (2021-02-02)
+
+### Features
+
+- nx migrate and codeowners ([#71](https://github.com/udayvunnam/xng-breadcrumb/issues/71)) ([a7c0377](https://github.com/udayvunnam/xng-breadcrumb/commit/a7c0377edc6d51c116725a77ab677f407eee6c22))
+- nx upgrade ([ebf2044](https://github.com/udayvunnam/xng-breadcrumb/commit/ebf204478e7acc073659e0e37c8ce39edafa5f57))
+- revert nx migrated version ([3f7d0b8](https://github.com/udayvunnam/xng-breadcrumb/commit/3f7d0b82f1d98ad726ec33266445de25d50c2030))
+- update nx version ([#73](https://github.com/udayvunnam/xng-breadcrumb/issues/73)) ([3c058e6](https://github.com/udayvunnam/xng-breadcrumb/commit/3c058e6f7d34db5dc40ead491146b34e44c4d2c7))
+
 ## [6.5.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.4.0...v6.5.0) (2020-12-09)
 
 ### Features
