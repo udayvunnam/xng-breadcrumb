@@ -1,0 +1,53 @@
+{
+  "projectName": "xng-breadcrumb",
+  "projectOwner": "udayvunnam",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "udayvunnam",
+      "name": "Uday Vunnam",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20707504?v=4",
+      "profile": "https://www.linkedin.com/in/udayvunnam/",
+      "contributions": [
+        "code",
+        "doc",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "anthonythiry",
+      "name": "anthonythiry",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28025542?v=4",
+      "profile": "https://github.com/anthonythiry",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "dedrazer",
+      "name": "dedrazer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23525418?v=4",
+      "profile": "https://github.com/dedrazer",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "DannyFeliz",
+      "name": "Danny Feliz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5460365?v=4",
+      "profile": "https://dannyfeliz.com/",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
