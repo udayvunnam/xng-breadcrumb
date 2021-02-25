@@ -70,6 +70,7 @@
     "@types/node": "12.12.38",
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
+    "all-contributors-cli": "^6.20.0",
     "codelyzer": "6.0.1",
     "cypress": "^4.1.0",
     "danger": "^10.2.1",
