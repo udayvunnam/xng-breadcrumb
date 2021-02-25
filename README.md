@@ -1,7 +1,6 @@
 <h1 align="center" style="color: teal">xng-breadcrumb</h1>
 
 <div align="center">
-
 > A lightweight, declarative and configurable breadcrumbs solution for Angular 6 and beyond. <https://www.npmjs.com/package/xng-breadcrumb>
 
 [![npm version](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb)
@@ -213,4 +212,24 @@ xng-breadcrumb works will all versions of Angular. [See the compatibility guide]
 
 If you wish to contribute to this library, refer to the [local development guide](./docs/local-development-guide.md)
 
-## [Become a Sponsor!](http://paypal.me/udayvunnam)
+## ❤️ [Become a Sponsor!](http://paypal.me/udayvunnam)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://www.linkedin.com/in/udayvunnam/"><img src="https://avatars.githubusercontent.com/u/20707504?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Uday Vunnam</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=udayvunnam" title="Code">💻</a> <a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=udayvunnam" title="Documentation">📖</a> <a href="#maintenance-udayvunnam" title="Maintenance">🚧</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

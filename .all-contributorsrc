@@ -1,0 +1,26 @@
+{
+  "projectName": "xng-breadcrumb",
+  "projectOwner": "udayvunnam",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "udayvunnam",
+      "name": "Uday Vunnam",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20707504?v=4",
+      "profile": "https://www.linkedin.com/in/udayvunnam/",
+      "contributions": [
+        "code",
+        "doc",
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
