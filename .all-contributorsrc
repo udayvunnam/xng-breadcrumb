@@ -38,6 +38,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "DannyFeliz",
+      "name": "Danny Feliz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5460365?v=4",
+      "profile": "https://dannyfeliz.com/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
