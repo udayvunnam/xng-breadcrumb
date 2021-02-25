@@ -225,6 +225,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://www.linkedin.com/in/udayvunnam/"><img src="https://avatars.githubusercontent.com/u/20707504?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Uday Vunnam</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=udayvunnam" title="Code">💻</a> <a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=udayvunnam" title="Documentation">📖</a> <a href="#maintenance-udayvunnam" title="Maintenance">🚧</a></td>
     <td align="center"><a href="https://github.com/anthonythiry"><img src="https://avatars.githubusercontent.com/u/28025542?v=4?s=100" width="100px;" alt=""/><br /><sub><b>anthonythiry</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=anthonythiry" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/dedrazer"><img src="https://avatars.githubusercontent.com/u/23525418?v=4?s=100" width="100px;" alt=""/><br /><sub><b>dedrazer</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=dedrazer" title="Code">💻</a></td>
   </tr>
 </table>
 
