@@ -2,7 +2,7 @@
   <ol class="xng-breadcrumb-list">
     <ng-container
       *ngFor="
-        let breadcrumb of breadcrumbs;
+        let breadcrumb of breadcrumbs$ | async;
         last as isLast;
         first as isFirst;
         index as index;
