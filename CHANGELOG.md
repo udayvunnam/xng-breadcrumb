@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.6.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.6.0...v6.6.1) (2021-02-25)
+
+### Bug Fixes
+
+- change breadcrumb array to observable with pipe async ([#75](https://github.com/udayvunnam/xng-breadcrumb/issues/75)) ([fb05322](https://github.com/udayvunnam/xng-breadcrumb/commit/fb0532232a33a9c39949292aeede0c91d8353721))
+
 ## [6.6.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.5.0...v6.6.0) (2021-02-02)
 
 ### Features
