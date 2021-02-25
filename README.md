@@ -1,6 +1,7 @@
 <h1 align="center" style="color: teal">xng-breadcrumb</h1>
 
 <div align="center">
+
 > A lightweight, declarative and configurable breadcrumbs solution for Angular 6 and beyond. <https://www.npmjs.com/package/xng-breadcrumb>
 
 [![npm version](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb)
