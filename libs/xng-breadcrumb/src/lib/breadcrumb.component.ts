@@ -58,6 +58,11 @@ export class BreadcrumbComponent implements OnInit {
   @Input() class = '';
 
   /**
+   * anchorTarget = "_blank" makes the breadcrumb link open in a new tab
+   */
+  @Input() anchorTarget: '_blank' | undefined;
+
+  /**
    * separator between breadcrumbs, defaults to '/'.
    * User can customize separator either by passing a String or Template
    *
@@ -100,23 +105,13 @@ export class BreadcrumbComponent implements OnInit {
           .map((breadcrumb: BreadcrumbDefinition) => {
             // Do not mutate breadcrumb as its source of truth.
             // There can be scenarios where we can have multiple xng-breadcrumb instances in page
+            const { routeInterceptor, routeLink } = breadcrumb;
             return {
               ...breadcrumb,
-              queryParams: this.preserveQueryParams
-                ? breadcrumb.queryParams
-                : undefined,
-              fragment: this.preserveFragment ? breadcrumb.fragment : undefined,
+              routeLink: routeInterceptor?.(routeLink, breadcrumb) || routeLink,
             };
           });
       })
     );
-  }
-
-  handleRoute(breadcrumb: BreadcrumbDefinition) {
-    const routeLink = breadcrumb.routeInterceptor
-      ? breadcrumb.routeInterceptor(breadcrumb.routeLink, breadcrumb)
-      : breadcrumb.routeLink;
-    const { queryParams, fragment } = breadcrumb;
-    this.router.navigate([routeLink], { queryParams, fragment });
   }
 }

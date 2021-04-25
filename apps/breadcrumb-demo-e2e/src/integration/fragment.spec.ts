@@ -21,9 +21,8 @@ describe('breadcrumb-demo', () => {
       expect(loc.hash).to.eq('#testFragment');
     });
     cy.get('bd-mentor-list .mat-card-avatar').eq(0).click();
-    cy.get('#advancedTemplate2').contains('Enabler').click();
-    cy.location().should((loc) => {
-      expect(loc.hash).to.eq('');
-    });
+    cy.get('#advancedTemplate2')
+      .contains('a', 'Enabler')
+      .should('have.attr', 'href', '/mentor?viaNav=true&type=list');
   });
 });
