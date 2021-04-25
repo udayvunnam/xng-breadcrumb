@@ -20,14 +20,14 @@
           rel="noopener noreferrer"
           [routerLink]="
             breadcrumb.routeInterceptor
-              ? breadcrumb.routeInterceptor(routeLink, breadcrumb)
+              ? breadcrumb.routeInterceptor(breadcrumb.routeLink, breadcrumb)
               : breadcrumb.routeLink
           "
           [queryParams]="
             preserveQueryParams ? breadcrumb.queryParams : undefined
           "
           [fragment]="preserveFragment ? breadcrumb.fragment : undefined"
-          [target]="anchorTarget ? anchorTarget : _self"
+          [target]="anchorTarget ? anchorTarget : '_self'"
         >
           <ng-container
             *ngTemplateOutlet="
