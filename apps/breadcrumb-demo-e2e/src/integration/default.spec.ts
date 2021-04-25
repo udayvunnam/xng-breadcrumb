@@ -53,7 +53,7 @@ describe('breadcrumb-demo', () => {
     });
   });
 
-  it('Should merge parent module/component data with child module/component', () => {
+  it('should merge parent module/component data with child module/component', () => {
     cy.visit('/');
     cy.get('.navbar-header').contains('Mentees').click();
     cy.get('bd-mentee-list .mat-card-avatar').eq(0).click();
@@ -64,12 +64,12 @@ describe('breadcrumb-demo', () => {
     ); // defined on grand child component
   });
 
-  it('Should have customized breadcrumb working via *xngBreadcrumbItem directive', () => {
+  it('should have customized breadcrumb working via *xngBreadcrumbItem directive', () => {
     cy.get('#titleCase').contains('Student'); // title case
     cy.get('#titleCase').contains('>>'); // custom seperator
   });
 
-  it('Should have invoked breadcrumb as a function with resolved param', () => {
+  it('should have invoked breadcrumb as a function with resolved param', () => {
     cy.visit('/');
     cy.get('.navbar-header').contains('Mentees').click();
     cy.get('bd-mentee-list .mat-card-avatar').eq(0).click();
@@ -80,11 +80,23 @@ describe('breadcrumb-demo', () => {
     });
   });
 
-  it('Should have used alias to skip a breadcrumb', () => {
+  it('should have used alias to skip a breadcrumb', () => {
     cy.visit('/');
     cy.get('.navbar-header').contains('Mentees').click();
     cy.get('bd-mentee-list .mat-card-avatar').eq(0).click();
     cy.get('.mat-card-actions button').click(); // Mentee Edit route uses set(@menteeEdit, {skip: true})
     getDefaultBreadcrumbs().contains('edit').should('not.exist');
+  });
+
+  it('should open links on new tab if when anchorTarget is _blank', () => {
+    cy.visit('/');
+    cy.get('.navbar-header').contains('Mentors').click();
+    cy.location().should((loc) => {
+      expect(loc.hash).to.eq('#testFragment');
+    });
+    cy.get('bd-mentor-list .mat-card-avatar').eq(0).click();
+    cy.get('#advancedTemplate2')
+      .contains('a', 'Enabler')
+      .should('have.attr', 'target', '_blank');
   });
 });

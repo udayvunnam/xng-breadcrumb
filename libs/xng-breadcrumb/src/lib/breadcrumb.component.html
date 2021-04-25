@@ -12,13 +12,22 @@
       <li class="xng-breadcrumb-item">
         <a
           *ngIf="!isLast"
-          (click)="handleRoute(breadcrumb)"
-          (keydown.enter)="handleRoute(breadcrumb)"
           class="xng-breadcrumb-link"
           [ngClass]="{ 'xng-breadcrumb-link-disabled': breadcrumb.disable }"
           [attr.aria-disabled]="breadcrumb.disable"
           [attr.tabIndex]="breadcrumb.disable ? -1 : 0"
           role="button"
+          rel="noopener noreferrer"
+          [routerLink]="
+            breadcrumb.routeInterceptor
+              ? breadcrumb.routeInterceptor(routeLink, breadcrumb)
+              : breadcrumb.routeLink
+          "
+          [queryParams]="
+            preserveQueryParams ? breadcrumb.queryParams : undefined
+          "
+          [fragment]="preserveFragment ? breadcrumb.fragment : undefined"
+          [target]="anchorTarget ? anchorTarget : _self"
         >
           <ng-container
             *ngTemplateOutlet="

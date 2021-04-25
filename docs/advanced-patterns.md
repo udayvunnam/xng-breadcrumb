@@ -195,3 +195,11 @@ You can display whatever you want in the place of breadcrumb text by providing a
   padding: 0 4px;
 }
 ```
+
+### Open breadcrumb link in new tab
+
+by default breadcrumb links
+
+```javascript
+<xng-breadcrumb anchorTarget="_blank"></xng-breadcrumb>
+```
