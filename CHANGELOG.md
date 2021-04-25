@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.7.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.6.1...v6.7.0) (2021-04-25)
+
+### Features
+
+- open link in new tab on cmd + click, option to open links in new tab by default ([#82](https://github.com/udayvunnam/xng-breadcrumb/issues/82)) ([54b4998](https://github.com/udayvunnam/xng-breadcrumb/commit/54b499875bbc259b796febb458f0573ffd043b52))
+
 ### [6.6.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.6.0...v6.6.1) (2021-02-25)
 
 ### Bug Fixes
