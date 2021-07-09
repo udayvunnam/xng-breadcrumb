@@ -33,7 +33,7 @@
       "tags": [],
       "implicitDependencies": ["breadcrumb-demo"]
     },
-    "xng-breadcrumb": {
+    "demo": {
       "tags": []
     },
     "got-demo": {
@@ -43,15 +43,23 @@
       "tags": [],
       "implicitDependencies": ["got-demo"]
     },
-    "demo": {
-      "tags": []
-    },
     "simple-demo": {
       "tags": []
     },
     "simple-demo-e2e": {
       "tags": [],
       "implicitDependencies": ["simple-demo"]
+    },
+    "xng-breadcrumb": {
+      "tags": []
     }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }
