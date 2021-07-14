@@ -32,9 +32,7 @@
     "push-tags": "git push --follow-tags origin main",
     "release": "git checkout main && git pull origin main && standard-version",
     "postrelease": "npm-run-all copy-* commit-version push-tags",
-    "prepare": "husky install",
-    "pre-commit": "pretty-quick --staged",
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
