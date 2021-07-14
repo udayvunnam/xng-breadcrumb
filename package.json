@@ -33,7 +33,8 @@
     "release": "git checkout main && git pull origin main && standard-version",
     "postrelease": "npm-run-all copy-* commit-version push-tags",
     "prepare": "husky install",
-    "pre-commit": "pretty-quick --staged"
+    "pre-commit": "pretty-quick --staged",
+    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
   },
   "private": true,
   "dependencies": {
