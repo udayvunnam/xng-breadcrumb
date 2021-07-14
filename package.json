@@ -50,6 +50,7 @@
     "@nrwl/angular": "^12.5.8",
     "angular-in-memory-web-api": "^0.11.0",
     "faker": "^5.5.3",
+    "ng-packagr": "^12.1.2",
     "rxjs": "~6.6.7",
     "zone.js": "~0.11.4"
   },
