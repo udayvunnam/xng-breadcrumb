@@ -12,3 +12,6 @@ Why 4+ items? this limit just “feels” right. 🙃
 ## provide documentation via gitbook
 
 [gitbook](https://app.gitbook.com/@udayvunnam/s/angular/)
+
+yarn add cypress@latest --save-dev
+yarn upgrade-interactive --latest
