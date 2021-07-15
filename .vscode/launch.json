@@ -5,15 +5,15 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Attach by Process ID",
-      "processId": "${command:PickProcess}",
+      "name": "Attach",
+      "port": 9229,
       "request": "attach",
       "skipFiles": ["<node_internals>/**"],
       "type": "pwa-node"
     },
     {
-      "name": "Attach",
-      "port": 9229,
+      "name": "Attach by Process ID",
+      "processId": "${command:PickProcess}",
       "request": "attach",
       "skipFiles": ["<node_internals>/**"],
       "type": "pwa-node"
@@ -28,6 +28,13 @@
       "internalConsoleOptions": "neverOpen",
       "disableOptimisticBPs": true,
       "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/serve"
     }
   ]
 }

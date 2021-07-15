@@ -1,0 +1,24 @@
+name: Auto Comment
+on: [issues, pull_request]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: bubkoo/auto-comment@v1.0.7
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          issuesOpenedReactions: 'eyes, +1'
+          issuesOpenedComment: >
+            👋 @{{ author }}
+
+            Thank you for raising an issue. We will will investigate into the matter and get back to you as soon as possible.
+
+            Please make sure you have given us as much context as possible.
+
+          pullRequestOpenedReactions: 'hooray, +1'
+          pullRequestOpenedComment: >
+            👋 @{{ author }}
+
+            Thank you for raising your pull request.
+
+            Please make sure you have followed our contributing guidelines. We will review it as soon as possible

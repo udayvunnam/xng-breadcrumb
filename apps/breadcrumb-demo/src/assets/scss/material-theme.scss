@@ -1,26 +1,31 @@
-@import '~@angular/material/theming';
-// Plus imports for other components in your app.
+@use '~@angular/material' as mat;
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-@include mat-core();
+@include mat.core();
 
-$xng-app-primary: mat-palette($mat-teal);
-$xng-app-accent: mat-palette($mat-green, A200, A100, A400);
-$xng-app-warn: mat-palette($mat-red);
-$xng-light-theme: mat-light-theme(
-  $xng-app-primary,
-  $xng-app-accent,
-  $xng-app-warn
+$xng-app-primary: mat.define-palette(mat.$teal-palette);
+$xng-app-accent: mat.define-palette(mat.$green-palette, A200, A100, A400);
+$xng-app-warn: mat.define-palette(mat.$red-palette);
+$xng-light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $xng-app-primary,
+      accent: $xng-app-accent,
+      warn: $xng-app-warn,
+    ),
+  )
 );
-$xng-dark-theme: mat-dark-theme(
-  $xng-app-primary,
-  $xng-app-accent,
-  $xng-app-warn
+$xng-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $xng-app-primary,
+      accent: $xng-app-accent,
+      warn: $xng-app-warn,
+    ),
+  )
 );
 
-@include angular-material-theme($xng-light-theme);
+@include mat.all-component-themes($xng-light-theme);
 
 .xng-dark-theme {
-  @include angular-material-theme($xng-dark-theme);
+  @include mat.all-component-themes($xng-dark-theme);
 }

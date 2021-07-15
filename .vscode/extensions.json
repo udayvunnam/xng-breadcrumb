@@ -1,9 +1,10 @@
 {
   "recommendations": [
-    "nrwl.angular-console",
-    "angular.ng-template",
-    "ms-vscode.vscode-typescript-tslint-plugin",
+    "apollographql.vscode-apollo",
+    "DavidAnson.vscode-markdownlint",
+    "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
+    "nrwl.angular-console",
     "firsttris.vscode-jest-runner"
   ]
 }
