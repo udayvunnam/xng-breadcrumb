@@ -39,7 +39,7 @@
 
 - ✅ **Disable breadcrumb**: Disable specific routes so that navigation is disbaled to intermediate routes.
 
-- ✅ **Customization**: Customize breadcrumb template to show **icons as label prefix**, **use pipes on text**, **add i18n**, etc.
+- ✅ **Customization**: Customize breadcrumb template to show **icons as label prefix**, **use pipes on text**, **add i18n with ngx-translate**, etc.
 
 - ✅ **Styling**: **Separator** and **Styles** can be customized with ease.
 
