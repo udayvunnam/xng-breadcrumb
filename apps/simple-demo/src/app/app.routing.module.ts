@@ -1,27 +1,51 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { Page1Component } from './page1.component';
-import { Page2Component } from './page2.component';
+import { AppComponent } from './app.component';
 
 export const appRoutes: Routes = [
+  { path: '', component: AppComponent, data: { breadcrumb: 'Dashboard' } },
   {
-    path: '',
-    redirectTo: 'page1',
-    pathMatch: 'full',
-  },
-  {
-    path: 'page1',
-    component: Page1Component,
-    data: {
-      breadcrumb: 'FirstPage',
-    },
-  },
-  {
-    path: 'page2',
-    component: Page2Component,
-    data: {
-      breadcrumb: 'Next Page',
-    },
+    path: 'company',
+    data: { breadcrumb: 'Companies' },
+    children: [
+      { path: '', component: AppComponent },
+      {
+        path: ':companyId',
+        data: { breadcrumb: 'Company Name' },
+        children: [
+          { path: '', component: AppComponent },
+          {
+            path: 'order',
+            data: { breadcrumb: 'Orders' },
+            children: [
+              { path: '', component: AppComponent },
+              {
+                path: ':orderId',
+                data: { breadcrumb: 'Order Details' },
+                children: [
+                  { path: '', component: AppComponent },
+                  {
+                    path: 'items',
+                    component: AppComponent,
+                    data: { breadcrumb: 'Items' },
+                  },
+                  {
+                    path: 'payment',
+                    component: AppComponent,
+                    data: { breadcrumb: 'Payment Info' },
+                  },
+                  {
+                    path: 'delivery',
+                    component: AppComponent,
+                    data: { breadcrumb: 'Delivery Details' },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
 ];
 

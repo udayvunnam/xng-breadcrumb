@@ -13,16 +13,16 @@ Please note that this project is released with a [Contributor Code of Conduct][c
 
 1. [Fork][fork] and clone the repository
 2. Configure and install the dependencies: `yarn install`
-3. Make sure the tests pass on your machine: `yarn test`
+3. Make sure the tests pass on your machine: `yarn e2e`
 4. Create a new branch: `git checkout -b my-branch-name`
 5. Make your change, add tests, and make sure the tests still pass
-6. A pre-commit hook will make sure that your code is properly formatted, but you can also manually check for linting or formatting errors by running `yarn style`
+6. A pre-commit hook will make sure that your code is properly formatted, but you can also manually check for linting or formatting errors by running `yarn lint`
 7. Push to your fork and [submit a pull request][pr]
 8. Pat yourself on the back and wait for your pull request to be reviewed and merged.
 
 Here are a few things you can do that will increase the likelihood of your pull request being accepted:
 
-- Follow the [style guide][style] which is using Prettier. Any linting errors should be shown when running `npm lint:check`. Linting or formatting errors can be automatically fixed by running `yarn style:fix`.
+- Follow the [style guide][style] which is using Prettier.
 - Write and update tests.
 - Keep your change as focused as possible. If there are multiple changes you would like to make that are not dependent upon each other, consider submitting them as separate pull requests.
 - Write a [good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).

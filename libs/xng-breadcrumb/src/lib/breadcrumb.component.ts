@@ -6,7 +6,7 @@ import {
   TemplateRef,
   ViewEncapsulation,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BreadcrumbItemDirective } from './breadcrumb-item.directive';
@@ -85,10 +85,22 @@ export class BreadcrumbComponent implements OnInit {
     return this._separator;
   }
 
+  setupMessage = 'not set up yet';
+  someParameterValue = null;
+
   constructor(
     private breadcrumbService: BreadcrumbService,
-    private router: Router
-  ) {}
+    activateRoute: ActivatedRoute
+  ) {
+    activateRoute.params.subscribe((params) => {
+      this.setupComponent(params['someParam']);
+    });
+  }
+
+  setupComponent(someParam) {
+    this.setupMessage = 'set up at ' + new Date();
+    this.someParameterValue = someParam;
+  }
 
   ngOnInit() {
     this.breadcrumbs$ = this.breadcrumbService.breadcrumbs$.pipe(
