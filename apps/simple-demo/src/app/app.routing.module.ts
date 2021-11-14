@@ -3,7 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 
 export const appRoutes: Routes = [
-  { path: '', component: AppComponent, data: { breadcrumb: 'Dashboard' } },
+  {
+    path: '',
+    redirectTo: 'homepage',
+    pathMatch: 'full',
+  },
+  {
+    path: 'homepage',
+    component: AppComponent,
+    data: {
+      breadcrumb: 'Dashboard',
+    },
+  },
   {
     path: 'company',
     data: { breadcrumb: 'Companies' },
