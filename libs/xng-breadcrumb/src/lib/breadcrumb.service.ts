@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
+  ActivatedRoute,
   ActivatedRouteSnapshot,
   Router,
   RoutesRecognized,
@@ -53,7 +54,7 @@ export class BreadcrumbService {
   private breadcrumbs = new BehaviorSubject<BreadcrumbDefinition[]>([]);
   public breadcrumbs$ = this.breadcrumbs.asObservable();
 
-  constructor(private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
     this.detectRouteChanges();
   }
 
@@ -61,20 +62,29 @@ export class BreadcrumbService {
    * Whenever route changes build breadcrumb list again
    */
   private detectRouteChanges() {
+    // Special case where breadcrumb service & component instantiates after a route is navigated.
+    // Ex: put breadcrumbs within *ngIf and this.router.events would be empty
+    if (this.router.navigated) {
+      this.setupBreadcrumbs(this.activatedRoute.snapshot);
+    }
+
     this.router.events
       .pipe(filter((event) => event instanceof RoutesRecognized))
       .subscribe((event) => {
         // activatedRoute doesn't carry data when shouldReuseRoute returns false
         // use the event data with RoutesRecognized as workaround
         if (event instanceof RoutesRecognized) {
-          console.log(event.state.root.firstChild.data.title);
-          this.previousBreadcrumbs = this.currentBreadcrumbs;
-          // breadcrumb label for base OR root path. Usually, this can be set as 'Home'
-          const rootBreadcrumb = this.getRootBreadcrumb();
-          this.currentBreadcrumbs = rootBreadcrumb ? [rootBreadcrumb] : [];
-          this.prepareBreadcrumbList(event.state.root, this.baseHref);
+          this.setupBreadcrumbs(event.state.root);
         }
       });
+  }
+
+  private setupBreadcrumbs(activatedRouteSnapshot: ActivatedRouteSnapshot) {
+    this.previousBreadcrumbs = this.currentBreadcrumbs;
+    // breadcrumb label for base OR root path. Usually, this can be set as 'Home'
+    const rootBreadcrumb = this.getRootBreadcrumb();
+    this.currentBreadcrumbs = rootBreadcrumb ? [rootBreadcrumb] : [];
+    this.prepareBreadcrumbList(activatedRouteSnapshot, this.baseHref);
   }
 
   private getRootBreadcrumb() {

@@ -7,8 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  showBreadcrumbs = false;
+
   constructor(router: Router) {
     router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
+
+  toggleBreadcrumbVisibility() {
+    this.showBreadcrumbs = !this.showBreadcrumbs;
+  }
+
   name = 'Angular ' + VERSION.major;
 }

@@ -1,6 +1,7 @@
+import { AppComponent } from './app.component';
+import { PageComponent } from './page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 
 export const appRoutes: Routes = [
   {
@@ -10,7 +11,7 @@ export const appRoutes: Routes = [
   },
   {
     path: 'homepage',
-    component: AppComponent,
+    component: PageComponent,
     data: {
       breadcrumb: 'Dashboard',
     },
@@ -19,35 +20,35 @@ export const appRoutes: Routes = [
     path: 'company',
     data: { breadcrumb: 'Companies' },
     children: [
-      { path: '', component: AppComponent },
+      { path: '', component: PageComponent },
       {
         path: ':companyId',
         data: { breadcrumb: 'Company Name' },
         children: [
-          { path: '', component: AppComponent },
+          { path: '', component: PageComponent },
           {
             path: 'order',
             data: { breadcrumb: 'Orders' },
             children: [
-              { path: '', component: AppComponent },
+              { path: '', component: PageComponent },
               {
                 path: ':orderId',
                 data: { breadcrumb: 'Order Details' },
                 children: [
-                  { path: '', component: AppComponent },
+                  { path: '', component: PageComponent },
                   {
                     path: 'items',
-                    component: AppComponent,
+                    component: PageComponent,
                     data: { breadcrumb: 'Items' },
                   },
                   {
                     path: 'payment',
-                    component: AppComponent,
+                    component: PageComponent,
                     data: { breadcrumb: 'Payment Info' },
                   },
                   {
                     path: 'delivery',
-                    component: AppComponent,
+                    component: PageComponent,
                     data: { breadcrumb: 'Delivery Details' },
                   },
                 ],
