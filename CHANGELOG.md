@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.8.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.7.0...v6.8.0) (2021-11-14)
+
+### Features
+
+- nx upgrade, angular upgrade to v12 and nx cloud connect ([#83](https://github.com/udayvunnam/xng-breadcrumb/issues/83)) ([8a57f89](https://github.com/udayvunnam/xng-breadcrumb/commit/8a57f89d3a134733ad04618e0390bf45e95b5e87))
+
+### Bug Fixes
+
+- **lib:** get route config data even with routeReuseStrategy false ([#93](https://github.com/udayvunnam/xng-breadcrumb/issues/93)) ([3671d67](https://github.com/udayvunnam/xng-breadcrumb/commit/3671d67e77cb877648f1416a6031d9f114344c13))
+
 ## [6.7.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.6.1...v6.7.0) (2021-04-25)
 
 ### Features
