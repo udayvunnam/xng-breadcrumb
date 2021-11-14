@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.8.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.8.0...v6.8.1) (2021-11-14)
+
+### Bug Fixes
+
+- xng-breadcrumb inside ngIf needs a special check since router events are already finished ([#97](https://github.com/udayvunnam/xng-breadcrumb/issues/97)) ([c7ce2d0](https://github.com/udayvunnam/xng-breadcrumb/commit/c7ce2d0304c03ff65fb664b0a315ebfb88f99849))
+
 ## [6.8.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.7.0...v6.8.0) (2021-11-14)
 
 ### Features
