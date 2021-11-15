@@ -2,10 +2,13 @@
 <h2>Angular version {{ name }}</h2>
 
 <div *ngIf="showBreadcrumbs">
-  <xng-breadcrumb></xng-breadcrumb>
+  <xng-breadcrumb class="auto-generated-true"></xng-breadcrumb>
 
   <h3>Auto generated: false</h3>
-  <xng-breadcrumb [autoGenerate]="false"></xng-breadcrumb>
+  <xng-breadcrumb
+    [autoGenerate]="false"
+    class="auto-generated-false"
+  ></xng-breadcrumb>
 </div>
 
 <router-outlet></router-outlet>
