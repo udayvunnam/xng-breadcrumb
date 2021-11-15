@@ -1,4 +1,3 @@
-import { AppComponent } from './app.component';
 import { PageComponent } from './page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -39,7 +38,11 @@ export const appRoutes: Routes = [
                   {
                     path: 'items',
                     component: PageComponent,
-                    data: { breadcrumb: 'Items' },
+                    data: {
+                      breadcrumb: {
+                        alias: 'orderItems',
+                      },
+                    },
                   },
                   {
                     path: 'payment',
