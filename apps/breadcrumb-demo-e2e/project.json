@@ -1,0 +1,28 @@
+{
+  "root": "apps/breadcrumb-demo-e2e",
+  "sourceRoot": "apps/breadcrumb-demo-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/breadcrumb-demo-e2e/cypress.json",
+        "tsConfig": "apps/breadcrumb-demo-e2e/tsconfig.e2e.json",
+        "devServerTarget": "breadcrumb-demo:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "breadcrumb-demo:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/breadcrumb-demo-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["breadcrumb-demo"]
+}

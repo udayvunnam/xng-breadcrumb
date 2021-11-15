@@ -1,0 +1,91 @@
+{
+  "projectType": "application",
+  "generators": {},
+  "root": "apps/simple-demo",
+  "sourceRoot": "apps/simple-demo/src",
+  "prefix": "xng",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/simple-demo",
+        "index": "apps/simple-demo/src/index.html",
+        "main": "apps/simple-demo/src/main.ts",
+        "polyfills": "apps/simple-demo/src/polyfills.ts",
+        "tsConfig": "apps/simple-demo/tsconfig.app.json",
+        "assets": [
+          "apps/simple-demo/src/favicon.ico",
+          "apps/simple-demo/src/assets"
+        ],
+        "styles": ["apps/simple-demo/src/styles.css"],
+        "scripts": [],
+        "vendorChunk": true,
+        "extractLicenses": false,
+        "buildOptimizer": false,
+        "sourceMap": true,
+        "optimization": false,
+        "namedChunks": true
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/simple-demo/src/environments/environment.ts",
+              "with": "apps/simple-demo/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "buildOptimizer": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "6kb",
+              "maximumError": "10kb"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "browserTarget": "simple-demo:build"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "simple-demo:build:production"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "simple-demo:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/simple-demo/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "apps/simple-demo/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
