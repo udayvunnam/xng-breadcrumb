@@ -240,7 +240,7 @@ export class BreadcrumbService {
    *
    * Ex: Below we are setting breadcrumb on both parent and child.
    * So, child takes precedence and "Defined On Child" is displayed for the route 'home'
-   * { path: 'home', loadChildren: './home/home.module#HomeModule' , data: {breadcrumb: "Defined On Module"}}
+   * { path: 'home', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule) , data: {breadcrumb: "Defined On Module"}}
    *                                                AND
    * children: [
    *   { path: '', component: ShowUserComponent, data: {breadcrumb: "Defined On Child" }

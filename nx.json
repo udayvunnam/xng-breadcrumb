@@ -25,35 +25,6 @@
       }
     }
   },
-  "projects": {
-    "breadcrumb-demo": {
-      "tags": []
-    },
-    "breadcrumb-demo-e2e": {
-      "tags": [],
-      "implicitDependencies": ["breadcrumb-demo"]
-    },
-    "demo": {
-      "tags": []
-    },
-    "got-demo": {
-      "tags": []
-    },
-    "got-demo-e2e": {
-      "tags": [],
-      "implicitDependencies": ["got-demo"]
-    },
-    "simple-demo": {
-      "tags": []
-    },
-    "simple-demo-e2e": {
-      "tags": [],
-      "implicitDependencies": ["simple-demo"]
-    },
-    "xng-breadcrumb": {
-      "tags": []
-    }
-  },
   "targetDependencies": {
     "build": [
       {
@@ -61,5 +32,29 @@
         "projects": "dependencies"
       }
     ]
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "breadcrumb-demo",
+  "generators": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
   }
 }

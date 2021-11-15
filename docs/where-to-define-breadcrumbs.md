@@ -27,7 +27,7 @@
 
 ```javascript
   // defining breadcrumb on Module route
-  { path: 'home', loadChildren: './home/home.module#HomeModule', data: { breadcrumb: 'Declaraed on Parent Module' } }
+  { path: 'home', loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule), data: { breadcrumb: 'Declaraed on Parent Module' } }
 
   // Within HomeModule Routes -
   { path: '', pathMatch: 'full', component: HomeComponent, data: { breadcrumb: 'Declaraed on child with empty path' }}

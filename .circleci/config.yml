@@ -4,7 +4,7 @@ aliases:
   - &defaults
     working_directory: ~/repo
     docker:
-      - image: circleci/node:12-browsers
+      - image: cimg/node:16.13.0-browsers
   - &set_env
     name: Setup Environment Variables
     command: |
