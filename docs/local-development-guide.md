@@ -8,6 +8,8 @@ If you wish to contribute to this repository, below are the steps for local deve
 - Run `yarn` to install the dependencies
 - Run `yarn start` to build and watch both the library and the demo app. This opens the demo app at `http://localhost:4200/` automatically.
 
+**Alternatively, you can use github codespaces of this repo hosted at https://udayvunnam-xng-breadcrumb-6jc5.github.dev/**
+
 ## Build
 
 Run `yarn build` to build the library and demo app together. The build artifacts will be stored in the `dist/` directory.
