@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v7.0.0...v8.0.0) (2021-12-11)
+
 ## [7.0.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.8.2...v7.0.0) (2021-12-11)
 
 ### Features
