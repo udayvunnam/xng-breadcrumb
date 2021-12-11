@@ -101,7 +101,7 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
 ```javascript
   {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
+    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
     data: { breadcrumb: 'Home' }
   },
   {
@@ -116,7 +116,7 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
 ```javascript
   {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
+    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
     data: {
       breadcrumb: {
         label: 'Home',

@@ -193,25 +193,25 @@ Note: XngBreadcrumb has a peer dependency on `@angular/router`. Include `RouterM
   breadcrumbService.set('@mentorName', 'Uday Vunnam');
 ```
 
-### [Advanced Patterns](./docs/advanced-patterns.md)
+### [Advanced Patterns](/docs/advanced-patterns.md)
 
-If you looking for customizing breadcrumb in different ways, [refer to this guide](./docs/advanced-patterns.md)
+If you looking for customizing breadcrumb in different ways, [refer to this guide](/docs/advanced-patterns.md)
 
-### [API](./docs/api.md)
+### [API](/docs/api.md)
 
-Detailed [API](./docs/api.md) for Breadcrumb Component and Breadcrumb Service
+Detailed [API](/docs/api.md) for Breadcrumb Component and Breadcrumb Service
 
-### [Accessibility](./docs/accessibility.md)
+### [Accessibility](/docs/accessibility.md)
 
-Accessibility is the firstclass concern for this library and is [implemented with best practices](./docs/accessibility.md)
+Accessibility is the firstclass concern for this library and is [implemented with best practices](/docs/accessibility.md)
 
-### [Angular version compatibility](./docs/version-compatibility.md)
+### [Angular version compatibility](/docs/version-compatibility.md)
 
-xng-breadcrumb works will all versions of Angular. [See the compatibility guide](./docs/version-compatibility.md)
+xng-breadcrumb works will all versions of Angular. [See the compatibility guide](/docs/version-compatibility.md)
 
-### [Local Development Guide](./docs/local-development-guide.md)
+### [Local Development Guide](/docs/local-development-guide.md)
 
-If you wish to contribute to this library, refer to the [local development guide](./docs/local-development-guide.md)
+If you wish to contribute to this library, refer to the [local development guide](/docs/local-development-guide.md)
 
 ## ❤️ [Become a Sponsor!](http://paypal.me/udayvunnam)
 
