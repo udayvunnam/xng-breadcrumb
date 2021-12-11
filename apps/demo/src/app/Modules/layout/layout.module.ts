@@ -6,7 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MenubarComponent } from './components/menubar/menubar.component';
 
 import { RouterModule } from '@angular/router';
-import { BreadcrumbModule } from '@xng/xng-breadcrumb';
+import { BreadcrumbModule } from 'xng-breadcrumb';
 
 @NgModule({
   declarations: [

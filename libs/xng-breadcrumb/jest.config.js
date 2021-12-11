@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: '@xng/xng-breadcrumb',
+  displayName: 'xng-breadcrumb',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {

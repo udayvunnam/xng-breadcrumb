@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BreadcrumbService } from '@xng/xng-breadcrumb';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 import { DataService } from '../../core/data.service';
 

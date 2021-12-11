@@ -14,7 +14,7 @@ import { startWith, map } from 'rxjs/operators';
 import { Mentor } from '../../shared/models/mentor';
 import { allLanguages } from '../../core/in-memory-data.service';
 import { DataService } from '../../core/data.service';
-import { BreadcrumbService } from '@xng/xng-breadcrumb';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'bd-mentor-add',

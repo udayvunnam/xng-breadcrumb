@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
-import { BreadcrumbService } from '@xng/xng-breadcrumb';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'bd-mentor-list',

@@ -1,4 +1,4 @@
-import { BreadcrumbService } from '@xng/xng-breadcrumb';
+import { BreadcrumbService } from 'xng-breadcrumb';
 import { Component, VERSION } from '@angular/core';
 import { Router } from '@angular/router';
 
