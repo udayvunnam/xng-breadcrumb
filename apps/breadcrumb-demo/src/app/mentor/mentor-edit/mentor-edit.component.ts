@@ -13,12 +13,12 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { allLanguages } from '../../core/in-memory-data.service';
 import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
-import { BreadcrumbService } from '@xng/xng-breadcrumb';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'bd-mentor-edit',
   templateUrl: './mentor-edit.component.html',
-  styleUrls: ['./mentor-edit.component.scss'],
+  styleUrls: ['./mentor-edit.component.css'],
 })
 export class MentorEditComponent implements OnInit {
   mentorId: string;

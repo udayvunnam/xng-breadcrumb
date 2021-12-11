@@ -6,7 +6,7 @@ import { Mentor } from '../../shared/models/mentor';
 @Component({
   selector: 'bd-mentee-list',
   templateUrl: './mentee-list.component.html',
-  styleUrls: ['./mentee-list.component.scss'],
+  styleUrls: ['./mentee-list.component.css'],
 })
 export class MenteeListComponent implements OnInit {
   mentees: Mentor[];

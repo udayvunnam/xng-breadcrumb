@@ -6,7 +6,7 @@ import { ROUTER_COMPONENTS, AppRoutingModule } from './app.routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BookComponent } from './book/book.component';
 import { CharacterComponent } from './character/character.component';
-import { BreadcrumbModule } from '@xng/xng-breadcrumb';
+import { BreadcrumbModule } from 'xng-breadcrumb';
 
 @NgModule({
   declarations: [

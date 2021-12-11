@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'bd-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'xng-breadcrumb-app';

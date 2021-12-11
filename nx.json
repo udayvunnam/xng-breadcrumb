@@ -21,37 +21,9 @@
         "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "NzljZWJiY2YtNTU3Yy00ZDQyLWEwY2EtNmQ4YWQ5Mjg3Nzc2fHJlYWQtd3JpdGU=",
         "canTrackAnalytics": false,
-        "showUsageWarnings": true
+        "showUsageWarnings": true,
+        "parallel": 1
       }
-    }
-  },
-  "projects": {
-    "breadcrumb-demo": {
-      "tags": []
-    },
-    "breadcrumb-demo-e2e": {
-      "tags": [],
-      "implicitDependencies": ["breadcrumb-demo"]
-    },
-    "demo": {
-      "tags": []
-    },
-    "got-demo": {
-      "tags": []
-    },
-    "got-demo-e2e": {
-      "tags": [],
-      "implicitDependencies": ["got-demo"]
-    },
-    "simple-demo": {
-      "tags": []
-    },
-    "simple-demo-e2e": {
-      "tags": [],
-      "implicitDependencies": ["simple-demo"]
-    },
-    "xng-breadcrumb": {
-      "tags": []
     }
   },
   "targetDependencies": {
@@ -61,5 +33,26 @@
         "projects": "dependencies"
       }
     ]
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "packageManager": "yarn"
+  },
+  "defaultProject": "breadcrumb-demo",
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "css"
+    }
   }
 }

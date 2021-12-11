@@ -1,0 +1,28 @@
+{
+  "root": "apps/got-demo-e2e",
+  "sourceRoot": "apps/got-demo-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/got-demo-e2e/cypress.json",
+        "tsConfig": "apps/got-demo-e2e/tsconfig.e2e.json",
+        "devServerTarget": "got-demo:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "got-demo:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/got-demo-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["got-demo"]
+}

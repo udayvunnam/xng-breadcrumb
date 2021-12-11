@@ -1,0 +1,98 @@
+{
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "css"
+    }
+  },
+  "root": "apps/breadcrumb-demo",
+  "sourceRoot": "apps/breadcrumb-demo/src",
+  "prefix": "bd",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/breadcrumb-demo",
+        "index": "apps/breadcrumb-demo/src/index.html",
+        "main": "apps/breadcrumb-demo/src/main.ts",
+        "polyfills": "apps/breadcrumb-demo/src/polyfills.ts",
+        "tsConfig": "apps/breadcrumb-demo/tsconfig.app.json",
+        "assets": [
+          "apps/breadcrumb-demo/src/favicon.ico",
+          "apps/breadcrumb-demo/src/assets"
+        ],
+        "styles": [
+          "apps/breadcrumb-demo/src/assets/css/material-theme.scss",
+          "apps/breadcrumb-demo/src/styles.css"
+        ],
+        "scripts": [],
+        "vendorChunk": true,
+        "extractLicenses": false,
+        "buildOptimizer": false,
+        "sourceMap": true,
+        "optimization": false,
+        "namedChunks": true
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/breadcrumb-demo/src/environments/environment.ts",
+              "with": "apps/breadcrumb-demo/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "buildOptimizer": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "6kb",
+              "maximumError": "10kb"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "browserTarget": "breadcrumb-demo:build"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "breadcrumb-demo:build:production"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "breadcrumb-demo:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/breadcrumb-demo/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "apps/breadcrumb-demo/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

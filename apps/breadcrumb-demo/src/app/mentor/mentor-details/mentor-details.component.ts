@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BreadcrumbService } from '@xng/xng-breadcrumb';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 import { DataService } from '../../core/data.service';
 
 @Component({
   selector: 'bd-mentor-details',
   templateUrl: './mentor-details.component.html',
-  styleUrls: ['./mentor-details.component.scss'],
+  styleUrls: ['./mentor-details.component.css'],
 })
 export class MentorDetailsComponent implements OnInit {
   mentor: { name: string };

@@ -1,0 +1,39 @@
+{
+  "projectType": "library",
+  "root": "libs/xng-breadcrumb",
+  "sourceRoot": "libs/xng-breadcrumb/src",
+  "prefix": "xng",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "options": {
+        "tsConfig": "libs/xng-breadcrumb/tsconfig.lib.json",
+        "project": "libs/xng-breadcrumb/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/xng-breadcrumb/tsconfig.lib.prod.json"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/xng-breadcrumb/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "libs/xng-breadcrumb/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "css"
+    }
+  },
+  "tags": []
+}
