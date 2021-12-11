@@ -2,7 +2,7 @@
   "projectType": "application",
   "generators": {
     "@schematics/angular:component": {
-      "style": "scss"
+      "style": "css"
     }
   },
   "root": "apps/got-demo",

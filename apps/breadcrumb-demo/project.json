@@ -2,7 +2,7 @@
   "projectType": "application",
   "generators": {
     "@schematics/angular:component": {
-      "style": "scss"
+      "style": "css"
     }
   },
   "root": "apps/breadcrumb-demo",
@@ -22,8 +22,8 @@
           "apps/breadcrumb-demo/src/assets"
         ],
         "styles": [
-          "apps/breadcrumb-demo/src/assets/scss/material-theme.scss",
-          "apps/breadcrumb-demo/src/styles.scss"
+          "apps/breadcrumb-demo/src/assets/css/material-theme.scss",
+          "apps/breadcrumb-demo/src/styles.css"
         ],
         "scripts": [],
         "vendorChunk": true,

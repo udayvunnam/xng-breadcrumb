@@ -19,7 +19,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 @Component({
   selector: 'bd-mentor-add',
   templateUrl: './mentor-add.component.html',
-  styleUrls: ['./mentor-add.component.scss'],
+  styleUrls: ['./mentor-add.component.css'],
 })
 export class MentorAddComponent implements OnInit {
   mentor: unknown;

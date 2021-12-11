@@ -18,7 +18,7 @@ import { allLanguages } from '../../core/in-memory-data.service';
 @Component({
   selector: 'bd-mentee-add',
   templateUrl: './mentee-add.component.html',
-  styleUrls: ['./mentee-add.component.scss'],
+  styleUrls: ['./mentee-add.component.css'],
 })
 export class MenteeAddComponent implements OnInit {
   mentee: unknown;

@@ -4,7 +4,7 @@ import { EventEmitter } from '@angular/core';
 @Component({
   selector: 'bd-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
   theme = 'light';

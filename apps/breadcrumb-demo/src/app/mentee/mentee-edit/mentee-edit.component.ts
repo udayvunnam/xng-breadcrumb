@@ -18,7 +18,7 @@ import { Mentee } from '../../shared/models/mentee';
 @Component({
   selector: 'bd-mentee-edit',
   templateUrl: './mentee-edit.component.html',
-  styleUrls: ['./mentee-edit.component.scss'],
+  styleUrls: ['./mentee-edit.component.css'],
 })
 export class MenteeEditComponent implements OnInit {
   menteeId: string;

@@ -32,7 +32,7 @@
   },
   "generators": {
     "@schematics/angular:component": {
-      "style": "scss"
+      "style": "css"
     }
   },
   "tags": []

@@ -18,7 +18,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 @Component({
   selector: 'bd-mentor-edit',
   templateUrl: './mentor-edit.component.html',
-  styleUrls: ['./mentor-edit.component.scss'],
+  styleUrls: ['./mentor-edit.component.css'],
 })
 export class MentorEditComponent implements OnInit {
   mentorId: string;
