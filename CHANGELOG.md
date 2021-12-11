@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.8.2...v7.0.0) (2021-12-11)
+
+### Features
+
+- angular and nx upgrade to 13 ([#102](https://github.com/udayvunnam/xng-breadcrumb/issues/102)) ([3b1b698](https://github.com/udayvunnam/xng-breadcrumb/commit/3b1b698f92ac525908f75fe5c6330ab278189772))
+
 ### [6.8.2](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.8.1...v6.8.2) (2021-11-15)
 
 ### Bug Fixes
