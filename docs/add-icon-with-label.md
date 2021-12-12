@@ -1,4 +1,4 @@
-# Add icons with label
+# Add icon with label
 
 Define 'info' associated with breadcrumb in route config. 'info' has type <any>. you can pass string or object as you need.
 

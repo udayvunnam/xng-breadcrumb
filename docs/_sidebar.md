@@ -6,18 +6,18 @@
 
 - Guide
 
-  - [Skip unwanted label](skip-breadcrumb.md)
-  - [Custom breadcrumb styles](custom-breadcrumb-styles.md)
-  - [Disable onclick](disable-breadcrumb-navigation.md)
+  - [Skip breadcrumb](skip-breadcrumb.md)
+  - [Custom styles](custom-styles.md)
+  - [Disable breadcrumb navigation](disable-breadcrumb-navigation.md)
   - [Intercept breadcrumb onclick](intercept-breadcrumb-onclick.md)
 
 - Customization
 
   - [Custom template](custom-template.md)
-  - [Change seperator](change-separator.md)
-  - [Add icons with label](add-icons-with-label.md)
+  - [Add icon with label](add-icon-with-label.md)
   - [Use filter to change text case](use-filter.md)
   - [Internationalization](internationalization.md)
+  - [custom seperator](custom-separator.md)
 
 - [API](api.md)
 - [Where to define breadcrumbs](where-to-define-breadcrumbs.md)

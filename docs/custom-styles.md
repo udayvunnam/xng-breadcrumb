@@ -1,4 +1,4 @@
-# Custom breadcrumb styles
+# Custom styles
 
 - `<xng-breadcrumb>` defines the least possible specificity for selectors, to make it easy to override them.
 - override styles by changing the CSS for corresponding classes. (Keep this styles in app root styles file if you don't want to use ::ng-deep)
