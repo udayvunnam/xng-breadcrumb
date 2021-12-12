@@ -2,11 +2,6 @@
 
 You can customize breadcrumb template using the directive `*xngBreadcrumbItem`. This allows you to alter breadcrumb in many ways.
 
-- [Change seperator](change-separator.md)
-- [Add icons with label](add-icons-with-label.md)
-- [Use filter to change text case](use-filter.md)
-- [Internationalization](internationalization.md)
-
 ```html
 <xng-breadcrumb>
   <ng-container *xngBreadcrumbItem="let breadcrumb">
