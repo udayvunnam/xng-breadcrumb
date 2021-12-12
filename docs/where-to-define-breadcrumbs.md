@@ -1,4 +1,4 @@
-# Where to define breadcrumbs, if Routes path have same Route specificity
+# Where to define breadcrumbs, if Routes path have same route specificity
 
 - For the same route path, you can define breadcrumbs either on _parent_ or _any descendant with empty path_.
 - If both are defined, the children take the precedence.

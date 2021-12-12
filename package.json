@@ -1,6 +1,6 @@
 {
   "name": "xng",
-  "version": "6.8.2",
+  "version": "7.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
@@ -32,7 +32,8 @@
     "push-tags": "git push --follow-tags origin main",
     "release": "git checkout main && git pull origin main && standard-version",
     "postrelease": "npm-run-all copy-* commit-version push-tags",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "serve-docs": "docsify serve docs"
   },
   "private": true,
   "dependencies": {
