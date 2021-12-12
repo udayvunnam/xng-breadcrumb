@@ -1,4 +1,6 @@
-# xng-breadcrumb
+<h1 align="center" style="color: teal">xng-breadcrumb</h1>
+
+<div align="center">
 
 > A lightweight, declarative and configurable breadcrumbs solution for Angular 6 and beyond. <https://www.npmjs.com/package/xng-breadcrumb>
 
@@ -10,6 +12,8 @@
 ![npm downloads](https://img.shields.io/npm/dt/xng-breadcrumb?style=social)
 ![Twitter follow](https://img.shields.io/twitter/follow/udayvunnam_?style=social)
 
+</div>
+
 ## About
 
 - In applications with deep navigation hierarchy, it is essential to have breadcrumbs.
@@ -20,6 +24,10 @@
 [Live Demo](https://xng-breadcrumb.netlify.com) - A demo app showcasing `xng-breadcrumb` usage in an Angular app. Navigate through different links to see breadcrumbs behavior.
 
 <a href="https://xng-breadcrumb.netlify.com/dashboard" rel="noopener" target="_blank" ><img width="500" src="https://user-images.githubusercontent.com/20707504/68575589-61287880-0492-11ea-9084-80587321c5c4.png" alt="xng-breadcrumb usage"></a></p>
+
+## Documentation
+
+[Documentation](https://udayvunnam.github.io/xng-breadcrumb/)
 
 ## Features
 
