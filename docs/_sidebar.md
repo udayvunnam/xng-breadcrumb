@@ -25,3 +25,4 @@
 - [accessibility](accessibility.md)
 - [Local development guide](local-development-guide.md)
 - [❤️Become a Sponsor!](http://paypal.me/udayvunnam)
+- [Changelog](https://github.com/udayvunnam/xng-breadcrumb/blob/main/CHANGELOG.md)
