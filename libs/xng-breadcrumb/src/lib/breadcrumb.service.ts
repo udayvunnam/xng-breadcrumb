@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRoute,
   ActivatedRouteSnapshot,
+  GuardsCheckEnd,
   Router,
-  RoutesRecognized,
 } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { Breadcrumb } from './types/breadcrumb';
 import {
-  BreadcrumbObject,
   BreadcrumbFunction,
+  BreadcrumbObject,
 } from './types/breadcrumb.config';
 
 type BreadcrumbConfig = BreadcrumbObject | BreadcrumbFunction | string;
@@ -69,11 +69,11 @@ export class BreadcrumbService {
     }
 
     this.router.events
-      .pipe(filter((event) => event instanceof RoutesRecognized))
+      .pipe(filter((event) => event instanceof GuardsCheckEnd))
       .subscribe((event) => {
         // activatedRoute doesn't carry data when shouldReuseRoute returns false
         // use the event data with RoutesRecognized as workaround
-        if (event instanceof RoutesRecognized) {
+        if (event instanceof GuardsCheckEnd && event.shouldActivate) {
           this.setupBreadcrumbs(event.state.root);
         }
       });
