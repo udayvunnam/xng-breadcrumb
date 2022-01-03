@@ -1,0 +1,28 @@
+{
+  "root": "apps/with-gaurd-check-e2e",
+  "sourceRoot": "apps/with-gaurd-check-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/with-gaurd-check-e2e/cypress.json",
+        "devServerTarget": "with-gaurd-check:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "with-gaurd-check:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/with-gaurd-check-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["with-gaurd-check"]
+}

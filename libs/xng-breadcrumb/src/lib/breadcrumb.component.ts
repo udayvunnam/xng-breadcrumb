@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BreadcrumbItemDirective } from './breadcrumb-item.directive';
 import { BreadcrumbDefinition, BreadcrumbService } from './breadcrumb.service';
@@ -19,7 +19,6 @@ import { BreadcrumbDefinition, BreadcrumbService } from './breadcrumb.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class BreadcrumbComponent implements OnInit {
-  subscription: Subscription;
   breadcrumbs$: Observable<BreadcrumbDefinition[]>;
   separatorTemplate: TemplateRef<void>;
   private _separator = '/';
@@ -92,6 +91,7 @@ export class BreadcrumbComponent implements OnInit {
     private breadcrumbService: BreadcrumbService,
     activateRoute: ActivatedRoute
   ) {
+    // breadcrumb inside ngIf works only this way
     activateRoute.params.subscribe((params) => {
       this.setupComponent(params['someParam']);
     });

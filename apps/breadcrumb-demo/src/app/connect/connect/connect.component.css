@@ -1,7 +1,8 @@
 .connect {
   display: flex;
   justify-content: center;
-  button {
-    width: 200px;
-  }
+}
+
+.connect button {
+  width: 200px;
 }
