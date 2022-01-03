@@ -5,15 +5,16 @@
 
 .route-container {
   padding: 16px;
+}
 
-  div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    label {
-      min-width: 240px;
-    }
-  }
+.route-container div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.route-container div label {
+  min-width: 240px;
 }
 
 @media (max-width: 960px) {
