@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v7.0.0...v7.1.0) (2022-01-03)
+
+### Features
+
+- updated docs and GA setup ([#107](https://github.com/udayvunnam/xng-breadcrumb/issues/107)) ([36777f0](https://github.com/udayvunnam/xng-breadcrumb/commit/36777f057a55d0ad112aa83c2473d29bdcd0d619))
+
+### Bug Fixes
+
+- respect angular guard checks and do not navigate if authGuard check returns false ([#114](https://github.com/udayvunnam/xng-breadcrumb/issues/114)) ([48f4772](https://github.com/udayvunnam/xng-breadcrumb/commit/48f4772d804aa463a9df1815a3464be3917304a4))
+
 ## [7.0.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.8.2...v7.0.0) (2021-12-12)
 
 ### Features
