@@ -1,13 +1,36 @@
-import { getGreeting } from '../support/app.po';
-
 describe('with-gaurd-check', () => {
-  beforeEach(() => cy.visit('/'));
+  it('should contain breadcrumbs for page1', () => {
+    cy.visit('/');
+    cy.get('.xng-breadcrumb-list').contains('Page 1');
+    cy.get('button').contains('To Page 2 Child').click();
+    cy.get('.xng-breadcrumb-list').contains('Page2 child');
+  });
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
+  it('Auth guard false should block navigation from breadcrumb', () => {
+    cy.get('button').contains('Back to Page 1').click();
+    cy.on('window:confirm', (text) => {
+      expect(text).to.contains(
+        'Are you sure you want to navigate away before saving changes?'
+      );
+      return false;
+    });
+    cy.get('.xng-breadcrumb-list').contains('Page2 child'); // navigation didn't happen
+    cy.location().should((loc) => {
+      expect(loc.pathname).to.eq('/page2/page2-child');
+    });
+  });
 
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome with-gaurd-check');
+  it('Auth guard true should allow navigation from breadcrumb', () => {
+    cy.get('button').contains('Back to Page 1').click();
+    cy.on('window:confirm', (text) => {
+      expect(text).to.contains(
+        'Are you sure you want to navigate away before saving changes?'
+      );
+      return true;
+    });
+    cy.get('.xng-breadcrumb-list').contains('Page2 child').should('not.exist'); // navigation happen
+    cy.location().should((loc) => {
+      expect(loc.pathname).to.eq('/page1');
+    });
   });
 });
