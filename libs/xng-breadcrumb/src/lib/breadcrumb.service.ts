@@ -64,15 +64,15 @@ export class BreadcrumbService {
   private detectRouteChanges() {
     // Special case where breadcrumb service & component instantiates after a route is navigated.
     // Ex: put breadcrumbs within *ngIf and this.router.events would be empty
-    if (this.router.navigated) {
-      this.setupBreadcrumbs(this.activatedRoute.snapshot);
-    }
+    // This check is also required where  { initialNavigation: 'enabledBlocking' } is applied to routes
+    this.setupBreadcrumbs(this.activatedRoute.snapshot);
 
     this.router.events
       .pipe(filter((event) => event instanceof GuardsCheckEnd))
       .subscribe((event) => {
         // activatedRoute doesn't carry data when shouldReuseRoute returns false
-        // use the event data with RoutesRecognized as workaround
+        // use the event data with GuardsCheckEnd as workaround
+        // Check for shouldActivate in case where the authGuard returns false the breadcrumbs shouldn't be changed
         if (event instanceof GuardsCheckEnd && event.shouldActivate) {
           this.setupBreadcrumbs(event.state.root);
         }
