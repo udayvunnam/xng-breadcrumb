@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.8.3](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.8.2...v6.8.3) (2022-01-03)
+
+### Bug Fixes
+
+- enabledNonBlocking strategy for routes in v6.x ([#116](https://github.com/udayvunnam/xng-breadcrumb/issues/116)) ([18c1a29](https://github.com/udayvunnam/xng-breadcrumb/commit/18c1a29cf3fbfe687b634af6b3b34ecd6f3b747b))
+
 ### [6.8.2](https://github.com/udayvunnam/xng-breadcrumb/compare/v6.8.1...v6.8.2) (2021-11-15)
 
 ### Bug Fixes
