@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import * as faker from 'faker';
+import {
+  randBoolean,
+  randCountry,
+  randFirstName,
+  randFutureDate,
+  randLastName,
+  randPastDate,
+  randSentence,
+} from '@ngneat/falso';
 
 export const allLanguages = [
   'React',
@@ -36,12 +44,12 @@ const getRandomArray = (
 const person = (index: number) => {
   return {
     id: index,
-    name: `${faker.name.firstName()} ${faker.name.lastName()}`,
-    country: faker.address.country(),
-    active: faker.random.boolean(),
-    description: faker.lorem.sentence(),
-    available: faker.date.future(),
-    updatedTs: faker.date.past(),
+    name: `${randFirstName()} ${randLastName()}`,
+    country: randCountry(),
+    active: randBoolean(),
+    description: randSentence(),
+    available: randFutureDate(),
+    updatedTs: randPastDate(),
     skills: getRandomArray(allLanguages, 5),
   };
 };
