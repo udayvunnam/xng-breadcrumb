@@ -22,5 +22,12 @@
     "ngx-breadcrumb",
     "breadcrumb",
     "ngx"
-  ]
+  ],
+  "peerDependencies": {
+    "@angular/core": ">=13.0.0",
+    "@angular/common": ">=13.0.0",
+    "@angular/router": ">=13.0.0",
+    "rxjs": ">=7.0.0",
+    "@angular/platform-browser-dynamic": ">=13.0.0"
+  }
 }
