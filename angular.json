@@ -8,6 +8,7 @@
     "got-demo-e2e": "apps/got-demo-e2e",
     "simple-demo": "apps/simple-demo",
     "simple-demo-e2e": "apps/simple-demo-e2e",
+    "ssr": "apps/ssr",
     "with-gaurd-check": "apps/with-gaurd-check",
     "with-gaurd-check-e2e": "apps/with-gaurd-check-e2e",
     "xng-breadcrumb": "libs/xng-breadcrumb"

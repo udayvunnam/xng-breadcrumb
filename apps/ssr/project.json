@@ -1,0 +1,143 @@
+{
+  "projectType": "application",
+  "root": "apps/ssr",
+  "sourceRoot": "apps/ssr/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/ssr/browser",
+        "index": "apps/ssr/src/index.html",
+        "main": "apps/ssr/src/main.ts",
+        "polyfills": "apps/ssr/src/polyfills.ts",
+        "tsConfig": "apps/ssr/tsconfig.app.json",
+        "assets": ["apps/ssr/src/favicon.ico", "apps/ssr/src/assets"],
+        "styles": ["apps/ssr/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/ssr/src/environments/environment.ts",
+              "with": "apps/ssr/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "ssr:build:production"
+        },
+        "development": {
+          "browserTarget": "ssr:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "ssr:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/ssr/src/**/*.ts", "apps/ssr/src/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/ssr"],
+      "options": {
+        "jestConfig": "apps/ssr/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "server": {
+      "executor": "@angular-devkit/build-angular:server",
+      "options": {
+        "outputPath": "dist/apps/ssr/server",
+        "main": "apps/ssr/server.ts",
+        "tsConfig": "apps/ssr/tsconfig.server.json"
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "media",
+          "fileReplacements": [
+            {
+              "replace": "apps/ssr/src/environments/environment.ts",
+              "with": "apps/ssr/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "development": {
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve-ssr": {
+      "executor": "@nguniversal/builders:ssr-dev-server",
+      "configurations": {
+        "development": {
+          "browserTarget": "ssr:build:development",
+          "serverTarget": "ssr:server:development"
+        },
+        "production": {
+          "browserTarget": "ssr:build:production",
+          "serverTarget": "ssr:server:production"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "prerender": {
+      "executor": "@nguniversal/builders:prerender",
+      "options": {
+        "routes": ["/"]
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "ssr:build:production",
+          "serverTarget": "ssr:server:production"
+        },
+        "development": {
+          "browserTarget": "ssr:build:development",
+          "serverTarget": "ssr:server:development"
+        }
+      },
+      "defaultConfiguration": "production"
+    }
+  },
+  "tags": []
+}
