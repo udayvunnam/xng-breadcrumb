@@ -24,6 +24,7 @@ export class HeroDetailComponent implements OnInit {
   }
 
   getHero(): void {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     this.heroService.getHero(id).subscribe((hero) => (this.hero = hero));
   }

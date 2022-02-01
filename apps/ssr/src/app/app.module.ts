@@ -1,3 +1,4 @@
+// import { BreadcrumbModule } from 'xng-breadcrumb';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -24,7 +25,7 @@ import { isPlatformBrowser } from '@angular/common';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-
+    // BreadcrumbModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
