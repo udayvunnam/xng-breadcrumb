@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.2](https://github.com/udayvunnam/xng-breadcrumb/compare/v7.1.1...v7.1.2) (2022-02-01)
+
+### Bug Fixes
+
+- angular dependency, remove fakerjs, nguniversal demo app ([#123](https://github.com/udayvunnam/xng-breadcrumb/issues/123)) ([8cd1f98](https://github.com/udayvunnam/xng-breadcrumb/commit/8cd1f98817d223f852a71f07176ad5536db331eb))
+
 ### [7.1.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v7.1.0...v7.1.1) (2022-01-03)
 
 ### Bug Fixes
