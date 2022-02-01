@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.2.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v7.1.4...v7.2.0) (2022-02-01)
+
+### Features
+
+- use xng-breadcrumb in SSR and docs updated ([#126](https://github.com/udayvunnam/xng-breadcrumb/issues/126)) ([8ce6489](https://github.com/udayvunnam/xng-breadcrumb/commit/8ce6489bc12df1e984d75f6ea9ddcbd3022b52eb))
+
+### Bug Fixes
+
+- rxjs peer dep ([#128](https://github.com/udayvunnam/xng-breadcrumb/issues/128)) ([4576cfd](https://github.com/udayvunnam/xng-breadcrumb/commit/4576cfd1d6bfd4f8b2ce62bb319c32420561736d))
+
 ### [7.1.4](https://github.com/udayvunnam/xng-breadcrumb/compare/v7.1.3...v7.1.4) (2022-02-01)
 
 ### Bug Fixes
