@@ -2,7 +2,7 @@
 
 <div align="center">
 
-> A lightweight, declarative and configurable breadcrumbs solution for Angular 6 and beyond. <https://www.npmjs.com/package/xng-breadcrumb>
+> A lightweight, declarative and dynamic breadcrumbs solution for Angular 6 and beyond. <https://www.npmjs.com/package/xng-breadcrumb>
 
 [![CircleCI](https://circleci.com/gh/udayvunnam/xng-breadcrumb.svg?shield&circle-token=:circle-token)](https://circleci.com/gh/udayvunnam/xng-breadcrumb)
 [![npm version](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb)
@@ -46,6 +46,8 @@
 - ✅ **Styling**: **Separator** and **Styles** can be customized with ease.
 
 - ✅ **QueryParams and Fragment**: Preserves QueryParams and Fragemnet while navigating via breadcrumbs
+
+- ✅ **SSR**: Supports server side rendering with nguniversal
 
 ## ❤️ [Become a Sponsor!](http://paypal.me/udayvunnam)
 
