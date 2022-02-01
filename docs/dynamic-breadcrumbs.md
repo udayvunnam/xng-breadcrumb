@@ -1,4 +1,4 @@
-# Dynamic breadcrumb
+# Dynamic breadcrumbs
 
 We can update breadcrumbs from components and services dynamically. This is useful when resolving route **id** to a **name**. Ex: ProductId in URL need to show ProductName in breadcrumb
 

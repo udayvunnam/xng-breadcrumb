@@ -1,8 +1,8 @@
 - Getting started
 
   - [Quick start](quickstart.md)
-  - [Static labels](static-breadcrumb.md)
-  - [Dynamic lables](dynamic-breadcrumb.md)
+  - [Declarative breadcrumbs](declarative-breadcrumbs.md)
+  - [Dynamic breadcrumbs](dynamic-breadcrumbs.md)
 
 - Guide
 
