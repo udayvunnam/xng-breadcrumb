@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.4](https://github.com/udayvunnam/xng-breadcrumb/compare/v7.1.3...v7.1.4) (2022-02-01)
+
+### Bug Fixes
+
+- fix peer deps ([#125](https://github.com/udayvunnam/xng-breadcrumb/issues/125)) ([9712187](https://github.com/udayvunnam/xng-breadcrumb/commit/97121876e5f96ace6f2bbff11db0305ca67de85b))
+
 ### [7.1.3](https://github.com/udayvunnam/xng-breadcrumb/compare/v7.1.2...v7.1.3) (2022-02-01)
 
 ### Bug Fixes
