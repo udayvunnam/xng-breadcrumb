@@ -1,23 +1,23 @@
 {
   "projectType": "application",
-  "root": "apps/with-gaurd-check",
-  "sourceRoot": "apps/with-gaurd-check/src",
+  "root": "apps/with-guard-check",
+  "sourceRoot": "apps/with-guard-check/src",
   "prefix": "wgc",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/with-gaurd-check",
-        "index": "apps/with-gaurd-check/src/index.html",
-        "main": "apps/with-gaurd-check/src/main.ts",
-        "polyfills": "apps/with-gaurd-check/src/polyfills.ts",
-        "tsConfig": "apps/with-gaurd-check/tsconfig.app.json",
+        "outputPath": "dist/apps/with-guard-check",
+        "index": "apps/with-guard-check/src/index.html",
+        "main": "apps/with-guard-check/src/main.ts",
+        "polyfills": "apps/with-guard-check/src/polyfills.ts",
+        "tsConfig": "apps/with-guard-check/tsconfig.app.json",
         "assets": [
-          "apps/with-gaurd-check/src/favicon.ico",
-          "apps/with-gaurd-check/src/assets"
+          "apps/with-guard-check/src/favicon.ico",
+          "apps/with-guard-check/src/assets"
         ],
-        "styles": ["apps/with-gaurd-check/src/styles.css"],
+        "styles": ["apps/with-guard-check/src/styles.css"],
         "scripts": []
       },
       "configurations": {
@@ -36,8 +36,8 @@
           ],
           "fileReplacements": [
             {
-              "replace": "apps/with-gaurd-check/src/environments/environment.ts",
-              "with": "apps/with-gaurd-check/src/environments/environment.prod.ts"
+              "replace": "apps/with-guard-check/src/environments/environment.ts",
+              "with": "apps/with-guard-check/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "all"
@@ -57,10 +57,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "with-gaurd-check:build:production"
+          "browserTarget": "with-guard-check:build:production"
         },
         "development": {
-          "browserTarget": "with-gaurd-check:build:development"
+          "browserTarget": "with-guard-check:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -68,23 +68,23 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "with-gaurd-check:build"
+        "browserTarget": "with-guard-check:build"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "apps/with-gaurd-check/src/**/*.ts",
-          "apps/with-gaurd-check/src/**/*.html"
+          "apps/with-guard-check/src/**/*.ts",
+          "apps/with-guard-check/src/**/*.html"
         ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/with-gaurd-check"],
+      "outputs": ["coverage/apps/with-guard-check"],
       "options": {
-        "jestConfig": "apps/with-gaurd-check/jest.config.js",
+        "jestConfig": "apps/with-guard-check/jest.config.js",
         "passWithNoTests": true
       }
     }

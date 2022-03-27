@@ -61,3 +61,26 @@ Use **breadcrumb as a function** if you want to alter the auto-generated label i
   }]
 }
 ```
+
+The activatedRouteSnapshot for each route is available as second parameter which can be used to read route resolve data
+
+```javascript
+
+@Injectable({ providedIn: 'root' })
+export class DemoResolver implements Resolve<string> {
+  resolve(): Promise<string> {
+    return Promise.resolve('hero');
+  }
+}
+
+{
+    resolve: {
+      name: DemoResolver,
+    },
+    data: {
+      breadcrumb: (breadcrumb, activatedRouteSnapshot) => {
+        return `Viewing ${activatedRouteSnapshot.data.name} instead of ${breadcrumb} now`;
+      },
+    },
+}
+```

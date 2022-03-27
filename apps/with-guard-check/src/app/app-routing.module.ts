@@ -1,3 +1,4 @@
+import { DemoResolver } from './demo.resolver';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageGuard } from './page-guard.service';
@@ -28,8 +29,13 @@ export const appRoutes: Routes = [
       {
         path: 'page2-child',
         component: Page2ChildComponent,
+        resolve: {
+          name: DemoResolver,
+        },
         data: {
-          breadcrumb: 'Page2 child',
+          breadcrumb: (breadcrumb, activatedRouteSnapshot) => {
+            return `Viewing ${activatedRouteSnapshot.data.name} instead of ${breadcrumb} now`;
+          },
         },
         canDeactivate: [PageGuard],
       },

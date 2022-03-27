@@ -1,3 +1,4 @@
+import { ActivatedRouteSnapshot } from '@angular/router';
 import { Breadcrumb } from './breadcrumb';
 
 /**
@@ -33,4 +34,7 @@ export interface BreadcrumbObject {
 }
 
 // resolved label for a route can further be enhanced based on a function
-export type BreadcrumbFunction = (resolvedLabel?: string) => string;
+export type BreadcrumbFunction = (
+  resolvedLabel: string,
+  activatedRouteSnapshot: ActivatedRouteSnapshot
+) => string;
