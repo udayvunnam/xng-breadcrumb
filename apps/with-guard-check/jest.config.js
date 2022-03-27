@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'with-gaurd-check',
+  displayName: 'with-guard-check',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/apps/with-gaurd-check',
+  coverageDirectory: '../../coverage/apps/with-guard-check',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

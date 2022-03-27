@@ -6,7 +6,7 @@
   "supportFile": "./src/support/index.ts",
   "pluginsFile": false,
   "video": false,
-  "videosFolder": "../../dist/cypress/apps/with-gaurd-check-e2e/videos",
-  "screenshotsFolder": "../../dist/cypress/apps/with-gaurd-check-e2e/screenshots",
+  "videosFolder": "../../dist/cypress/apps/with-guard-check-e2e/videos",
+  "screenshotsFolder": "../../dist/cypress/apps/with-guard-check-e2e/screenshots",
   "chromeWebSecurity": false
 }

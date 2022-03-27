@@ -1,4 +1,4 @@
-describe('with-gaurd-check', () => {
+describe('with-guard-check', () => {
   it('should contain breadcrumbs for page1', () => {
     cy.visit('/');
     cy.get('.xng-breadcrumb-list').contains('Page 1');
