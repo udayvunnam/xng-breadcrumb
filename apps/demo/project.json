@@ -5,7 +5,6 @@
       "style": "css"
     }
   },
-  "root": "apps/demo",
   "sourceRoot": "apps/demo/src",
   "prefix": "app",
   "targets": {

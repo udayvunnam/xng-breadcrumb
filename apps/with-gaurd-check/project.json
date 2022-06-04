@@ -1,6 +1,5 @@
 {
   "projectType": "application",
-  "root": "apps/with-gaurd-check",
   "sourceRoot": "apps/with-gaurd-check/src",
   "prefix": "wgc",
   "targets": {
@@ -84,7 +83,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/with-gaurd-check"],
       "options": {
-        "jestConfig": "apps/with-gaurd-check/jest.config.js",
+        "jestConfig": "apps/with-gaurd-check/jest.config.ts",
         "passWithNoTests": true
       }
     }

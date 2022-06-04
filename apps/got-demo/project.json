@@ -5,7 +5,6 @@
       "style": "css"
     }
   },
-  "root": "apps/got-demo",
   "sourceRoot": "apps/got-demo/src",
   "prefix": "got",
   "targets": {
@@ -83,7 +82,7 @@
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "apps/got-demo/jest.config.js",
+        "jestConfig": "apps/got-demo/jest.config.ts",
         "passWithNoTests": true
       }
     }

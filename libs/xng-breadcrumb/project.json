@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/xng-breadcrumb",
   "sourceRoot": "libs/xng-breadcrumb/src",
   "prefix": "xng",
   "targets": {
@@ -25,7 +24,7 @@
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "libs/xng-breadcrumb/jest.config.js",
+        "jestConfig": "libs/xng-breadcrumb/jest.config.ts",
         "passWithNoTests": true
       }
     }
