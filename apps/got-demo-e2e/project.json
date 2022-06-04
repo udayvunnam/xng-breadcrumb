@@ -1,5 +1,4 @@
 {
-  "root": "apps/got-demo-e2e",
   "sourceRoot": "apps/got-demo-e2e/src",
   "projectType": "application",
   "targets": {

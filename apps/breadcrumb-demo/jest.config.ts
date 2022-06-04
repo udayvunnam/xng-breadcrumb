@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'xng-breadcrumb',
+/* eslint-disable */
+export default {
+  displayName: 'breadcrumb-demo',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -9,7 +10,7 @@ module.exports = {
       tsconfig: '<rootDir>/tsconfig.spec.json',
     },
   },
-  coverageDirectory: '../../coverage/libs/xng-breadcrumb',
+  coverageDirectory: '../../coverage/apps/breadcrumb-demo',
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',

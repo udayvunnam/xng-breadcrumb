@@ -1,5 +1,4 @@
 {
-  "root": "apps/breadcrumb-demo-e2e",
   "sourceRoot": "apps/breadcrumb-demo-e2e/src",
   "projectType": "application",
   "targets": {

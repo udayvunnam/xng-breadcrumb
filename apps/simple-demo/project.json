@@ -1,7 +1,6 @@
 {
   "projectType": "application",
   "generators": {},
-  "root": "apps/simple-demo",
   "sourceRoot": "apps/simple-demo/src",
   "prefix": "xng",
   "targets": {
@@ -82,7 +81,7 @@
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "apps/simple-demo/jest.config.js",
+        "jestConfig": "apps/simple-demo/jest.config.ts",
         "passWithNoTests": true
       }
     }

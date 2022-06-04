@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'ssr',
+/* eslint-disable */
+export default {
+  displayName: 'with-gaurd-check',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +9,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/apps/ssr',
+  coverageDirectory: '../../coverage/apps/with-gaurd-check',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },
