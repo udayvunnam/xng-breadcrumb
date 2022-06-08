@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v7.2.0...v8.0.0) (2022-06-08)
+
+### ⚠ BREAKING CHANGES
+
+- angular upgrade (#137)
+
+### Features
+
+- angular upgrade ([#137](https://github.com/udayvunnam/xng-breadcrumb/issues/137)) ([a5d7cfa](https://github.com/udayvunnam/xng-breadcrumb/commit/a5d7cfa41d8f0dc855103817578d60131e2d8095))
+- nx migrate 14 ([#136](https://github.com/udayvunnam/xng-breadcrumb/issues/136)) ([2889168](https://github.com/udayvunnam/xng-breadcrumb/commit/28891685699f9f8faf9b43275572fa172b289e5c))
+
 ## [7.2.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v7.1.4...v7.2.0) (2022-02-01)
 
 ### Features
