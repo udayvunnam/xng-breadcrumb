@@ -16,7 +16,6 @@ Provide `routeInterceptor` callback in breadcrumb if you know the redirection lo
         label: 'my home',
         info: 'home',
         routeInterceptor: (routeLink, breadcrumb)=> {
-          console.log(routeLink);
           return routeLink;
         }
       },

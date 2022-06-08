@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {
+  UntypedFormGroup,
+  UntypedFormBuilder,
+  Validators,
+} from '@angular/forms';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { Router, NavigationExtras } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -23,7 +27,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class MentorAddComponent implements OnInit {
   mentor: unknown;
-  mentorFG: FormGroup;
+  mentorFG: UntypedFormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
   skills = [];
@@ -34,7 +38,7 @@ export class MentorAddComponent implements OnInit {
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private dataService: DataService,
     private snackBar: MatSnackBar,
     private router: Router,

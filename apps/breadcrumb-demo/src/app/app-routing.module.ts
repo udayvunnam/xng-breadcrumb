@@ -14,7 +14,6 @@ export const appRoutes: Routes = [
         label: 'my home',
         info: 'home',
         routeInterceptor: (routeLink) => {
-          console.log(routeLink);
           return routeLink;
         },
       },
