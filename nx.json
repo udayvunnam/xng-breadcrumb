@@ -1,4 +1,5 @@
 {
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "npmScope": "xng",
   "affected": {
     "defaultBase": "main"
@@ -35,7 +36,6 @@
     ]
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular",
     "packageManager": "yarn"
   },
   "defaultProject": "breadcrumb-demo",

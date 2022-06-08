@@ -1,6 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {
+  UntypedFormGroup,
+  UntypedFormBuilder,
+  Validators,
+} from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
@@ -22,7 +26,7 @@ import { Mentee } from '../../shared/models/mentee';
 })
 export class MenteeEditComponent implements OnInit {
   menteeId: string;
-  menteeFG: FormGroup;
+  menteeFG: UntypedFormGroup;
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
   skills = [];
@@ -33,7 +37,7 @@ export class MenteeEditComponent implements OnInit {
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private dataService: DataService,
     private snackBar: MatSnackBar,
     private router: Router,

@@ -271,9 +271,7 @@ export class BreadcrumbService {
     let baseChild;
     if (routeConfig.loadChildren) {
       // To handle a module with empty child route
-      baseChild = routeConfig._loadedConfig.routes.find(
-        (route) => route.path === ''
-      );
+      baseChild = routeConfig._loadedRoutes.find((route) => route.path === '');
     } else if (routeConfig.children) {
       // To handle a component with empty child route
       baseChild = routeConfig.children.find((route) => route.path === '');
