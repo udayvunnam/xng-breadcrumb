@@ -67,12 +67,7 @@
         </label>
       </li>
 
-      <li
-        *ngIf="!isLast"
-        class="xng-breadcrumb-separator"
-        aria-hidden="true"
-        role="separator"
-      >
+      <li *ngIf="!isLast" class="xng-breadcrumb-separator" aria-hidden="true">
         <ng-container *ngTemplateOutlet="separatorTemplate"></ng-container>
         <ng-container *ngIf="!separatorTemplate">{{ separator }}</ng-container>
       </li>
