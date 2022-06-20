@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.0.2](https://github.com/udayvunnam/xng-breadcrumb/compare/v8.0.1...v8.0.2) (2022-06-20)
+
+### Bug Fixes
+
+- **accessibility:** removed aria-role from the separator ([#141](https://github.com/udayvunnam/xng-breadcrumb/issues/141)) ([9b2589f](https://github.com/udayvunnam/xng-breadcrumb/commit/9b2589f07ca546e46fc5f974fbd0aac80244327e))
+
 ### [8.0.1](https://github.com/udayvunnam/xng-breadcrumb/compare/v8.0.0...v8.0.1) (2022-06-08)
 
 ## [8.0.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v7.2.0...v8.0.0) (2022-06-08)
