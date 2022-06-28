@@ -65,6 +65,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/dedrazer"><img src="https://avatars.githubusercontent.com/u/23525418?v=4?s=100" width="100px;" alt=""/><br /><sub><b>dedrazer</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=dedrazer" title="Code">💻</a></td>
     <td align="center"><a href="https://dannyfeliz.com/"><img src="https://avatars.githubusercontent.com/u/5460365?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Danny Feliz</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=DannyFeliz" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/kapenzo"><img src="https://avatars.githubusercontent.com/u/16196222?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kapsky</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=kapenzo" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/andreicojea"><img src="https://avatars.githubusercontent.com/u/4705022?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Andrei Cojea</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=andreicojea" title="Documentation">📖</a></td>
   </tr>
 </table>
 
