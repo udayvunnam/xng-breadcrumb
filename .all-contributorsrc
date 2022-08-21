@@ -55,7 +55,7 @@
       "profile": "https://github.com/kapenzo",
       "contributions": [
         "code"
-      ],
+      ]
     },
     {
       "login": "andreicojea",
@@ -64,6 +64,15 @@
       "profile": "https://github.com/andreicojea",
       "contributions": [
         "doc"
+      ]
+    },
+    {
+      "login": "jfmengels",
+      "name": "Jeroen Engels",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3869412?v=4",
+      "profile": "https://jfmengels.net/",
+      "contributions": [
+        "code"
       ]
     }
   ],
