@@ -1,4 +1,4 @@
-# Change separator
+# Custom separator
 
 - Breadcrumb uses '/' as the separator by default.
 - To use custom separator pass **separator** as an input to `<xng-breadcrumb>`.

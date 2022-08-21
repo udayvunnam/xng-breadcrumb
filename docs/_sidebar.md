@@ -17,7 +17,7 @@
   - [Add icon with label](add-icon-with-label.md)
   - [Use filter to change text case](use-filter.md)
   - [Internationalization](internationalization.md)
-  - [custom seperator](custom-separator.md)
+  - [Custom seperator](custom-separator.md)
 
 - [API](api.md)
 - [Where to define breadcrumbs](where-to-define-breadcrumbs.md)
