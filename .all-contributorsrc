@@ -74,6 +74,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "jontze",
+      "name": "Jonathan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/42588836?v=4",
+      "profile": "https://github.com/jontze",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,

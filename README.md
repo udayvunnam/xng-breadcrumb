@@ -68,6 +68,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/andreicojea"><img src="https://avatars.githubusercontent.com/u/4705022?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Andrei Cojea</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=andreicojea" title="Documentation">📖</a></td>
     <td align="center"><a href="https://jfmengels.net/"><img src="https://avatars.githubusercontent.com/u/3869412?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Engels</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=jfmengels" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/jontze"><img src="https://avatars.githubusercontent.com/u/42588836?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jonathan</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=jontze" title="Documentation">📖</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
