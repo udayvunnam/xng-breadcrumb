@@ -68,12 +68,16 @@ export class BreadcrumbService {
     this.setupBreadcrumbs(this.activatedRoute.snapshot);
 
     this.router.events
-      .pipe(filter((event) => event instanceof GuardsCheckEnd))
+      .pipe(
+        filter(
+          (event): event is GuardsCheckEnd => event instanceof GuardsCheckEnd
+        )
+      )
       .subscribe((event) => {
         // activatedRoute doesn't carry data when shouldReuseRoute returns false
         // use the event data with GuardsCheckEnd as workaround
         // Check for shouldActivate in case where the authGuard returns false the breadcrumbs shouldn't be changed
-        if (event instanceof GuardsCheckEnd && event.shouldActivate) {
+        if (event.shouldActivate) {
           this.setupBreadcrumbs(event.state.root);
         }
       });
