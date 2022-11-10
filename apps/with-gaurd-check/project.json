@@ -1,4 +1,5 @@
 {
+  "name": "with-gaurd-check",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/with-gaurd-check/src",
@@ -82,7 +83,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/with-gaurd-check"],
+      "outputs": ["{workspaceRoot}/coverage/apps/with-gaurd-check"],
       "options": {
         "jestConfig": "apps/with-gaurd-check/jest.config.ts",
         "passWithNoTests": true

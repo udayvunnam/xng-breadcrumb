@@ -4,17 +4,6 @@
   "affected": {
     "defaultBase": "main"
   },
-  "implicitDependencies": {
-    "angular.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
-    "tsconfig.base.json": "*",
-    "tslint.json": "*",
-    ".eslintrc.json": "*",
-    "nx.json": "*"
-  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
@@ -26,14 +15,6 @@
         "parallel": 1
       }
     }
-  },
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ]
   },
   "cli": {
     "packageManager": "yarn"
@@ -54,5 +35,36 @@
     "@nrwl/angular:component": {
       "style": "css"
     }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "e2e": {
+      "inputs": ["default", "^production"]
+    },
+    "test": {
+      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
+    },
+    "lint": {
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+    }
+  },
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "sharedGlobals": [
+      "{workspaceRoot}/angular.json",
+      "{workspaceRoot}/tsconfig.base.json",
+      "{workspaceRoot}/tslint.json",
+      "{workspaceRoot}/nx.json"
+    ],
+    "production": [
+      "default",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/jest.config.[jt]s",
+      "!{projectRoot}/.eslintrc.json"
+    ]
   }
 }
