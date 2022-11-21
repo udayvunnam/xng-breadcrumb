@@ -53,7 +53,7 @@
 
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org./docs/en/emoji-key)):
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -64,6 +64,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org./
     <td align="center"><a href="https://github.com/anthonythiry"><img src="https://avatars.githubusercontent.com/u/28025542?v=4?s=100" width="100px;" alt=""/><br /><sub><b>anthonythiry</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=anthonythiry" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/dedrazer"><img src="https://avatars.githubusercontent.com/u/23525418?v=4?s=100" width="100px;" alt=""/><br /><sub><b>dedrazer</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=dedrazer" title="Code">💻</a></td>
     <td align="center"><a href="https://dannyfeliz.com/"><img src="https://avatars.githubusercontent.com/u/5460365?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Danny Feliz</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=DannyFeliz" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/kapenzo"><img src="https://avatars.githubusercontent.com/u/16196222?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kapsky</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=kapenzo" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/andreicojea"><img src="https://avatars.githubusercontent.com/u/4705022?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Andrei Cojea</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=andreicojea" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/jontze"><img src="https://avatars.githubusercontent.com/u/42588836?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jonathan</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=jontze" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://pavankjadda.dev/"><img src="https://avatars.githubusercontent.com/u/17564080?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pavan Kumar Jadda</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=pavankjadda" title="Code">💻</a> <a href="#maintenance-pavankjadda" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/LeonFretter"><img src="https://avatars.githubusercontent.com/u/40633983?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Leon Fretter</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=LeonFretter" title="Code">💻</a></td>
   </tr>
 </table>
 
@@ -73,3 +80,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org./
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+To add new contributor _username_, who made a contribution of type _contribution_:
+
+`yarn all-contributors add <username> <contribution>` Example: `yarn all-contributors add jfmengels code,doc`
