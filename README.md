@@ -21,7 +21,7 @@
 
 ## Demo
 
-[Live Demo](https://xng-breadcrumb.netlify.com) - A demo app showcasing `xng-breadcrumb` usage in an Angular app. Navigate through different links to see breadcrumbs behavior.
+[Demo App](https://xng-breadcrumb.netlify.com) - A demo app showcasing `xng-breadcrumb` library usage in an Angular app. Navigate through different links to see breadcrumbs behavior.
 
 <a href="https://xng-breadcrumb.netlify.com/dashboard" rel="noopener" target="_blank" ><img width="500" src="https://user-images.githubusercontent.com/20707504/68575589-61287880-0492-11ea-9084-80587321c5c4.png" alt="xng-breadcrumb usage"></a></p>
 
