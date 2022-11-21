@@ -37,8 +37,8 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Looking for Skills</mat-label>
-          <mat-chip-list #chipList>
-            <mat-chip
+          <mat-chip-listbox #chipList>
+            <mat-chip-option
               *ngFor="let skill of skills"
               selectable="true"
               removable="true"
@@ -46,7 +46,7 @@
             >
               {{ skill }}
               <mat-icon matChipRemove>cancel</mat-icon>
-            </mat-chip>
+            </mat-chip-option>
             <input
               #skillInput
               formControlName="skills"
@@ -56,7 +56,7 @@
               [matChipInputAddOnBlur]="true"
               (matChipInputTokenEnd)="add($event)"
             />
-          </mat-chip-list>
+          </mat-chip-listbox>
           <mat-autocomplete
             #auto="matAutocomplete"
             (optionSelected)="selected($event)"

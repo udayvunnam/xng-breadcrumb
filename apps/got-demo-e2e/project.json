@@ -7,9 +7,10 @@
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/got-demo-e2e/cypress.json",
+        "cypressConfig": "apps/got-demo-e2e/cypress.config.ts",
         "tsConfig": "apps/got-demo-e2e/tsconfig.e2e.json",
-        "devServerTarget": "got-demo:serve"
+        "devServerTarget": "got-demo:serve",
+        "testingType": "e2e"
       },
       "configurations": {
         "production": {

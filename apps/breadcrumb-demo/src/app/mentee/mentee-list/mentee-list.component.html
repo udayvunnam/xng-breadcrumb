@@ -14,9 +14,11 @@
       <mat-card-subtitle>{{ mentee.description }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <mat-chip-list aria-label="Looking for mentoring">
-        <mat-chip *ngFor="let skill of mentee.skills">{{ skill }}</mat-chip>
-      </mat-chip-list>
+      <mat-chip-listbox aria-label="Looking for mentoring">
+        <mat-chip-option *ngFor="let skill of mentee.skills">{{
+          skill
+        }}</mat-chip-option>
+      </mat-chip-listbox>
     </mat-card-content>
   </mat-card>
 </section>

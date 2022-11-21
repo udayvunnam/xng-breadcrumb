@@ -8,9 +8,11 @@
       <mat-card-subtitle>{{ mentor.description }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <mat-chip-list aria-label="Known skills">
-        <mat-chip *ngFor="let skill of mentor.skills">{{ skill }}</mat-chip>
-      </mat-chip-list>
+      <mat-chip-listbox aria-label="Known skills">
+        <mat-chip-option *ngFor="let skill of mentor.skills">{{
+          skill
+        }}</mat-chip-option>
+      </mat-chip-listbox>
     </mat-card-content>
 
     <mat-card-actions>

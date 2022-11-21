@@ -7,9 +7,10 @@
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/breadcrumb-demo-e2e/cypress.json",
+        "cypressConfig": "apps/breadcrumb-demo-e2e/cypress.config.ts",
         "tsConfig": "apps/breadcrumb-demo-e2e/tsconfig.e2e.json",
-        "devServerTarget": "breadcrumb-demo:serve"
+        "devServerTarget": "breadcrumb-demo:serve",
+        "testingType": "e2e"
       },
       "configurations": {
         "production": {
