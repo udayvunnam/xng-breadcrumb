@@ -4,22 +4,20 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [9.0.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v8.0.0...v9.0.0) (2022-11-21)
 
-
 ### ⚠ BREAKING CHANGES
 
-* angular 15, node 18 (#155)
+- angular 15, node 18 (#155)
 
 ### Features
 
-* angular 15, node 18 ([#155](https://github.com/udayvunnam/xng-breadcrumb/issues/155)) ([41b2788](https://github.com/udayvunnam/xng-breadcrumb/commit/41b27886627c17c4fe034b25a6a8cadd7bfab907))
-* contributor ([3da9791](https://github.com/udayvunnam/xng-breadcrumb/commit/3da9791ac3f6bf757f475de1eb449ee60b1cd429))
-* contributor ([702b1e8](https://github.com/udayvunnam/xng-breadcrumb/commit/702b1e8426a7961f0b79a55d5bd90c7b09016470))
-* **core:** adds angular 15 support ([#151](https://github.com/udayvunnam/xng-breadcrumb/issues/151)) ([02ad2a9](https://github.com/udayvunnam/xng-breadcrumb/commit/02ad2a98e21db3a5b3f0d08e02bbe72d7eb28beb))
-
+- angular 15, node 18 ([#155](https://github.com/udayvunnam/xng-breadcrumb/issues/155)) ([41b2788](https://github.com/udayvunnam/xng-breadcrumb/commit/41b27886627c17c4fe034b25a6a8cadd7bfab907))
+- contributor ([3da9791](https://github.com/udayvunnam/xng-breadcrumb/commit/3da9791ac3f6bf757f475de1eb449ee60b1cd429))
+- contributor ([702b1e8](https://github.com/udayvunnam/xng-breadcrumb/commit/702b1e8426a7961f0b79a55d5bd90c7b09016470))
+- **core:** adds angular 15 support ([#151](https://github.com/udayvunnam/xng-breadcrumb/issues/151)) ([02ad2a9](https://github.com/udayvunnam/xng-breadcrumb/commit/02ad2a98e21db3a5b3f0d08e02bbe72d7eb28beb))
 
 ### Bug Fixes
 
-* **accessibility:** removed aria-role from the separator ([#141](https://github.com/udayvunnam/xng-breadcrumb/issues/141)) ([9b2589f](https://github.com/udayvunnam/xng-breadcrumb/commit/9b2589f07ca546e46fc5f974fbd0aac80244327e))
+- **accessibility:** removed aria-role from the separator ([#141](https://github.com/udayvunnam/xng-breadcrumb/issues/141)) ([9b2589f](https://github.com/udayvunnam/xng-breadcrumb/commit/9b2589f07ca546e46fc5f974fbd0aac80244327e))
 
 ### [8.0.2](https://github.com/udayvunnam/xng-breadcrumb/compare/v8.0.1...v8.0.2) (2022-06-20)
 
