@@ -66,7 +66,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://dannyfeliz.com/"><img src="https://avatars.githubusercontent.com/u/5460365?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Danny Feliz</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=DannyFeliz" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/kapenzo"><img src="https://avatars.githubusercontent.com/u/16196222?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kapsky</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=kapenzo" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/andreicojea"><img src="https://avatars.githubusercontent.com/u/4705022?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Andrei Cojea</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=andreicojea" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/jontze"><img src="https://avatars.githubusercontent.com/u/42588836?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jonathan</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=jontze" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/jontze"><img src="https://avatars.githubusercontent.com/u/42588836?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jonathan</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=jontze" title="Code">💻</a></td>
   </tr>
 </table>
 
@@ -76,3 +76,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+To add new contributor _username_, who made a contribution of type _contribution_:
+
+`all-contributors add <username> <contribution>` Example: `all-contributors add jfmengels code,doc`
