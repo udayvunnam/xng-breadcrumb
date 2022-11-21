@@ -4,7 +4,8 @@ aliases:
   - &defaults
     working_directory: ~/repo
     docker:
-      - image: cimg/node:16.13.0-browsers
+      - image: cimg/node:18.12.1-browsers
+
   - &set_env
     name: Setup Environment Variables
     command: |
