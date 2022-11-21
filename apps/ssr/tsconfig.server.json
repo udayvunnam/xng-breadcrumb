@@ -3,7 +3,9 @@
   "compilerOptions": {
     "outDir": "./../dist/out-tsc/apps/ssr-server",
     "module": "commonjs",
-    "types": ["node"]
+    "types": ["node"],
+    "target": "ES2022",
+    "useDefineForClassFields": false
   },
   "files": ["src/main.server.ts", "server.ts"],
   "angularCompilerOptions": {
