@@ -79,4 +79,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 To add new contributor _username_, who made a contribution of type _contribution_:
 
-`all-contributors add <username> <contribution>` Example: `all-contributors add jfmengels code,doc`
+`yarn all-contributors add <username> <contribution>` Example: `yarn all-contributors add jfmengels code,doc`
