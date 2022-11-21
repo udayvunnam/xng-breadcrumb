@@ -70,6 +70,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://pavankjadda.dev/"><img src="https://avatars.githubusercontent.com/u/17564080?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pavan Kumar Jadda</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=pavankjadda" title="Code">💻</a> <a href="#maintenance-pavankjadda" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/LeonFretter"><img src="https://avatars.githubusercontent.com/u/40633983?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Leon Fretter</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=LeonFretter" title="Code">💻</a></td>
   </tr>
 </table>
 

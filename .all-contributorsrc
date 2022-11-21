@@ -84,6 +84,15 @@
         "code",
         "maintenance"
       ]
+    },
+    {
+      "login": "LeonFretter",
+      "name": "Leon Fretter",
+      "avatar_url": "https://avatars.githubusercontent.com/u/40633983?v=4",
+      "profile": "https://github.com/LeonFretter",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
