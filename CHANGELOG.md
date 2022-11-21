@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v8.0.0...v8.1.0) (2022-11-21)
+
+
+### Features
+
+* contributor ([3da9791](https://github.com/udayvunnam/xng-breadcrumb/commit/3da9791ac3f6bf757f475de1eb449ee60b1cd429))
+* contributor ([702b1e8](https://github.com/udayvunnam/xng-breadcrumb/commit/702b1e8426a7961f0b79a55d5bd90c7b09016470))
+* **core:** adds angular 15 support ([#151](https://github.com/udayvunnam/xng-breadcrumb/issues/151)) ([02ad2a9](https://github.com/udayvunnam/xng-breadcrumb/commit/02ad2a98e21db3a5b3f0d08e02bbe72d7eb28beb))
+
+
+### Bug Fixes
+
+* **accessibility:** removed aria-role from the separator ([#141](https://github.com/udayvunnam/xng-breadcrumb/issues/141)) ([9b2589f](https://github.com/udayvunnam/xng-breadcrumb/commit/9b2589f07ca546e46fc5f974fbd0aac80244327e))
+
 ### [8.0.2](https://github.com/udayvunnam/xng-breadcrumb/compare/v8.0.1...v8.0.2) (2022-06-20)
 
 ### Bug Fixes
