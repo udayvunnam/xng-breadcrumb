@@ -1,0 +1,14 @@
+inputSet:
+  identifier: "set1"
+  name: "set1"
+  orgIdentifier: "default"
+  projectIdentifier: "Default_Project_1669441829842"
+  pipeline:
+    identifier: "Demo_mine"
+    properties:
+      ci:
+        codebase:
+          build:
+            type: "branch"
+            spec:
+              branch: "<+trigger.branch>"
