@@ -8,4 +8,4 @@
 #   exit 1
 # fi
 
-yarn pretty-quick --staged
+pnpm pretty-quick --staged

@@ -4,7 +4,9 @@ aliases:
   - &defaults
     working_directory: ~/repo
     docker:
-      - image: cimg/node:16.13.0-browsers
+      - image: cimg/node:18.12.1-browsers
+    resource_class: large
+    parallelism: 10
   - &set_env
     name: Setup Environment Variables
     command: |
@@ -27,9 +29,7 @@ aliases:
       echo $AFFECTED_ARGS
   - &yarn_cache
     keys:
-      - node-deps-node12-{{ checksum "yarn.lock" }}
-      # fallback to using the latest cache if no exact match is found
-      - node-deps-node12-
+      - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
   - &deploy_cache
     key: last-deploy-sha
   - &yarn_install

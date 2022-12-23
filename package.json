@@ -31,7 +31,7 @@
     "copy-version": "VERSION=$npm_package_version && cd libs/xng-breadcrumb && npm version $VERSION && cd ../..",
     "commit-version": "git add . && git commit -m $npm_package_version && git push origin main",
     "prepackage": "git checkout main && git pull origin main && npm-run-all copy-* commit-version",
-    "package": "yarn build && npm publish ./dist/libs/xng-breadcrumb",
+    "package": "pnpm build && npm publish ./dist/libs/xng-breadcrumb",
     "release": "release-please release-pr --token=$GITHUB_XNG_TOKEN --repo-url=https://github.com/udayvunnam/xng-breadcrumb --release-type=node --package-name=xng-breadcrumb",
     "prepare": "husky install",
     "serve-docs": "docsify serve docs"
@@ -108,5 +108,11 @@
     "ts-jest": "^29.0.3",
     "ts-node": "10.9.1",
     "typescript": "4.8.4"
+  },
+  "engines": {
+    "node": "18.x",
+    "npm": "please use pnpm",
+    "yarn": "please use pnpm",
+    "pnpm": "7.x"
   }
 }

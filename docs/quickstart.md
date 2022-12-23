@@ -1,11 +1,11 @@
 # Quickstart
 
-## Install via npm or yarn
+## Install via npm or pnpm
 
 ```javascript
 npm install --save xng-breadcrumb
 //------------- OR --------------
-yarn add xng-breadcrumb
+pnpm add xng-breadcrumb
 ```
 
 ## Import BreadcrumbModule in app.module.ts

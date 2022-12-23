@@ -12,11 +12,11 @@ Please note that this project is released with a [Contributor Code of Conduct][c
 ## Submitting a pull request
 
 1. [Fork][fork] and clone the repository
-2. Configure and install the dependencies: `yarn install`
-3. Make sure the tests pass on your machine: `yarn e2e`
+2. Configure and install the dependencies: `pnpm install`
+3. Make sure the tests pass on your machine: `pnpm e2e`
 4. Create a new branch: `git checkout -b my-branch-name`
 5. Make your change, add tests, and make sure the tests still pass
-6. A pre-commit hook will make sure that your code is properly formatted, but you can also manually check for linting or formatting errors by running `yarn lint`
+6. A pre-commit hook will make sure that your code is properly formatted, but you can also manually check for linting or formatting errors by running `pnpm lint`
 7. Push to your fork and [submit a pull request][pr]
 8. Pat yourself on the back and wait for your pull request to be reviewed and merged.
 
