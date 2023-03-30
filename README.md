@@ -27,7 +27,7 @@
 
 ## Documentation
 
-[Documentation](https://udayvunnam.github.io/xng-breadcrumb/)
+[Documentation](https://udayvunnam.github.io/xng-breadcrumb/#/)
 
 ## Features
 
