@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_xng_breadcrumb_1685207368831-pr-trigger-input-set
+  identifier: Build_xng_breadcrumb_1685207368831prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: personal
+  pipeline:
+    identifier: Build_xng_breadcrumb_1685207368831
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
