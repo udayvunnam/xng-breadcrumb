@@ -28,7 +28,7 @@ aliases:
       echo $AFFECTED_ARGS
   - &pnpm_cache
     keys:
-      - node-deps-node12-{{ checksum "pnpm.lock" }}
+      - node-deps-node12-{{ checksum "pnpm-lock.yaml" }}
       # fallback to using the latest cache if no exact match is found
       - node-deps-node12-
   - &deploy_cache
@@ -51,7 +51,7 @@ jobs:
       - run:
           <<: *pnpm_install
       - save_cache:
-          key: node-deps-node12-{{ checksum "pnpm.lock" }}
+          key: node-deps-node12-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - ~/.cache
             - node_modules
