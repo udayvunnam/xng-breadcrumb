@@ -26,16 +26,27 @@ aliases:
       fi
       source $BASH_ENV
       echo $AFFECTED_ARGS
-  - &pnpm_cache
+
+  - &save_cache
+    name: Save pnpm Package Cache
+    key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
+    paths:
+      - node_modules
+
+  - &restore_cache
+    name: Restore pnpm Package Cache
     keys:
-      - node-deps-node12-{{ checksum "pnpm-lock.yaml" }}
-      # fallback to using the latest cache if no exact match is found
-      - node-deps-node12-
+      - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
+
+  - &pnpm_install
+    name: Install pnpm package manager and Dependencies
+    command: |
+      corepack enable
+      corepack prepare pnpm@latest-8 --activate
+      pnpm install
+
   - &deploy_cache
     key: last-deploy-sha
-  - &pnpm_install
-    name: Install Dependencies
-    command: pnpm install --frozen-lockfile --non-interactive
 
 # -----------------------------------------------------------------------------------------
 # Job definitions. Jobs which are defined just here, will not run automatically. Each job
@@ -47,14 +58,11 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          <<: *pnpm_cache
+          <<: *restore_cache
       - run:
           <<: *pnpm_install
       - save_cache:
-          key: node-deps-node12-{{ checksum "pnpm-lock.yaml" }}
-          paths:
-            - ~/.cache
-            - node_modules
+          <<: *save_cache
   check-formatting:
     <<: *defaults
     steps:
@@ -63,8 +71,8 @@ jobs:
           <<: *deploy_cache
       - run:
           <<: *set_env
-      - restore_cache:
-          <<: *pnpm_cache
+      - save_cache:
+          <<: *save_cache
       - run: pnpm format:check ${AFFECTED_ARGS}
   lint:
     <<: *defaults
@@ -74,8 +82,8 @@ jobs:
           <<: *deploy_cache
       - run:
           <<: *set_env
-      - restore_cache:
-          <<: *pnpm_cache
+      - save_cache:
+          <<: *save_cache
       - run: ./node_modules/.bin/nx workspace-lint
       - run: pnpm affected:lint ${AFFECTED_ARGS} --parallel
       - run:
@@ -94,8 +102,8 @@ jobs:
           <<: *deploy_cache
       - run:
           <<: *set_env
-      - restore_cache:
-          <<: *pnpm_cache
+      - save_cache:
+          <<: *save_cache
       - run: pnpm affected:build ${AFFECTED_ARGS} --parallel --configuration production
       - save_cache:
           key: build-{{ .Environment.CIRCLE_WORKFLOW_ID }}
@@ -112,7 +120,7 @@ jobs:
       - run:
           <<: *set_env
       - restore_cache:
-          <<: *pnpm_cache
+          <<: *restore_cache
       - run: pnpm affected:test ${AFFECTED_ARGS} --parallel --ci --code-coverage
   e2e:
     <<: *defaults
@@ -123,7 +131,7 @@ jobs:
       - run:
           <<: *set_env
       - restore_cache:
-          <<: *pnpm_cache
+          <<: *restore_cache
       - run: pnpm affected:e2e ${AFFECTED_ARGS} --configuration production --headless
       - store_artifacts:
           path: dist/cypress
@@ -137,7 +145,7 @@ jobs:
       - run:
           <<: *set_env
       - restore_cache:
-          <<: *pnpm_cache
+          <<: *restore_cache
       - restore_cache:
           key: build-{{ .Environment.CIRCLE_WORKFLOW_ID }}
       - run: pnpm affected --target deploy ${AFFECTED_ARGS}
@@ -156,7 +164,7 @@ jobs:
       - run:
           <<: *set_env
       - restore_cache:
-          <<: *pnpm_cache
+          <<: *restore_cache
       - run: pnpm copy-readme
       - run: pnpm version
       - run: pnpm push-tags
