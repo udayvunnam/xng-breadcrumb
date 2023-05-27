@@ -4,7 +4,7 @@ import {
   getFirstMentor,
 } from '../support/app.po';
 
-describe('breadcrumb-demo', () => {
+describe('breadcrumb query params', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should preserve query params by default', () => {

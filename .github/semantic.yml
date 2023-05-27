@@ -3,7 +3,7 @@ titleOnly: true
 scopes:
   - breadcrumb-demo
   - demo
-  - got-demo
+  - app-demo
   - simple-demo
   - xng-breadcrumb
   - lib

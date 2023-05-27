@@ -1,0 +1,14 @@
+<router-outlet></router-outlet>
+
+<div *ngIf="books$ | async as books; else loading">
+  <ul>
+    <li
+      *ngFor="let book of books"
+      [routerLink]="['/books', book.url[book.url.length - 1]]"
+      [queryParams]="{ pages: book.numberOfPages }"
+    >
+      <a>{{ book.name }}</a>
+    </li>
+  </ul>
+</div>
+<ng-template #loading>loading ...</ng-template>

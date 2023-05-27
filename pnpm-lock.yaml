@@ -21403,7 +21403,7 @@ packages:
       {
         integrity: sha512-6tfZ91bOr7bOXnK7PRDCGBLa1H4U080YHNaAQ2KsMGlLEzRbk44nsZF2E1IeRc3vtJHPVbKCYgdFbaGO2ljd8g==,
         registry: https://registry.npmjs.com/,
-        tarball: https://registry.npmjs.org/got/-/got-11.8.6.tgz,
+        tarball: https://registry.npmjs.org/got/-/app-11.8.6.tgz,
       }
     name: got
     version: 11.8.6

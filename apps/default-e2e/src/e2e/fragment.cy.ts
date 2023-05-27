@@ -2,10 +2,9 @@ import {
   clickNavLinkByText,
   getDefaultBreadcrumbs,
   getFirstMentor,
-  getNavbar,
 } from '../support/app.po';
 
-describe.only('breadcrumb-demo', () => {
+describe.only('breadcrumb fragments', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should preserve fragments by default', () => {

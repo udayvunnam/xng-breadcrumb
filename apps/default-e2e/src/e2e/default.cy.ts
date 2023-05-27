@@ -5,7 +5,7 @@ import {
   getFirstMentor,
 } from '../support/app.po';
 
-describe('breadcrumb-demo', () => {
+describe('breadcrumb default', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display default breadcrumbs for home', () => {

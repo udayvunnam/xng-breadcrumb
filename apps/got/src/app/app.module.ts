@@ -1,11 +1,26 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { ROUTER_COMPONENTS, AppRoutingModule } from './app.routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { BookComponent } from './book/book.component';
+import { CharacterComponent } from './character/character.component';
+import { BreadcrumbModule } from 'xng-breadcrumb';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
-  imports: [BrowserModule],
+  declarations: [
+    AppComponent,
+    ...ROUTER_COMPONENTS,
+    BookComponent,
+    CharacterComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BreadcrumbModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
