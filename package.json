@@ -30,6 +30,8 @@
     "@angular/cli": "~16.0.0",
     "@angular/compiler-cli": "~16.0.0",
     "@angular/language-service": "~16.0.0",
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
     "@nx/angular": "^16.2.2",
     "@nx/cypress": "16.2.2",
     "@nx/eslint-plugin": "16.2.2",
