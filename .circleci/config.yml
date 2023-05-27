@@ -43,6 +43,7 @@ aliases:
     command: |
       corepack enable
       corepack prepare pnpm@latest-8 --activate
+      pnpm config set store-dir .pnpm-store
       pnpm install
 
   - &deploy_cache
