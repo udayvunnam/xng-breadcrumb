@@ -1,40 +1,50 @@
 {
   "name": "xng-breadcrumb",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "projectType": "library",
   "sourceRoot": "libs/xng-breadcrumb/src",
   "prefix": "xng",
+  "tags": [],
+  "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "tsConfig": "libs/xng-breadcrumb/tsconfig.lib.json",
         "project": "libs/xng-breadcrumb/ng-package.json"
       },
       "configurations": {
         "production": {
           "tsConfig": "libs/xng-breadcrumb/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/xng-breadcrumb/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/xng-breadcrumb/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
         }
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/xng-breadcrumb/src/**/*.ts"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "options": {
-        "jestConfig": "libs/xng-breadcrumb/jest.config.ts",
-        "passWithNoTests": true
+        "lintFilePatterns": [
+          "libs/xng-breadcrumb/**/*.ts",
+          "libs/xng-breadcrumb/**/*.html"
+        ]
       }
     }
-  },
-  "generators": {
-    "@schematics/angular:component": {
-      "style": "css"
-    }
-  },
-  "tags": []
+  }
 }

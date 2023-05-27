@@ -24,10 +24,12 @@
     "ngx"
   ],
   "peerDependencies": {
-    "@angular/core": ">=13.0.0",
-    "@angular/common": ">=13.0.0",
-    "@angular/router": ">=13.0.0",
-    "rxjs": ">=6.0.0",
-    "@angular/platform-browser-dynamic": ">=13.0.0"
-  }
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0",
+    "@angular/router": "^16.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
 }

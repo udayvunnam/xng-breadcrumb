@@ -5,19 +5,23 @@
   "projectType": "application",
   "targets": {
     "e2e": {
-      "executor": "@nrwl/cypress:cypress",
+      "executor": "@nx/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/with-gaurd-check-e2e/cypress.json",
-        "devServerTarget": "with-gaurd-check:serve:development"
+        "cypressConfig": "apps/with-gaurd-check-e2e/cypress.config.ts",
+        "devServerTarget": "with-gaurd-check:serve:development",
+        "testingType": "e2e"
       },
       "configurations": {
         "production": {
           "devServerTarget": "with-gaurd-check:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "with-gaurd-check:serve-static"
         }
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/with-gaurd-check-e2e/**/*.{js,ts}"]

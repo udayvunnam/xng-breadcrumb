@@ -93,7 +93,7 @@ export class BreadcrumbService {
 
   private getRootBreadcrumb(): Breadcrumb | void {
     const rootConfig = this.router.config.find((config) => config.path === '');
-    const rootBreadcrumb = this.extractObject(rootConfig?.data?.breadcrumb);
+    const rootBreadcrumb = this.extractObject(rootConfig?.data?.['breadcrumb']);
     const storeItem = this.getFromStore(rootBreadcrumb.alias, '/');
 
     if (isNonEmpty(rootBreadcrumb) || isNonEmpty(storeItem)) {

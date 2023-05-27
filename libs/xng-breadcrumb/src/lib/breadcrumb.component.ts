@@ -70,7 +70,7 @@ export class BreadcrumbComponent implements OnInit {
    * Template --> Ex: <xng-breadcrumb [separator]="separatorTemplate"> </xng-breadcrumb>
    * <ng-template #separatorTemplate><mat-icon>arrow_right</mat-icon></ng-template>
    */
-  @Input('separator')
+  @Input()
   set separator(value: string | TemplateRef<void>) {
     if (value instanceof TemplateRef) {
       this.separatorTemplate = value;

@@ -2,8 +2,9 @@
   "name": "with-gaurd-check",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
+  "prefix": "xng",
   "sourceRoot": "apps/with-gaurd-check/src",
-  "prefix": "wgc",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -12,7 +13,7 @@
         "outputPath": "dist/apps/with-gaurd-check",
         "index": "apps/with-gaurd-check/src/index.html",
         "main": "apps/with-gaurd-check/src/main.ts",
-        "polyfills": "apps/with-gaurd-check/src/polyfills.ts",
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/with-gaurd-check/tsconfig.app.json",
         "assets": [
           "apps/with-gaurd-check/src/favicon.ico",
@@ -33,12 +34,6 @@
               "type": "anyComponentStyle",
               "maximumWarning": "2kb",
               "maximumError": "4kb"
-            }
-          ],
-          "fileReplacements": [
-            {
-              "replace": "apps/with-gaurd-check/src/environments/environment.ts",
-              "with": "apps/with-gaurd-check/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "all"
@@ -73,22 +68,34 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "apps/with-gaurd-check/src/**/*.ts",
-          "apps/with-gaurd-check/src/**/*.html"
+          "apps/with-gaurd-check/**/*.ts",
+          "apps/with-gaurd-check/**/*.html"
         ]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/with-gaurd-check"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/with-gaurd-check/jest.config.ts",
         "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "with-gaurd-check:build"
       }
     }
-  },
-  "tags": []
+  }
 }
