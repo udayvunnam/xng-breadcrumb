@@ -68,8 +68,8 @@ const persons = (count = 10) => {
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const mentors = persons(10);
-    const mentees = persons(10);
+    const mentors = persons(5);
+    const mentees = persons(5);
 
     return { mentors, mentees };
   }

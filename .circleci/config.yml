@@ -26,16 +26,16 @@ aliases:
       fi
       source $BASH_ENV
       echo $AFFECTED_ARGS
-  - &yarn_cache
+  - &pnpm_cache
     keys:
-      - node-deps-node12-{{ checksum "yarn.lock" }}
+      - node-deps-node12-{{ checksum "pnpm.lock" }}
       # fallback to using the latest cache if no exact match is found
       - node-deps-node12-
   - &deploy_cache
     key: last-deploy-sha
-  - &yarn_install
+  - &pnpm_install
     name: Install Dependencies
-    command: yarn install --frozen-lockfile --non-interactive
+    command: pnpm install --frozen-lockfile --non-interactive
 
 # -----------------------------------------------------------------------------------------
 # Job definitions. Jobs which are defined just here, will not run automatically. Each job
@@ -47,11 +47,11 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          <<: *yarn_cache
+          <<: *pnpm_cache
       - run:
-          <<: *yarn_install
+          <<: *pnpm_install
       - save_cache:
-          key: node-deps-node12-{{ checksum "yarn.lock" }}
+          key: node-deps-node12-{{ checksum "pnpm.lock" }}
           paths:
             - ~/.cache
             - node_modules
@@ -64,8 +64,8 @@ jobs:
       - run:
           <<: *set_env
       - restore_cache:
-          <<: *yarn_cache
-      - run: yarn format:check ${AFFECTED_ARGS}
+          <<: *pnpm_cache
+      - run: pnpm format:check ${AFFECTED_ARGS}
   lint:
     <<: *defaults
     steps:
@@ -75,9 +75,9 @@ jobs:
       - run:
           <<: *set_env
       - restore_cache:
-          <<: *yarn_cache
+          <<: *pnpm_cache
       - run: ./node_modules/.bin/nx workspace-lint
-      - run: yarn affected:lint ${AFFECTED_ARGS} --parallel
+      - run: pnpm affected:lint ${AFFECTED_ARGS} --parallel
       - run:
           name: Define environment variable with lastest commit's message
           command: |
@@ -95,8 +95,8 @@ jobs:
       - run:
           <<: *set_env
       - restore_cache:
-          <<: *yarn_cache
-      - run: yarn affected:build ${AFFECTED_ARGS} --parallel --configuration production
+          <<: *pnpm_cache
+      - run: pnpm affected:build ${AFFECTED_ARGS} --parallel --configuration production
       - save_cache:
           key: build-{{ .Environment.CIRCLE_WORKFLOW_ID }}
           paths:
@@ -112,8 +112,8 @@ jobs:
       - run:
           <<: *set_env
       - restore_cache:
-          <<: *yarn_cache
-      - run: yarn affected:test ${AFFECTED_ARGS} --parallel --ci --code-coverage
+          <<: *pnpm_cache
+      - run: pnpm affected:test ${AFFECTED_ARGS} --parallel --ci --code-coverage
   e2e:
     <<: *defaults
     steps:
@@ -123,8 +123,8 @@ jobs:
       - run:
           <<: *set_env
       - restore_cache:
-          <<: *yarn_cache
-      - run: yarn affected:e2e ${AFFECTED_ARGS} --configuration production --headless
+          <<: *pnpm_cache
+      - run: pnpm affected:e2e ${AFFECTED_ARGS} --configuration production --headless
       - store_artifacts:
           path: dist/cypress
 
@@ -137,10 +137,10 @@ jobs:
       - run:
           <<: *set_env
       - restore_cache:
-          <<: *yarn_cache
+          <<: *pnpm_cache
       - restore_cache:
           key: build-{{ .Environment.CIRCLE_WORKFLOW_ID }}
-      - run: yarn affected --target deploy ${AFFECTED_ARGS}
+      - run: pnpm affected --target deploy ${AFFECTED_ARGS}
       - run: git rev-parse HEAD > dist/last-deploy.txt
       - save_cache:
           key: last-deploy-sha
@@ -156,10 +156,10 @@ jobs:
       - run:
           <<: *set_env
       - restore_cache:
-          <<: *yarn_cache
-      - run: yarn copy-readme
-      - run: yarn version
-      - run: yarn push-tags
+          <<: *pnpm_cache
+      - run: pnpm copy-readme
+      - run: pnpm version
+      - run: pnpm push-tags
       - run:
           name: Authenticate with npm registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
