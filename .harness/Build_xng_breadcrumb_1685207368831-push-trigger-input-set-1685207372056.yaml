@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_xng_breadcrumb_1685207368831-push-trigger-input-set
+  identifier: Build_xng_breadcrumb_1685207368831pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: personal
+  pipeline:
+    identifier: Build_xng_breadcrumb_1685207368831
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
