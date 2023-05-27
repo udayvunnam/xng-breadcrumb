@@ -1,13 +1,36 @@
-import { getGreeting } from '../support/app.po';
-
 describe('minimal', () => {
   beforeEach(() => cy.visit('/'));
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
+  it('should show breadcrumbs within ngIf', () => {
+    // initially within ngIf and not shown
+    cy.get('xng-breadcrumb').should('not.exist');
+    cy.get('button').contains('Toggle Breadcrumb Visibility').click();
+    cy.get('xng-breadcrumb').contains('Dashboard');
+  });
 
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome minimal');
+  it("shouldn't have default seperator if Home breadcrumb is not defined", () => {
+    // shouldn't have default seperator if Home breadcrumb is not defined
+    cy.get('.xng-breadcrumb-list').contains('/').should('not.exist');
+  });
+
+  it('should show breadcrumbs when routeReuseStrategy is false', () => {
+    // Dashboard and Order Details use same component and routeReuseStrategy false still should get data
+    cy.get('a').contains('Order Details').click();
+    cy.get('.xng-breadcrumb-list').contains('Order Details').should('exist');
+    cy.get('.xng-breadcrumb-list').contains('Company Name').should('exist');
+  });
+
+  it('should show breadcrumbs if dynamically set with autoGenerate false', () => {
+    cy.get('a').contains('Order Items').click();
+    cy.get('.auto-generated-true .xng-breadcrumb-list')
+      .contains('items')
+      .should('exist');
+    cy.get('.auto-generated-false .xng-breadcrumb-list')
+      .contains('items')
+      .should('not.exist');
+    cy.get('button').contains('Set Order Items Label').click();
+    cy.get('.auto-generated-false .xng-breadcrumb-list')
+      .contains('My Order Items')
+      .should('exist');
   });
 });

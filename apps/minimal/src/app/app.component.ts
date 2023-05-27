@@ -1,8 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, VERSION } from '@angular/core';
+import { Router } from '@angular/router';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
-  selector: 'app',
-  template: `<h1>Welcome minimal</h1> `,
+  selector: 'app-app',
+  templateUrl: './app.component.html',
   styles: [''],
 })
-export class AppComponent {}
+export class AppComponent {
+  showBreadcrumbs = false;
+
+  constructor(router: Router, private breadcrumbService: BreadcrumbService) {
+    router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
+
+  toggleBreadcrumbVisibility() {
+    this.showBreadcrumbs = !this.showBreadcrumbs;
+  }
+
+  setOrderItemsLabel() {
+    this.breadcrumbService.set('@orderItems', { label: 'My Order Items' });
+  }
+
+  name = 'Angular ' + VERSION.major;
+}

@@ -1,0 +1,34 @@
+<ul>
+  <li>
+    <a [routerLink]="['/company']"> Company list </a>
+    <ul>
+      <li>
+        <a [routerLink]="['/company/1']"> Company </a>
+        <ul></ul>
+      </li>
+      <li>
+        <a [routerLink]="['/company/1/order']"> Order list </a>
+        <ul>
+          <li>
+            <a [routerLink]="['/company/1/order/2']"> Order Details </a>
+            <ul>
+              <li>
+                <a [routerLink]="['/company/1/order/2/items']"> Order Items </a>
+              </li>
+              <li>
+                <a [routerLink]="['/company/1/order/2/payment']">
+                  Order Payment Info
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/company/1/order/2/delivery']">
+                  Order Delivery Info
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>

@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+
 import { AppComponent } from './app.component';
-import { appRoutes } from './app.routes';
+import { RouterModule } from '@angular/router';
+import { BreadcrumbModule } from 'xng-breadcrumb';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
+    BreadcrumbModule,
+    RouterModule.forRoot([]),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
