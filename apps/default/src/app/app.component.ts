@@ -1,10 +1,23 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'xng-root',
-  template: `<xng-nx-welcome></xng-nx-welcome> `,
-  styles: [''],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'default';
+  title = 'xng-breadcrumb-app';
+  darkMode = false;
+
+  constructor(private router: Router) {}
+
+  updateTheme(theme) {
+    this.darkMode = theme === 'dark';
+  }
+
+  handleRoute(link) {
+    console.log(link);
+    return link;
+  }
 }

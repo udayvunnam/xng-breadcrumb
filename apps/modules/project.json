@@ -2,7 +2,7 @@
   "name": "modules",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "xng",
+  "prefix": "app",
   "sourceRoot": "apps/modules/src",
   "tags": [],
   "targets": {

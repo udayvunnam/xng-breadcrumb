@@ -2,7 +2,7 @@
   "name": "default",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "xng",
+  "prefix": "app",
   "sourceRoot": "apps/default/src",
   "tags": [],
   "targets": {
@@ -16,7 +16,10 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/default/tsconfig.app.json",
         "assets": ["apps/default/src/favicon.ico", "apps/default/src/assets"],
-        "styles": ["apps/default/src/styles.css"],
+        "styles": [
+          "apps/default/src/custom-theme.scss",
+          "apps/default/src/styles.css"
+        ],
         "scripts": []
       },
       "configurations": {

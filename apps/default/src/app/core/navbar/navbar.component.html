@@ -1,0 +1,73 @@
+<div class="navbar mat-elevation-z6">
+  <nav class="navbar-header">
+    <a mat-button [routerLink]="['/']" class="home">TechUnroll</a>
+    <a
+      mat-button
+      [routerLink]="['/mentor']"
+      [queryParams]="{ viaNav: 'true', type: 'list' }"
+      fragment="testFragment"
+      fxHide.lt-md="true"
+      >Mentors</a
+    >
+    <a
+      mat-button
+      [routerLink]="['/mentee']"
+      [queryParams]="{ viaNav: 'true' }"
+      fxHide.lt-md="true"
+      >Mentees</a
+    >
+    <a
+      mat-button
+      [routerLink]="['/connect']"
+      [queryParams]="{ viaNav: 'true', loggedIn: 'false' }"
+      fxHide.lt-md="true"
+      >Connect</a
+    >
+    <div fxFlex></div>
+
+    <button mat-icon-button matTooltip="Change Theme" (click)="toggleTheme()">
+      <mat-icon aria-label="dark theme" *ngIf="theme === 'light'"
+        >wb_sunny</mat-icon
+      >
+      <mat-icon aria-label="light theme" *ngIf="theme === 'dark'"
+        >wb_incandescent</mat-icon
+      >
+    </button>
+
+    <a
+      mat-icon-button
+      href="https://twitter.com/udayvunnam_"
+      target="_blank"
+      matTooltip="Twitter"
+    >
+      <span class="mat-button-wrapper">
+        <img
+          alt="Twitter"
+          class="social-logo"
+          src="../../../assets/img/twitter.svg"
+        />
+      </span>
+    </a>
+
+    <a
+      mat-icon-button
+      href="https://github.com/udayvunnam/xng-breadcrumb"
+      target="_blank"
+      matTooltip="GitHub"
+    >
+      <span class="mat-button-wrapper">
+        <img
+          alt="GitHub"
+          class="social-logo"
+          src="../../../assets/img/github.svg"
+        />
+      </span>
+    </a>
+  </nav>
+
+  <nav class="navbar-header" fxHide.gt-sm="true">
+    <a mat-button [routerLink]="['/mentor']">Mentors</a>
+    <a mat-button [routerLink]="['/mentee']">Mentees</a>
+    <a mat-button [routerLink]="['/connect']">Connect</a>
+  </nav>
+</div>

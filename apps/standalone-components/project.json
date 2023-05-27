@@ -2,7 +2,7 @@
   "name": "standalone-components",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "xng",
+  "prefix": "app",
   "sourceRoot": "apps/standalone-components/src",
   "tags": [],
   "targets": {

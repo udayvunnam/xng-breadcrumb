@@ -2,7 +2,7 @@
   "name": "xng-breadcrumb",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/xng-breadcrumb/src",
-  "prefix": "xng",
+  "prefix": "app",
   "tags": [],
   "projectType": "library",
   "targets": {

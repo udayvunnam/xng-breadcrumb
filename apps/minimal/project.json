@@ -2,7 +2,7 @@
   "name": "minimal",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "xng",
+  "prefix": "app",
   "sourceRoot": "apps/minimal/src",
   "tags": [],
   "targets": {

@@ -2,7 +2,7 @@
   "name": "with-ssr",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "xng",
+  "prefix": "app",
   "sourceRoot": "apps/with-ssr/src",
   "tags": [],
   "targets": {

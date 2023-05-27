@@ -1,0 +1,101 @@
+<form [formGroup]="menteeFG" (submit)="addMentee()">
+  <mat-card>
+    <section fxLayout="row" fxLayoutAlign="stretch center" fxLayoutGap="32px">
+      <div class="illustration-wrapper" fxFlex="50%" fxHide.lt-sm="true">
+        <img
+          alt="Mentee"
+          class="illustration mentee-logo"
+          src="../../../assets/img/mentee.svg"
+        />
+      </div>
+
+      <section fxLayout="column" fxLayoutGap="8px" fxFlex>
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" required />
+          <mat-error>Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Country</mat-label>
+          <input matInput formControlName="country" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Planned Start Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="available"
+            formControlName="available"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="available"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #available></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Looking for Skills</mat-label>
+
+          <mat-chip-grid #chipList aria-label="Skill selection">
+            <mat-chip-row
+              *ngFor="let skill of skills"
+              selectable="true"
+              removable="true"
+              (removed)="remove(skill)"
+            >
+              {{ skill }}
+              <button matChipRemove [attr.aria-label]="'remove ' + skill">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+
+            <input
+              #skillInput
+              formControlName="skills"
+              [matAutocomplete]="auto"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="true"
+              (matChipInputTokenEnd)="add($event)"
+            />
+          </mat-chip-grid>
+
+          <mat-autocomplete
+            #auto="matAutocomplete"
+            (optionSelected)="selected($event)"
+          >
+            <mat-option
+              *ngFor="let skill of filteredSkills | async"
+              [value]="skill"
+            >
+              {{ skill }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea
+            matInput
+            #description
+            formControlName="description"
+          ></textarea>
+          <mat-hint align="end">{{ description.value.length }} / 1024</mat-hint>
+        </mat-form-field>
+      </section>
+    </section>
+
+    <mat-card-actions>
+      <section class="button-row">
+        <button mat-button type="button" [routerLink]="['/mentee']">
+          Cancel
+        </button>
+        <button mat-button mat-raised-button type="submit" color="primary">
+          Save
+        </button>
+      </section>
+    </mat-card-actions>
+  </mat-card>
+</form>

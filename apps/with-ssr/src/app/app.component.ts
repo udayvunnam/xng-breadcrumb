@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'xng-root',
+  selector: 'app',
   template: `<h1>Welcome with-ssr</h1> `,
   styles: [''],
 })
