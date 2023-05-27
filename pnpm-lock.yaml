@@ -3860,7 +3860,7 @@ packages:
       aws-sign2: 0.7.0
       aws4: 1.12.0
       caseless: 0.12.0
-      combined-stream: 1.0.8
+      combined-stream: registry.npmjs.org/combined-stream@1.0.8
       extend: 3.0.2
       forever-agent: 0.6.1
       form-data: registry.npmjs.org/form-data@2.3.3
@@ -3868,7 +3868,7 @@ packages:
       is-typedarray: 1.0.0
       isstream: 0.1.2
       json-stringify-safe: 5.0.1
-      mime-types: 2.1.35
+      mime-types: registry.npmjs.org/mime-types@2.1.35
       performance-now: 2.1.0
       qs: registry.npmjs.org/qs@6.10.4
       safe-buffer: registry.npmjs.org/safe-buffer@5.2.1
@@ -7365,16 +7365,6 @@ packages:
       {
         integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==,
       }
-    dev: true
-
-  /combined-stream@1.0.8:
-    resolution:
-      {
-        integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==,
-      }
-    engines: { node: '>= 0.8' }
-    dependencies:
-      delayed-stream: registry.npmjs.org/delayed-stream@1.0.0
     dev: true
 
   /commander@10.0.1:

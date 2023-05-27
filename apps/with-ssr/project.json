@@ -90,6 +90,70 @@
       "options": {
         "buildTarget": "with-ssr:build"
       }
+    },
+    "server": {
+      "executor": "@angular-devkit/build-angular:server",
+      "options": {
+        "outputPath": "dist/apps/with-ssr/server",
+        "main": "apps/with-ssr/server.ts",
+        "tsConfig": "apps/with-ssr/tsconfig.server.json"
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "media"
+        },
+        "development": {
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false
+        }
+      },
+      "defaultConfiguration": "production",
+      "production": {
+        "outputHashing": "media",
+        "fileReplacements": [
+          {
+            "replace": "apps/with-ssr/src/environments/environment.ts",
+            "with": "apps/with-ssr/src/environments/environment.prod.ts"
+          }
+        ]
+      },
+      "development": {
+        "optimization": false,
+        "sourceMap": true,
+        "extractLicenses": false
+      }
+    },
+    "serve-ssr": {
+      "executor": "@nguniversal/builders:ssr-dev-server",
+      "configurations": {
+        "development": {
+          "browserTarget": "ssr:build:development",
+          "serverTarget": "ssr:server:development"
+        },
+        "production": {
+          "browserTarget": "ssr:build:production",
+          "serverTarget": "ssr:server:production"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "prerender": {
+      "executor": "@nguniversal/builders:prerender",
+      "options": {
+        "routes": ["/"]
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "ssr:build:production",
+          "serverTarget": "ssr:server:production"
+        },
+        "development": {
+          "browserTarget": "ssr:build:development",
+          "serverTarget": "ssr:server:development"
+        }
+      },
+      "defaultConfiguration": "production"
     }
   }
 }

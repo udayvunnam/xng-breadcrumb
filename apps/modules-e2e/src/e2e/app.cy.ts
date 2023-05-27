@@ -1,13 +1,9 @@
-import { getGreeting } from '../support/app.po';
-
-describe('modules', () => {
+describe('deep modules', () => {
   beforeEach(() => cy.visit('/'));
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
-
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome modules');
+  it('breadcrumb shows', () => {
+    cy.get('xng-breadcrumb').contains('Home');
+    cy.get('a').click();
+    cy.get('xng-breadcrumb').contains('library');
   });
 });

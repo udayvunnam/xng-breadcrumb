@@ -4,7 +4,7 @@ describe('got', () => {
   it('should contain breadcrumbs for books', () => {
     cy.contains('Books').click();
     cy.get('xng-breadcrumb').contains('books');
-    // shouldn't have default seperator if Home breadcrumb is not defined
+    // shouldn't have default separator if Home breadcrumb is not defined
     cy.get('.xng-breadcrumb-list').contains('/').should('not.exist');
   });
 
