@@ -15,15 +15,25 @@ blockquote:before {
 }
 blockquote p {
   display: inline;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.5;
 }
 
-mat-card {
+links > * {
   cursor: pointer;
 }
 
+links > *:hover {
+  background: #009688;
+  color: white;
+}
 .home-container {
   margin: 16px 64px;
+}
+
+.links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
 }

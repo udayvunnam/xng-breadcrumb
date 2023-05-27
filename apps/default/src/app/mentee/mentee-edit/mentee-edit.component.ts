@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  ViewEncapsulation,
+} from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import {
   UntypedFormGroup,
@@ -23,6 +29,7 @@ import { Mentee } from '../../shared/models/mentee';
   selector: 'app-mentee-edit',
   templateUrl: './mentee-edit.component.html',
   styleUrls: ['./mentee-edit.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MenteeEditComponent implements OnInit {
   menteeId: string;

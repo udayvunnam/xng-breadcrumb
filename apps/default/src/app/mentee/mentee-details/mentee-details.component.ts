@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 import { DataService } from '../../core/data.service';
+import { Mentee } from '../../shared/models/mentee';
 
 @Component({
   selector: 'app-mentee-details',
   templateUrl: './mentee-details.component.html',
   styleUrls: ['./mentee-details.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MenteeDetailsComponent implements OnInit {
-  mentee: unknown;
+  mentee: Mentee;
   constructor(
     private breadcrumbService: BreadcrumbService,
     private dataService: DataService,

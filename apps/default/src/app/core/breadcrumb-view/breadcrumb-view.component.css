@@ -1,0 +1,72 @@
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb-type {
+  padding: 0.5rem 0;
+  gap: 1.5rem;
+  justify-content: space-between;
+  display: flex;
+}
+
+.breadcrumb-type .title {
+  color: rgb(17 24 39);
+  line-height: 1.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.breadcrumb-type .subtitle {
+  color: rgb(107 114 128);
+  line-height: 1.25rem;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.divide > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgb(243 244 246);
+  border-width: 1px 0 0 0;
+  border-style: solid;
+}
+
+.list {
+  margin-bottom: 32px;
+}
+
+.container {
+  padding: 8px;
+}
+
+/* breadcrumb styles customization */
+
+.xng-breadcrumb-root {
+  padding: 8px 16px;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.myapp-breadcrumb .xng-breadcrumb-trail {
+  color: teal;
+}
+
+.custom-breadcrumb.xng-breadcrumb-root .xng-breadcrumb-item {
+  border-radius: 16px;
+  background-color: #f5f5f5;
+  padding: 4px 8px;
+}
+
+.advanced1.xng-breadcrumb-root {
+  background-color: #e7f1f1;
+}
+
+.separator-icon {
+  color: teal;
+}

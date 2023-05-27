@@ -1,7 +1,7 @@
 <form [formGroup]="mentorFG" (submit)="addMentor()">
   <mat-card>
-    <section fxLayout="row" fxLayoutAlign="stretch center" fxLayoutGap="32px">
-      <div class="illustration-wrapper" fxFlex="50%" fxHide.lt-sm="true">
+    <section class="flex-row gap-32 items-stretch justify-center">
+      <div class="illustration-wrapper flex-1 hide-sm">
         <img
           alt="mentor"
           class="illustration mentor-logo"
@@ -9,7 +9,7 @@
         />
       </div>
 
-      <section fxLayout="column" fxLayoutGap="8px" fxFlex>
+      <section class="flex-col gap-8 flex-1">
         <mat-form-field appearance="outline">
           <mat-label>Name</mat-label>
           <input matInput formControlName="name" required />

@@ -10,25 +10,24 @@
   </a>
 </section>
 
-<section fxLayout="column" fxLayoutGap="12px">
+<section class="flex-col gap-32">
   <mat-card
     *ngFor="let mentor of mentors"
     [routerLink]="[mentor.id]"
     [queryParams]="{ type: 'details' }"
   >
     <mat-card-header>
-      <div mat-card-avatar>
-        <mat-icon class="person">person</mat-icon>
-      </div>
       <mat-card-title>{{ mentor.name }}</mat-card-title>
-      <mat-card-subtitle>{{ mentor.description }}</mat-card-subtitle>
+      <mat-card-subtitle class="mat-body">{{
+        mentor.description
+      }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <mat-chip-grid #chipList aria-label="Skill selection">
-        <mat-chip-row *ngFor="let skill of skills">
+      <mat-chip-set #chipList aria-label="Skill selection">
+        <mat-chip-row *ngFor="let skill of mentor.skills">
           {{ skill }}
         </mat-chip-row>
-      </mat-chip-grid>
+      </mat-chip-set>
     </mat-card-content>
   </mat-card>
 </section>

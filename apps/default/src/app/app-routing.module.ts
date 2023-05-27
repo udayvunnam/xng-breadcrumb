@@ -11,7 +11,7 @@ export const appRoutes: Routes = [
     component: HomeComponent,
     data: {
       breadcrumb: {
-        label: 'my home',
+        label: 'app',
         info: 'home',
         routeInterceptor: (routeLink) => {
           return routeLink;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { DataService } from '../../core/data.service';
 import { Mentor } from '../../shared/models/mentor';
@@ -7,6 +7,7 @@ import { Mentor } from '../../shared/models/mentor';
   selector: 'app-mentee-list',
   templateUrl: './mentee-list.component.html',
   styleUrls: ['./mentee-list.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MenteeListComponent implements OnInit {
   mentees: Mentor[];

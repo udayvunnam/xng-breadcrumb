@@ -1,6 +1,5 @@
 .xng-breadcrumb-root {
   margin: 0;
-  color: rgba(0, 0, 0, 0.6);
 }
 
 .xng-breadcrumb-list {
@@ -18,7 +17,6 @@
 .xng-breadcrumb-trail {
   display: flex;
   align-items: center;
-  color: rgba(0, 0, 0, 0.9);
 }
 
 .xng-breadcrumb-link {

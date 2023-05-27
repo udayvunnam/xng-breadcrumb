@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  ViewEncapsulation,
+} from '@angular/core';
 import {
   UntypedFormGroup,
   UntypedFormBuilder,
@@ -23,6 +29,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   selector: 'app-mentor-edit',
   templateUrl: './mentor-edit.component.html',
   styleUrls: ['./mentor-edit.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MentorEditComponent implements OnInit {
   mentorId: string;

@@ -1,4 +1,10 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import {
   Validators,
@@ -23,6 +29,7 @@ import { allLanguages } from '../../core/in-memory-data.service';
   selector: 'app-mentee-add',
   templateUrl: './mentee-add.component.html',
   styleUrls: ['./mentee-add.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MenteeAddComponent implements OnInit {
   mentee: unknown;

@@ -1,0 +1,110 @@
+<div class="max-w-sm container">
+  <ul role="list" class="flex-col gap-4 divide max-w-sm list">
+    <li class="breadcrumb-type flex-row items-center">
+      <div>
+        <p class="title">Default breadcrumbs</p>
+        <p class="subtitle">no custom configuration</p>
+      </div>
+      <div>
+        <xng-breadcrumb/>
+      </div>
+    </li>
+
+    <li class="breadcrumb-type flex-row items-center">
+      <div>
+        <p class="title">Title case and custom separator</p>
+        <p class="subtitle">
+          use pipe on breadcrumb for title case and custom text on separator
+        </p>
+      </div>
+      <div>
+        <xng-breadcrumb separator="~" id="titleCase">
+          <ng-container *xngBreadcrumbItem="let breadcrumb">
+            {{ breadcrumb | titlecase }}
+          </ng-container>
+        </xng-breadcrumb>
+      </div>
+    </li>
+
+    <li class="breadcrumb-type flex-row items-center">
+      <div>
+        <p class="title">Material Icon as separator</p>
+        <p class="subtitle">custom template for icon, background color on each item</p>
+      </div>
+      <div>
+        <xng-breadcrumb
+          [separator]="separatorTemplate"
+          class="custom-breadcrumb"
+        ></xng-breadcrumb>
+
+        <ng-template #separatorTemplate>
+          <mat-icon class="separator-icon">arrow_right</mat-icon>
+        </ng-template>
+      </div>
+    </li>
+
+    <li class="breadcrumb-type flex-row items-center">
+      <div>
+        <p class="title">Advanced usage 1</p>
+        <p class="subtitle">
+          Custom background, preserveQueryParams(false), use info from breadcrumb to show icons
+        </p>
+      </div>
+      <div>
+        <xng-breadcrumb
+          separator="→"
+          class="myapp-breadcrumb"
+          [preserveQueryParams]="false"
+          class="advanced1"
+        >
+          <ng-container
+            *xngBreadcrumbItem="
+              let breadcrumb;
+              let info = info;
+              let first = first
+            "
+          >
+            <mat-icon *ngIf="info" class="mat-icon-size" inline="true">{{
+              info
+            }}</mat-icon>
+            <ng-container>{{ breadcrumb | titlecase }}</ng-container>
+          </ng-container>
+        </xng-breadcrumb>
+      </div>
+    </li>
+
+    <li class="breadcrumb-type flex-row items-center">
+      <div>
+        <p class="title">Advanced usage 2</p>
+        <p class="subtitle">
+          open breadcrumb link in new tab, different style on tail, preserveFragment(false) etc
+        </p>
+      </div>
+      <div>
+        <xng-breadcrumb
+          separator="→"
+          class="myapp-breadcrumb"
+          [preserveFragment]="false"
+          anchorTarget="_blank"
+        >
+          <ng-container
+            *xngBreadcrumbItem="
+              let breadcrumb;
+              let info = info;
+              let first = first
+            "
+          >
+            <mat-icon *ngIf="info" class="mat-icon-size" inline="true">{{
+              info
+            }}</mat-icon>
+            <ng-container *ngIf="!first">{{
+              breadcrumb | titlecase
+            }}</ng-container>
+          </ng-container>
+        </xng-breadcrumb>
+      </div>
+    </li>
+  </ul>
+
+  <router-outlet></router-outlet>
+</div>

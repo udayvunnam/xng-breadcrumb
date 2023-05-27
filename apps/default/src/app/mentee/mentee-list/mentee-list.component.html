@@ -4,7 +4,7 @@
   </a>
 </section>
 
-<section fxLayout="column" fxLayoutGap="12px">
+<section class="flex-col gap-16">
   <mat-card *ngFor="let mentee of mentees" [routerLink]="[mentee.id]">
     <mat-card-header>
       <div mat-card-avatar>
@@ -14,11 +14,11 @@
       <mat-card-subtitle>{{ mentee.description }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <mat-chip-grid #chipList aria-label="Skill selection">
-        <mat-chip-row *ngFor="let skill of skills">
+      <mat-chip-set #chipList aria-label="Skill selection">
+        <mat-chip-row *ngFor="let skill of mentee.skills">
           {{ skill }}
         </mat-chip-row>
-      </mat-chip-grid>
+      </mat-chip-set>
     </mat-card-content>
   </mat-card>
 </section>
