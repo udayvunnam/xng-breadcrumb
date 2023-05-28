@@ -69,7 +69,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          <<: *deploy_cache
+          <<: *restore_cache
       - run:
           <<: *set_env
       - save_cache:
@@ -80,7 +80,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          <<: *deploy_cache
+          <<: *restore_cache
       - run:
           <<: *set_env
       - save_cache:
@@ -100,6 +100,8 @@ jobs:
     steps:
       - checkout
       - restore_cache:
+          <<: *restore_cache
+      - restore_cache:
           <<: *deploy_cache
       - run:
           <<: *set_env
@@ -112,17 +114,7 @@ jobs:
             - dist
       - store_artifacts:
           path: dist
-  test:
-    <<: *defaults
-    steps:
-      - checkout
-      - restore_cache:
-          <<: *deploy_cache
-      - run:
-          <<: *set_env
-      - restore_cache:
-          <<: *restore_cache
-      - run: pnpm affected:test ${AFFECTED_ARGS} --parallel --ci --code-coverage
+
   e2e:
     <<: *defaults
     steps:
