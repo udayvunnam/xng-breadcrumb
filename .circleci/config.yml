@@ -64,17 +64,6 @@ jobs:
           <<: *pnpm_install
       - save_cache:
           <<: *save_cache
-  check-formatting:
-    <<: *defaults
-    steps:
-      - checkout
-      - restore_cache:
-          <<: *restore_cache
-      - run:
-          <<: *set_env
-      - save_cache:
-          <<: *save_cache
-      - run: pnpm format:check ${AFFECTED_ARGS}
   lint:
     <<: *defaults
     steps:
@@ -173,9 +162,6 @@ workflows:
   pr_check:
     jobs:
       - install
-      - check-formatting:
-          requires:
-            - install
       - lint:
           requires:
             - install
@@ -193,7 +179,6 @@ workflows:
             tags:
               only: /.*/
           requires:
-            - check-formatting
             - lint
             - build
             - e2e
