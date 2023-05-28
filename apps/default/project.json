@@ -17,8 +17,8 @@
         "tsConfig": "apps/default/tsconfig.app.json",
         "assets": ["apps/default/src/favicon.ico", "apps/default/src/assets"],
         "styles": [
-          "apps/default/src/assets/custom-theme.scss",
-          "apps/default/src/assets/styles.css"
+          "apps/default/src/custom-theme.scss",
+          "apps/default/src/styles.css"
         ],
         "scripts": []
       },
