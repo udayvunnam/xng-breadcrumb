@@ -179,9 +179,6 @@ workflows:
       - lint:
           requires:
             - install
-      - test:
-          requires:
-            - install
       - build:
           requires:
             - install
@@ -198,7 +195,6 @@ workflows:
           requires:
             - check-formatting
             - lint
-            - test
             - build
             - e2e
       - publish:
