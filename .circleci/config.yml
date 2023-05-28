@@ -6,6 +6,7 @@ aliases:
     docker:
       - image: cimg/node:18.16.0-browsers
     resource_class: large
+    parallelism: 4
 
   - &set_env
     name: Setup Environment Variables
@@ -33,6 +34,7 @@ aliases:
     key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
     paths:
       - node_modules
+      - /home/circleci/.cache/Cypress
 
   - &restore_cache
     name: Restore pnpm Package Cache
@@ -114,7 +116,7 @@ jobs:
           <<: *set_env
       - restore_cache:
           <<: *restore_cache
-      - run: pnpm affected:e2e ${AFFECTED_ARGS} --configuration production --headless
+      - run: pnpm affected:e2e ${AFFECTED_ARGS} --configuration production
       - store_artifacts:
           path: dist/cypress
 
