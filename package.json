@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
-    "build": "nx build",
+    "build": "nx build xng-breadcrumb --configuration production",
+    "build:default": "nx build default --configuration production",
     "test": "nx test",
     "affected:build": "nx affected:build",
     "affected:e2e": "nx affected:e2e",

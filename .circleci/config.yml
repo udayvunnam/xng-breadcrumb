@@ -177,7 +177,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - develop # todo
             tags:
               only: /.*/
           requires:
