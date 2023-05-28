@@ -3,4 +3,4 @@
   to = "/index.html"
   status = 200
 [build]
-  command = "pnpm run build:default"
+  command = "pnpm i -g pnpm && pnpm run build:default"
