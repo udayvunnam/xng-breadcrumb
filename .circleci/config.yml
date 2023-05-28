@@ -5,6 +5,7 @@ aliases:
     working_directory: ~/repo
     docker:
       - image: cimg/node:18.16.0-browsers
+    resource_class: large
 
   - &set_env
     name: Setup Environment Variables
@@ -41,9 +42,8 @@ aliases:
   - &pnpm_install
     name: Install pnpm package manager and Dependencies
     command: |
-      corepack enable
+      sudo corepack enable
       corepack prepare pnpm@latest-8 --activate
-      pnpm config set store-dir .pnpm-store
       pnpm install
 
   - &deploy_cache
