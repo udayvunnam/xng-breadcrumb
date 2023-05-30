@@ -21,9 +21,9 @@
 
 ## Demo
 
-[Demo App](https://xng-breadcrumb.vercel.com) - A demo app showcasing `xng-breadcrumb` library usage in an Angular app. Navigate through different links to see breadcrumbs behavior.
+[Demo App](https://xng-breadcrumb.vercel.app/) - A demo app showcasing `xng-breadcrumb` library usage in an Angular app. Navigate through different links to see breadcrumbs behavior.
 
-<a href="https://xng-breadcrumb.vercel.com/dashboard" rel="noopener" target="_blank" ><img width="500" src="https://user-images.githubusercontent.com/20707504/68575589-61287880-0492-11ea-9084-80587321c5c4.png" alt="xng-breadcrumb usage"></a></p>
+<a href="https://xng-breadcrumb.vercel.app//dashboard" rel="noopener" target="_blank" ><img width="945" alt="xng-breadcrumb usage" src="https://github.com/udayvunnam/xng-breadcrumb/assets/20707504/02aa26d1-a41f-4a47-a1fe-009d6dfcd0b7"></a></p>
 
 ## Features
 
