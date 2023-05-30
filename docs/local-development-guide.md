@@ -13,7 +13,7 @@ If you wish to contribute to this repository, below are the steps for local deve
 Run `yarn build` to build the library and demo app together. The build artifacts will be stored in the `dist/` directory.
 
 This step is used by CircleCI to build both the library and the demo app.
-After a successful build, the two demo apps are deployed to Netlify.
+After a successful build, the demo apps are deployed to Vercel.
 
 ## Publish to npm
 
