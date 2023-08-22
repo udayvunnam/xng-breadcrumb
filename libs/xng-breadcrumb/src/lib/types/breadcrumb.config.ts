@@ -1,4 +1,5 @@
 import { Breadcrumb } from './breadcrumb';
+import { Params } from '@angular/router';
 
 /**
  * Breadcrumb config provided as part of App Route Config
@@ -30,6 +31,10 @@ export interface BreadcrumbObject {
    * Consumers can change the breadcrumb routing dynamically with this approach
    */
   routeInterceptor?: (routeLink: string, breadcrumb: Breadcrumb) => string;
+  /**
+   * Query parameters that will be always passed to route when using breadcrumb.
+   */
+  staticQueryParams?: Params;
 }
 
 // resolved label for a route can further be enhanced based on a function

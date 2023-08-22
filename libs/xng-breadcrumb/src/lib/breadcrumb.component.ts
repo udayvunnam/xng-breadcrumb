@@ -6,7 +6,7 @@ import {
   TemplateRef,
   ViewEncapsulation,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BreadcrumbItemDirective } from './breadcrumb-item.directive';
@@ -100,6 +100,17 @@ export class BreadcrumbComponent implements OnInit {
   setupComponent(someParam) {
     this.setupMessage = 'set up at ' + new Date();
     this.someParameterValue = someParam;
+  }
+
+  getQueryParams(breadcrumb: BreadcrumbDefinition) {
+    let res: Params = {};
+    if (breadcrumb.staticQueryParams) {
+      res = { ...breadcrumb.staticQueryParams };
+    }
+    if (this.preserveQueryParams && breadcrumb.queryParams) {
+      res = { ...res, ...breadcrumb.queryParams };
+    }
+    return res;
   }
 
   ngOnInit() {

@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './core/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 
-// when deafalt route has no path or breadcrumb diplay home
+// when default route has no path or breadcrumb display home
 export const appRoutes: Routes = [
   {
     path: '',
@@ -16,6 +16,9 @@ export const appRoutes: Routes = [
         routeInterceptor: (routeLink) => {
           return routeLink;
         },
+        staticQueryParams: {
+          fromBreadcrumb: true,
+        },
       },
     },
   },
@@ -27,6 +30,9 @@ export const appRoutes: Routes = [
       breadcrumb: {
         label: 'dashboard',
         info: 'dashboard',
+        staticQueryParams: {
+          fromBreadcrumb: true,
+        },
       },
     },
   },
@@ -37,6 +43,9 @@ export const appRoutes: Routes = [
     data: {
       breadcrumb: {
         info: 'person',
+        staticQueryParams: {
+          fromBreadcrumb: true,
+        },
       },
     },
   },
@@ -48,6 +57,9 @@ export const appRoutes: Routes = [
       breadcrumb: {
         info: 'person_outline',
         label: 'Mentee (Root)',
+        staticQueryParams: {
+          fromBreadcrumb: true,
+        },
       },
     },
   },

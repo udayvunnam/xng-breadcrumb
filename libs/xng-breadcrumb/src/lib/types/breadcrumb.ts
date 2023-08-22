@@ -1,3 +1,5 @@
+import { Params } from '@angular/router';
+
 /**
  * Breadcrumb item built internally, private to this module
  */
@@ -20,7 +22,7 @@ export interface Breadcrumb {
   /**
    * Query params in string form.
    */
-  queryParams?: unknown;
+  queryParams?: Params;
   fragment?: string;
   routeInterceptor?: (routeLink: string, breadcrumb: Breadcrumb) => string;
 }
