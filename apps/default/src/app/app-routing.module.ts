@@ -17,7 +17,7 @@ export const appRoutes: Routes = [
           return routeLink;
         },
         staticQueryParams: {
-          fromBreadcrumb: true,
+          'from-breadcrumb': true,
         },
       },
     },
@@ -31,7 +31,7 @@ export const appRoutes: Routes = [
         label: 'dashboard',
         info: 'dashboard',
         staticQueryParams: {
-          fromBreadcrumb: true,
+          'from-breadcrumb': true,
         },
       },
     },
@@ -44,7 +44,7 @@ export const appRoutes: Routes = [
       breadcrumb: {
         info: 'person',
         staticQueryParams: {
-          fromBreadcrumb: true,
+          'from-breadcrumb': true,
         },
       },
     },
@@ -58,7 +58,7 @@ export const appRoutes: Routes = [
         info: 'person_outline',
         label: 'Mentee (Root)',
         staticQueryParams: {
-          fromBreadcrumb: true,
+          'from-breadcrumb': true,
         },
       },
     },
