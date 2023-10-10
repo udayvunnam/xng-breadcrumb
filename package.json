@@ -1,6 +1,6 @@
 {
   "name": "xng-breadcrumb-workspace",
-  "version": "10.0.0",
+  "version": "10.0.1",
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
@@ -15,7 +15,7 @@
     "commit-version": "git add . && git commit -m $npm_package_version && git push origin main",
     "prepackage": "git checkout main && git pull origin main && npm-run-all copy-* commit-version",
     "package": "pnpm build && npm publish ./dist/libs/xng-breadcrumb",
-    "release": "release-please release-pr --token=$GITHUB_XNG_TOKEN --repo-url=https://github.com/udayvunnam/xng-breadcrumb --release-type=node --package-name=xng-breadcrumb",
+    "release": "npx release-please release-pr --token=$RELEASE_PLEASE_TOKEN --repo-url=https://github.com/udayvunnam/xng-breadcrumb --release-type=node --package-name=xng-breadcrumb",
     "prepare": "husky install",
     "serve-docs": "docsify serve docs"
   },
@@ -90,7 +90,7 @@
     "zone.js": "~0.13.0"
   },
   "engines": {
-    "node": ">=18.16.0",
+    "node": ">=18.18.0",
     "npm": "please use pnpm",
     "yarn": "please use pnpm",
     "pnpm": "*"
