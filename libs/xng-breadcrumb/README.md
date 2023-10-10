@@ -19,15 +19,15 @@
 - In applications with deep navigation hierarchy, it is essential to have breadcrumbs.
 - Breadcrumbs easily allow going back to states higher up in the hierarchy.
 
-## Demo
-
-[Demo App](https://xng-breadcrumb.vercel.com) - A demo app showcasing `xng-breadcrumb` library usage in an Angular app. Navigate through different links to see breadcrumbs behavior.
-
-<a href="https://xng-breadcrumb.vercel.com/dashboard" rel="noopener" target="_blank" ><img width="500" src="https://user-images.githubusercontent.com/20707504/68575589-61287880-0492-11ea-9084-80587321c5c4.png" alt="xng-breadcrumb usage"></a></p>
-
 ## Documentation
 
-[Documentation](https://udayvunnam.github.io/xng-breadcrumb/#/)
+[A step by step guide to integrate xng-breadcrumb into your Angular application](https://udayvunnam.github.io/xng-breadcrumb/#/)
+
+## Demo
+
+[Demo App](https://xng-breadcrumb.vercel.app/) - A demo app showcasing `xng-breadcrumb` library usage in an Angular app. Navigate through different links to see breadcrumbs behavior.
+
+<a href="https://xng-breadcrumb.vercel.app//dashboard" rel="noopener" target="_blank" ><img width="945" alt="xng-breadcrumb usage" src="https://github.com/udayvunnam/xng-breadcrumb/assets/20707504/02aa26d1-a41f-4a47-a1fe-009d6dfcd0b7"></a></p>
 
 ## Features
 
