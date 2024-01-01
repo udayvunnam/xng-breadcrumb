@@ -145,7 +145,7 @@ export class BreadcrumbService {
     activatedRouteSnapshot: ActivatedRouteSnapshot,
     routeLinkPrefix: string
   ): Breadcrumb[] | void {
-    if (activatedRouteSnapshot.routeConfig?.path != null) {
+    if (activatedRouteSnapshot.routeConfig?.path) {
       const breadcrumbItem = this.prepareBreadcrumbItem(
         activatedRouteSnapshot,
         routeLinkPrefix
