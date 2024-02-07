@@ -27,7 +27,7 @@ We can update breadcrumbs from components and services dynamically. This is usef
   constructor(private breadcrumbService: BreadcrumbService) {};
   // routepath can contain path params similar to how you define in routes
   breadcrumbService.set('mentors', 'Mentor View'); // path for MentorListComponent
-  breadcrumbService.set('mentor/:id', 'Uday Vunnam'); // path for MentorDetailsComponent contains param (:id)
+  breadcrumbService.set('mentors/:id', 'Uday Vunnam'); // path for MentorDetailsComponent contains param (:id)
 ```
 
 ## using alias to update labels dynamically
