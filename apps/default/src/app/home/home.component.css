@@ -20,11 +20,11 @@ blockquote p {
   line-height: 1.5;
 }
 
-links > * {
+.links > * {
   cursor: pointer;
 }
 
-links > *:hover {
+.links > *:hover {
   background: #009688;
   color: white;
 }
