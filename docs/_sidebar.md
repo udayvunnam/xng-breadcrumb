@@ -10,6 +10,7 @@
   - [Custom styles](custom-styles.md)
   - [Disable breadcrumb navigation](disable-breadcrumb-navigation.md)
   - [Intercept breadcrumb onclick](intercept-breadcrumb-onclick.md)
+  - [Pass query parameters to route](static-query-params.md)
 
 - Customization
 

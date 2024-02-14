@@ -22,9 +22,7 @@
               ? breadcrumb.routeInterceptor(breadcrumb.routeLink, breadcrumb)
               : breadcrumb.routeLink
           "
-          [queryParams]="
-            preserveQueryParams ? breadcrumb.queryParams : undefined
-          "
+          [queryParams]="getQueryParams(breadcrumb)"
           [fragment]="preserveFragment ? breadcrumb.fragment : undefined"
           [target]="anchorTarget ? anchorTarget : '_self'"
         >
