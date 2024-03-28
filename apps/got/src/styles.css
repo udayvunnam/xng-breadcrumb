@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+.list-item {
+  list-style: none;
+  padding: 8px 0;
+}

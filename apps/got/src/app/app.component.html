@@ -1,1 +1,19 @@
-<app-nx-welcome></app-nx-welcome> <router-outlet></router-outlet>
+<header class="flex">
+  <h1>Welcome to {{ title }}!</h1>
+</header>
+<main>
+  <ul class="resources">
+    <li class="col-span-2">
+      <a class="resource flex" [routerLink]="['books']"> Books </a>
+    </li>
+    <li class="col-span-2">
+      <a class="resource flex" [routerLink]="['houses']"> Houses </a>
+    </li>
+  </ul>
+</main>
+
+<div style="padding: 8px; border: red dashed 2px">
+  <xng-breadcrumb></xng-breadcrumb>
+</div>
+
+<router-outlet></router-outlet>
