@@ -12,7 +12,7 @@
 ![npm downloads](https://img.shields.io/npm/dt/xng-breadcrumb?style=social)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Twitter follow](https://img.shields.io/twitter/follow/udayvunnam_?style=social)
@@ -76,6 +76,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://pavankjadda.dev/"><img src="https://avatars.githubusercontent.com/u/17564080?v=4?s=100" width="100px;" alt="Pavan Kumar Jadda"/><br /><sub><b>Pavan Kumar Jadda</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=pavankjadda" title="Code">💻</a> <a href="#maintenance-pavankjadda" title="Maintenance">🚧</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/LeonFretter"><img src="https://avatars.githubusercontent.com/u/40633983?v=4?s=100" width="100px;" alt="Leon Fretter"/><br /><sub><b>Leon Fretter</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=LeonFretter" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/lukasmatta"><img src="https://avatars.githubusercontent.com/u/4323927?v=4?s=100" width="100px;" alt="Lukáš Matta"/><br /><sub><b>Lukáš Matta</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=lukasmatta" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/cskiwi"><img src="https://avatars.githubusercontent.com/u/847540?v=4?s=100" width="100px;" alt="Glenn Latomme"/><br /><sub><b>Glenn Latomme</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=cskiwi" title="Code">💻</a></td>
     </tr>
   </tbody>
   <tfoot>
