@@ -84,6 +84,13 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/847540?v=4",
       "profile": "https://github.com/cskiwi",
       "contributions": ["code"]
+    },
+    {
+      "login": "ovidiu-cssrl",
+      "name": "Ovidiu Haureș",
+      "avatar_url": "https://avatars.githubusercontent.com/u/48490266?v=4",
+      "profile": "https://github.com/ovidiu-cssrl",
+      "contributions": ["code"]
     }
   ],
   "contributorsPerLine": 7,
