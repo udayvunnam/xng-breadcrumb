@@ -1,14 +1,19 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { BreadcrumbViewComponent } from './core/breadcrumb-view/breadcrumb-view.component';
+import { NavbarComponent } from './core/navbar/navbar.component';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [RouterModule, BreadcrumbViewComponent, NavbarComponent, CommonModule],
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'material-ui';
+  darkMode = false;
+
+  updateTheme(theme) {
+    this.darkMode = theme === 'dark';
+  }
 }

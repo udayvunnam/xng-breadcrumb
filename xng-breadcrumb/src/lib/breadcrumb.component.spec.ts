@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { XngBreadcrumbComponent } from './xng-breadcrumb.component';
+import { XngBreadcrumbComponent } from './breadcrumb.component';
 
 describe('XngBreadcrumbComponent', () => {
   let component: XngBreadcrumbComponent;

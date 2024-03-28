@@ -1,1 +1,156 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.button-row {
+  margin-top: 16px;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.button-row > *:not(:last-child) {
+  margin-right: 16px;
+}
+
+.label {
+  color: rgba(0, 0, 0, 0.54);
+  margin: 8px 8px 8px 0;
+  width: 110px;
+  text-align: right;
+  margin-right: 8px;
+}
+
+.person.mat-icon {
+  font-size: 36px;
+}
+
+.illustration {
+  max-width: 280px;
+  min-width: 280px;
+}
+
+.illustration-wrapper {
+  text-align: center;
+}
+.add-item {
+  text-align: right;
+  margin: 16px;
+}
+
+@media (max-width: 960px) {
+  .add-item {
+    position: fixed;
+    top: 74px;
+    z-index: 1000;
+    right: 16px;
+    margin: 0;
+  }
+}
+
+/* Flex styles that replace @angular/flex-layout https://github.com/angular/flex-layout/issues/1426#issuecomment-1304100298 */
+
+/* Flex row/col + grid. */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.grid {
+  display: grid;
+}
+
+/* Flex-wrap utils. */
+.flex-wrap {
+  flex-wrap: wrap;
+}
+/* Mostly used with flex-row, when wrapping is desired.  Switch from flex-row to flex-col on mobile.*/
+.flex-col-xs {
+  @media screen and (max-width: 599px) {
+    flex-direction: column;
+  }
+}
+
+.gap-4 {
+  gap: 4px;
+}
+.gap-8 {
+  gap: 8px;
+}
+.gap-10 {
+  gap: 10px;
+}
+.gap-12 {
+  gap: 12px;
+}
+.gap-16 {
+  gap: 16px;
+}
+.gap-32 {
+  gap: 32px;
+}
+
+/* Justify content. */
+.space-between {
+  justify-content: space-between;
+}
+.justify-center {
+  justify-content: center;
+}
+
+/* Align items. (Naming inspiration: https://tailwindcss.com/docs/align-items.) */
+.items-center {
+  align-items: center;
+}
+.items-stretch {
+  align-items: stretch;
+}
+
+/* Flex/grow/shrink properties https://developer.mozilla.org/en-US/docs/Web/CSS/flex. */
+
+/* Same as flex: 1 1 0 (grow, shrink, basis 0). Has similar effect to width: 100%; */
+.flex-1 {
+  flex: 1;
+}
+/* Same as flex: 1 1 auto (grow, shrink, basis auto). For spacer, etc.  */
+.flex-grow {
+  flex-grow: 1;
+}
+
+.hide-xs {
+  @media screen and (max-width: 599px) {
+    display: none;
+  }
+}
+.hide-gt-xs {
+  @media screen and (min-width: 600px) {
+    display: none;
+  }
+}
+.hide-sm {
+  @media screen and (max-width: 959px) {
+    display: none;
+  }
+}
+.hide-gt-sm {
+  @media screen and (min-width: 960px) {
+    display: none;
+  }
+}
+
+.max-w-sm {
+  max-width: 56rem;
+  margin: auto;
+}

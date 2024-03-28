@@ -1,1 +1,6 @@
-<app-nx-welcome></app-nx-welcome> <router-outlet></router-outlet>
+<div [ngClass]="{ 'xng-dark-theme': darkMode }">
+  <app-navbar (themeChanged)="updateTheme($event)"></app-navbar>
+  <app-breadcrumb-view />
+
+  <router-outlet></router-outlet>
+</div>

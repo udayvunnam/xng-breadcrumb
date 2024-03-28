@@ -15,11 +15,8 @@
         "browser": "apps/material-ui/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/material-ui/tsconfig.app.json",
-        "assets": [
-          "apps/material-ui/src/favicon.ico",
-          "apps/material-ui/src/assets"
-        ],
-        "styles": ["apps/material-ui/src/styles.css"],
+        "assets": ["apps/material-ui/src/favicon.ico", "apps/material-ui/src/assets"],
+        "styles": ["apps/material-ui/src/custom-theme.scss", "apps/material-ui/src/styles.css"],
         "scripts": []
       },
       "configurations": {
