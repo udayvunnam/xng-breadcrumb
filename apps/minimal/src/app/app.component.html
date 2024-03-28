@@ -1,2 +1,15 @@
-<h1>Welcome minimal</h1>
+<h1>xng-breadcrumb</h1>
+<h2>Angular version {{ name }}</h2>
+
+<div *ngIf="showBreadcrumbs">
+  <xng-breadcrumb class="auto-generated-true"></xng-breadcrumb>
+
+  <h3>Auto generated: false</h3>
+  <xng-breadcrumb [autoGenerate]="false" class="auto-generated-false"></xng-breadcrumb>
+</div>
+
 <router-outlet></router-outlet>
+
+<button (click)="toggleBreadcrumbVisibility()">Toggle Breadcrumb Visibility</button>
+
+<button (click)="setOrderItemsLabel()">Set Order Items Label</button>
