@@ -9,7 +9,7 @@ cp README.md xng-breadcrumb/README.md
 VERSION=$(npm -s run env | grep npm_package_version | sed 's/npm_package_version=//')
 # Update npm version in libs/xng-breadcrumb directory
 (
-  cd libs/xng-breadcrumb
+  cd xng-breadcrumb
   npm version "$VERSION"
 )
 
