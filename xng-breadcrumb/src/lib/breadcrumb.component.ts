@@ -1,11 +1,4 @@
-import {
-  Component,
-  ContentChild,
-  Input,
-  OnInit,
-  TemplateRef,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, ContentChild, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Observable, map } from 'rxjs';
@@ -90,10 +83,7 @@ export class BreadcrumbComponent implements OnInit {
   setupMessage = 'not set up yet';
   someParameterValue = null;
 
-  constructor(
-    private breadcrumbService: BreadcrumbService,
-    activateRoute: ActivatedRoute
-  ) {
+  constructor(private breadcrumbService: BreadcrumbService, activateRoute: ActivatedRoute) {
     // breadcrumb inside ngIf works only this way
     activateRoute.params.subscribe((params) => {
       this.setupComponent(params['someParam']);

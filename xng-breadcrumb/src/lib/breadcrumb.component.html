@@ -1,14 +1,6 @@
 <nav aria-label="breadcrumb" class="xng-breadcrumb-root" [ngClass]="class">
   <ol class="xng-breadcrumb-list">
-    <ng-container
-      *ngFor="
-        let breadcrumb of breadcrumbs$ | async;
-        last as isLast;
-        first as isFirst;
-        index as index;
-        count as count
-      "
-    >
+    <ng-container *ngFor="let breadcrumb of breadcrumbs$ | async; last as isLast; first as isFirst; index as index; count as count">
       <li class="xng-breadcrumb-item">
         <a
           *ngIf="!isLast"
@@ -17,14 +9,8 @@
           [attr.aria-disabled]="breadcrumb.disable"
           [attr.tabIndex]="breadcrumb.disable ? -1 : 0"
           rel="noopener noreferrer"
-          [routerLink]="
-            breadcrumb.routeInterceptor
-              ? breadcrumb.routeInterceptor(breadcrumb.routeLink, breadcrumb)
-              : breadcrumb.routeLink
-          "
-          [queryParams]="
-            preserveQueryParams ? breadcrumb.queryParams : undefined
-          "
+          [routerLink]="breadcrumb.routeInterceptor ? breadcrumb.routeInterceptor(breadcrumb.routeLink, breadcrumb) : breadcrumb.routeLink"
+          [queryParams]="preserveQueryParams ? breadcrumb.queryParams : undefined"
           [fragment]="preserveFragment ? breadcrumb.fragment : undefined"
           [target]="anchorTarget ? anchorTarget : '_self'"
         >
@@ -41,9 +27,7 @@
               }
             "
           ></ng-container>
-          <ng-container *ngIf="!itemTemplate">{{
-            breadcrumb.label
-          }}</ng-container>
+          <ng-container *ngIf="!itemTemplate">{{ breadcrumb.label }}</ng-container>
         </a>
 
         <label *ngIf="isLast" class="xng-breadcrumb-trail">
@@ -60,9 +44,7 @@
               }
             "
           ></ng-container>
-          <ng-container *ngIf="!itemTemplate">{{
-            breadcrumb.label
-          }}</ng-container>
+          <ng-container *ngIf="!itemTemplate">{{ breadcrumb.label }}</ng-container>
         </label>
       </li>
 

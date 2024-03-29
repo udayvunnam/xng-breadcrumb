@@ -3,7 +3,13 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve"
+    "start": "nx serve",
+    "build": "nx build xng-breadcrumb",
+    "build:app": "nx build material-ui",
+    "affected:build": "nx affected:build",
+    "affected:e2e": "nx affected:e2e",
+    "affected:lint": "nx affected:lint",
+    "serve-docs": "docsify serve docs"
   },
   "private": true,
   "dependencies": {

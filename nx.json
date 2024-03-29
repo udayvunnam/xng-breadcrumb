@@ -72,5 +72,6 @@
       "style": "css"
     }
   },
-  "nxCloudAccessToken": "YThmMjIzN2EtMTcyNC00MDA0LTgwYjEtYjljMDk0NjkyNzM4fHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "YThmMjIzN2EtMTcyNC00MDA0LTgwYjEtYjljMDk0NjkyNzM4fHJlYWQtd3JpdGU=",
+  "defaultProject": "material-ui"
 }
