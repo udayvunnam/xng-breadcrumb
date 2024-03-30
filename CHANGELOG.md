@@ -1,10 +1,5 @@
 # 11.0.0 (2024-03-30)
 
-This was a version bump only, there were no code changes.
-
-# 12.0.0 (2024-03-30)
-
-
 ### 🚀 Features
 
 - add error handling ([fcffb16](https://github.com/udayvunnam/xng-breadcrumb/commit/fcffb16))
@@ -32,7 +27,7 @@ This was a version bump only, there were no code changes.
 - ci setup ([#192](https://github.com/udayvunnam/xng-breadcrumb/pull/192))
 - **docs:** Fix path parameter in the dynamic breadcrumbs example ([#186](https://github.com/udayvunnam/xng-breadcrumb/pull/186))
 
-### ❤️  Thank You
+### ❤️ Thank You
 
 - Glenn Latomme @cskiwi
 - Lukáš Matta @lukasmatta
