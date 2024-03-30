@@ -4,6 +4,7 @@ git checkout main
 git pull origin main
 
 cp README.md xng-breadcrumb/README.md
+cp README.md docs/README.md
 
 # Get npm package version
 VERSION=$(npm -s run env | grep npm_package_version | sed 's/npm_package_version=//')
