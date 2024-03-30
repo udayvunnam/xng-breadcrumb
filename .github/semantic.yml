@@ -1,12 +1,11 @@
 # https://github.com/zeke/semantic-pull-requests#configuration
 titleOnly: true
 scopes:
-  - breadcrumb-demo
-  - demo
-  - app-demo
-  - simple-demo
-  - xng-breadcrumb
   - lib
+  - e2e
+  - docs
+  - demo-app
+
 types:
   - feat
   - fix
