@@ -20,16 +20,16 @@
 
 </div>
 
-## About
+## Why do you need Breadcrumbs?
 
 - In applications with deep navigation hierarchy, it is essential to have breadcrumbs.
 - Breadcrumbs easily allow going back to states higher up in the hierarchy.
 
 ## Documentation
 
-[A step by step guide to integrate xng-breadcrumb into your Angular application](https://udayvunnam.github.io/xng-breadcrumb/#/)
+A step by step guide to integrate xng-breadcrumb into your Angular application - https://udayvunnam.github.io/xng-breadcrumb
 
-## Demo
+## Demo Angular App using xng-breadcrumb
 
 [Demo App](https://xng-breadcrumb.vercel.app/) - A demo app showcasing `xng-breadcrumb` library usage in an Angular app. Navigate through different links to see breadcrumbs behavior.
 
