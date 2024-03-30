@@ -12,7 +12,7 @@ If you wish to contribute to this repository, below are the steps for local deve
 
 Run `pnpm build` to build the library and demo app together. The build artifacts will be stored in the `dist/` directory.
 
-This step is used by CircleCI to build both the library and the demo app.
+This step is used by CI to build both the library and the demo app.
 After a successful build, the demo apps are deployed to Vercel.
 
 ## Publish to npm
@@ -26,7 +26,7 @@ This ingternally uses standard-version to
 - commit bump files and changelog
 - create a new tag with the new version number
 
-CircleCI gets notified on every new tag push and publishes the library if build and tests are success
+GitHub Actions CI gets notified on every new tag push and publishes the library if build and tests are success
 
 ## Tests
 
