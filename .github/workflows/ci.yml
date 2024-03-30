@@ -49,9 +49,15 @@ jobs:
             ~/.cache/Cypress # needed for the Cypress binary
           key: npm-dependencies-${{ hashFiles('pnpm-lock.yaml') }}
 
-      - uses: nrwl/nx-set-shas@v3
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v4
+
+      - run: |
+          echo "BASE: ${{ env.NX_BASE }}"
+          echo "HEAD: ${{ env.NX_HEAD }}"
+
       # This line is needed for nx affected to work when CI is running on a PR
-      - run: git branch --track main origin/main
+      # - run: git branch --track main origin/main
 
       - run: pnpm nx affected -t lint build --parallel=3  # add test
 
