@@ -22,13 +22,6 @@ jobs:
       # The "--stop-agents-after" is optional, but allows idle agents to shut down once the "e2e-ci" targets have been requested
       # - run: npx nx-cloud start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="e2e-ci"
 
-      # # Cache node_modules
-      # - uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 20
-      #     cache: 'npm'
-      # - run: npm ci
-
       # Setup pnpm
       - uses: pnpm/action-setup@v2
         with:
@@ -48,7 +41,7 @@ jobs:
           key: npm-dependencies-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v3
+        uses: nrwl/nx-set-shas@v4
 
       # This line is needed for nx affected to work when CI is running on a PR
       - run: git branch --track main origin/main
