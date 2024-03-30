@@ -1,5 +1,5 @@
 {
-  "name": "game-of-thrones",
+  "name": "got",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
@@ -47,10 +47,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "game-of-thrones:build:production"
+          "buildTarget": "got:build:production"
         },
         "development": {
-          "buildTarget": "game-of-thrones:build:development"
+          "buildTarget": "got:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -58,7 +58,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "game-of-thrones:build"
+        "buildTarget": "got:build"
       }
     },
     "lint": {

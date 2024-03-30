@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'game-of-thrones',
+  displayName: 'got',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../coverage/apps/got',
