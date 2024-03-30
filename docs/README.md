@@ -4,7 +4,7 @@
 
 > A lightweight, declarative and dynamic breadcrumbs solution for Angular 6 and beyond. <https://www.npmjs.com/package/xng-breadcrumb>
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/udayvunnam/xng-breadcrumb/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/udayvunnam/xng-breadcrumb/tree/main)
+[![CI](https://github.com/udayvunnam/xng-breadcrumb/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/udayvunnam/xng-breadcrumb/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb)
 ![bundle size](https://img.shields.io/bundlephobia/minzip/xng-breadcrumb)
 [![license](https://img.shields.io/npm/l/xng-breadcrumb.svg)](https://github.com/udayvunnam/xng-breadcrumb/blob/main/LICENSE)

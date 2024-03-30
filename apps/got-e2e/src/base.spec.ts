@@ -4,7 +4,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto('/');
 });
 
-test('defualt breadcrumbs for books', async ({ page }) => {
+test('default breadcrumbs for books', async ({ page }) => {
   await page.getByText('Books').click();
 
   const breadcrumb = page.locator('xng-breadcrumb');
