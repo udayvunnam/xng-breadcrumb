@@ -51,10 +51,10 @@ jobs:
 
       - uses: nrwl/nx-set-shas@v4
       # This line is needed for nx affected to work when CI is running on a PR
-      - run: git branch --track main origin/main
+      # - run: git branch --track main origin/main
 
       - run: pnpm nx affected -t lint build --parallel=3  # add test
 
       - name: Install playwright browsers
-        run: npx playwright install --with-deps
+        run: npx playwright install-deps chromium # npx playwright install --with-deps
       - run: pnpm nx affected -t e2e-ci --parallel=1
