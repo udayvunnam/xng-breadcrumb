@@ -1,4 +1,4 @@
-name: CI
+name: PR Checks
 
 on:
   # push:
@@ -34,7 +34,7 @@ jobs:
         with:
           version: 8
       - name: Restore cached npm dependencies
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: |
             node_modules
