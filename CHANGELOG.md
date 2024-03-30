@@ -1,3 +1,39 @@
+# 12.0.0 (2024-03-30)
+
+
+### 🚀 Features
+
+- add error handling ([fcffb16](https://github.com/udayvunnam/xng-breadcrumb/commit/fcffb16))
+- angular 17 upgrade along with demo app ([7efa039](https://github.com/udayvunnam/xng-breadcrumb/commit/7efa039))
+- initialze app ([e7b806b](https://github.com/udayvunnam/xng-breadcrumb/commit/e7b806b))
+- got app ([b3d7d82](https://github.com/udayvunnam/xng-breadcrumb/commit/b3d7d82))
+- minimal app ([35f6542](https://github.com/udayvunnam/xng-breadcrumb/commit/35f6542))
+- docs ([05c8a5d](https://github.com/udayvunnam/xng-breadcrumb/commit/05c8a5d))
+- docs ([285577e](https://github.com/udayvunnam/xng-breadcrumb/commit/285577e))
+- github actions ([60d5a63](https://github.com/udayvunnam/xng-breadcrumb/commit/60d5a63))
+- release please ([403f2a6](https://github.com/udayvunnam/xng-breadcrumb/commit/403f2a6))
+- script ([ecd4dd9](https://github.com/udayvunnam/xng-breadcrumb/commit/ecd4dd9))
+- script ([2f9539d](https://github.com/udayvunnam/xng-breadcrumb/commit/2f9539d))
+- script ([9b2e092](https://github.com/udayvunnam/xng-breadcrumb/commit/9b2e092))
+- demo app e2e ([0596ea6](https://github.com/udayvunnam/xng-breadcrumb/commit/0596ea6))
+- minimal app e2e ([9ac54e0](https://github.com/udayvunnam/xng-breadcrumb/commit/9ac54e0))
+- app e2e ([#190](https://github.com/udayvunnam/xng-breadcrumb/pull/190))
+
+### 🩹 Fixes
+
+- empty paths ([#180](https://github.com/udayvunnam/xng-breadcrumb/pull/180))
+- release 10.0.2 ([b8e64bc](https://github.com/udayvunnam/xng-breadcrumb/commit/b8e64bc))
+- ci ([f65fdb1](https://github.com/udayvunnam/xng-breadcrumb/commit/f65fdb1))
+- ci ([671d008](https://github.com/udayvunnam/xng-breadcrumb/commit/671d008))
+- ci setup ([#192](https://github.com/udayvunnam/xng-breadcrumb/pull/192))
+- **docs:** Fix path parameter in the dynamic breadcrumbs example ([#186](https://github.com/udayvunnam/xng-breadcrumb/pull/186))
+
+### ❤️  Thank You
+
+- Glenn Latomme @cskiwi
+- Lukáš Matta @lukasmatta
+- Uday Vunnam @udayvunnam
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
