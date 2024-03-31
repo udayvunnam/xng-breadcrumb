@@ -4,7 +4,7 @@
 
 > A lightweight, declarative and dynamic breadcrumbs solution for Angular 6 and beyond. <https://www.npmjs.com/package/xng-breadcrumb>
 
-[![CI](https://github.com/udayvunnam/xng-breadcrumb/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/udayvunnam/xng-breadcrumb/actions/workflows/ci.yml)
+[![CI](https://github.com/udayvunnam/xng-breadcrumb/actions/workflows/pr-checks.yml/badge.svg)](https://github.com/udayvunnam/xng-breadcrumb/actions/workflows/pr-checks.yml)
 [![npm version](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb)
 ![bundle size](https://img.shields.io/bundlephobia/minzip/xng-breadcrumb)
 [![license](https://img.shields.io/npm/l/xng-breadcrumb.svg)](https://github.com/udayvunnam/xng-breadcrumb/blob/main/LICENSE)
@@ -20,16 +20,16 @@
 
 </div>
 
-## About
+## Why do you need Breadcrumbs?
 
 - In applications with deep navigation hierarchy, it is essential to have breadcrumbs.
 - Breadcrumbs easily allow going back to states higher up in the hierarchy.
 
 ## Documentation
 
-[A step by step guide to integrate xng-breadcrumb into your Angular application](https://udayvunnam.github.io/xng-breadcrumb/#/)
+A step by step guide to integrate xng-breadcrumb into your Angular application - https://udayvunnam.github.io/xng-breadcrumb
 
-## Demo
+## Demo Angular App using xng-breadcrumb
 
 [Demo App](https://xng-breadcrumb.vercel.app/) - A demo app showcasing `xng-breadcrumb` library usage in an Angular app. Navigate through different links to see breadcrumbs behavior.
 
