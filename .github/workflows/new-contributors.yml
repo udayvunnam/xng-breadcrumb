@@ -1,4 +1,4 @@
-name: New Contributors
+name: new contributors
 on: [issues, pull_request]
 jobs:
   run:

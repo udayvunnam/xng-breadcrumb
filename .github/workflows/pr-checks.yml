@@ -1,9 +1,7 @@
-name: CI
+name: pr-checks
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
 
 permissions:
   actions: read
@@ -35,6 +33,9 @@ jobs:
 
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v4
+
+      # This line is needed for nx affected to work when CI is running on a PR
+      - run: git branch --track main origin/main
 
       - name: Install playwright browsers
         run: pnpm playwright install --with-deps chromium
