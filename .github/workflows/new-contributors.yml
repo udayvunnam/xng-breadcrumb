@@ -1,0 +1,33 @@
+name: New Contributors
+on: [issues, pull_request]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: wow-actions/welcome@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          FIRST_ISSUE_REACTIONS: '+1, hooray, rocket, heart'
+          FIRST_ISSUE: |
+            👋 Hey @{{ author }}
+            <br>
+            Thanks for flagging your first issue! We're on it! Please provide all the details you can
+            <br>
+            Got a fix? Send a PR! 🚀 Check out our [local dev guide](https://github.com/udayvunnam/xng-breadcrumb/blob/main/docs/local-development-guide.md)
+
+          FIRST_PR_REACTIONS: '+1, hooray, rocket, heart'
+          FIRST_PR_COMMENT: |
+            👋 Hey @{{ author }}!
+            <br>
+            Thanks for the PR 😄! We'll review it ASAP 👀
+            <br>
+            Kindly ensure you've followed our contributing guidelines.
+
+          FIRST_PR_MERGED: |
+            🎉 @{{ author }}
+            Congrats on merging your first PR! Your changes will be included in the next xng-breadcrumb release
+
+          STAR_MESSAGE: If you like this project, please ⭐star⭐ our repo.
+
+
