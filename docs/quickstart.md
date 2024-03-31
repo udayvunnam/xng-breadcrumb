@@ -10,22 +10,41 @@ pnpm add xng-breadcrumb
 yarn add xng-breadcrumb
 ```
 
-## Import BreadcrumbModule in app.module.ts
+## Standalone Components
+
+**app.component.ts**
+
+```javascript
+import { BreadcrumbComponent, BreadcrumbItemDirective } from 'xng-breadcrumb';
+
+@Component({
+  standalone: true,
+  imports: [RouterModule, BreadcrumbComponent, BreadcrumbItemDirective],
+  templateUrl: './app.component.html',
+  ...
+})
+export class AppComponent {}
+```
+
+**app.component.html**
+
+```html
+<xng-breadcrumb></xng-breadcrumb>
+```
+
+## Angular < 17, BreadcrumbModule
 
 ```javascript
 import {BreadcrumbModule} from 'xng-breadcrumb';
 
 @NgModule({
-  ...
   imports: [BreadcrumbModule],
   ...
 })
 export class AppModule { }
 ```
 
-## Add xng-breadcrumb selector anywhere in the app
-
-Usually it is added in app.component.html
+**Add xng-breadcrumb selector anywhere in the app, Usually it is added in app.component.html**
 
 ```html
 <xng-breadcrumb></xng-breadcrumb>
