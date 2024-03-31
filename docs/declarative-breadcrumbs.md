@@ -1,12 +1,12 @@
 # Declarative breadcrumbs
 
-We can define breadcrumbs as part of routing module configuration for any path. Just add `breadcrumb` property in `data` object during route declaration
+Define breadcrumbs as part of your routing module configuration for any path. Simply add a `breadcrumb` property in the `data` object during route declaration.
 
 `breadcrumb` can be defined as a **string** OR **object** OR **function**.
 
-## defining breadcrumb as a string
+## defining Breadcrumb as a String
 
-define **breadcrumb as a string** if you are know the breadcrumb text value for a route upfront
+If you have a static breadcrumb text for a route, define it as a **string**.
 
 ```javascript
   {
@@ -21,11 +21,11 @@ define **breadcrumb as a string** if you are know the breadcrumb text value for 
   }
 ```
 
-## defining breadcrumb as an object
+## Defining Breadcrumb as an Object
 
-- Use **breadcrumb as an object** if you are providing additional properties like `alias`, `skip`, `disable`.
-- If you define breadcrumb as an object, **label** property denotes breadcrumb text.
-- Use `info` property to pass arbitrary data associated with a route which you can use in breadcrumb selector. [See usage](add-icon-with-label.md)
+- When providing additional properties like alias, skip, or disable, define breadcrumb as an **object**.
+- For object mode, the `label` property denotes the breadcrumb text.
+- You can also use the `info` property to pass arbitrary data associated with a route, which can be utilized in the breadcrumb selector. [See usage](add-icon-with-label.md)
 
 ```javascript
   {
@@ -45,10 +45,10 @@ define **breadcrumb as a string** if you are know the breadcrumb text value for 
   }
 ```
 
-## defining breadcrumb as a function
+## Defining Breadcrumb as a Function
 
-Breadcrumb as a function gives you more power :)
-Use **breadcrumb as a function** if you want to alter the auto-generated label in more granular way.
+Breadcrumb as a Function gives you more power :)
+Use **breadcrumb as a function** if you want more flexibility to alter the auto-generated label
 
 ```javascript
 {
