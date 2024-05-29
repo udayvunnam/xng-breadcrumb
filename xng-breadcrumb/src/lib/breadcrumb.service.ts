@@ -92,7 +92,7 @@ export class BreadcrumbService {
 
   private prepareBreadcrumbItem(activatedRouteSnapshot: ActivatedRouteSnapshot, routeLinkPrefix: string): BreadcrumbDefinition {
     const { path, breadcrumb } = this.parseRouteData(activatedRouteSnapshot.routeConfig);
-    const resolvedSegment = this.resolvePathSegment(path, activatedRouteSnapshot);
+    const resolvedSegment = this.resolvePathSegment(path ?? '', activatedRouteSnapshot);
     const routeLink = `${routeLinkPrefix}${resolvedSegment}`;
     const storeItem = this.getFromStore(breadcrumb.alias, routeLink);
 
@@ -115,7 +115,7 @@ export class BreadcrumbService {
   }
 
   private prepareBreadcrumbList(activatedRouteSnapshot: ActivatedRouteSnapshot, routeLinkPrefix: string): Breadcrumb[] | void {
-    if (activatedRouteSnapshot.routeConfig?.path) {
+    if (activatedRouteSnapshot.routeConfig?.path || activatedRouteSnapshot.routeConfig?.data?.['breadcrumb']?.force) {
       const breadcrumbItem = this.prepareBreadcrumbItem(activatedRouteSnapshot, routeLinkPrefix);
       this.currentBreadcrumbs.push(breadcrumbItem);
 
@@ -205,7 +205,7 @@ export class BreadcrumbService {
 
   /**
    * get empty children of a module or Component. Empty child is the one with path: ''
-   * When parent and it's children (that has empty route path) define data merge them both with child taking precedence
+   * When parent and its children (that has empty route path) define data merge them both with child taking precedence (if child has force set to true do not merge)
    */
   private mergeWithBaseChildData(
     routeConfig: any, // TODO: add proper type
@@ -225,7 +225,7 @@ export class BreadcrumbService {
     }
 
     const childConfig = baseChild?.data?.breadcrumb;
-    return childConfig
+    return childConfig && !childConfig.force
       ? this.mergeWithBaseChildData(baseChild, {
           ...this.extractObject(config),
           ...this.extractObject(childConfig),
