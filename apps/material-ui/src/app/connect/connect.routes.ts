@@ -6,9 +6,23 @@ export const CONNECT_ROUTES: Route[] = [
   {
     path: '',
     component: ConnectComponent,
-  },
-  {
-    path: 'connect-success',
-    component: ConnectSuccessComponent,
+    data: {
+      breadcrumb: {
+        label: 'connect (child)',
+        force: true,
+      },
+    },
+    children: [
+      {
+        matcher: (url) => (url.length === 1 && url[0].path === 'connect-success' ? { consumed: url } : null),
+        component: ConnectSuccessComponent,
+        data: {
+          breadcrumb: {
+            label: 'Connect Success',
+            force: true,
+          },
+        },
+      },
+    ],
   },
 ];

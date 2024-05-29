@@ -88,3 +88,18 @@ test('not preserve query params if disabled', async ({ basePage }) => {
 
   await expect(basePage.advancedBreadcrumbs1.getByRole('link', { name: 'Enabler' })).toHaveAttribute('href', '/mentor#testFragment');
 });
+
+test('show breadcrumb also for empty path child when force is set to true', async ({ basePage }) => {
+  await basePage.navigateToConnect();
+
+  await expect(basePage.defaultBreadcrumbs).toHaveText('app/connect/connect (child)');
+  await expect(basePage.customBreadcrumbs).toHaveText('App ~ Connect ~ Connect (Child)');
+});
+
+test('show breadcrumb for route that is using matcher when force is set to true', async ({ basePage }) => {
+  await basePage.navigateToConnect();
+  await basePage.clickConnectButton();
+
+  await expect(basePage.defaultBreadcrumbs).toHaveText('app/connect/connect (child)/Connect Success');
+  await expect(basePage.customBreadcrumbs).toHaveText('App ~ Connect ~ Connect (Child) ~ Connect Success');
+});

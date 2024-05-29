@@ -34,4 +34,12 @@ export class BasePage {
   async editMember() {
     await this.page.getByRole('button', { name: 'Edit' }).click();
   }
+
+  async navigateToConnect() {
+    await this.page.getByRole('link', { name: 'Connect' }).click();
+  }
+
+  async clickConnectButton() {
+    this.page.getByRole('button', { name: 'Connect' }).click();
+  }
 }

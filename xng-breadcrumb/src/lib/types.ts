@@ -58,6 +58,10 @@ export interface BreadcrumbObject {
    * Consumers can change the breadcrumb routing dynamically with this approach
    */
   routeInterceptor?: (routeLink: string, breadcrumb: Breadcrumb) => string;
+  /**
+   * force show the breadcrumb item even if path is empty
+   */
+  force?: boolean;
 }
 
 // resolved label for a route can further be enhanced based on a function
