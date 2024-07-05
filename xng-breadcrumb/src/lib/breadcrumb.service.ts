@@ -129,9 +129,21 @@ export class BreadcrumbService {
     this.setQueryParamsForActiveBreadcrumb(lastCrumb, activatedRouteSnapshot);
 
     // remove breadcrumb items that needs to be hidden
-    const breadcrumbsToShow = this.currentBreadcrumbs.filter((item) => !item.skip);
+    const breadcrumbsToShow = this.currentBreadcrumbs.filter((item) => {
+      if (item.skipSelf) {
+        return !this.shouldSkipSelf(item.routeLink ?? '');
+      }
+
+      return !item.skip;
+    });
 
     this.breadcrumbs.next(breadcrumbsToShow);
+  }
+
+  private shouldSkipSelf(path: string): boolean {
+    const finalUrl = this.router.getCurrentNavigation()?.finalUrl?.toString() ?? '';
+    const [withoutQueryParams] = finalUrl.split('?');
+    return withoutQueryParams.endsWith(path) ?? false;
   }
 
   private getFromStore(alias: string, routeLink: string): BreadcrumbDefinition {

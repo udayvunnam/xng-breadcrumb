@@ -45,6 +45,10 @@ export interface BreadcrumbObject {
    */
   skip?: boolean;
   /**
+   * hide a breadcrumb of the current route
+   */
+  skipSelf?: boolean;
+  /**
    * disable a certain breadcrumb in the list. Not clickable.
    * It may be needed when the routing has the path, but navigating to that path is of no use
    */
