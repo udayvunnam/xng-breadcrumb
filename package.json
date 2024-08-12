@@ -9,8 +9,7 @@
     "affected:build": "nx affected:build",
     "affected:e2e": "nx affected:e2e",
     "affected:lint": "nx affected:lint",
-    "serve-docs": "docsify serve docs",
-    "publish": "npm publish ./dist/xng-breadcrumb"
+    "serve-docs": "docsify serve docs"
   },
   "private": true,
   "dependencies": {
