@@ -3,8 +3,8 @@
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "xng-breadcrumb/src",
   "prefix": "xng",
-  "tags": [],
   "projectType": "library",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:package",

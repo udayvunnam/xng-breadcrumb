@@ -24,9 +24,9 @@
     "ngx"
   ],
   "peerDependencies": {
-    "@angular/common": "^17.2.0 || ^18.1.0",
-    "@angular/core": "^17.2.0 || ^18.1.0",
-    "@angular/router": "^17.2.0 || ^18.1.0",
+    "@angular/common": "^18.1.4",
+    "@angular/core": "^18.1.4",
+    "@angular/router": "^18.1.4",
     "rxjs": "*"
   },
   "dependencies": {},
