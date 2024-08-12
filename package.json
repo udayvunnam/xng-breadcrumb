@@ -1,6 +1,6 @@
 {
   "name": "xng-breadcrumb-workspace",
-  "version": "11.0.0",
+  "version": "12.0.0",
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
