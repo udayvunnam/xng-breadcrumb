@@ -17,3 +17,5 @@ VERSION=$(npm -s run env | grep npm_package_version | sed 's/npm_package_version
 git add .
 git commit -m "$VERSION"
 git push origin main
+
+npx release-please release-pr --token=$RELEASE_PLEASE_TOKEN --repo-url=https://github.com/udayvunnam/xng-breadcrumb
