@@ -1,12 +1,9 @@
 {
-  "name": "xng-breadcrumb",
-  "version": "19.0.0",
+  "name": "@aliaksanderkazlou/xng-breadcrumb",
+  "version": "19.1.2",
   "license": "MIT",
-  "description": "A declarative and reactive breadcrumb approach for Angular 6 and beyond https://www.npmjs.com/package/xng-breadcrumb",
-  "author": {
-    "name": "Uday Vunnam",
-    "email": "uday4vunnam@gmail.com"
-  },
+  "description": "A FORK OF declarative and reactive breadcrumb approach for Angular 19 and beyond https://www.npmjs.com/package/xng-breadcrumb",
+  "author": "aliaksanderkazlou",
   "homepage": "https://github.com/udayvunnam/xng-breadcrumb",
   "repository": {
     "type": "git",
@@ -24,9 +21,9 @@
     "ngx"
   ],
   "peerDependencies": {
-    "@angular/common": "^18.1.4",
-    "@angular/core": "^18.1.4",
-    "@angular/router": "^18.1.4",
+    "@angular/common": "^19.1.2",
+    "@angular/core": "^19.1.2",
+    "@angular/router": "^19.1.2",
     "rxjs": "*"
   },
   "dependencies": {},
