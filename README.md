@@ -13,7 +13,7 @@
 ![Twitter follow](https://img.shields.io/twitter/follow/udayvunnam_?style=social)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 </div>
@@ -77,6 +77,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/cskiwi"><img src="https://avatars.githubusercontent.com/u/847540?v=4?s=100" width="100px;" alt="Glenn Latomme"/><br /><sub><b>Glenn Latomme</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=cskiwi" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ovidiu-cssrl"><img src="https://avatars.githubusercontent.com/u/48490266?v=4?s=100" width="100px;" alt="Ovidiu Haureș"/><br /><sub><b>Ovidiu Haureș</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=ovidiu-cssrl" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/KristofGilis"><img src="https://avatars.githubusercontent.com/u/2454275?v=4?s=100" width="100px;" alt="Kristof Gilis"/><br /><sub><b>Kristof Gilis</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=KristofGilis" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/aliaksanderkazlou"><img src="https://avatars.githubusercontent.com/u/11739292?v=4?s=100" width="100px;" alt="Aleksander"/><br /><sub><b>Aleksander</b></sub></a><br /><a href="https://github.com/udayvunnam/xng-breadcrumb/commits?author=aliaksanderkazlou" title="Code">💻</a></td>
     </tr>
   </tbody>
   <tfoot>
