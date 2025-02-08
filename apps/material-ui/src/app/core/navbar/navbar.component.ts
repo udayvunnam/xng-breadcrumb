@@ -8,15 +8,14 @@ import { MatAnchor, MatIconAnchor, MatIconButton } from '@angular/material/butto
 import { MatToolbar } from '@angular/material/toolbar';
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [CommonModule, RouterModule, MatToolbar, MatAnchor, RouterLink, MatIconButton, MatTooltip, NgIf, MatIcon, MatIconAnchor],
-  templateUrl: './navbar.component.html',
-  styles: `
+    selector: 'app-navbar',
+    imports: [CommonModule, RouterModule, MatToolbar, MatAnchor, RouterLink, MatIconButton, MatTooltip, NgIf, MatIcon, MatIconAnchor],
+    templateUrl: './navbar.component.html',
+    styles: `
     .home {
       margin-right: 32px;
     }
-  `,
+  `
 })
 export class NavbarComponent {
   theme = 'light';

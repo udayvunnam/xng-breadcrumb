@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-dashboard',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './dashboard.component.html',
-  styles: `
+    selector: 'app-dashboard',
+    imports: [CommonModule],
+    templateUrl: './dashboard.component.html',
+    styles: `
   blockquote {
   border-left: 5px solid #ccc;
   margin: 1.5em 10px;
@@ -46,6 +45,6 @@ links > *:hover {
   grid-template-columns: 1fr 1fr;
   gap: 32px;
 }
-  `,
+  `
 })
 export class DashboardComponent {}

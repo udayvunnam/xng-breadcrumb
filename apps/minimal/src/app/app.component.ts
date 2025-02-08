@@ -4,11 +4,10 @@ import { Router, RouterModule } from '@angular/router';
 import { BreadcrumbComponent, BreadcrumbItemDirective, BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
-  standalone: true,
-  imports: [RouterModule, BreadcrumbComponent, BreadcrumbItemDirective, CommonModule],
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styles: ``,
+    imports: [RouterModule, BreadcrumbComponent, BreadcrumbItemDirective, CommonModule],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styles: ``
 })
 export class AppComponent {
   showBreadcrumbs = false;

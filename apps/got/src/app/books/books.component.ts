@@ -5,10 +5,9 @@ import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 import { RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-books',
-  templateUrl: './books.component.html',
-  standalone: true,
-  imports: [RouterOutlet, NgIf, NgFor, RouterLink, AsyncPipe],
+    selector: 'app-books',
+    templateUrl: './books.component.html',
+    imports: [RouterOutlet, NgIf, NgFor, RouterLink, AsyncPipe]
 })
 export class BooksComponent implements OnInit {
   books$: Observable<{ url: string; numberOfPages: string; name: string }[]>;

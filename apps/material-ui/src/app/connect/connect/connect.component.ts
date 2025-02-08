@@ -4,11 +4,10 @@ import { RouterLink } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 
 @Component({
-  selector: 'app-connect',
-  standalone: true,
-  imports: [CommonModule, MatButton, RouterLink],
-  templateUrl: './connect.component.html',
-  styles: `
+    selector: 'app-connect',
+    imports: [CommonModule, MatButton, RouterLink],
+    templateUrl: './connect.component.html',
+    styles: `
     .connect {
       display: flex;
       justify-content: center;
@@ -17,6 +16,6 @@ import { MatButton } from '@angular/material/button';
     .connect button {
       width: 200px;
     }
-`,
+`
 })
 export class ConnectComponent {}

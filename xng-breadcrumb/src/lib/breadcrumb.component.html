@@ -30,7 +30,7 @@
           <ng-container *ngIf="!itemTemplate">{{ breadcrumb.label }}</ng-container>
         </a>
 
-        <label *ngIf="isLast" class="xng-breadcrumb-trail">
+        <span *ngIf="isLast" class="xng-breadcrumb-trail">
           <ng-container
             *ngTemplateOutlet="
               itemTemplate;
@@ -45,7 +45,7 @@
             "
           ></ng-container>
           <ng-container *ngIf="!itemTemplate">{{ breadcrumb.label }}</ng-container>
-        </label>
+        </span>
       </li>
 
       <li *ngIf="!isLast" class="xng-breadcrumb-separator" aria-hidden="true">

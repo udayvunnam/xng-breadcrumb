@@ -5,10 +5,9 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-book',
-  templateUrl: './book.component.html',
-  standalone: true,
-  imports: [NgIf, NgFor, RouterLink, AsyncPipe],
+    selector: 'app-book',
+    templateUrl: './book.component.html',
+    imports: [NgIf, NgFor, RouterLink, AsyncPipe]
 })
 export class BookComponent implements OnInit {
   book$: Observable<{ characters: string[] }>;
