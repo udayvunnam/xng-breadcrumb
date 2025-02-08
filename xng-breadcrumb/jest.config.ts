@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'xng-breadcrumb',
   preset: '../jest.preset.js',
