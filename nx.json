@@ -50,6 +50,7 @@
     {
       "plugin": "@nx/playwright/plugin",
       "options": {
+        "ciTargetName": "e2e-ci",
         "targetName": "e2e"
       }
     },
@@ -84,6 +85,6 @@
   },
   "nxCloudAccessToken": "YThmMjIzN2EtMTcyNC00MDA0LTgwYjEtYjljMDk0NjkyNzM4fHJlYWQtd3JpdGU=",
   "defaultProject": "material-ui",
-  "useInferencePlugins": false,
+  "useInferencePlugins": true,
   "useLegacyCache": true
 }
