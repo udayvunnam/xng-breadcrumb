@@ -83,8 +83,8 @@
       }
     }
   },
+  "nxCloudAccessToken": "YWYwMGExNDAtZTA0Yy00MmUzLTlkNWItZGMyM2IyMzNkYWMzfHJlYWQtd3JpdGU=",
   "defaultProject": "material-ui",
   "useInferencePlugins": true,
-  "useLegacyCache": false,
-  "nxCloudId": "65f7cb50655bc43eff78a738"
+  "useLegacyCache": false
 }
