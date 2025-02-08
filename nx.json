@@ -41,6 +41,9 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
+    },
+    "e2e-ci--**/*": {
+      "dependsOn": ["^build"]
     }
   },
   "plugins": [
@@ -81,5 +84,6 @@
   },
   "nxCloudAccessToken": "YThmMjIzN2EtMTcyNC00MDA0LTgwYjEtYjljMDk0NjkyNzM4fHJlYWQtd3JpdGU=",
   "defaultProject": "material-ui",
-  "useInferencePlugins": false
+  "useInferencePlugins": false,
+  "useLegacyCache": true
 }

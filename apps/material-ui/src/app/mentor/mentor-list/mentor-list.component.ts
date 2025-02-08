@@ -11,9 +11,9 @@ import { DataService } from '../../core/data/data.service';
 import { Member } from '../../core/types/member';
 
 @Component({
-  selector: 'app-mentor-list',
-  templateUrl: './mentor-list.component.html',
-  styles: `
+    selector: 'app-mentor-list',
+    templateUrl: './mentor-list.component.html',
+    styles: `
   .person.mat-icon {
     font-size: 36px;
   }
@@ -22,21 +22,20 @@ import { Member } from '../../core/types/member';
     cursor: pointer;
   }
   `,
-  standalone: true,
-  imports: [
-    MatFabAnchor,
-    RouterLink,
-    MatIcon,
-    MatTooltip,
-    NgFor,
-    MatCard,
-    MatCardHeader,
-    MatCardTitle,
-    MatCardSubtitle,
-    MatCardContent,
-    MatChipSet,
-    MatChipRow,
-  ],
+    imports: [
+        MatFabAnchor,
+        RouterLink,
+        MatIcon,
+        MatTooltip,
+        NgFor,
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardSubtitle,
+        MatCardContent,
+        MatChipSet,
+        MatChipRow,
+    ]
 })
 export class MentorListComponent implements OnInit {
   mentors: Member[];

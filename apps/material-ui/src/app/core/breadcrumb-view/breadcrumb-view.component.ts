@@ -5,10 +5,9 @@ import { RouterOutlet } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-breadcrumb-view',
-  standalone: true,
-  styleUrls: ['./breadcrumb-view.component.css'],
-  templateUrl: './breadcrumb-view.component.html',
-  imports: [CommonModule, BreadcrumbComponent, BreadcrumbItemDirective, MatIcon, NgIf, RouterOutlet, TitleCasePipe],
+    selector: 'app-breadcrumb-view',
+    styleUrls: ['./breadcrumb-view.component.css'],
+    templateUrl: './breadcrumb-view.component.html',
+    imports: [CommonModule, BreadcrumbComponent, BreadcrumbItemDirective, MatIcon, NgIf, RouterOutlet, TitleCasePipe]
 })
 export class BreadcrumbViewComponent {}

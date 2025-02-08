@@ -7,12 +7,11 @@ import { BreadcrumbService } from './breadcrumb.service';
 import { BreadcrumbDefinition } from './types';
 
 @Component({
-  selector: 'xng-breadcrumb',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './breadcrumb.component.html',
-  styleUrl: './breadcrumb.component.css',
-  encapsulation: ViewEncapsulation.None,
+    selector: 'xng-breadcrumb',
+    imports: [CommonModule, RouterModule],
+    templateUrl: './breadcrumb.component.html',
+    styleUrl: './breadcrumb.component.css',
+    encapsulation: ViewEncapsulation.None
 })
 export class BreadcrumbComponent implements OnInit {
   breadcrumbs$: Observable<BreadcrumbDefinition[]>;

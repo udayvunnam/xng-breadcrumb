@@ -11,25 +11,24 @@ import { DataService } from '../../core/data/data.service';
 import { Member } from '../../core/types/member';
 
 @Component({
-  selector: 'app-mentee-details',
-  templateUrl: './mentee-details.component.html',
-  standalone: true,
-  imports: [
-    NgIf,
-    MatCard,
-    MatCardHeader,
-    MatCardAvatar,
-    MatIcon,
-    MatTooltip,
-    MatCardTitle,
-    MatCardSubtitle,
-    MatCardContent,
-    MatChipSet,
-    NgFor,
-    MatChipRow,
-    MatCardActions,
-    MatButton,
-  ],
+    selector: 'app-mentee-details',
+    templateUrl: './mentee-details.component.html',
+    imports: [
+        NgIf,
+        MatCard,
+        MatCardHeader,
+        MatCardAvatar,
+        MatIcon,
+        MatTooltip,
+        MatCardTitle,
+        MatCardSubtitle,
+        MatCardContent,
+        MatChipSet,
+        NgFor,
+        MatChipRow,
+        MatCardActions,
+        MatButton,
+    ]
 })
 export class MenteeDetailsComponent implements OnInit {
   mentee: Member;

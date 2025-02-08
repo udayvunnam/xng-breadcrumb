@@ -10,27 +10,26 @@ import { DataService } from '../../core/data/data.service';
 import { Member } from '../../core/types/member';
 
 @Component({
-  selector: 'app-mentee-list',
-  templateUrl: './mentee-list.component.html',
-  styles: `.mat-card {
+    selector: 'app-mentee-list',
+    templateUrl: './mentee-list.component.html',
+    styles: `.mat-card {
     cursor: pointer;
   }`,
-  standalone: true,
-  imports: [
-    MatFabAnchor,
-    RouterLink,
-    MatIcon,
-    MatTooltip,
-    NgFor,
-    MatCard,
-    MatCardHeader,
-    MatCardAvatar,
-    MatCardTitle,
-    MatCardSubtitle,
-    MatCardContent,
-    MatChipSet,
-    MatChipRow,
-  ],
+    imports: [
+        MatFabAnchor,
+        RouterLink,
+        MatIcon,
+        MatTooltip,
+        NgFor,
+        MatCard,
+        MatCardHeader,
+        MatCardAvatar,
+        MatCardTitle,
+        MatCardSubtitle,
+        MatCardContent,
+        MatChipSet,
+        MatChipRow,
+    ]
 })
 export class MenteeListComponent implements OnInit {
   mentees: Member[];

@@ -11,25 +11,24 @@ import { DataService } from '../../core/data/data.service';
 import { Member } from '../../core/types/member';
 
 @Component({
-  selector: 'app-mentor-details',
-  templateUrl: './mentor-details.component.html',
-  standalone: true,
-  imports: [
-    NgIf,
-    MatCard,
-    MatCardHeader,
-    MatCardAvatar,
-    MatIcon,
-    MatTooltip,
-    MatCardTitle,
-    MatCardSubtitle,
-    MatCardContent,
-    MatChipSet,
-    NgFor,
-    MatChipRow,
-    MatCardActions,
-    MatButton,
-  ],
+    selector: 'app-mentor-details',
+    templateUrl: './mentor-details.component.html',
+    imports: [
+        NgIf,
+        MatCard,
+        MatCardHeader,
+        MatCardAvatar,
+        MatIcon,
+        MatTooltip,
+        MatCardTitle,
+        MatCardSubtitle,
+        MatCardContent,
+        MatChipSet,
+        NgFor,
+        MatChipRow,
+        MatCardActions,
+        MatButton,
+    ]
 })
 export class MentorDetailsComponent implements OnInit {
   mentor: Member;
