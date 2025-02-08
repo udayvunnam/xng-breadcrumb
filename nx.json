@@ -86,5 +86,5 @@
   "nxCloudAccessToken": "YThmMjIzN2EtMTcyNC00MDA0LTgwYjEtYjljMDk0NjkyNzM4fHJlYWQtd3JpdGU=",
   "defaultProject": "material-ui",
   "useInferencePlugins": true,
-  "useLegacyCache": true
+  "useLegacyCache": false
 }
