@@ -15,11 +15,7 @@
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
   "targetDefaults": {
-    "@angular-devkit/build-angular:application": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    },
+    "@angular-devkit/build-angular:application": { "cache": true, "dependsOn": ["^build"], "inputs": ["production", "^production"] },
     "@nx/eslint:lint": {
       "cache": true,
       "inputs": ["default", "{workspaceRoot}/.eslintrc.json", "{workspaceRoot}/.eslintignore", "{workspaceRoot}/eslint.config.js"]
@@ -27,59 +23,22 @@
     "@nx/jest:jest": {
       "cache": true,
       "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
-      "options": {
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
-      }
+      "options": { "passWithNoTests": true },
+      "configurations": { "ci": { "ci": true, "codeCoverage": true } }
     },
-    "@nx/angular:package": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    }
+    "@nx/angular:package": { "cache": true, "dependsOn": ["^build"], "inputs": ["production", "^production"] }
   },
   "plugins": [
-    {
-      "plugin": "@nx/playwright/plugin",
-      "options": {
-        "targetName": "e2e"
-      }
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    }
+    { "plugin": "@nx/playwright/plugin", "options": { "targetName": "e2e" } },
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } }
   ],
   "generators": {
-    "@nx/angular:application": {
-      "e2eTestRunner": "playwright",
-      "linter": "eslint",
-      "style": "css",
-      "unitTestRunner": "jest"
-    },
-    "@nx/angular:library": {
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nx/angular:component": {
-      "style": "css"
-    }
+    "@nx/angular:application": { "e2eTestRunner": "playwright", "linter": "eslint", "style": "css", "unitTestRunner": "jest" },
+    "@nx/angular:library": { "linter": "eslint", "unitTestRunner": "jest" },
+    "@nx/angular:component": { "style": "css" }
   },
-  "release": {
-    "changelog": {
-      "workspaceChangelog": {
-        "createRelease": "github"
-      }
-    }
-  },
-  "nxCloudAccessToken": "YThmMjIzN2EtMTcyNC00MDA0LTgwYjEtYjljMDk0NjkyNzM4fHJlYWQtd3JpdGU=",
+  "release": { "changelog": { "workspaceChangelog": { "createRelease": "github" } } },
+  "nxCloudAccessToken": "NDdlNmUxYWItNzI3OC00NjI2LWEyOTAtYjdhYWMwYjYzMjM5fHJlYWQtd3JpdGU=",
   "defaultProject": "material-ui",
   "useInferencePlugins": false
 }
