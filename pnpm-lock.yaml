@@ -39,8 +39,8 @@ importers:
         specifier: 20.0.7
         version: 20.0.7(@angular/common@20.0.7(@angular/core@20.0.7(@angular/compiler@20.0.7)(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@20.0.7(@angular/compiler@20.0.7)(rxjs@7.8.2)(zone.js@0.15.0))(@angular/platform-browser@20.0.7(@angular/animations@20.0.7(@angular/common@20.0.7(@angular/core@20.0.7(@angular/compiler@20.0.7)(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@20.0.7(@angular/compiler@20.0.7)(rxjs@7.8.2)(zone.js@0.15.0)))(@angular/common@20.0.7(@angular/core@20.0.7(@angular/compiler@20.0.7)(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@20.0.7(@angular/compiler@20.0.7)(rxjs@7.8.2)(zone.js@0.15.0)))(rxjs@7.8.2)
       '@ngneat/falso':
-        specifier: ^7.4.0
-        version: 7.4.0
+        specifier: ^8.0.1
+        version: 8.0.1
       angular-in-memory-web-api:
         specifier: ^0.17.0
         version: 0.17.0(@angular/common@20.0.7(@angular/core@20.0.7(@angular/compiler@20.0.7)(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@20.0.7(@angular/compiler@20.0.7)(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
@@ -2267,8 +2267,8 @@ packages:
   '@napi-rs/wasm-runtime@0.2.4':
     resolution: {integrity: sha512-9zESzOO5aDByvhIAsOy9TbpZ0Ur2AJbUI7UT73kcUTS2mxAMHOBaa1st/jAymNoCtvrit99kkzT1FZuXVcgfIQ==}
 
-  '@ngneat/falso@7.4.0':
-    resolution: {integrity: sha512-7MzPP0YGNHDrohf/epmz6SVIjHGhKyHbh0bm+iZ1z/7KVW4xZi9Dx6Tl9NMPy6a4lWh/t3WXSsCGkgkuJ/eroQ==}
+  '@ngneat/falso@8.0.1':
+    resolution: {integrity: sha512-C6NHC+4LaxIwJ4ARO/03ckBjt7eZB45Enj2EN5FtDYezZ6tDfvH1rIQ3P4hwWZlQpcMTRPKwBEXi3NCTyUV/zw==}
 
   '@ngtools/webpack@20.0.6':
     resolution: {integrity: sha512-onb0wIEIRrsD15GiVnEHqPMjwgh3rPDNt5oKrXfhLpdJOAewo3JsLzcZi+2vRZHVlIxDQWZuReNVmfiJpOYlqg==}
@@ -10651,7 +10651,7 @@ snapshots:
       '@emnapi/runtime': 1.4.4
       '@tybys/wasm-util': 0.9.0
 
-  '@ngneat/falso@7.4.0':
+  '@ngneat/falso@8.0.1':
     dependencies:
       seedrandom: 3.0.5
       uuid: 8.3.2
