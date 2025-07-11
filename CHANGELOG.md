@@ -37,6 +37,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [14.1.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v14.0.0...v14.1.0) (2025-07-11)
+
+
+### Features
+
+* peer dep remove ([#222](https://github.com/udayvunnam/xng-breadcrumb/issues/222)) ([ef5824f](https://github.com/udayvunnam/xng-breadcrumb/commit/ef5824ffcd2d9f48c8858852cd6d2bd0a1f04c22))
+
+
+### Bug Fixes
+
+* release fix ([f499b63](https://github.com/udayvunnam/xng-breadcrumb/commit/f499b635b0939a915c80cca2c65e9a0fe42f4d76))
+* remove peer deps ([2ca2967](https://github.com/udayvunnam/xng-breadcrumb/commit/2ca2967979fc2047278b7a3a2db67c15c4b73952))
+* remove peer deps ([#220](https://github.com/udayvunnam/xng-breadcrumb/issues/220)) ([8ae6fa6](https://github.com/udayvunnam/xng-breadcrumb/commit/8ae6fa676f2888d6ff88d5e55ed6573f71a1bab5))
+
 ## [14.0.0](https://github.com/udayvunnam/xng-breadcrumb/compare/v13.0.0...v14.0.0) (2025-07-11)
 
 
