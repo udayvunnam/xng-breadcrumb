@@ -1,4 +1,4 @@
-## Contributing
+# Contributing
 
 [fork]: /fork
 [pr]: /compare
@@ -94,8 +94,5 @@ The following is the list of supported scopes:
 
 ## add yourself to contributors
 
-**Using CLI**
-https://allcontributors.org/docs/en/cli/usage#all-contributors-add
-
-**Using GitHub comment with Bot**
-https://allcontributors.org/docs/en/bot/usage#all-contributors-add
+- [Using CLI](https://allcontributors.org/docs/en/cli/usage#all-contributors-add)
+- [Using GitHub comment with Bot](https://allcontributors.org/docs/en/bot/usage#all-contributors-add)

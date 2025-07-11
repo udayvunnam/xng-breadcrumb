@@ -18,13 +18,13 @@ test('persist queryparams and fragment | skip breadcrumbs for specific route', a
   await basePage.navigateToMentors();
   await expect(page).toHaveURL('/mentor?viaNav=true&type=list#testFragment');
 
-  await expect(basePage.defaultBreadcrumbs).toHaveText('app/Enabler');
+  await expect(basePage.defaultBreadcrumbs).toHaveText('app / Enabler');
 
   await basePage.navigateToMentorDetails();
   expect(page.url()).toMatch('?type=details');
 
   const title = (await page.locator('app-mentor-details mat-card-title').textContent()) as string;
-  await expect(basePage.defaultBreadcrumbs).toHaveText(`app/Enabler/${title}`);
+  await expect(basePage.defaultBreadcrumbs).toHaveText(`app / Enabler / ${title}`);
   // breadcrumb navigation should include queryparams and fragment
   await expect(basePage.defaultBreadcrumbs.getByRole('link', { name: 'Enabler' })).toHaveAttribute(
     'href',
@@ -35,13 +35,13 @@ test('persist queryparams and fragment | skip breadcrumbs for specific route', a
   expect(page.url()).toMatch('?type=edit');
 
   // edit shouldn't be shown on breadcrumbs since its skipped
-  await expect(basePage.defaultBreadcrumbs).toHaveText(`app/Enabler/${title}`);
+  await expect(basePage.defaultBreadcrumbs).toHaveText(`app / Enabler / ${title}`);
 });
 
 test('child breadcrumb data precedence, customized breadcrumb with *xngBreadcrumbItem directive', async ({ basePage }) => {
   await basePage.navigateToMentees();
 
-  await expect(basePage.defaultBreadcrumbs).toHaveText('app/student'); // defined on child module
+  await expect(basePage.defaultBreadcrumbs).toHaveText('app / student'); // defined on child module
   await expect(basePage.customBreadcrumbs).toHaveText('App ~ Student'); // custom breadcrumb with *xngBreadcrumbItem directive
   await basePage.navigateToMenteeDetails();
   await expect(basePage.defaultBreadcrumbs.getByRole('link', { name: 'student' })).toBeDisabled(); // defined on grand child component
@@ -53,7 +53,7 @@ test('invoke breadcrumb as a function with resolved param', async ({ page, baseP
 
   const path = page.url();
   const resolvedId = path.split('/').pop();
-  await expect(basePage.defaultBreadcrumbs).toHaveText(`app/student/Viewing ${resolvedId} now`);
+  await expect(basePage.defaultBreadcrumbs).toHaveText(`app / student / Viewing ${resolvedId} now`);
 });
 
 test('used alias to skip a breadcrumb', async ({ page, basePage }) => {
@@ -65,7 +65,7 @@ test('used alias to skip a breadcrumb', async ({ page, basePage }) => {
   const resolvedId = parts[parts.length - 2];
 
   // mentee Edit route uses set(@menteeEdit, {skip: true}),
-  await expect(basePage.defaultBreadcrumbs).toHaveText(`app/student/Viewing ${resolvedId} now`);
+  await expect(basePage.defaultBreadcrumbs).toHaveText(`app / student / Viewing ${resolvedId} now`);
 });
 
 test('open links on new tab if "a" target is "_blank"', async ({ basePage }) => {

@@ -1,4 +1,4 @@
-import { Component, ContentChild, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, ContentChild, inject, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Observable, map } from 'rxjs';
@@ -7,11 +7,11 @@ import { BreadcrumbService } from './breadcrumb.service';
 import { BreadcrumbDefinition } from './types';
 
 @Component({
-    selector: 'xng-breadcrumb',
-    imports: [CommonModule, RouterModule],
-    templateUrl: './breadcrumb.component.html',
-    styleUrl: './breadcrumb.component.css',
-    encapsulation: ViewEncapsulation.None
+  selector: 'xng-breadcrumb',
+  imports: [CommonModule, RouterModule],
+  templateUrl: './breadcrumb.component.html',
+  styleUrl: './breadcrumb.component.css',
+  encapsulation: ViewEncapsulation.None,
 })
 export class BreadcrumbComponent implements OnInit {
   breadcrumbs$: Observable<BreadcrumbDefinition[]>;
@@ -82,9 +82,12 @@ export class BreadcrumbComponent implements OnInit {
   setupMessage = 'not set up yet';
   someParameterValue = null;
 
-  constructor(private breadcrumbService: BreadcrumbService, activateRoute: ActivatedRoute) {
+  private readonly breadcrumbService = inject(BreadcrumbService);
+  private readonly activateRoute = inject(ActivatedRoute);
+
+  constructor() {
     // breadcrumb inside ngIf works only this way
-    activateRoute.params.subscribe((params) => {
+    this.activateRoute.params.subscribe((params) => {
       this.setupComponent(params['someParam']);
     });
   }

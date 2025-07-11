@@ -1,5 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardActions, MatCardAvatar, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 import { MatChipRow, MatChipSet } from '@angular/material/chips';
@@ -11,33 +10,30 @@ import { DataService } from '../../core/data/data.service';
 import { Member } from '../../core/types/member';
 
 @Component({
-    selector: 'app-mentor-details',
-    templateUrl: './mentor-details.component.html',
-    imports: [
-        NgIf,
-        MatCard,
-        MatCardHeader,
-        MatCardAvatar,
-        MatIcon,
-        MatTooltip,
-        MatCardTitle,
-        MatCardSubtitle,
-        MatCardContent,
-        MatChipSet,
-        NgFor,
-        MatChipRow,
-        MatCardActions,
-        MatButton,
-    ]
+  selector: 'app-mentor-details',
+  templateUrl: './mentor-details.component.html',
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardAvatar,
+    MatIcon,
+    MatTooltip,
+    MatCardTitle,
+    MatCardSubtitle,
+    MatCardContent,
+    MatChipSet,
+    MatChipRow,
+    MatCardActions,
+    MatButton,
+  ],
 })
 export class MentorDetailsComponent implements OnInit {
   mentor: Member;
-  constructor(
-    private breadcrumbService: BreadcrumbService,
-    private dataService: DataService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+
+  private readonly breadcrumbService = inject(BreadcrumbService);
+  private readonly dataService = inject(DataService);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
 
   ngOnInit() {
     this.getMentor();

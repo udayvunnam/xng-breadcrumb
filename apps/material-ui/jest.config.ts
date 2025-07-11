@@ -1,4 +1,4 @@
-/* eslint-disable */
+ 
 export default {
   displayName: 'material-ui',
   preset: '../../jest.preset.js',

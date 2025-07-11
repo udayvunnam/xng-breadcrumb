@@ -21,7 +21,7 @@ test('breadcrumbs for book with id', async ({ page }) => {
   await expect(page.locator('xng-breadcrumb')).toHaveText('books/1');
 
   await page.locator('app-book .list-item a').first().click();
-  await expect(page.locator('xng-breadcrumb')).toHaveText('books/1/characters/2');
+  await expect(page.locator('xng-breadcrumb')).toHaveText('books/1 / characters/2');
 });
 
 test('valid path via breadcrumb navigation', async ({ page }) => {

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { BreadcrumbComponent, BreadcrumbItemDirective } from 'xng-breadcrumb';
+import { BreadcrumbComponent } from 'xng-breadcrumb';
 
 @Component({
-    imports: [RouterModule, BreadcrumbComponent, BreadcrumbItemDirective],
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styles: `
+  imports: [RouterModule, BreadcrumbComponent],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styles: `
 
 :host {
   display: block;
@@ -138,7 +138,7 @@ summary {
   width: 16px;
   margin-right: 4px;
 }
-`
+`,
 })
 export class AppComponent {
   title = 'Game Of Thrones';

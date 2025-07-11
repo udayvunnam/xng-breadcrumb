@@ -1,5 +1,4 @@
-import { NgFor } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatFabAnchor } from '@angular/material/button';
 import { MatCard, MatCardAvatar, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 import { MatChipRow, MatChipSet } from '@angular/material/chips';
@@ -10,31 +9,30 @@ import { DataService } from '../../core/data/data.service';
 import { Member } from '../../core/types/member';
 
 @Component({
-    selector: 'app-mentee-list',
-    templateUrl: './mentee-list.component.html',
-    styles: `.mat-card {
+  selector: 'app-mentee-list',
+  templateUrl: './mentee-list.component.html',
+  styles: `.mat-card {
     cursor: pointer;
   }`,
-    imports: [
-        MatFabAnchor,
-        RouterLink,
-        MatIcon,
-        MatTooltip,
-        NgFor,
-        MatCard,
-        MatCardHeader,
-        MatCardAvatar,
-        MatCardTitle,
-        MatCardSubtitle,
-        MatCardContent,
-        MatChipSet,
-        MatChipRow,
-    ]
+  imports: [
+    MatFabAnchor,
+    RouterLink,
+    MatIcon,
+    MatTooltip,
+    MatCard,
+    MatCardHeader,
+    MatCardAvatar,
+    MatCardTitle,
+    MatCardSubtitle,
+    MatCardContent,
+    MatChipSet,
+    MatChipRow,
+  ],
 })
 export class MenteeListComponent implements OnInit {
   mentees: Member[];
 
-  constructor(private dataService: DataService) {}
+  private readonly dataService = inject(DataService);
 
   ngOnInit() {
     this.getMentees();

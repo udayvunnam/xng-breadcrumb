@@ -1,6 +1,6 @@
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, ElementRef, inject, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger } from '@angular/material/autocomplete';
 import { MatButton } from '@angular/material/button';
@@ -21,37 +21,35 @@ import { allLanguages } from '../../core/data/in-memory-data.service';
 import { Member } from '../../core/types/member';
 
 @Component({
-    selector: 'app-mentee-edit',
-    templateUrl: './mentee-edit.component.html',
-    encapsulation: ViewEncapsulation.None,
-    providers: [provideNativeDateAdapter()],
-    imports: [
-        NgIf,
-        ReactiveFormsModule,
-        MatCard,
-        MatFormField,
-        MatLabel,
-        MatInput,
-        MatError,
-        MatDatepickerInput,
-        MatDatepickerToggle,
-        MatSuffix,
-        MatDatepicker,
-        MatChipGrid,
-        NgFor,
-        MatChipRow,
-        MatChipRemove,
-        MatIcon,
-        MatAutocompleteTrigger,
-        MatChipInput,
-        MatAutocomplete,
-        MatOption,
-        MatHint,
-        MatCardActions,
-        MatButton,
-        RouterLink,
-        AsyncPipe,
-    ]
+  selector: 'app-mentee-edit',
+  templateUrl: './mentee-edit.component.html',
+  encapsulation: ViewEncapsulation.None,
+  providers: [provideNativeDateAdapter()],
+  imports: [
+    ReactiveFormsModule,
+    MatCard,
+    MatFormField,
+    MatLabel,
+    MatInput,
+    MatError,
+    MatDatepickerInput,
+    MatDatepickerToggle,
+    MatSuffix,
+    MatDatepicker,
+    MatChipGrid,
+    MatChipRow,
+    MatChipRemove,
+    MatIcon,
+    MatAutocompleteTrigger,
+    MatChipInput,
+    MatAutocomplete,
+    MatOption,
+    MatHint,
+    MatCardActions,
+    MatButton,
+    RouterLink,
+    AsyncPipe,
+  ],
 })
 export class MenteeEditComponent implements OnInit {
   menteeId: string;
@@ -65,14 +63,12 @@ export class MenteeEditComponent implements OnInit {
   @ViewChild('skillInput') skillInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
-  constructor(
-    private fb: UntypedFormBuilder,
-    private dataService: DataService,
-    private snackBar: MatSnackBar,
-    private router: Router,
-    private route: ActivatedRoute,
-    private breadcrumbService: BreadcrumbService
-  ) {}
+  private readonly fb = inject(UntypedFormBuilder);
+  private readonly dataService = inject(DataService);
+  private readonly snackBar = inject(MatSnackBar);
+  private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
+  private readonly breadcrumbService = inject(BreadcrumbService);
 
   ngOnInit() {
     this.getMentee();

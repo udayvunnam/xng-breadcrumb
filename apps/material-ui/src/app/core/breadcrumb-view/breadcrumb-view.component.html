@@ -39,7 +39,9 @@
       </div>
       <xng-breadcrumb separator="→" class="myapp-breadcrumb" [preserveQueryParams]="false" class="advanced1">
         <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info; let first = first">
-          <mat-icon *ngIf="info" class="mat-icon-size" inline="true">{{ info }}</mat-icon>
+          @if (info) {
+            <mat-icon class="mat-icon-size" inline="true">{{ info }}</mat-icon>
+          }
           <ng-container>{{ breadcrumb | titlecase }}</ng-container>
         </ng-container>
       </xng-breadcrumb>
@@ -52,8 +54,12 @@
       </div>
       <xng-breadcrumb separator="→" class="myapp-breadcrumb" [preserveFragment]="false" anchorTarget="_blank" class="advanced2">
         <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info; let first = first">
-          <mat-icon *ngIf="info" class="mat-icon-size" inline="true">{{ info }}</mat-icon>
-          <ng-container *ngIf="!first">{{ breadcrumb | titlecase }}</ng-container>
+          @if (info) {
+            <mat-icon class="mat-icon-size" inline="true">{{ info }}</mat-icon>
+          }
+          @if (!first) {
+            {{ breadcrumb | titlecase }}
+          }
         </ng-container>
       </xng-breadcrumb>
     </li>
