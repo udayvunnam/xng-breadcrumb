@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Member } from '../types/member';
 
@@ -14,7 +14,7 @@ export class DataService {
   mentorCount = 10;
   menteeCount = 10;
 
-  constructor(private http: HttpClient) {}
+  private readonly http = inject(HttpClient);
 
   getMentors(): Observable<Member[]> {
     return this.http.get<Member[]>(`api/mentors/`);

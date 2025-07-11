@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class DataService {
   private API = `https://www.anapioficeandfire.com/api`;
 
-  constructor(private http: HttpClient) {}
+  private readonly http = inject(HttpClient);
 
   getBooks(): Observable<{ url: string; numberOfPages: string; name: string }[]> {
     return this.http.get<{ url: string; numberOfPages: string; name: string }[]>(`${this.API}/books`);

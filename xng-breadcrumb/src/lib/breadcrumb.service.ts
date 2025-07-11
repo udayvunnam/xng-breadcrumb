@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, GuardsCheckEnd, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -44,7 +44,10 @@ export class BreadcrumbService {
   private breadcrumbs = new BehaviorSubject<BreadcrumbDefinition[]>([]);
   public breadcrumbs$ = this.breadcrumbs.asObservable();
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+  private readonly activatedRoute = inject(ActivatedRoute);
+  private readonly router = inject(Router);
+
+  constructor() {
     this.detectRouteChanges();
   }
 

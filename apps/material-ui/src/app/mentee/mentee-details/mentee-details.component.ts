@@ -1,5 +1,4 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardActions, MatCardAvatar, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 import { MatChipRow, MatChipSet } from '@angular/material/chips';
@@ -11,9 +10,9 @@ import { DataService } from '../../core/data/data.service';
 import { Member } from '../../core/types/member';
 
 @Component({
-    selector: 'app-mentee-details',
-    templateUrl: './mentee-details.component.html',
-    imports: [
+  selector: 'app-mentee-details',
+  templateUrl: './mentee-details.component.html',
+  imports: [
     MatCard,
     MatCardHeader,
     MatCardAvatar,
@@ -25,17 +24,15 @@ import { Member } from '../../core/types/member';
     MatChipSet,
     MatChipRow,
     MatCardActions,
-    MatButton
-]
+    MatButton,
+  ],
 })
 export class MenteeDetailsComponent implements OnInit {
   mentee: Member;
-  constructor(
-    private breadcrumbService: BreadcrumbService,
-    private dataService: DataService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  private readonly breadcrumbService = inject(BreadcrumbService);
+  private readonly dataService = inject(DataService);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
 
   ngOnInit() {
     this.getMentee();

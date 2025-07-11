@@ -1,5 +1,4 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatFabAnchor } from '@angular/material/button';
 import { MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 import { MatChipRow, MatChipSet } from '@angular/material/chips';
@@ -11,9 +10,9 @@ import { DataService } from '../../core/data/data.service';
 import { Member } from '../../core/types/member';
 
 @Component({
-    selector: 'app-mentor-list',
-    templateUrl: './mentor-list.component.html',
-    styles: `
+  selector: 'app-mentor-list',
+  templateUrl: './mentor-list.component.html',
+  styles: `
   .person.mat-icon {
     font-size: 36px;
   }
@@ -22,7 +21,7 @@ import { Member } from '../../core/types/member';
     cursor: pointer;
   }
   `,
-    imports: [
+  imports: [
     MatFabAnchor,
     RouterLink,
     MatIcon,
@@ -33,12 +32,13 @@ import { Member } from '../../core/types/member';
     MatCardSubtitle,
     MatCardContent,
     MatChipSet,
-    MatChipRow
-]
+    MatChipRow,
+  ],
 })
 export class MentorListComponent implements OnInit {
   mentors: Member[];
-  constructor(private dataService: DataService, private breadcrumbService: BreadcrumbService) {}
+  private readonly dataService = inject(DataService);
+  private readonly breadcrumbService = inject(BreadcrumbService);
 
   ngOnInit() {
     this.getMentors();

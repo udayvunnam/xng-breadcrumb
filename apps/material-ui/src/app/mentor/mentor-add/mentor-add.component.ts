@@ -1,6 +1,6 @@
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { AsyncPipe } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger } from '@angular/material/autocomplete';
 import { MatButton } from '@angular/material/button';
@@ -21,10 +21,10 @@ import { allLanguages } from '../../core/data/in-memory-data.service';
 import { Member } from '../../core/types/member';
 
 @Component({
-    selector: 'app-mentor-add',
-    templateUrl: './mentor-add.component.html',
-    providers: [provideNativeDateAdapter()],
-    imports: [
+  selector: 'app-mentor-add',
+  templateUrl: './mentor-add.component.html',
+  providers: [provideNativeDateAdapter()],
+  imports: [
     ReactiveFormsModule,
     MatCard,
     MatFormField,
@@ -47,8 +47,8 @@ import { Member } from '../../core/types/member';
     MatCardActions,
     MatButton,
     RouterLink,
-    AsyncPipe
-]
+    AsyncPipe,
+  ],
 })
 export class MentorAddComponent implements OnInit {
   mentor: unknown;
@@ -62,13 +62,11 @@ export class MentorAddComponent implements OnInit {
   @ViewChild('skillInput') skillInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
-  constructor(
-    private fb: UntypedFormBuilder,
-    private dataService: DataService,
-    private snackBar: MatSnackBar,
-    private router: Router,
-    private breadcrumbService: BreadcrumbService
-  ) {}
+  private readonly fb = inject(UntypedFormBuilder);
+  private readonly dataService = inject(DataService);
+  private readonly snackBar = inject(MatSnackBar);
+  private readonly router = inject(Router);
+  private readonly breadcrumbService = inject(BreadcrumbService);
 
   ngOnInit() {
     this.createForm();

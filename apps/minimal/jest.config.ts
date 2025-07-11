@@ -1,4 +1,4 @@
-/* eslint-disable */
+ 
 export default {
   displayName: 'minimal',
   preset: '../../jest.preset.js',

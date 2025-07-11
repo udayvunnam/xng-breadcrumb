@@ -1,4 +1,4 @@
-import { Component, VERSION } from '@angular/core';
+import { Component, inject, VERSION } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { BreadcrumbComponent, BreadcrumbService } from 'xng-breadcrumb';
 
@@ -11,8 +11,11 @@ import { BreadcrumbComponent, BreadcrumbService } from 'xng-breadcrumb';
 export class AppComponent {
   showBreadcrumbs = false;
 
-  constructor(router: Router, private breadcrumbService: BreadcrumbService) {
-    router.routeReuseStrategy.shouldReuseRoute = () => false;
+  private readonly router = inject(Router);
+  private readonly breadcrumbService = inject(BreadcrumbService);
+
+  constructor() {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   toggleBreadcrumbVisibility() {
