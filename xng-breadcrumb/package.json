@@ -23,12 +23,7 @@
     "breadcrumb",
     "ngx"
   ],
-  "peerDependencies": {
-    "@angular/common": "^19",
-    "@angular/core": "^19",
-    "@angular/router": "^19",
-    "rxjs": "*"
-  },
+  "peerDependencies": {},
   "dependencies": {},
   "sideEffects": false
 }
