@@ -1,15 +1,19 @@
 <mat-toolbar color="primary">
   <a mat-button [routerLink]="['/']" class="home">TechUnroll</a>
   <a mat-button [routerLink]="['/mentor']" [queryParams]="{ viaNav: 'true', type: 'list' }"
-    fragment="testFragment">Mentors</a>
+  fragment="testFragment">Mentors</a>
   <a mat-button [routerLink]="['/mentee']" [queryParams]="{ viaNav: 'true' }">Mentees</a>
   <a mat-button [routerLink]="['/connect']"
-    [queryParams]="{ viaNav: 'true', loggedIn: 'false' }">Connect</a>
+  [queryParams]="{ viaNav: 'true', loggedIn: 'false' }">Connect</a>
   <div class="flex-1"></div>
 
   <button mat-icon-button matTooltip="Change Theme" (click)="toggleTheme()">
-    <mat-icon aria-label="dark theme" *ngIf="theme === 'light'">wb_sunny</mat-icon>
-    <mat-icon aria-label="light theme" *ngIf="theme === 'dark'">wb_incandescent</mat-icon>
+    @if (theme === 'light') {
+      <mat-icon aria-label="dark theme">wb_sunny</mat-icon>
+    }
+    @if (theme === 'dark') {
+      <mat-icon aria-label="light theme">wb_incandescent</mat-icon>
+    }
   </button>
 
   <a mat-icon-button href="https://twitter.com/udayvunnam_" target="_blank" matTooltip="Twitter">

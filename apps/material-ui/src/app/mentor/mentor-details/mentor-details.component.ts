@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardActions, MatCardAvatar, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
@@ -14,21 +14,19 @@ import { Member } from '../../core/types/member';
     selector: 'app-mentor-details',
     templateUrl: './mentor-details.component.html',
     imports: [
-        NgIf,
-        MatCard,
-        MatCardHeader,
-        MatCardAvatar,
-        MatIcon,
-        MatTooltip,
-        MatCardTitle,
-        MatCardSubtitle,
-        MatCardContent,
-        MatChipSet,
-        NgFor,
-        MatChipRow,
-        MatCardActions,
-        MatButton,
-    ]
+    MatCard,
+    MatCardHeader,
+    MatCardAvatar,
+    MatIcon,
+    MatTooltip,
+    MatCardTitle,
+    MatCardSubtitle,
+    MatCardContent,
+    MatChipSet,
+    MatChipRow,
+    MatCardActions,
+    MatButton
+]
 })
 export class MentorDetailsComponent implements OnInit {
   mentor: Member;

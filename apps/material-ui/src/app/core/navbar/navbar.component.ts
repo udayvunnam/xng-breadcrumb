@@ -1,4 +1,4 @@
-import { CommonModule, NgIf } from '@angular/common';
+
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -9,7 +9,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 
 @Component({
     selector: 'app-navbar',
-    imports: [CommonModule, RouterModule, MatToolbar, MatAnchor, RouterLink, MatIconButton, MatTooltip, NgIf, MatIcon, MatIconAnchor],
+    imports: [RouterModule, MatToolbar, MatAnchor, RouterLink, MatIconButton, MatTooltip, MatIcon, MatIconAnchor],
     templateUrl: './navbar.component.html',
     styles: `
     .home {

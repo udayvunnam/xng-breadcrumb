@@ -1,8 +1,13 @@
-<div *ngIf="book$ | async as book; else loading">
-  <ul>
-    <li *ngFor="let character of book.characters" class="list-item">
-      <a [routerLink]="['./characters', character.split('/').pop()]">{{ character }}</a>
-    </li>
-  </ul>
-</div>
-<ng-template #loading>loading ...</ng-template>
+@if (book$ | async; as book) {
+  <div>
+    <ul>
+      @for (character of book.characters; track character) {
+        <li class="list-item">
+          <a [routerLink]="['./characters', character.split('/').pop()]">{{ character }}</a>
+        </li>
+      }
+    </ul>
+  </div>
+} @else {
+  loading ...
+}

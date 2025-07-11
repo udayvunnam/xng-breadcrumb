@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { MatFabAnchor } from '@angular/material/button';
 import { MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
@@ -23,19 +23,18 @@ import { Member } from '../../core/types/member';
   }
   `,
     imports: [
-        MatFabAnchor,
-        RouterLink,
-        MatIcon,
-        MatTooltip,
-        NgFor,
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardSubtitle,
-        MatCardContent,
-        MatChipSet,
-        MatChipRow,
-    ]
+    MatFabAnchor,
+    RouterLink,
+    MatIcon,
+    MatTooltip,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardSubtitle,
+    MatCardContent,
+    MatChipSet,
+    MatChipRow
+]
 })
 export class MentorListComponent implements OnInit {
   mentors: Member[];

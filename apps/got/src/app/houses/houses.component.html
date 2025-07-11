@@ -1,8 +1,13 @@
-<div *ngIf="houses$ | async as houses; else loading">
-  <ul>
-    <li *ngFor="let house of houses" class="list-item">
-      {{ house.name }}
-    </li>
-  </ul>
-</div>
-<ng-template #loading>loading ...</ng-template>
+@if (houses$ | async; as houses) {
+  <div>
+    <ul>
+      @for (house of houses; track house) {
+        <li class="list-item">
+          {{ house.name }}
+        </li>
+      }
+    </ul>
+  </div>
+} @else {
+  loading ...
+}

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DataService } from '../data.service';
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'app-houses',
     templateUrl: './houses.component.html',
-    imports: [NgIf, NgFor, AsyncPipe]
+    imports: [AsyncPipe]
 })
 export class HousesComponent implements OnInit {
   houses$: Observable<{ name: string }[]>;

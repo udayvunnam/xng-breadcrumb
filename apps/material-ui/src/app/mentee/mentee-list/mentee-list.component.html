@@ -5,20 +5,24 @@
 </section>
 
 <section class="flex-col gap-16">
-  <mat-card *ngFor="let mentee of mentees" [routerLink]="[mentee.id]">
-    <mat-card-header>
-      <div mat-card-avatar>
-        <mat-icon class="person" matTooltip="Add a Mentee">person</mat-icon>
-      </div>
-      <mat-card-title>{{ mentee.name }}</mat-card-title>
-      <mat-card-subtitle>{{ mentee.description }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-chip-set #chipList aria-label="Skill selection">
-        <mat-chip-row *ngFor="let skill of mentee.skills">
-          {{ skill }}
-        </mat-chip-row>
-      </mat-chip-set>
-    </mat-card-content>
-  </mat-card>
+  @for (mentee of mentees; track mentee) {
+    <mat-card [routerLink]="[mentee.id]">
+      <mat-card-header>
+        <div mat-card-avatar>
+          <mat-icon class="person" matTooltip="Add a Mentee">person</mat-icon>
+        </div>
+        <mat-card-title>{{ mentee.name }}</mat-card-title>
+        <mat-card-subtitle>{{ mentee.description }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-chip-set #chipList aria-label="Skill selection">
+          @for (skill of mentee.skills; track skill) {
+            <mat-chip-row>
+              {{ skill }}
+            </mat-chip-row>
+          }
+        </mat-chip-set>
+      </mat-card-content>
+    </mat-card>
+  }
 </section>

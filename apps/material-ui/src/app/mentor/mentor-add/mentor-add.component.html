@@ -27,12 +27,14 @@
         <mat-form-field appearance="outline">
           <mat-label>Known Skills</mat-label>
           <mat-chip-grid #chipList aria-label="Skill selection">
-            <mat-chip-row *ngFor="let skill of skills" selectable="true" removable="true" (removed)="remove(skill)">
-              {{ skill }}
-              <button matChipRemove [attr.aria-label]="'remove ' + skill">
-                <mat-icon>cancel</mat-icon>
-              </button>
-            </mat-chip-row>
+            @for (skill of skills; track skill) {
+              <mat-chip-row selectable="true" removable="true" (removed)="remove(skill)">
+                {{ skill }}
+                <button matChipRemove [attr.aria-label]="'remove ' + skill">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+            }
 
             <input
               #skillInput
@@ -42,13 +44,15 @@
               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
               [matChipInputAddOnBlur]="true"
               (matChipInputTokenEnd)="add($event)"
-            />
+              />
           </mat-chip-grid>
 
           <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-            <mat-option *ngFor="let skill of filteredSkills | async" [value]="skill">
-              {{ skill }}
-            </mat-option>
+            @for (skill of filteredSkills | async; track skill) {
+              <mat-option [value]="skill">
+                {{ skill }}
+              </mat-option>
+            }
           </mat-autocomplete>
         </mat-form-field>
 

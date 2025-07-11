@@ -1,5 +1,5 @@
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { AsyncPipe, NgFor } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger } from '@angular/material/autocomplete';
@@ -25,31 +25,30 @@ import { Member } from '../../core/types/member';
     templateUrl: './mentor-add.component.html',
     providers: [provideNativeDateAdapter()],
     imports: [
-        ReactiveFormsModule,
-        MatCard,
-        MatFormField,
-        MatLabel,
-        MatInput,
-        MatError,
-        MatDatepickerInput,
-        MatDatepickerToggle,
-        MatSuffix,
-        MatDatepicker,
-        MatChipGrid,
-        NgFor,
-        MatChipRow,
-        MatChipRemove,
-        MatIcon,
-        MatAutocompleteTrigger,
-        MatChipInput,
-        MatAutocomplete,
-        MatOption,
-        MatHint,
-        MatCardActions,
-        MatButton,
-        RouterLink,
-        AsyncPipe,
-    ]
+    ReactiveFormsModule,
+    MatCard,
+    MatFormField,
+    MatLabel,
+    MatInput,
+    MatError,
+    MatDatepickerInput,
+    MatDatepickerToggle,
+    MatSuffix,
+    MatDatepicker,
+    MatChipGrid,
+    MatChipRow,
+    MatChipRemove,
+    MatIcon,
+    MatAutocompleteTrigger,
+    MatChipInput,
+    MatAutocomplete,
+    MatOption,
+    MatHint,
+    MatCardActions,
+    MatButton,
+    RouterLink,
+    AsyncPipe
+]
 })
 export class MentorAddComponent implements OnInit {
   mentor: unknown;

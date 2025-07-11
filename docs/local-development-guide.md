@@ -19,7 +19,7 @@ After a successful build, the demo apps are deployed to Vercel.
 
 Run `pnpm release` on main branch if you wish to publish a new version of library to npm
 
-This ingternally uses standard-version to
+This internally uses google's [release-please](https://github.com/googleapis/release-please) to
 
 - bump the library version based on the commits
 - generates changelog

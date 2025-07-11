@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { MatFabAnchor } from '@angular/material/button';
 import { MatCard, MatCardAvatar, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
@@ -16,20 +16,19 @@ import { Member } from '../../core/types/member';
     cursor: pointer;
   }`,
     imports: [
-        MatFabAnchor,
-        RouterLink,
-        MatIcon,
-        MatTooltip,
-        NgFor,
-        MatCard,
-        MatCardHeader,
-        MatCardAvatar,
-        MatCardTitle,
-        MatCardSubtitle,
-        MatCardContent,
-        MatChipSet,
-        MatChipRow,
-    ]
+    MatFabAnchor,
+    RouterLink,
+    MatIcon,
+    MatTooltip,
+    MatCard,
+    MatCardHeader,
+    MatCardAvatar,
+    MatCardTitle,
+    MatCardSubtitle,
+    MatCardContent,
+    MatChipSet,
+    MatChipRow
+]
 })
 export class MenteeListComponent implements OnInit {
   mentees: Member[];
