@@ -23,7 +23,6 @@
     "breadcrumb",
     "ngx"
   ],
-  "peerDependencies": {},
   "dependencies": {},
   "sideEffects": false
 }
