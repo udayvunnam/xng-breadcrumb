@@ -4,12 +4,17 @@
 
 > A lightweight, declarative and dynamic breadcrumbs solution for Angular 6 and beyond. <https://www.npmjs.com/package/xng-breadcrumb>
 
-[![CI](https://github.com/udayvunnam/xng-breadcrumb/actions/workflows/ci-e2e.yml/badge.svg)](https://github.com/udayvunnam/xng-breadcrumb/actions/workflows/ci-e2e.yml)
+[![CI](https://github.com/udayvunnam/xng-breadcrumb/actions/workflows/ci.yml/badge.svg)](https://github.com/udayvunnam/xng-breadcrumb/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb)
-[![license](https://badgen.net/github/license/micromatch/micromatch)](https://github.com/udayvunnam/xng-breadcrumb/blob/main/LICENSE)
-![All Contributors](https://badgen.net/github/contributors/udayvunnam/xng-breadcrumb)
+![bundle size](https://img.shields.io/bundlephobia/minzip/xng-breadcrumb)
+[![license](https://img.shields.io/npm/l/xng-breadcrumb.svg)](https://github.com/udayvunnam/xng-breadcrumb/blob/main/LICENSE)
 ![npm downloads](https://img.shields.io/npm/dt/xng-breadcrumb?style=social)
-[![Twitter follow](https://img.shields.io/twitter/follow/udayvunnam_?style=social)](https://x.com/udayvunnam_)
+
+![Twitter follow](https://img.shields.io/twitter/follow/udayvunnam_?style=social)
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 </div>
 
