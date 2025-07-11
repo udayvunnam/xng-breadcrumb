@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: wow-actions/welcome@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
 
           FIRST_ISSUE_REACTIONS: '+1, hooray, rocket, heart'
           FIRST_ISSUE: |
