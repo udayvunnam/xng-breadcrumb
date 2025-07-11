@@ -18,4 +18,4 @@ git add .
 git commit -m "$VERSION"
 git push origin main
 
-npx release-please release-pr --token=$RELEASE_PLEASE_TOKEN --repo-url=https://github.com/udayvunnam/xng-breadcrumb
+# npx release-please release-pr --token=$RELEASE_PLEASE_TOKEN --repo-url=https://github.com/udayvunnam/xng-breadcrumb
