@@ -1,15 +1,54 @@
+:root {
+  --bg: #f3f8fb;
+  --bg-accent: #d8f0f0;
+  --surface-card: #ffffff;
+  --surface-soft: #f5fafc;
+  --surface-border: #d6e4ec;
+  --text-primary: #163141;
+  --text-muted: #4f6778;
+  --accent: #0a7f87;
+  --accent-strong: #065a69;
+}
+
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  color: var(--text-primary);
+  background:
+    radial-gradient(1200px 400px at -15% -10%, color-mix(in srgb, var(--bg-accent) 75%, white 25%), transparent 60%),
+    radial-gradient(800px 320px at 120% 8%, color-mix(in srgb, var(--accent) 14%, white 86%), transparent 55%),
+    var(--bg);
 }
 
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+.app-shell {
+  min-height: 100%;
+}
+
+.app-content {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 1rem auto 2.4rem;
+}
+
+.xng-dark-theme {
+  --bg: #0f1e2a;
+  --bg-accent: #0f2f30;
+  --surface-card: #122838;
+  --surface-soft: #102433;
+  --surface-border: #2a4454;
+  --text-primary: #e0edf5;
+  --text-muted: #a5bfcc;
+  --accent: #2ab5bd;
+  --accent-strong: #89d8dc;
 }
 
 .button-row {
@@ -23,7 +62,7 @@ a {
 }
 
 .label {
-  color: rgba(0, 0, 0, 0.54);
+  color: color-mix(in srgb, var(--text-primary) 55%, transparent);
   margin: 8px 8px 8px 0;
   width: 110px;
   text-align: right;
@@ -42,6 +81,7 @@ a {
 .illustration-wrapper {
   text-align: center;
 }
+
 .add-item {
   text-align: right;
   margin: 16px;
@@ -57,26 +97,24 @@ a {
   }
 }
 
-/* Flex styles that replace @angular/flex-layout https://github.com/angular/flex-layout/issues/1426#issuecomment-1304100298 */
-
-/* Flex row/col + grid. */
 .flex-row {
   display: flex;
   flex-direction: row;
 }
+
 .flex-col {
   display: flex;
   flex-direction: column;
 }
+
 .grid {
   display: grid;
 }
 
-/* Flex-wrap utils. */
 .flex-wrap {
   flex-wrap: wrap;
 }
-/* Mostly used with flex-row, when wrapping is desired.  Switch from flex-row to flex-col on mobile.*/
+
 .flex-col-xs {
   @media screen and (max-width: 599px) {
     flex-direction: column;
@@ -86,45 +124,47 @@ a {
 .gap-4 {
   gap: 4px;
 }
+
 .gap-8 {
   gap: 8px;
 }
+
 .gap-10 {
   gap: 10px;
 }
+
 .gap-12 {
   gap: 12px;
 }
+
 .gap-16 {
   gap: 16px;
 }
+
 .gap-32 {
   gap: 32px;
 }
 
-/* Justify content. */
 .space-between {
   justify-content: space-between;
 }
+
 .justify-center {
   justify-content: center;
 }
 
-/* Align items. (Naming inspiration: https://tailwindcss.com/docs/align-items.) */
 .items-center {
   align-items: center;
 }
+
 .items-stretch {
   align-items: stretch;
 }
 
-/* Flex/grow/shrink properties https://developer.mozilla.org/en-US/docs/Web/CSS/flex. */
-
-/* Same as flex: 1 1 0 (grow, shrink, basis 0). Has similar effect to width: 100%; */
 .flex-1 {
   flex: 1;
 }
-/* Same as flex: 1 1 auto (grow, shrink, basis auto). For spacer, etc.  */
+
 .flex-grow {
   flex-grow: 1;
 }
@@ -134,16 +174,19 @@ a {
     display: none;
   }
 }
+
 .hide-gt-xs {
   @media screen and (min-width: 600px) {
     display: none;
   }
 }
+
 .hide-sm {
   @media screen and (max-width: 959px) {
     display: none;
   }
 }
+
 .hide-gt-sm {
   @media screen and (min-width: 960px) {
     display: none;

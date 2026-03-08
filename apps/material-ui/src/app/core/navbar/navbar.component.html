@@ -1,31 +1,53 @@
-<mat-toolbar color="primary">
-  <a mat-button [routerLink]="['/']" class="home">TechUnroll</a>
-  <a mat-button [routerLink]="['/mentor']" [queryParams]="{ viaNav: 'true', type: 'list' }"
-  fragment="testFragment">Mentors</a>
-  <a mat-button [routerLink]="['/mentee']" [queryParams]="{ viaNav: 'true' }">Mentees</a>
-  <a mat-button [routerLink]="['/connect']"
-  [queryParams]="{ viaNav: 'true', loggedIn: 'false' }">Connect</a>
+<mat-toolbar class="demo-toolbar" role="navigation" aria-label="Demo navigation">
+  <a mat-button [routerLink]="['/']" class="brand-link" aria-label="xng-breadcrumb home">
+    <span class="brand-copy">
+      <span class="brand-title">xng-breadcrumb</span>
+      <span class="brand-subtitle">Angular Demo</span>
+    </span>
+  </a>
+
+  <div class="main-links">
+    <a mat-button [routerLink]="['/dashboard']">Dashboard</a>
+    <a mat-button [routerLink]="['/mentor']" [queryParams]="{ viaNav: 'true', type: 'list' }" fragment="testFragment">Mentors</a>
+    <a mat-button [routerLink]="['/mentee']" [queryParams]="{ viaNav: 'true' }">Mentees</a>
+    <a mat-button [routerLink]="['/connect']" [queryParams]="{ viaNav: 'true', loggedIn: 'false' }">Connect</a>
+  </div>
+
   <div class="flex-1"></div>
 
-  <button mat-icon-button matTooltip="Change Theme" (click)="toggleTheme()">
-    @if (theme === 'light') {
-      <mat-icon aria-label="dark theme">wb_sunny</mat-icon>
-    }
-    @if (theme === 'dark') {
-      <mat-icon aria-label="light theme">wb_incandescent</mat-icon>
-    }
-  </button>
+  <div class="meta-actions">
+    <button mat-icon-button matTooltip="Toggle theme" (click)="toggleTheme()" aria-label="Toggle theme">
+      @if (theme === 'light') {
+      <mat-icon>dark_mode</mat-icon>
+      } @if (theme === 'dark') {
+      <mat-icon>light_mode</mat-icon>
+      }
+    </button>
 
-  <a mat-icon-button href="https://twitter.com/udayvunnam_" target="_blank" matTooltip="Twitter">
-    <span class="mat-button-wrapper">
-      <img alt="Twitter" class="social-logo" src="../../../assets/img/twitter.svg" />
-    </span>
-  </a>
+    <a
+      mat-icon-button
+      href="https://twitter.com/udayvunnam_"
+      target="_blank"
+      rel="noopener noreferrer"
+      matTooltip="Twitter"
+      aria-label="Open Twitter"
+    >
+      <span class="mat-button-wrapper">
+        <img alt="Twitter" class="social-logo" src="../../../assets/img/twitter.svg" />
+      </span>
+    </a>
 
-  <a mat-icon-button href="https://github.com/udayvunnam/xng-breadcrumb" target="_blank"
-    matTooltip="GitHub">
-    <span class="mat-button-wrapper">
-      <img alt="GitHub" class="social-logo" src="../../../assets/img/github.svg" />
-    </span>
-  </a>
+    <a
+      mat-icon-button
+      href="https://github.com/udayvunnam/xng-breadcrumb"
+      target="_blank"
+      rel="noopener noreferrer"
+      matTooltip="GitHub"
+      aria-label="Open GitHub"
+    >
+      <span class="mat-button-wrapper">
+        <img alt="GitHub" class="social-logo" src="../../../assets/img/github.svg" />
+      </span>
+    </a>
+  </div>
 </mat-toolbar>

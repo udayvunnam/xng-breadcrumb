@@ -1,25 +1,26 @@
 # Quickstart
 
-## Install xng-breadcrumb
+## Install
 
-```javascript
+```bash
 npm install xng-breadcrumb
-pnpm add xng-breadcrumbs
+pnpm add xng-breadcrumb
 yarn add xng-breadcrumb
 ```
 
-## Standalone Components
+## Standalone apps (Angular 17+)
 
 **app.component.ts**
 
-```javascript
+```ts
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { BreadcrumbComponent, BreadcrumbItemDirective } from 'xng-breadcrumb';
 
 @Component({
   standalone: true,
   imports: [RouterModule, BreadcrumbComponent, BreadcrumbItemDirective],
   templateUrl: './app.component.html',
-  ...
 })
 export class AppComponent {}
 ```
@@ -30,22 +31,21 @@ export class AppComponent {}
 <xng-breadcrumb></xng-breadcrumb>
 ```
 
-## Angular < 17, BreadcrumbModule
+## NgModule apps (Angular < 17)
 
-```javascript
-import {BreadcrumbModule} from 'xng-breadcrumb';
+```ts
+import { BreadcrumbModule } from 'xng-breadcrumb';
 
 @NgModule({
   imports: [BreadcrumbModule],
-  ...
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
-**Add xng-breadcrumb selector anywhere in the app, Usually it is added in app.component.html**
+Then render breadcrumbs in your shell layout (usually `app.component.html`):
 
 ```html
 <xng-breadcrumb></xng-breadcrumb>
 ```
 
-🎉🎉 That's it. You should see auto-generated breadcrumbs appearing for each route.
+You should now see breadcrumbs generated from your Angular route config.

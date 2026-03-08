@@ -1,0 +1,71 @@
+.demo-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  min-height: 72px;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--surface-border);
+  background: color-mix(in srgb, var(--surface-card) 88%, white 12%);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 40px rgba(3, 34, 56, 0.08);
+  color: var(--text-primary);
+}
+
+.brand-link {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.7rem;
+  margin-right: 0.6rem;
+  padding: 0.2rem 0.45rem;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.brand-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.brand-subtitle {
+  color: var(--text-muted);
+  font-size: 0.67rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.main-links {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.main-links a {
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.meta-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.social-logo {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 960px) {
+  .main-links {
+    display: none;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+}

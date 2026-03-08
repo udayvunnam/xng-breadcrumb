@@ -1,6 +1,8 @@
-<div [ngClass]="{ 'xng-dark-theme': darkMode }">
+<div class="app-shell" [ngClass]="{ 'xng-dark-theme': darkMode }">
   <app-navbar (themeChanged)="updateTheme($event)"></app-navbar>
-  <app-breadcrumb-view />
 
-  <router-outlet></router-outlet>
+  <main class="app-content" id="demo-content">
+    <app-breadcrumb-view />
+    <router-outlet></router-outlet>
+  </main>
 </div>

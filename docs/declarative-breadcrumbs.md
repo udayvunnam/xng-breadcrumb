@@ -52,9 +52,9 @@ Use **breadcrumb as a function** if you want more flexibility to alter the auto-
 
 ```javascript
 {
-  path: '/orders',
+  path: 'orders',
   children: [{
-    ':id',
+    path: ':id',
     data: {
       breadcrumb: (resolvedId: string) => `Viewing ${resolvedId} now`
     }

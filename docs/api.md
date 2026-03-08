@@ -1,29 +1,44 @@
 # API
 
-## App Route Config -> data -> breadcrumb
+## Route config (`data.breadcrumb`)
 
-| property              | Description                                                      | Type                                   | Default     |
-| --------------------- | ---------------------------------------------------------------- | -------------------------------------- | ----------- |
-| breadcrumb            | Breadcrumb data provided in App route config                     | `string` or `Breadcrumb` or `Function` | `undefined` |
-| breadcrumb: {alias}   | alias name for a route                                           | `string`                               | `undefined` |
-| breadcrumb: {skip}    | skip a route from showing in breadcrumbs                         | `boolean`                              | `false`     |
-| breadcrumb: {disable} | disable navigation for a breadcrumb item                         | `boolean`                              | `false`     |
-| breadcrumb: {info}    | arbitrary info for a breadcrumb.                                 | `string` or `object`                   | `undefined` |
-| breadcrumb: {label}   | same as breadcrumb. Use label if breadcrumb is defined as object | `string`                               | `undefined` |
+| Property              | Description                                                                        | Type                                   | Default     |
+| --------------------- | ---------------------------------------------------------------------------------- | -------------------------------------- | ----------- |
+| `breadcrumb`          | Breadcrumb definition for the route                                                | `string` or `BreadcrumbObject` or `BreadcrumbFunction` | `undefined` |
+| `breadcrumb.alias`    | Alias for the route used with `BreadcrumbService.set('@alias', ...)`              | `string`                               | `undefined` |
+| `breadcrumb.skip`     | Skip this route from the breadcrumb UI                                             | `boolean`                              | `false`     |
+| `breadcrumb.disable`  | Disable navigation for this breadcrumb item                                        | `boolean`                              | `false`     |
+| `breadcrumb.info`     | Arbitrary info passed into template context (`let info = info`)                   | `unknown`                              | `undefined` |
+| `breadcrumb.label`    | Label text, used when object form is provided                                      | `string` or `BreadcrumbFunction`       | `undefined` |
+| `breadcrumb.routeInterceptor` | Intercept breadcrumb link generation per item                              | `(routeLink: string, breadcrumb: Breadcrumb) => string` | `undefined` |
 
-## xng-breadcrumb component
+## `<xng-breadcrumb>` inputs
 
-| Input               | Description                                               | Type      | Default                    |
-| ------------------- | --------------------------------------------------------- | --------- | -------------------------- |
-| separator           | input: separator between breadcrumbs                      | `string`  | `TemplateRef<void>` or `/` |
-| autoGenerate        | input:whether to auto generate breadcrumb labels          | `boolean` | `true`                     |
-| \*xngBreadcrumbItem | directive: to read context in custom breadcrumb templates | NA        | NA                         |
-| preserveQueryParams | preserve query params while navigating via breadcrumbs    | `boolean` | `true`                     |
-| preserveFragment    | preserve fragment while navigating via breadcrumbs        | `boolean` | `true`                     |
+| Input                 | Description                                                         | Type                      | Default |
+| --------------------- | ------------------------------------------------------------------- | ------------------------- | ------- |
+| `separator`           | Separator between breadcrumb items                                  | `string` or `TemplateRef<void>` | `'/'` |
+| `autoGenerate`        | Keep auto-generated labels for routes without explicit breadcrumb labels | `boolean`              | `true`  |
+| `preserveQueryParams` | Preserve query params while navigating with breadcrumb links        | `boolean`                 | `true`  |
+| `preserveFragment`    | Preserve URL fragment while navigating with breadcrumb links        | `boolean`                 | `true`  |
+| `anchorTarget`        | Open breadcrumb links in a specific target                          | `'_blank' \| undefined`  | `undefined` |
+| `class`               | Additional CSS class on breadcrumb root                             | `string`                  | `''`    |
 
-## BreadcrumbService.set(pathOrAlias, breadcrumb)
+## `*xngBreadcrumbItem` template directive
 
-| argument    | Description                                | Type                     |
-| ----------- | ------------------------------------------ | ------------------------ |
-| pathOrAlias | full route path or alias prefixed with '@' | `string`                 |
-| breadcrumb  | breadcrumb data to update for a route      | `string` or `Breadcrumb` |
+Use this directive to customize item rendering.
+
+Template context variables:
+
+- `$implicit`: breadcrumb label
+- `info`: custom route `breadcrumb.info`
+- `first`: whether item is first
+- `last`: whether item is last
+- `index`: current index
+- `count`: total visible breadcrumb items
+
+## `BreadcrumbService.set(pathOrAlias, breadcrumb)`
+
+| Argument      | Description                                                   | Type                     |
+| ------------- | ------------------------------------------------------------- | ------------------------ |
+| `pathOrAlias` | Route path (`mentor/:id`) or alias prefixed with `@`         | `string`                 |
+| `breadcrumb`  | Updated breadcrumb definition for the route                   | `string` or `BreadcrumbObject` |

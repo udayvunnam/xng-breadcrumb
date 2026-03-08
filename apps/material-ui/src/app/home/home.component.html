@@ -1,15 +1,26 @@
-<section class="max-w-sm">
-  <blockquote>
-    <p>
-      This is a demo app showcasing <b>xng-breadcrumb</b> library usage in Angular applications. Navigate through App to see the breadcrumb mapped to
-      a certain URL pattern.
+<section class="home-surface">
+  <header class="hero">
+    <p class="eyebrow">Default Demo App</p>
+    <h1>Modern breadcrumb patterns, powered by route metadata.</h1>
+    <p class="hero-copy">
+      This app is the default xng-breadcrumb showcase. Use the links below to walk through route-driven labels, dynamic updates, custom templates,
+      interceptors, disabled crumbs, and query/fragment behavior.
     </p>
-  </blockquote>
 
-  <div class="links">
-    <mat-card [routerLink]="['/dashboard']"><mat-card-content>Dashboard</mat-card-content></mat-card>
-    <mat-card [routerLink]="['/mentor']"><mat-card-content>Mentor</mat-card-content></mat-card>
-    <mat-card [routerLink]="['/mentee']"><mat-card-content>Mentee</mat-card-content></mat-card>
-    <mat-card [routerLink]="['/connect']"><mat-card-content>Connect</mat-card-content></mat-card>
-  </div>
+    <div class="hero-actions">
+      <a routerLink="/mentor" class="primary-link">Explore Mentor Flow</a>
+      <a routerLink="/mentee/1/edit" class="secondary-link">See Alias + Dynamic Update</a>
+    </div>
+  </header>
+
+  <section class="feature-grid" aria-label="xng-breadcrumb capabilities">
+    @for (demo of featureDemos; track demo.routeLabel) {
+      <article class="feature-card">
+        <p class="feature-note">{{ demo.note }}</p>
+        <h2>{{ demo.title }}</h2>
+        <p>{{ demo.detail }}</p>
+        <a class="route-chip" [routerLink]="[demo.route]">{{ demo.routeLabel }}</a>
+      </article>
+    }
+  </section>
 </section>

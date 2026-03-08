@@ -8,7 +8,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
 
-          FIRST_ISSUE_REACTIONS: '+1, hooray, rocket, heart'
+          FIRST_ISSUE_REACTIONS: "+1, hooray, rocket, heart"
           FIRST_ISSUE: |
             👋 Hey @{{ author }}
             <br>
@@ -16,7 +16,7 @@ jobs:
             <br>
             Got a fix? Send a PR! 🚀 Check out our [local dev guide](https://github.com/udayvunnam/xng-breadcrumb/blob/main/docs/local-development-guide.md)
 
-          FIRST_PR_REACTIONS: '+1, hooray, rocket, heart'
+          FIRST_PR_REACTIONS: "+1, hooray, rocket, heart"
           FIRST_PR_COMMENT: |
             👋 Hey @{{ author }}!
             <br>
@@ -29,5 +29,3 @@ jobs:
             Congrats on merging your first PR! Your changes will be included in the next xng-breadcrumb release
 
           STAR_MESSAGE: If you like this project, please ⭐star⭐ our repo.
-
-

@@ -2,7 +2,7 @@
 
 <div align="center">
 
-> A lightweight, declarative, and dynamic breadcrumb solution for Angular 6+. [🌐 View on npm](https://www.npmjs.com/package/xng-breadcrumb)
+> A lightweight, declarative, and dynamic breadcrumb solution for Angular. [🌐 View on npm](https://www.npmjs.com/package/xng-breadcrumb)
 
 [![CI](https://github.com/udayvunnam/xng-breadcrumb/actions/workflows/ci-e2e.yml/badge.svg)](https://github.com/udayvunnam/xng-breadcrumb/actions/workflows/ci-e2e.yml)
 [![npm version](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb)
@@ -54,7 +54,7 @@ Experience it firsthand in the [Demo App](https://xng-breadcrumb.vercel.app/)
 
 - ✅ **Customization**: Customize breadcrumb template to display **icons with label**, **apply text formatting using pipes**, **integrate i18n with ngx-translate**, and more.
 
-- ✅ **Styling and Seperators**: Easily customize breadcrumb separators and styles to match your application's design
+- ✅ **Styling and Separators**: Easily customize breadcrumb separators and styles to match your application's design
 
 - ✅ **QueryParams and Fragment**: Preserves params/fragments across navigation.
 

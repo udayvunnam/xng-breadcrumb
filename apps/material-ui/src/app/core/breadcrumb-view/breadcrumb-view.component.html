@@ -1,17 +1,25 @@
-<div class="max-w-sm container">
-  <ul role="list" class="flex-col gap-4 divide max-w-sm list">
-    <li class="breadcrumb-type flex-row items-center">
+<section class="pattern-showcase">
+  <header class="showcase-header">
+    <p class="kicker">Live Breadcrumb Gallery</p>
+    <h2>Reference patterns for every xng-breadcrumb capability</h2>
+    <p>
+      Each row below is fully functional and bound to your current route. Use it as a visual regression surface while developing breadcrumb behavior.
+    </p>
+  </header>
+
+  <ul role="list" class="pattern-list">
+    <li class="pattern-card">
       <div>
-        <p class="title">Default breadcrumbs</p>
-        <p class="subtitle">Just drop <b>&lt;xng-breadcrumb/&gt;</b> anywhere</p>
+        <p class="title">Default</p>
+        <p class="subtitle">Auto-generated route labels with zero custom template setup.</p>
       </div>
       <xng-breadcrumb class="default"></xng-breadcrumb>
     </li>
 
-    <li class="breadcrumb-type flex-row items-center">
+    <li class="pattern-card">
       <div>
-        <p class="title">Title case and custom separator</p>
-        <p class="subtitle">Use pipe on breadcrumb for title case and custom text on separator</p>
+        <p class="title">Custom text transform + separator</p>
+        <p class="subtitle">Title case via template and a custom separator character.</p>
       </div>
       <xng-breadcrumb separator="~" class="title-case">
         <ng-container *xngBreadcrumbItem="let breadcrumb">
@@ -20,25 +28,24 @@
       </xng-breadcrumb>
     </li>
 
-    <li class="breadcrumb-type flex-row items-center">
+    <li class="pattern-card">
       <div>
-        <p class="title">Material Icon as separator</p>
-        <p class="subtitle">Custom template for icon, background color on each item</p>
+        <p class="title">Template separator</p>
+        <p class="subtitle">Material icon separator and pill styling for each crumb.</p>
       </div>
       <xng-breadcrumb [separator]="separatorTemplate" class="custom-breadcrumb"></xng-breadcrumb>
-
       <ng-template #separatorTemplate>
-        <mat-icon class="separator-icon">arrow_right</mat-icon>
+        <mat-icon class="separator-icon">arrow_forward_ios</mat-icon>
       </ng-template>
     </li>
 
-    <li class="breadcrumb-type flex-row items-center">
+    <li class="pattern-card">
       <div>
-        <p class="title">Advanced usage 1</p>
-        <p class="subtitle">Custom background, preserveQueryParams(false), use info from breadcrumb to show icons</p>
+        <p class="title">Info-driven labels + preserveQueryParams false</p>
+        <p class="subtitle">Read `info` from route metadata and customize labels with icons.</p>
       </div>
-      <xng-breadcrumb separator="→" class="myapp-breadcrumb" [preserveQueryParams]="false" class="advanced1">
-        <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info; let first = first">
+      <xng-breadcrumb separator="→" class="advanced1" [preserveQueryParams]="false">
+        <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info">
           @if (info) {
             <mat-icon class="mat-icon-size" inline="true">{{ info }}</mat-icon>
           }
@@ -47,12 +54,12 @@
       </xng-breadcrumb>
     </li>
 
-    <li class="breadcrumb-type flex-row items-center">
+    <li class="pattern-card">
       <div>
-        <p class="title">Advanced usage 2</p>
-        <p class="subtitle">Open breadcrumb link in new tab, different style on tail, preserveFragment(false) etc</p>
+        <p class="title">Open in new tab + preserveFragment false</p>
+        <p class="subtitle">Demonstrates link target and fragment behavior customization.</p>
       </div>
-      <xng-breadcrumb separator="→" class="myapp-breadcrumb" [preserveFragment]="false" anchorTarget="_blank" class="advanced2">
+      <xng-breadcrumb separator="→" class="advanced2" [preserveFragment]="false" anchorTarget="_blank">
         <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info; let first = first">
           @if (info) {
             <mat-icon class="mat-icon-size" inline="true">{{ info }}</mat-icon>
@@ -64,6 +71,6 @@
       </xng-breadcrumb>
     </li>
   </ul>
+</section>
 
-  <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>

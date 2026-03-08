@@ -1,4 +1,3 @@
-
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -8,17 +7,14 @@ import { MatAnchor, MatIconAnchor, MatIconButton } from '@angular/material/butto
 import { MatToolbar } from '@angular/material/toolbar';
 
 @Component({
-    selector: 'app-navbar',
-    imports: [RouterModule, MatToolbar, MatAnchor, RouterLink, MatIconButton, MatTooltip, MatIcon, MatIconAnchor],
-    templateUrl: './navbar.component.html',
-    styles: `
-    .home {
-      margin-right: 32px;
-    }
-  `
+  selector: 'app-navbar',
+  imports: [RouterModule, MatToolbar, MatAnchor, RouterLink, MatIconButton, MatTooltip, MatIcon, MatIconAnchor],
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
   theme = 'light';
+
   @Output() themeChanged: EventEmitter<string> = new EventEmitter();
 
   toggleTheme() {
