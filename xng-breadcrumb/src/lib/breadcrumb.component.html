@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb" class="xng-breadcrumb-root" [ngClass]="class">
   <ol class="xng-breadcrumb-list">
-    @for (breadcrumb of breadcrumbs$ | async; track breadcrumb; let isLast = $last; let isFirst = $first; let index = $index; let count = $count) {
+    @for (breadcrumb of breadcrumbs$ | async; track breadcrumb.routeLink; let isLast = $last; let isFirst = $first; let index = $index; let count = $count) {
     <li class="xng-breadcrumb-item">
       @if (!isLast) {
       <a
