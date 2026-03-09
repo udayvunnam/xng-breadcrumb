@@ -20,6 +20,7 @@
 Whether you're building a dashboard, a blog, or an enterprise-grade app, this library helps keep your navigation intuitive and dynamic.
 
 ## 🔍 Why Breadcrumbs?
+
 Breadcrumbs provide users with:
 
 ✅ Context — See where they are in your app's hierarchy
