@@ -2,7 +2,7 @@
 
 <div align="center">
 
-> A lightweight, declarative, and dynamic breadcrumb solution for Angular. <https://www.npmjs.com/package/xng-breadcrumb>
+> A lightweight, declarative, and dynamic breadcrumb solution for Angular. [🌐 View on npm](https://www.npmjs.com/package/xng-breadcrumb)
 
 [![CI](https://github.com/udayvunnam/xng-breadcrumb/actions/workflows/ci-e2e.yml/badge.svg)](https://github.com/udayvunnam/xng-breadcrumb/actions/workflows/ci-e2e.yml)
 [![npm version](https://img.shields.io/npm/v/xng-breadcrumb.svg)](https://www.npmjs.com/package/xng-breadcrumb)
@@ -13,27 +13,41 @@
 
 </div>
 
-## Why Choose Breadcrumbs?
+## What is xng-breadcrumb
 
-**Simplify Navigation**: Breadcrumbs are vital in applications with deep navigation hierarchies, offering users an intuitive way to traverse back to higher levels effortlessly.
+**xng-breadcrumb** is a plug-and-play breadcrumb component built specifically for Angular applications. It automatically generates navigation breadcrumbs from your route configurations—so you can stop manually stitching them together.
 
-## Documentation
+Whether you're building a dashboard, a blog, or an enterprise-grade app, this library helps keep your navigation intuitive and dynamic.
 
-For a step by step guide on integrating xng-breadcrumb into your Angular application, visit the [Documentation](https://udayvunnam.github.io/xng-breadcrumb).
+## 🔍 Why Breadcrumbs?
 
-## Demo App
+Breadcrumbs provide users with:
 
-Explore our [Demo App](https://xng-breadcrumb.vercel.app/) - showcasing the power of `xng-breadcrumb` in an Angular setup. Experience seamless breadcrumb navigation as you browse through various links!
+✅ Context — See where they are in your app's hierarchy
+
+✅ Navigation — Quickly move to parent or sibling routes
+
+✅ Clarity — Reduced cognitive load in deep nested UIs
+
+## 📖 Documentation
+
+Get started in minutes with our full [Documentation](https://udayvunnam.github.io/xng-breadcrumb), including usage, configuration, and examples.
+
+## 🧪 Live Demo
+
+Experience it firsthand in the [Demo App](https://xng-breadcrumb.vercel.app/)
 
 <a href="https://xng-breadcrumb.vercel.app//dashboard" rel="noopener" target="_blank" ><img width="945" alt="xng-breadcrumb usage" src="https://github.com/udayvunnam/xng-breadcrumb/assets/20707504/02aa26d1-a41f-4a47-a1fe-009d6dfcd0b7"></a></p>
 
-## Features
+## ✨ Features
 
-- ✅ **Zero configuration**: Just add `<xng-breadcrumb></xng-breadcrumb>` anywhere in the app. Labels are auto-generated from Angular route configs.
+- ✅ **Zero Config Setup**: Just drop `<xng-breadcrumb>` anywhere in the app.
 
-- ✅ **Custom labels**: Define custom labels for each route via Angular route configurations.
+- ✅ **Auto Labels** — Automatically generates labels from Angular route configs.
 
-- ✅ **Update labels dynamically**: Change breadcrumb labels dynamically using `BreadcrumbService.set()`, utilizing either _route path_ or _route alias_.
+- ✅ **Custom Labels** — Easily override route labels.
+
+- ✅ **Dynamic Updates**: Change breadcrumb labels dynamically using `BreadcrumbService.set()`, utilizing either _route path_ or _route alias_.
 
 - ✅ **Skip breadcrumb**: Conditionally exclude specific routes from breadcrumb display
 
@@ -43,13 +57,17 @@ Explore our [Demo App](https://xng-breadcrumb.vercel.app/) - showcasing the powe
 
 - ✅ **Styling and Separators**: Easily customize breadcrumb separators and styles to match your application's design
 
-- ✅ **Query params and fragment**: Preserves query params and fragments while navigating via breadcrumbs
+- ✅ **QueryParams and Fragment**: Preserves params/fragments across navigation.
 
-- ✅ **SSR**: Supports server-side rendering with Angular Universal
+- ✅ **SSR Ready**: Fully compatible with Angular Universal.
 
-## ❤️ [Become a Sponsor!](http://paypal.me/udayvunnam)
+## [💖 Support the Project](http://paypal.me/udayvunnam)
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+If xng-breadcrumb saves you hours or adds polish to your app, consider [becoming a sponsor](http://paypal.me/udayvunnam). Every contribution helps!
+
+## 👏 Contributors
+
+Thanks to all the amazing folks who make this project better! ([💪](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -91,8 +109,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+Want to see your name here? We welcome [all-contributions](https://github.com/all-contributors/all-contributors)!
 
-To add new contributor _username_, who made a contribution of type _contribution_:
+Adding a contributor is easy:
 
-`pnpm all-contributors add <username> <contribution>` Example: `pnpm all-contributors add jfmengels code,doc`
+```bash
+pnpm all-contributors add <username> <contribution>
+# Example:
+pnpm all-contributors add jfmengels code,doc
+```
