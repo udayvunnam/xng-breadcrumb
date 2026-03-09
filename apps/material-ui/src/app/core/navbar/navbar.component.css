@@ -1,13 +1,22 @@
 .demo-toolbar {
+  --mat-toolbar-container-background-color: color-mix(in srgb, var(--surface-card) 88%, white 12%);
+  --mat-toolbar-container-text-color: var(--text-primary);
+
   position: sticky;
   top: 0;
   z-index: 20;
   min-height: 72px;
   padding: 0 1rem;
   border-bottom: 1px solid var(--surface-border);
-  background: color-mix(in srgb, var(--surface-card) 88%, white 12%);
+  background: var(--mat-toolbar-container-background-color);
   backdrop-filter: blur(14px);
   box-shadow: 0 10px 40px rgba(3, 34, 56, 0.08);
+  color: var(--mat-toolbar-container-text-color);
+}
+
+.demo-toolbar .mat-mdc-icon-button,
+.demo-toolbar .mat-mdc-button,
+.demo-toolbar mat-icon {
   color: var(--text-primary);
 }
 
@@ -17,6 +26,21 @@
   gap: 0.7rem;
   margin-right: 0.6rem;
   padding: 0.2rem 0.45rem;
+}
+
+.brand-mark {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  background: linear-gradient(145deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--accent) 45%, transparent);
 }
 
 .brand-copy {
@@ -55,9 +79,25 @@
   gap: 0.2rem;
 }
 
+.meta-actions .mat-mdc-icon-button {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  line-height: 1;
+}
+
+.meta-actions .mat-mdc-icon-button .mat-icon {
+  width: 22px;
+  height: 22px;
+  font-size: 22px;
+  line-height: 22px;
+}
+
 .social-logo {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
+  display: block;
+  color: var(--text-primary);
 }
 
 @media (max-width: 960px) {
